@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFFFFF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #FFFFFF;
+  color: #17121F;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Space Grotesk', sans-serif;
+  color: #17121F;
+  line-height: 1.18;
+  overflow: visible;
+}
+
+/* Global descender protection for all background-clip: text elements */
+.text-gradient,
+.text-gradient-violet,
+.text-color-shift,
+[class*="bg-clip-text"] {
+  display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  vertical-align: baseline;
+  line-height: inherit;
+  overflow: visible;
+}
+
+input, textarea, [contenteditable="true"] {
+  cursor: text;
+}
+
+a, button, [role="button"], select {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+::selection {
+  background: #6C2BD9;
+  color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #C2A8FF;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6C2BD9;
+}
+
+:focus-visible {
+  outline: 2px solid #6C2BD9;
+  outline-offset: 2px;
+}
+
+/* Premium Light Violet Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #E9E2F5;
+  box-shadow: 0 4px 20px -2px rgba(108, 43, 217, 0.06);
+}
+
+.glass-elevated {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #E9E2F5;
+  box-shadow: 0 10px 30px -5px rgba(108, 43, 217, 0.12), 0 1px 3px rgba(23, 18, 31, 0.04);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E9E2F5;
+  box-shadow: 0 2px 10px rgba(108, 43, 217, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #8B5CF6;
+  box-shadow: 0 12px 32px -8px rgba(108, 43, 217, 0.15), 0 4px 12px -2px rgba(23, 18, 31, 0.04);
+}
+
+/* Deep Violet Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #17121F 0%, #6C2BD9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #6C2BD9 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Reusable Smooth Continuous Color-Shifting Animation: Purple -> Gold -> Warm Yellow -> Violet -> Purple */
+@keyframes smoothColorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-color-shift {
+  background: linear-gradient(
+    90deg,
+    #7C3AED 0%,
+    #9333EA 18%,
+    #D97706 38%,
+    #EAB308 50%,
+    #F59E0B 62%,
+    #A855F7 82%,
+    #7C3AED 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: smoothColorShift 7.5s ease-in-out infinite;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* Light Violet Tech Grid Background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(108, 43, 217, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 43, 217, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black 40%, transparent 100%);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(108, 43, 217, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+
+
