@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react'
 import { motion, useMotionValue, useAnimationFrame } from 'framer-motion'
-import { Pill, GraduationCap, Factory, Boxes, MessageCircle, ShoppingCart } from 'lucide-react'
+import { Pill, GraduationCap, Factory, Boxes, Camera, ShoppingCart } from 'lucide-react'
 
 const PROJECTS_SHOWCASE = [
   {
     id: 'medflow',
     name: 'MedFlow Pharmacy Software',
     tagline: 'Pharmacy Operations & Billing',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=85',
+    image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=85',
     icon: Pill,
     badge: 'HEALTHCARE'
   },
@@ -15,7 +15,7 @@ const PROJECTS_SHOWCASE = [
     id: 'educore',
     name: 'EduCore School System',
     tagline: 'School & Campus Management',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=85',
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=85',
     icon: GraduationCap,
     badge: 'EDUCATION'
   },
@@ -23,7 +23,7 @@ const PROJECTS_SHOWCASE = [
     id: 'factorysync',
     name: 'FactorySync Industrial Automation',
     tagline: 'Smart Factory & Production Tracking',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=85',
+    image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=85',
     icon: Factory,
     badge: 'INDUSTRIAL AUTOMATION'
   },
@@ -31,23 +31,23 @@ const PROJECTS_SHOWCASE = [
     id: 'wareflex',
     name: 'WareFlex Warehouse System',
     tagline: 'Smart Inventory & Stock Control',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=85',
+    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=85',
     icon: Boxes,
     badge: 'WAREHOUSE & LOGISTICS'
   },
   {
     id: 'snapshare',
-    name: 'SnapShare Media App',
-    tagline: 'Instant Photo & File Sharing',
-    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=85',
-    icon: MessageCircle,
-    badge: 'MEDIA SHARING'
+    name: 'SnapShare Photography Studio',
+    tagline: 'AI Photo Galleries & Event Studio CRM',
+    image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=600&q=85',
+    icon: Camera,
+    badge: 'PHOTOGRAPHY'
   },
   {
     id: 'commerceengine',
     name: 'CommerceEngine Store',
-    tagline: 'Fast Online Store & Checkout',
-    image: 'https://images.unsplash.com/photo-1556742049-0a6756570679?auto=format&fit=crop&w=600&q=85',
+    tagline: 'Online E-Commerce & Fast Checkout',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85',
     icon: ShoppingCart,
     badge: 'E-COMMERCE'
   }

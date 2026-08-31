@@ -20,7 +20,7 @@ export default function Nav() {
   }, [])
 
   const navLinks = [
-    { label: 'Solutions', to: '/services' },
+    { label: 'Home', to: '/' },
     { label: 'Platforms', to: '/products' },
     { label: 'Company', to: '/about' },
     { label: 'Contact Us', to: '/contact' }

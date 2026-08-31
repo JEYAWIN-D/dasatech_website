@@ -86,7 +86,7 @@ export const PRODUCTS_CATALOG = [
     headline: 'Shop Floor Manufacturing & Work-In-Progress SCADA ERP',
     summary: 'Multi-level Bill of Materials (BOM) explosion, live machine uptime telemetry, overall equipment effectiveness (OEE), and touch job cards.',
     tags: ['Modbus / OPC-UA', 'Multi-Level BOM', 'Live OEE Telemetry'],
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90'
+    img: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1200&q=90'
   },
   {
     id: 'warehouse-erp',
@@ -96,7 +96,7 @@ export const PRODUCTS_CATALOG = [
     headline: 'Smart Warehouse Management & Bin Location Inventory ERP',
     summary: '3D multi-aisle bin location routing, shortest-path wave picking, handheld Android PDA barcode scanning, and continuous cycle counting.',
     tags: ['3D Bin Matrix', 'Shortest Wave Pick', 'Android PDA Scanners'],
-    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90'
+    img: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=90'
   },
 
   // 3. Standalone Platforms
@@ -108,7 +108,7 @@ export const PRODUCTS_CATALOG = [
     headline: 'Next-Gen Headless Commerce & Multi-Vendor Marketplace',
     summary: 'Sub-600ms edge-rendered Next.js storefront, frictionless one-click checkout, automated vendor commission splits, and retail store stock sync.',
     tags: ['Headless Next.js', '1-Click Checkout', 'Vendor Splits'],
-    img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=90'
+    img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=90'
   },
   {
     id: 'snapshare-social',

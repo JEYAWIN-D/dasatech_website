@@ -11,7 +11,7 @@ export const PRODUCTS_ITEMS = [
     headline: 'Complete pharmacy operations in one connected platform.',
     desc: 'Automated batch & expiry management, medicine compliance tracking, quick customer billing, and smart stock alerts.',
     tags: ['Batch Inventory', 'Regulated Drug Logs', 'Fast Billing'],
-    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90',
+    img: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=90',
     link: '/products/erp',
     flow: 'left'
   },
@@ -22,7 +22,7 @@ export const PRODUCTS_ITEMS = [
     headline: 'Unified institutional management for modern academia.',
     desc: 'Complete school management system connecting student records, attendance, fee collection, and parent communication.',
     tags: ['Student Records', 'Fee Management', 'Smart Attendance'],
-    img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=90',
+    img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=90',
     link: '/products/ems',
     flow: 'right'
   },
@@ -44,18 +44,18 @@ export const PRODUCTS_ITEMS = [
     headline: 'End-to-end inventory and depot control.',
     desc: 'Real-time warehouse layout tracking, smart stock dispatching, barcode scanning, and multi-location inventory control.',
     tags: ['Bin Layout', 'Smart Dispatch', 'Barcode Tracking'],
-    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90',
+    img: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=90',
     link: '/products/erp',
     flow: 'right'
   },
   {
     id: 'snapshare',
-    title: 'SnapShare Platform',
-    category: 'MEDIA & COLLABORATION',
-    headline: 'Ultra-fast media sharing and collaborative proofing.',
-    desc: 'Instant high-resolution photo and media sharing for events, client approval, and fast cloud galleries.',
-    tags: ['Fast Uploads', 'Client Approval', 'Cloud Gallery'],
-    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=90',
+    title: 'SnapShare Photography Studio',
+    category: 'AI PHOTOGRAPHY & EVENT CRM',
+    headline: 'AI-powered event photo distribution and studio CRM.',
+    desc: '512D facial recognition photo search, dynamic QR guest galleries, digital contracts, and automated client delivery.',
+    tags: ['AI Face Search', 'Dynamic QR Hubs', 'Studio CRM'],
+    img: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=90',
     link: '/products',
     flow: 'left'
   },
@@ -66,7 +66,7 @@ export const PRODUCTS_ITEMS = [
     headline: 'High-concurrency storefronts engineered for scale.',
     desc: 'Custom online stores, smooth checkout experience, payment processing, and automatic inventory sync.',
     tags: ['Custom Store', 'Online Payments', 'Inventory Sync'],
-    img: 'https://images.unsplash.com/photo-1556742049-0a6756570679?auto=format&fit=crop&w=1200&q=90',
+    img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=90',
     link: '/services/ecommerce',
     flow: 'center'
   },

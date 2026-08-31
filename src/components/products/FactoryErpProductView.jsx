@@ -26,7 +26,7 @@ const FACTORY_ERP_SCREEN_ASSETS = [
     title: 'Factory SCADA Operations & Live OEE Telemetry',
     subtitle: 'Real-time Overview Equipment Effectiveness (OEE), active production lines, and workstation alerts.',
     tag: 'SCADA Telemetry',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=90',
+    img: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1400&q=90',
     route: 'app.dasatech.com/factorysync/scada-telemetry',
     specs: ['Modbus / OPC-UA', 'Live OEE Dials', 'Workstation Status']
   },

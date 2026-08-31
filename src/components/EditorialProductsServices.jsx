@@ -101,7 +101,7 @@ export const EDITORIAL_ITEMS = [
       { label: 'CLIENT PROOFING', icon: Zap, pos: 'bottom-24 left-4' },
       { label: 'TOKEN SHARE LINK', icon: CheckCircle2, pos: 'bottom-24 right-4' }
     ],
-    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=90',
+    img: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1600&q=90',
     link: '/products',
     accent: '#7C3AED'
   },
@@ -121,7 +121,7 @@ export const EDITORIAL_ITEMS = [
       { label: 'DYNAMIC CHECKOUT', icon: Zap, pos: 'bottom-24 left-4' },
       { label: 'STOCK AUTO-LOCK', icon: CheckCircle2, pos: 'bottom-24 right-4' }
     ],
-    img: 'https://images.unsplash.com/photo-1556742049-0a6756570679?auto=format&fit=crop&w=1600&q=90',
+    img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&q=90',
     link: '/services/ecommerce',
     accent: '#8B5CF6'
   },

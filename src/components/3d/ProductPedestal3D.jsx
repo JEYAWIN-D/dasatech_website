@@ -5,7 +5,7 @@ import {
   GraduationCap,
   Factory,
   Boxes,
-  MessageCircle,
+  Camera,
   ShoppingCart,
   ArrowRight,
   Sparkles,
@@ -41,7 +41,7 @@ export default function ProductPedestal3D() {
         { label: 'Batch Expiry Sync', val: '100%' },
         { label: 'Compliance', val: 'Schedule H1 / GST' }
       ],
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=85',
+      image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=85',
       color: '#6C2BD9',
       icon: Pill,
       badge: 'HEALTHCARE ERP'
@@ -63,7 +63,7 @@ export default function ProductPedestal3D() {
         { label: 'Fee Collection', val: 'Automated' },
         { label: 'Mobile App', val: 'iOS & Android' }
       ],
-      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=85',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=85',
       color: '#8B5CF6',
       icon: GraduationCap,
       badge: 'CAMPUS CLOUD'
@@ -85,7 +85,7 @@ export default function ProductPedestal3D() {
         { label: 'WIP Tracking', val: 'Step-by-Step' },
         { label: 'BOM Nesting', val: 'Multi-Level' }
       ],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=85',
+      image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=85',
       color: '#6C2BD9',
       icon: Factory,
       badge: 'INDUSTRY 4.0'
@@ -107,32 +107,32 @@ export default function ProductPedestal3D() {
         { label: 'Receiving Flow', val: 'Optimized' },
         { label: 'Barcode Support', val: '2D & RFID' }
       ],
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=85',
+      image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=85',
       color: '#8B5CF6',
       icon: Boxes,
       badge: 'SUPPLY CHAIN'
     },
     {
       id: 'snapshare-social',
-      name: 'SnapShare Platform',
-      category: 'Social & Communication',
-      tagline: 'Ephemeral Multimedia Messaging & Real-Time Engine',
-      desc: 'High-concurrency instant messaging system featuring self-destructing photo/video messages, 24-hour multimedia Stories, zero-latency WebRTC encrypted HD calls, and WebSocket architecture.',
+      name: 'SnapShare Photography Studio',
+      category: 'Photography & Creative Studio',
+      tagline: 'AI Event Photo Distribution & Studio CRM Platform',
+      desc: 'Enterprise photography studio platform combining 512D facial recognition photo distribution, dynamic QR guest access, photography CRM deal pipelines, digital contracts, and secure client proofing galleries.',
       features: [
-        'Ephemeral media that self-destructs after viewing',
-        '24-hour multimedia Stories with engagement stickers',
-        'Encrypted WebRTC 1-on-1 and group HD audio/video calling',
-        'High-throughput WebSocket messaging architecture'
+        '512D facial recognition photo matching & instant guest gallery',
+        'Dynamic event QR codes for instant contactless photo discovery',
+        'Studio CRM with lead booking pipelines and contract signing',
+        'Secure client proofing galleries with automated watermark protection'
       ],
       metrics: [
-        { label: 'Message Latency', val: '< 20ms' },
-        { label: 'Encryption', val: 'Signal E2EE' },
-        { label: 'Media Stream', val: 'WebRTC HD' }
+        { label: 'AI Face Search', val: '< 150ms' },
+        { label: 'Event Galleries', val: 'Dynamic QR' },
+        { label: 'Studio CRM', val: 'End-to-End' }
       ],
-      image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=85',
+      image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=85',
       color: '#6C2BD9',
-      icon: MessageCircle,
-      badge: 'REAL-TIME SOCIAL'
+      icon: Camera,
+      badge: 'AI PHOTOGRAPHY'
     },
     {
       id: 'ecommerce-engine',
@@ -151,7 +151,7 @@ export default function ProductPedestal3D() {
         { label: 'Payment Gateway', val: 'UPI / Stripe' },
         { label: 'Cart Checkout', val: 'Frictionless' }
       ],
-      image: 'https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=800&q=85',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=85',
       color: '#8B5CF6',
       icon: ShoppingCart,
       badge: 'HEADLESS COMMERCE'
