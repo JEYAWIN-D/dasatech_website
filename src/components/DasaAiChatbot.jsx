@@ -17,13 +17,13 @@ import {
   Camera,
   ShoppingBag,
   Cpu,
-  HelpCircle
+  HelpCircle,
+  Smile
 } from 'lucide-react'
 import { Link } from './Router'
 
 // ─────────────────────────────────────────────────────────────
 // CLEAN INLINE MARKDOWN & LIST FORMATTER COMPONENT
-// Converts **bold**, *italic*, bullet points & lists into clean styled UI
 // ─────────────────────────────────────────────────────────────
 function FormattedBotMessage({ text }) {
   if (!text) return null
@@ -105,20 +105,14 @@ function FormattedBotMessage({ text }) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// DASA TECH COMPREHENSIVE AI KNOWLEDGE BASE & INTENT CLASSIFIER
-// Trained on all products, projects, services, tech stack & company info
+// TOPICAL DOMAIN KNOWLEDGE BASE
 // ─────────────────────────────────────────────────────────────
-const KNOWLEDGE_BASE = [
+const DOMAIN_KNOWLEDGE = [
   // 1. PROJECTS & CASE STUDIES
   {
     id: 'projects',
-    keywords: [
-      'project', 'projects', 'case study', 'case studies', 'portfolio',
-      'works', 'what have you built', 'what projects', 'client projects',
-      'deployments', 'work', 'what are the projects', 'show me projects',
-      'previous work', 'past projects', 'recent work', 'built', 'show projects',
-      'what are the projects are there here'
-    ],
+    matchRegex: /(project|projects|case stud|portfolio|deployment|what.*(built|done)|previous work|past work)/i,
+    keywords: ['project', 'projects', 'portfolio', 'deployments', 'case study', 'case studies', 'works'],
     response: `🚀 **Featured DASA TECH Deployments & Case Studies**:
 
 1. 🏥 **Hospital & Multi-Branch Pharmacy ERP**
@@ -147,31 +141,11 @@ const KNOWLEDGE_BASE = [
     cta: { text: 'View All Project Case Studies', to: '/projects' }
   },
 
-  // 2. PRODUCTS & PLATFORMS
-  {
-    id: 'products_all',
-    keywords: [
-      'product', 'products', 'platforms', 'software products', 'solutions',
-      'what products', 'list of products', 'apps', 'all products'
-    ],
-    response: `📦 **DASA TECH Flagship Product Suites**:
-
-• 📸 **SnapShare**: AI-powered Photography Studio & client proofing platform with face recognition.
-• 🛒 **CommerceEngine**: Enterprise headless e-commerce for high-volume transactions.
-• 🏫 **School ERP**: Complete school management, fee collections, student grading & parent app.
-• 🏭 **FactorySync ERP**: Shop-floor MES, batch traceability, and machine maintenance.
-• 🏥 **Hospital ERP**: Electronic Health Records (EHR), pharmacy inventory & doctor appointments.
-• 📦 **Warehouse ERP**: Multi-warehouse barcode/NFC inventory & logistics tracking.`,
-    cta: { text: 'Explore All Platforms & Products', to: '/products' }
-  },
-
-  // 3. SNAPSHARE PHOTOGRAPHY STUDIO
+  // 2. SNAPSHARE AI PHOTOGRAPHY
   {
     id: 'snapshare',
-    keywords: [
-      'snapshare', 'photography', 'photo', 'camera', 'ai photo', 'photographer',
-      'album', 'face recognition', 'photo sorting', 'photo gallery', 'wedding photo'
-    ],
+    matchRegex: /(snapshare|photograph|photo|camera|album|face recognition)/i,
+    keywords: ['snapshare', 'photography', 'photo', 'camera', 'album', 'proofing'],
     response: `📸 **SnapShare — AI Photography Management Platform**:
 
 Designed specifically for professional photographers and studios:
@@ -182,13 +156,11 @@ Designed specifically for professional photographers and studios:
     cta: { text: 'View SnapShare Platform', to: '/products' }
   },
 
-  // 4. E-COMMERCE & COMMERCEENGINE
+  // 3. E-COMMERCE & COMMERCEENGINE
   {
     id: 'ecommerce',
-    keywords: [
-      'ecommerce', 'e-commerce', 'commerce', 'online store', 'shopping',
-      'commerceengine', 'marketplace', 'b2b store', 'cart', 'checkout'
-    ],
+    matchRegex: /(ecommerce|e-commerce|commerceengine|online store|shopping cart|marketplace)/i,
+    keywords: ['ecommerce', 'commerce', 'commerceengine', 'store', 'shop'],
     response: `🛒 **CommerceEngine — Headless E-Commerce Platform**:
 
 Built for fast, scalable enterprise online selling:
@@ -199,16 +171,14 @@ Built for fast, scalable enterprise online selling:
     cta: { text: 'View CommerceEngine Details', to: '/products' }
   },
 
-  // 5. CUSTOM ERP SUITES
+  // 4. CUSTOM ENTERPRISE ERP SUITES
   {
     id: 'erp',
-    keywords: [
-      'erp', 'school erp', 'hospital erp', 'factorysync', 'warehouse erp',
-      'custom erp', 'enterprise resource', 'management software', 'billing', 'inventory'
-    ],
+    matchRegex: /(erp|school erp|hospital erp|factorysync|warehouse erp|custom erp|billing software|inventory system)/i,
+    keywords: ['erp', 'school', 'hospital', 'factorysync', 'warehouse', 'billing', 'inventory'],
     response: `💼 **Custom Enterprise ERP Solutions**:
 
-We build tailor-made, modular ERP suites with zero bloated licensing fees:
+We build tailor-made, modular ERP suites with zero recurring per-seat fees:
 • 🏫 **School ERP**: Student profiles, automated fee collection, exams & parent mobile app.
 • 🏥 **Hospital & Pharmacy ERP**: OPD/IPD flows, doctor rosters & barcode pharmacy POS.
 • 🏭 **FactorySync ERP**: Raw material batching, production stages & worker shift tracking.
@@ -216,13 +186,11 @@ We build tailor-made, modular ERP suites with zero bloated licensing fees:
     cta: { text: 'View Custom ERP Platforms', to: '/products' }
   },
 
-  // 6. IOT & INDUSTRIAL AUTOMATION
+  // 5. IOT & INDUSTRIAL AUTOMATION
   {
     id: 'iot',
-    keywords: [
-      'iot', 'automation', 'hardware', 'sensor', 'smart home', 'irrigation',
-      'lorawan', 'telemetry', 'scada', 'plc', 'esp32', 'zigbee', 'modbus', 'embedded'
-    ],
+    matchRegex: /(iot|automation|hardware|scada|telemetry|smart home|irrigation|sensor|plc|esp32|modbus)/i,
+    keywords: ['iot', 'automation', 'scada', 'telemetry', 'hardware', 'sensor', 'smart home'],
     response: `⚡ **Intelligent IoT & Automation Telemetry**:
 
 We design custom hardware, embedded firmware, and supervisory cloud dashboards:
@@ -233,13 +201,11 @@ We design custom hardware, embedded firmware, and supervisory cloud dashboards:
     cta: { text: 'Explore Smart Automation', to: '/products' }
   },
 
-  // 7. ARTIFICIAL INTELLIGENCE & COMPUTER VISION
+  // 6. AI & COMPUTER VISION
   {
     id: 'ai',
-    keywords: [
-      'ai', 'vision', 'defect detection', 'computer vision', 'opencv',
-      'yolo', 'yolov8', 'machine learning', 'deep learning', 'optical', 'neural'
-    ],
+    matchRegex: /(ai|vision|defect detection|computer vision|opencv|yolo|yolov8|deep learning|machine learning)/i,
+    keywords: ['ai', 'vision', 'opencv', 'yolov8', 'defect detection', 'computer vision'],
     response: `🧠 **Enterprise AI & Computer Vision Solutions**:
 
 • **Optical Defect Detection**: 120 FPS high-speed defect screening for manufacturing lines.
@@ -249,31 +215,27 @@ We design custom hardware, embedded firmware, and supervisory cloud dashboards:
     cta: { text: 'Learn About AI Solutions', to: '/services' }
   },
 
-  // 8. PRICING, ESTIMATES & BUDGET
+  // 7. PRICING & ESTIMATES
   {
     id: 'pricing',
-    keywords: [
-      'price', 'pricing', 'cost', 'how much', 'budget', 'estimate',
-      'quote', 'rates', 'hire', 'charge', 'expensive', 'cheap', 'consultation'
-    ],
+    matchRegex: /(price|pricing|cost|how much|budget|estimate|quote|rate|hire cost|charge)/i,
+    keywords: ['price', 'pricing', 'cost', 'budget', 'estimate', 'quote', 'rate'],
     response: `💰 **Project Pricing & Cost Estimation**:
 
 Our pricing is transparent and modular based on system scope:
-• **Custom Web/Mobile Apps**: Designed with milestone-based transparent pricing.
-• **Enterprise ERP Deployments**: Fixed-scope implementation with zero recurring per-user seat penalties.
+• **Custom Web/Mobile Apps**: Transparent milestone-based structure.
+• **Enterprise ERP Deployments**: Fixed-scope implementation with zero recurring seat penalties.
 • **IoT & Hardware Automation**: Turnkey hardware design + cloud dashboard.
 
-💡 *Tip*: Use our interactive **Project Estimator** on the Contact page for an immediate budget summary!`,
+💡 *Tip*: Use our interactive **Project Estimator** on the Contact page for an immediate budget calculation!`,
     cta: { text: 'Calculate Cost in Project Estimator', to: '/contact' }
   },
 
-  // 9. CONTACT DETAILS & OFFICE LOCATION
+  // 8. CONTACT DETAILS
   {
     id: 'contact',
-    keywords: [
-      'contact', 'email', 'phone', 'call', 'reach', 'location',
-      'address', 'whatsapp', 'office', 'talk', 'number', 'speak', 'support'
-    ],
+    matchRegex: /(contact|email|phone|call|reach|location|address|whatsapp|office|support|where.*(located|office))/i,
+    keywords: ['contact', 'email', 'phone', 'call', 'location', 'address', 'office'],
     response: `📞 **Contact DASA TECH Direct**:
 
 • 📧 **Email**: dasatechmu@gmail.com
@@ -285,14 +247,11 @@ You can also send a project inquiry directly through our Contact form!`,
     cta: { text: 'Open Contact Form', to: '/contact' }
   },
 
-  // 10. FOUNDERS & TEAM LEADERSHIP
+  // 9. FOUNDERS & TEAM
   {
     id: 'team',
-    keywords: [
-      'team', 'who is jeyawin', 'founder', 'ceo', 'arun', 'priya',
-      'ramesh', 'divya', 'kiran', 'nithin', 'naveen', 'vikram', 'anand',
-      'who made this', 'leadership', 'engineers', 'family', 'about'
-    ],
+    matchRegex: /(founder|ceo|jeyawin|arun|priya|ramesh|divya|kiran|nithin|naveen|vikram|anand|who (built|made|runs|leads)|team|leadership)/i,
+    keywords: ['founder', 'ceo', 'jeyawin', 'team', 'leaders', 'engineers'],
     response: `👥 **DASA TECH Team Leadership**:
 
 • **Jeyawin D** — Founder & CEO (System Architecture & Enterprise ERP)
@@ -308,13 +267,11 @@ You can also send a project inquiry directly through our Contact form!`,
     cta: { text: 'Inspect Interactive 3D Team Profiles', to: '/about' }
   },
 
-  // 11. TECH STACK & ARCHITECTURE
+  // 10. TECH STACK
   {
     id: 'tech_stack',
-    keywords: [
-      'tech stack', 'technologies', 'languages', 'react', 'python',
-      'node', 'postgresql', 'docker', 'kubernetes', 'what tech', 'framework', 'database'
-    ],
+    matchRegex: /(tech stack|technologies|what tech|languages|framework|react|node|python|postgresql|docker|kubernetes)/i,
+    keywords: ['tech stack', 'technologies', 'react', 'python', 'node', 'postgresql'],
     response: `🛠️ **DASA TECH Enterprise Technology Stack**:
 
 • **Front-End**: React 18, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js / WebGL.
@@ -325,13 +282,11 @@ You can also send a project inquiry directly through our Contact form!`,
     cta: { text: 'View Engineering Capabilities', to: '/about' }
   },
 
-  // 12. SERVICES OVERVIEW
+  // 11. SERVICES
   {
     id: 'services',
-    keywords: [
-      'services', 'what do you do', 'what services', 'capabilities',
-      'what does dasa do', 'how can you help', 'offerings'
-    ],
+    matchRegex: /(service|services|what (do you|does dasa) (do|offer|provide)|offerings|capabilities)/i,
+    keywords: ['services', 'offerings', 'capabilities', 'what you do'],
     response: `⚡ **DASA TECH Core Engineering Services**:
 
 1. **Business Technology Solutions**: Custom ERP systems, CRM suites, billing engines & automated workflows.
@@ -339,24 +294,41 @@ You can also send a project inquiry directly through our Contact form!`,
 3. **Custom Web & Mobile Platforms**: Fast Next.js web applications, e-commerce marketplaces & native apps.
 4. **AI & Vision Systems**: Industrial optical defect inspection & automated sorting.`,
     cta: { text: 'Explore All Services', to: '/services' }
-  },
+  }
+]
 
-  // 13. GREETINGS & INTRODUCTIONS
+// ─────────────────────────────────────────────────────────────
+// CONVERSATIONAL & CHIT-CHAT INTENTS (HIGHEST PRIORITY)
+// ─────────────────────────────────────────────────────────────
+const CHITCHAT_INTENTS = [
+  // A. "how are you" / "how's it going"
   {
-    id: 'greeting',
-    keywords: [
-      'hello', 'hi', 'hey', 'greetings', 'good morning', 'good evening',
-      'good afternoon', 'hola', 'sup', 'yo', 'help'
-    ],
-    response: `👋 Hello! Welcome to **DASA TECH**. I'm your AI Solutions Assistant.
-
-I can help you explore:
-• 🚀 **Our Projects & Case Studies** (Healthcare ERP, SCADA, AI Vision)
-• 📸 **SnapShare Photography Platform**
-• 💼 **Custom Enterprise ERP Systems**
-• 💰 **Project Cost Estimates & Inquiries**
-
-What would you like to know more about?`,
+    pattern: /\b(how (are|r) (you|u)|how('s| is) it going|how are you doing|how do you do)\b/i,
+    response: "I'm doing great, thank you for asking! 😊 I'm fully online and ready to assist you with DASA TECH's enterprise ERP solutions, SnapShare AI Studio, IoT automation, or project estimates.\n\nWhat can I help you with today?",
+    cta: { text: 'View Featured Projects', to: '/projects' }
+  },
+  // B. "who are you" / "what are you"
+  {
+    pattern: /\b(who (are|r) (you|u)|what is your name|what (are|r) (you|u)|introduce yourself)\b/i,
+    response: "I'm the **DASA AI Solutions Assistant**! 🤖\n\nI can answer any questions about DASA TECH's custom software products, client project case studies, IoT hardware, and project cost estimates.",
+    cta: { text: 'Learn About DASA TECH', to: '/about' }
+  },
+  // C. "thank you" / "thanks"
+  {
+    pattern: /\b(thank(s| you)?|thx|appreciate it|great help|awesome)\b/i,
+    response: "You're very welcome! 😊 Feel free to ask anytime if you need more details about our platforms or want to get a project estimate.",
+    cta: { text: 'Schedule a Consultation', to: '/contact' }
+  },
+  // D. "goodbye" / "bye"
+  {
+    pattern: /\b(bye|goodbye|see you|cya|talk to you later|have a good day)\b/i,
+    response: "Goodbye! 👋 Have a fantastic day ahead. Feel free to come back whenever you need assistance with enterprise software or tech solutions!",
+    cta: null
+  },
+  // E. Greetings: "hi" / "hello" / "hey"
+  {
+    pattern: /^(hi|hello|hey|good morning|good afternoon|good evening|hola|sup|yo)\b/i,
+    response: "Hello! 👋 Welcome to **DASA TECH**.\n\nI'm your AI Solutions Assistant. I can help you explore:\n• 🚀 **Our Projects & Case Studies** (Healthcare ERP, SCADA, AI Vision)\n• 📸 **SnapShare Photography Platform**\n• 💼 **Custom Enterprise ERP Systems**\n• 💰 **Project Cost Estimates & Quotes**\n\nHow can I help you today?",
     cta: { text: 'View Featured Projects', to: '/projects' }
   }
 ]
@@ -407,51 +379,58 @@ export default function DasaAiChatbot() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // ── ADVANCED INTENT & SEMANTIC MATCHING ENGINE ──
+  // ── INTELLIGENT INTENT & CONVERSATIONAL MATCHER ──
   const findBestResponse = (query) => {
-    const cleanQuery = query.toLowerCase().replace(/[^\w\s]/gi, ' ').trim()
-    const queryWords = cleanQuery.split(/\s+/).filter(w => w.length > 1)
+    const cleanQuery = query.trim()
 
-    let bestMatch = null
+    // 1. Check Conversational & Chit-Chat Intents first (Prevents "how are you" false matches)
+    for (const chitChat of CHITCHAT_INTENTS) {
+      if (chitChat.pattern.test(cleanQuery)) {
+        return {
+          response: chitChat.response,
+          cta: chitChat.cta
+        }
+      }
+    }
+
+    // 2. Check Domain Knowledge via Regex Pattern Match
+    for (const domain of DOMAIN_KNOWLEDGE) {
+      if (domain.matchRegex.test(cleanQuery)) {
+        return {
+          response: domain.response,
+          cta: domain.cta
+        }
+      }
+    }
+
+    // 3. Fallback: Semantic Token Match with High-Signal Anchor Keywords
+    const queryTokens = cleanQuery.toLowerCase().split(/\s+/).filter(w => w.length > 2)
+    let bestDomain = null
     let highestScore = 0
 
-    for (const entry of KNOWLEDGE_BASE) {
+    for (const domain of DOMAIN_KNOWLEDGE) {
       let score = 0
-
-      for (const kw of entry.keywords) {
-        const cleanKw = kw.toLowerCase()
-
-        // 1. Exact phrase match (Highest Priority)
-        if (cleanQuery.includes(cleanKw)) {
-          score += 10 + cleanKw.length
-        }
-
-        // 2. Token overlap match
-        const kwWords = cleanKw.split(/\s+/)
-        const overlapCount = kwWords.filter(w => queryWords.includes(w)).length
-
-        if (overlapCount > 0) {
-          score += overlapCount * 4
+      for (const kw of domain.keywords) {
+        if (queryTokens.includes(kw.toLowerCase())) {
+          score += 5
         }
       }
-
       if (score > highestScore) {
         highestScore = score
-        bestMatch = entry
+        bestDomain = domain
       }
     }
 
-    // If score is reasonable, return matched response
-    if (bestMatch && highestScore >= 3) {
+    if (bestDomain && highestScore >= 5) {
       return {
-        response: bestMatch.response,
-        cta: bestMatch.cta
+        response: bestDomain.response,
+        cta: bestDomain.cta
       }
     }
 
-    // Intelligent Fallback with Helpful Quick Links
+    // 4. Default Helpful AI Advisory Fallback
     return {
-      response: `I'd love to help with that! At DASA TECH, we engineer **custom ERP software, AI computer vision, IoT telemetry, and web/mobile platforms** tailored to your business needs.\n\nWould you like to explore our projects, calculate an estimate, or speak directly with our team?`,
+      response: `I'd be happy to assist with that! At DASA TECH, we engineer **custom ERP systems, AI computer vision, IoT telemetry, and web/mobile platforms** tailored to your business needs.\n\nWould you like to explore our project case studies, calculate an estimate, or speak directly with our engineering team?`,
       cta: { text: 'Schedule Free Consultation', to: '/contact' }
     }
   }
@@ -485,7 +464,7 @@ export default function DasaAiChatbot() {
 
       setMessages((prev) => [...prev, botMsg])
       setIsTyping(false)
-    }, 500)
+    }, 450)
   }
 
   return (
