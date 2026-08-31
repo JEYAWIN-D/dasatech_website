@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route } from './components/Router'
 import ScrollToTop from './components/ScrollToTop'
-import ScrollToTopButton from './components/ScrollToTopButton'
+import DasaAiChatbot from './components/DasaAiChatbot'
 import DasaPreloader from './components/DasaPreloader'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
@@ -60,8 +60,8 @@ export default function App() {
             <Route path="/security" component={SecurityPage} />
           </div>
 
-          {/* Floating Scroll-to-Top Button on Bottom Right Corner */}
-          <ScrollToTopButton />
+          {/* Floating DASA AI Assistant Chatbot with integrated scroll-to-top */}
+          <DasaAiChatbot />
 
           <Footer />
         </div>
