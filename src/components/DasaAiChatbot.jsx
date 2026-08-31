@@ -22,44 +22,128 @@ import {
 import { Link } from './Router'
 
 // ─────────────────────────────────────────────────────────────
+// CLEAN INLINE MARKDOWN & LIST FORMATTER COMPONENT
+// Converts **bold**, *italic*, bullet points & lists into clean styled UI
+// ─────────────────────────────────────────────────────────────
+function FormattedBotMessage({ text }) {
+  if (!text) return null
+
+  const lines = text.split('\n')
+
+  return (
+    <div className="space-y-1 text-xs sm:text-[13px] leading-relaxed text-slate-200">
+      {lines.map((line, idx) => {
+        const trimmed = line.trim()
+        if (!trimmed) {
+          return <div key={idx} className="h-1.5" />
+        }
+
+        // Inline parser for **bold** and *italic*
+        const formatInline = (str) => {
+          const parts = []
+          let key = 0
+          const regex = /(\*\*.*?\*\*|\*.*?\*)/g
+          let match
+          let lastIndex = 0
+
+          while ((match = regex.exec(str)) !== null) {
+            if (match.index > lastIndex) {
+              parts.push(str.substring(lastIndex, match.index))
+            }
+            const matchText = match[0]
+            if (matchText.startsWith('**') && matchText.endsWith('**')) {
+              parts.push(
+                <strong key={key++} className="font-bold text-white tracking-wide">
+                  {matchText.slice(2, -2)}
+                </strong>
+              )
+            } else if (matchText.startsWith('*') && matchText.endsWith('*')) {
+              parts.push(
+                <span key={key++} className="text-purple-300 font-semibold">
+                  {matchText.slice(1, -1)}
+                </span>
+              )
+            }
+            lastIndex = match.index + matchText.length
+          }
+
+          if (lastIndex < str.length) {
+            parts.push(str.substring(lastIndex))
+          }
+
+          return parts.length > 0 ? parts : str
+        }
+
+        // 1. Numbered headers: "1. 🏥 Hospital ERP"
+        if (/^\d+\.\s/.test(trimmed)) {
+          return (
+            <div key={idx} className="pt-2 pb-0.5 font-semibold text-white flex items-start gap-1.5 border-t border-white/5 first:border-t-0 first:pt-0">
+              <span>{formatInline(trimmed)}</span>
+            </div>
+          )
+        }
+
+        // 2. Sub-bullets: "• *Client*: ..." or "• *Impact*: ..."
+        if (trimmed.startsWith('•') || trimmed.startsWith('-')) {
+          return (
+            <div key={idx} className="pl-3 py-0.5 text-slate-300 flex items-start gap-2">
+              <span className="text-purple-400 font-bold text-xs leading-5 shrink-0">•</span>
+              <span className="flex-1 leading-snug">{formatInline(trimmed.replace(/^[•\-]\s*/, ''))}</span>
+            </div>
+          )
+        }
+
+        // 3. Regular Paragraph text
+        return (
+          <p key={idx} className="text-slate-200">
+            {formatInline(trimmed)}
+          </p>
+        )
+      })}
+    </div>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────
 // DASA TECH COMPREHENSIVE AI KNOWLEDGE BASE & INTENT CLASSIFIER
 // Trained on all products, projects, services, tech stack & company info
 // ─────────────────────────────────────────────────────────────
 const KNOWLEDGE_BASE = [
-  // 1. PROJECTS & CASE STUDIES (Fixes user question: "what are the projects are there here")
+  // 1. PROJECTS & CASE STUDIES
   {
     id: 'projects',
     keywords: [
       'project', 'projects', 'case study', 'case studies', 'portfolio',
       'works', 'what have you built', 'what projects', 'client projects',
       'deployments', 'work', 'what are the projects', 'show me projects',
-      'previous work', 'past projects', 'recent work', 'built', 'show projects'
+      'previous work', 'past projects', 'recent work', 'built', 'show projects',
+      'what are the projects are there here'
     ],
     response: `🚀 **Featured DASA TECH Deployments & Case Studies**:
 
 1. 🏥 **Hospital & Multi-Branch Pharmacy ERP**
-   • *Client*: Apex Healthcare Network (50+ Clinical Branches)
-   • *Impact*: 50,000+ daily prescriptions • Sub-12ms billing latency • 99.98% uptime.
+• *Client*: Apex Healthcare Network (50+ Clinical Branches)
+• *Impact*: 50,000+ daily prescriptions • Sub-12ms billing latency • 99.98% uptime.
 
 2. 🏭 **Industrial SCADA & Machine Telemetry**
-   • *Client*: Precision Heavy Machinery Plant
-   • *Impact*: 120+ CNC machines monitored • 99.4% OEE • Predictive vibration anomaly alerts.
+• *Client*: Precision Heavy Machinery Plant
+• *Impact*: 120+ CNC machines monitored • 99.4% OEE • Predictive vibration anomaly alerts.
 
 3. 👁️ **High-Speed AI Optical Inspection Vision**
-   • *Client*: Automotive Component Foundry
-   • *Impact*: 12 castings/sec inspected • 99.7% accuracy • 60+ FPS edge inference on NVIDIA Jetson.
+• *Client*: Automotive Component Foundry
+• *Impact*: 12 castings/sec inspected • 99.7% accuracy • 60+ FPS edge inference on NVIDIA Jetson.
 
 4. ⚡ **Campus IoT Energy Management (EMS)**
-   • *Client*: Commercial Tech Park (2.4M Sq. Ft.)
-   • *Impact*: 850 smart Modbus meters • 22% peak tariff savings • Auto power factor control.
+• *Client*: Commercial Tech Park (2.4M Sq. Ft.)
+• *Impact*: 850 smart Modbus meters • 22% peak tariff savings • Auto power factor control.
 
 5. 🏠 **Architectural Smart Living & Home Hub**
-   • *Client*: Private Residential Estate
-   • *Impact*: 16 living zones • 100% offline Matter/Zigbee local edge gateway.
+• *Client*: Private Residential Estate
+• *Impact*: 16 living zones • 100% offline Matter/Zigbee local edge gateway.
 
 6. 🛒 **High-Throughput Multi-Vendor E-Commerce**
-   • *Client*: B2B Wholesale Electronics Network
-   • *Impact*: 300+ sub-vendors • Sub-600ms page loads • Direct 2-way ERP sync.`,
+• *Client*: B2B Wholesale Electronics Network
+• *Impact*: 300+ sub-vendors • Sub-600ms page loads • Direct 2-way ERP sync.`,
     cta: { text: 'View All Project Case Studies', to: '/projects' }
   },
 
@@ -460,21 +544,26 @@ export default function DasaAiChatbot() {
                   className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
                 >
                   <div
-                    className={`max-w-[90%] rounded-2xl p-3.5 text-xs sm:text-sm leading-relaxed ${
+                    className={`max-w-[92%] rounded-2xl p-3.5 leading-relaxed shadow-md ${
                       msg.sender === 'user'
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-br-none shadow-md'
-                        : 'bg-white/10 border border-white/10 text-slate-200 rounded-bl-none shadow-md backdrop-blur-md'
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-br-none text-xs sm:text-sm'
+                        : 'bg-white/10 border border-white/10 text-slate-200 rounded-bl-none backdrop-blur-md'
                     }`}
                   >
-                    <div className="whitespace-pre-line">{msg.text}</div>
+                    {/* Render Formatted Markdown Content */}
+                    {msg.sender === 'user' ? (
+                      <div className="whitespace-pre-line">{msg.text}</div>
+                    ) : (
+                      <FormattedBotMessage text={msg.text} />
+                    )}
 
                     {/* Interactive Direct CTA Link inside Bot Message */}
                     {msg.cta && (
-                      <div className="mt-3 pt-2.5 border-t border-white/15">
+                      <div className="mt-3.5 pt-2.5 border-t border-white/15">
                         <Link
                           to={msg.cta.to}
                           onClick={() => setIsOpen(false)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-mono text-xs font-bold transition shadow-md cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-mono text-xs font-bold transition shadow-md cursor-pointer"
                         >
                           <span>{msg.cta.text}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
