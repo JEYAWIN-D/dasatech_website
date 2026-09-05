@@ -764,17 +764,18 @@ export default function FoundersAndTeamShowcase() {
             ref={scrollContainerRef}
             className="w-full overflow-x-auto scrollbar-none scroll-smooth rounded-2xl"
           >
-            <div className="flex items-stretch min-w-[2850px] w-full h-[480px] sm:h-[530px] divide-x divide-white/10">
+            <div className="flex items-stretch w-max h-[480px] sm:h-[530px] divide-x divide-white/10">
               
               {TEAM_MEMBERS.map((m, idx) => {
                 const isHovered = hoveredId === m.id
                 const hasActiveHover = hoveredId !== null
 
-                // Compute Accordion Column Flex & Width Ratio (balanced so full photo remains visible)
-                let flexStyle = 'flex-1 min-w-[195px] sm:min-w-[215px]'
-                if (hasActiveHover) {
-                  flexStyle = isHovered ? 'flex-[2.6] min-w-[250px] sm:min-w-[280px]' : 'flex-[0.8] min-w-[160px]'
-                }
+                // Calibrated widths matching 768x1376 portrait aspect ratio to eliminate empty side gaps
+                const widthStyle = isHovered
+                  ? 'w-[285px] sm:w-[295px] min-w-[285px] sm:min-w-[295px]'
+                  : hasActiveHover
+                  ? 'w-[150px] sm:w-[165px] min-w-[150px] sm:min-w-[165px]'
+                  : 'w-[185px] sm:w-[200px] min-w-[185px] sm:min-w-[200px]'
 
                 return (
                   <div
@@ -783,25 +784,22 @@ export default function FoundersAndTeamShowcase() {
                     onMouseLeave={() => setHoveredId(null)}
                     onTouchStart={() => setHoveredId(m.id)}
                     onClick={() => setActiveProfileIndex(idx)}
-                    className={`${flexStyle} h-full flex flex-col justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer relative group rounded-xl overflow-hidden ${
+                    className={`${widthStyle} h-full flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer relative group rounded-xl overflow-hidden ${
                       isHovered ? 'z-30 shadow-[0_20px_60px_rgba(124,58,237,0.45)]' : 'z-10'
                     }`}
                   >
-                    {/* Full Height 3D Character Avatar Image (Entire character preserved from head to toe with zero face-crop) */}
-                    <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#070a18] flex items-end justify-center pb-2">
+                    {/* Full-Bleed 3D Character Avatar Image (Fills edge-to-edge with ZERO empty side gaps) */}
+                    <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#070a18]">
                       <motion.img
                         animate={
                           isHovered
-                            ? {
-                                scale: 1.05,
-                                y: -4
-                              }
-                            : { scale: 1, y: 0 }
+                            ? { scale: 1.02 }
+                            : { scale: 1 }
                         }
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         src={m.image}
                         alt={m.name}
-                        className={`w-full h-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] object-contain object-bottom origin-bottom ${
+                        className={`w-full h-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] object-cover object-top origin-top ${
                           isHovered
                             ? 'filter-none opacity-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] brightness-105'
                             : hasActiveHover
