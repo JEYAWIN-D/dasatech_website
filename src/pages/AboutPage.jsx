@@ -117,22 +117,61 @@ export default function AboutPage() {
             
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F3FF] border border-[#DDD0FF] text-[#6D28D9] text-xs font-mono font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#8B5CF6]" />
-                <span>OUR STORY &bull; FOUNDED IN 2025</span>
+              <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
+                Our Story &bull; Founded in 2025
               </div>
 
               <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17121F] tracking-tight leading-[1.12]">
                 Building software that makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] via-[#8B5CF6] to-[#06B6D4]">business simple and efficient.</span>
               </h2>
 
-              <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
-                Founded in 2025 by <strong>Jeyawin D (Founder &amp; CEO)</strong>, DASA TECH was built on a straightforward mission: to help organizations replace complex, disconnected manual work with clean, dependable, and easy-to-use digital solutions.
+              {/* Concise Intro Lead */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                DASA TECH engineers scalable software platforms and smart automation systems designed to replace complex manual processes with dependable, unified digital tools.
               </p>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-                Based in Erode, Tamil Nadu, India, our team combines deep software engineering expertise with practical business understanding. Whether it is an all-in-one ERP suite, digital marketing automation, or smart IoT systems, we craft solutions that feel natural, intuitive, and built for growth.
-              </p>
+              {/* Clean Structured Highlights Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
+                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
+                    <Building2 className="w-4 h-4 text-purple-600 shrink-0" />
+                    <span>Origin &amp; Leadership</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
+                    Founded in 2025 by <strong>Jeyawin D (Founder &amp; CEO)</strong> in Erode, Tamil Nadu.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
+                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
+                    <Target className="w-4 h-4 text-purple-600 shrink-0" />
+                    <span>Core Mission</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
+                    Modernizing enterprise operations through clean, reliable, and intuitive digital tools.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
+                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
+                    <Layers className="w-4 h-4 text-purple-600 shrink-0" />
+                    <span>Engineering Focus</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
+                    Custom ERP suites, industrial IoT telemetry, and smart workflow automation.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
+                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
+                    <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+                    <span>Client Commitment</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
+                    100% tailored development aligned with exact industry workflows and compliance.
+                  </p>
+                </div>
+              </div>
 
               {/* Quick Info Badges */}
               <div className="pt-2 flex flex-wrap gap-3 items-center">
@@ -214,9 +253,8 @@ export default function AboutPage() {
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-              <Layers className="w-3.5 h-3.5" />
-              <span>WHAT WE BUILD</span>
+            <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
+              What We Build
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17121F] tracking-tight">
               Our Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#06B6D4]">Capabilities &amp; Solutions</span>
@@ -276,9 +314,8 @@ export default function AboutPage() {
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="space-y-3 text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6D28D9]/40 text-[#C084FC] text-xs font-mono font-bold uppercase tracking-wider border border-[#8B5CF6]/40">
-              <Workflow className="w-3.5 h-3.5" />
-              <span>HOW WE WORK</span>
+            <div className="text-xs font-bold text-[#C084FC] uppercase tracking-wider">
+              How We Work
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
               Our Practical <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] to-[#6D28D9]">4-Step Delivery Approach</span>
@@ -373,9 +410,8 @@ export default function AboutPage() {
       {/* ── 7. CONSULTATION CALL TO ACTION ────────────────────── */}
       <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20 text-center">
         <div className="p-10 sm:p-14 rounded-[36px] border-2 border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>START A PROJECT CONVERSATION</span>
+          <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
+            Start a Conversation
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17121F] font-display tracking-tight leading-tight">

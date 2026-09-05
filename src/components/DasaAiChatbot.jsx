@@ -250,11 +250,13 @@ You can also send a project inquiry directly through our Contact form!`,
   // 9. FOUNDERS & TEAM
   {
     id: 'team',
-    matchRegex: /(founder|ceo|jeyawin|arun|priya|ramesh|divya|kiran|nithin|naveen|vikram|anand|who (built|made|runs|leads)|team|leadership)/i,
-    keywords: ['founder', 'ceo', 'jeyawin', 'team', 'leaders', 'engineers'],
+    matchRegex: /(founder|ceo|jeyawin|mithul|akash|arun|priya|ramesh|divya|kiran|nithin|naveen|vikram|anand|who (built|made|runs|leads)|team|leadership)/i,
+    keywords: ['founder', 'ceo', 'jeyawin', 'mithul', 'akash', 'team', 'leaders', 'engineers'],
     response: `👥 **DASA TECH Team Leadership**:
 
 • **Jeyawin D** — Founder & CEO (System Architecture & Enterprise ERP)
+• **Mithul Pranav K K** — Full Stack Developer (React & Cloud Microservices)
+• **Akash AR** — Full Stack Developer (Web Engineering & Cloud APIs)
 • **Arun** — Full Stack Systems Engineer (React & Distributed Node.js)
 • **Priya** — Front-End Developer & UI Specialist
 • **Ramesh** — Back-End Developer & PostgreSQL Specialist

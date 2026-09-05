@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import DasaCinematicIntro from './DasaCinematicIntro'
+import SmoothLogoReveal from './SmoothLogoReveal'
 
 const INTRO_STORAGE_KEY = 'dasa_tech_intro_seen_v3'
 
@@ -38,7 +38,7 @@ export default function DasaPreloader({ onFinish }) {
       setShowPreloader(false)
       document.documentElement.style.overflow = ''
       if (onFinish) onFinish()
-    }, 700)
+    }, 500)
   }
 
   if (!showPreloader) return null
@@ -50,19 +50,19 @@ export default function DasaPreloader({ onFinish }) {
         initial={{ opacity: 1 }}
         animate={{
           opacity: isExiting ? 0 : 1,
-          scale: isExiting ? 1.08 : 1,
-          filter: isExiting ? 'blur(16px) brightness(1.4)' : 'blur(0px) brightness(1)'
+          scale: isExiting ? 1.04 : 1
         }}
         transition={{
-          duration: 0.7,
+          duration: 0.5,
           ease: [0.22, 1, 0.36, 1]
         }}
-        className="fixed inset-0 z-[99999] bg-[#02040a] text-white flex items-center justify-center overflow-hidden select-none"
+        className="fixed inset-0 z-[99999] bg-[#050711] text-white flex items-center justify-center overflow-hidden select-none"
       >
-        {/* Next-Gen 3D Quantum Crystalline Experience */}
-        <DasaCinematicIntro onComplete={handleComplete} />
+        {/* Fast & Smooth MNC Cinematic Brand Reveal */}
+        <SmoothLogoReveal onComplete={handleComplete} />
       </motion.div>
     </AnimatePresence>
   )
 }
+
 

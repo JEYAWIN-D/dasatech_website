@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   TrendingUp, Users, Database, Radio, Zap, Globe, Server, Smartphone,
   ArrowRight, ArrowUpRight, X, CheckCircle2,
   Search, Layers, Code2, Settings, FlaskConical,
-  Rocket, Headphones, Layout, ChevronRight
+  Rocket, Headphones, Layout, ChevronRight, ChevronLeft, Check, Sparkles,
+  Terminal, ShieldCheck, Activity, GitBranch, Cpu, FileText, Play, Pause
 } from 'lucide-react'
 import { Link, usePath } from '../components/Router'
 import { PAGE_HERO_IMAGES } from '../constants/images.js'
 import { BACKEND_ASSETS } from '../data/backendAssets.js'
+import TechnologiesMarquee from '../components/TechnologiesMarquee'
 
 // ─────────────────────────────────────────────────────────────
 // SERVICES DATA — 7 services with clear, client-friendly descriptions
@@ -19,24 +21,25 @@ const SERVICES = [
     icon: TrendingUp,
     category: 'BUSINESS TECHNOLOGY SOLUTIONS',
     title: 'Digital Marketing',
-    headline: 'Targeted brand strategy, creative media, and performance ad campaigns.',
-    desc: 'Professional video production, product photography, social media management, and online advertising campaigns designed to build brand awareness and attract customers.',
+    headline: 'Grow Your Brand. Reach the Right Audience. Drive Real Results.',
+    desc: 'Turn online visibility into business growth with professional video making, poster designing, SEO, social media marketing, and targeted digital advertising.',
     img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90',
-    tags: ['Brand Strategy', 'Studio Video & Photo', 'Performance Ads', 'Social Growth'],
+    tags: ['Video Making', 'Poster & Creatives', 'SEO Optimization', 'Social & Ads'],
     grid: 'col-span-12 lg:col-span-7',
     height: 'h-[340px] sm:h-[400px]',
     detail: {
-      purpose: 'Help businesses attract qualified customers, build brand authority, and grow revenue through creative media production and targeted online advertising.',
+      purpose: 'At DASA TECH, we help businesses build a powerful digital presence and turn online visibility into meaningful business growth through creative content, strategic marketing, and technology.',
       provides: [
-        'Brand strategy, visual positioning & corporate identity guidelines',
-        'Studio product photography & promotional video production',
-        'Multi-platform social media management & audience engagement',
-        'Targeted performance advertising (Google Ads, Meta Ads & Retargeting)',
-        'Conversion optimization, landing page design & lead analytics'
+        'Video Making: Promotional, corporate, product videos, social reels & AI-powered creative videos',
+        'Poster & Creative Designing: Social media creatives, festival designs, product ads & branding materials',
+        'SEO – Search Engine Optimization: Keyword research, on-page, technical, local SEO & ranking audits',
+        'Social Media Marketing: Instagram, Facebook, LinkedIn, YouTube & Google Business Profile management',
+        'Digital Advertising: Targeted Google Ads, Meta Ads, lead generation & remarketing campaigns',
+        'Content Creation: Social media copy, website content, promotional copy, video scripts & ad descriptions'
       ],
-      technologies: ['Google Ads', 'Meta Business Suite', 'Video Production', 'Analytics', 'Social Channels'],
-      value: 'Stronger brand authority, consistent customer leads, and clear visibility into marketing results.',
-      cases: ['E-commerce product launch & promotional video campaigns', 'B2B enterprise lead generation', 'Local brand growth & map optimization']
+      technologies: ['Video Production', 'Creative Poster Design', 'Google & Meta Ads', 'SEO Tools', 'Social Channels'],
+      value: 'Reach the right audience, increase engagement, and generate consistent business opportunities.',
+      cases: ['Brand growth & multi-platform social management', 'Targeted performance ad campaigns (Google & Meta)', 'Professional video production & corporate brand commercials']
     }
   },
   {
@@ -192,17 +195,169 @@ const SERVICES = [
 ]
 
 // ─────────────────────────────────────────────────────────────
-// HOW WE WORK — 8 Process Phases (clean, jargon-free)
+// HOW WE WORK — 8 Process Phases (clean, client-oriented, rich engineering depth)
 // ─────────────────────────────────────────────────────────────
 const PROCESS_PHASES = [
-  { step: '01', phase: 'DISCOVER', title: 'Discovery',     desc: 'Map business goals, user needs, and project requirements', icon: Search },
-  { step: '02', phase: 'PLAN',     title: 'Architecture',  desc: 'System design, roadmap, and technology selection',       icon: Layout },
-  { step: '03', phase: 'DESIGN',   title: 'UI/UX Design',  desc: 'Interactive prototypes, design systems, and screen layouts', icon: Layers },
-  { step: '04', phase: 'DEVELOP',  title: 'Development',   desc: 'Software engineering executed in clear iterative phases',      icon: Code2 },
-  { step: '05', phase: 'INTEGRATE',title: 'Integration',   desc: 'Connecting APIs, third-party tools, and database pipelines',  icon: Settings },
-  { step: '06', phase: 'TEST',     title: 'QA & Testing',  desc: 'Quality assurance, security checks, and user testing',       icon: FlaskConical },
-  { step: '07', phase: 'DEPLOY',   title: 'Deployment',    desc: 'Smooth cloud launch with automated deployment procedures',         icon: Rocket },
-  { step: '08', phase: 'SUPPORT',  title: 'Support',       desc: 'Continuous monitoring, updates, and ongoing technical support',   icon: Headphones }
+  {
+    step: '01',
+    phase: 'DISCOVER',
+    title: 'Discovery & Requirements',
+    tagline: 'Stakeholder Alignment & Technical PRD',
+    desc: 'Deep discovery sessions to map operational goals, user workflows, compliance needs, and project milestones before writing a single line of code.',
+    deliverable: 'Technical PRD & Scope Matrix',
+    metric: '100% Scope Feasibility',
+    milestones: [
+      'Stakeholder discovery interviews & operational workflow mapping',
+      'User personas, end-to-end journey maps & edge cases',
+      'Compliance verification (GDPR/HIPAA) & risk mitigation strategy'
+    ],
+    previewType: 'prd',
+    stage: '01',
+    icon: Search,
+    color: '#7C3AED',
+    lightBg: '#F5F3FF',
+    badgeBorder: '#DDD6FE'
+  },
+  {
+    step: '02',
+    phase: 'ARCHITECT',
+    title: 'Architecture & Tech Stack',
+    tagline: 'Scalable PostgreSQL & Cloud Topology',
+    desc: 'Designing scalable PostgreSQL/NoSQL schemas, microservice boundaries, security RBAC layers, and selecting high-concurrency frameworks.',
+    deliverable: 'Database ERD & Architecture Blueprint',
+    metric: 'Sub-millisecond Query Indexing',
+    milestones: [
+      'Normalized PostgreSQL schemas, indexing strategy & ACID isolation',
+      'Stateless microservice boundaries & high-throughput API contracts',
+      'Multi-zone cloud topology eliminating single-point-of-failures'
+    ],
+    previewType: 'architecture',
+    stage: '02',
+    icon: Layout,
+    color: '#2563EB',
+    lightBg: '#EFF6FF',
+    badgeBorder: '#BFDBFE'
+  },
+  {
+    step: '03',
+    phase: 'DESIGN',
+    title: 'Interactive UI/UX Prototyping',
+    tagline: 'Atomic Design Tokens & 60fps Clickable Prototypes',
+    desc: 'Crafting responsive, human-centered interfaces in Figma with atomic design tokens, fluid micro-animations, and high-fidelity clickable mockups.',
+    deliverable: 'Interactive Figma 60fps Prototype',
+    metric: '60fps Micro-Animations',
+    milestones: [
+      'Atomic component design system with dark/light design tokens',
+      'High-fidelity responsive layouts across Mobile, Tablet & Desktop',
+      'Full clickable user flow prototype for client testing & sign-off'
+    ],
+    previewType: 'design',
+    stage: '03',
+    icon: Layers,
+    color: '#0D9488',
+    lightBg: '#F0FDFA',
+    badgeBorder: '#99F6E4'
+  },
+  {
+    step: '04',
+    phase: 'DEVELOP',
+    title: 'Agile Full-Stack Engineering',
+    tagline: '2-Week Sprints & Live Working Demos',
+    desc: 'Modular, clean software engineering executed in 2-week agile sprints with bi-weekly client demo sessions and transparent progress tracking.',
+    deliverable: 'Production-Grade Sprint Releases',
+    metric: '100% Strict TypeScript',
+    milestones: [
+      'Clean modular architecture with 100% strict TypeScript types',
+      'Test-driven development with unit and integration coverage',
+      'Bi-weekly live staging demos with direct client feedback loops'
+    ],
+    previewType: 'code',
+    stage: '04',
+    icon: Code2,
+    color: '#059669',
+    lightBg: '#ECFDF5',
+    badgeBorder: '#A7F3D0'
+  },
+  {
+    step: '05',
+    phase: 'INTEGRATE',
+    title: 'APIs, Gateways & Ecosystem Sync',
+    tagline: 'Payment, ERP, Hardware Telemetry & Webhooks',
+    desc: 'Connecting payment gateways, ERP systems, IoT hardware telemetry, third-party webhooks, and database pipelines with atomic ACID transactions.',
+    deliverable: 'Encrypted API Gateways & Connectors',
+    metric: 'Sub-20ms Webhook Latency',
+    milestones: [
+      'Stripe & Razorpay payment gateway orchestration with webhooks',
+      'Bidirectional ERP & CRM data synchronizers with conflict resolution',
+      'Industrial IoT telemetry ingestion via MQTT and WebSockets'
+    ],
+    previewType: 'integration',
+    stage: '05',
+    icon: Settings,
+    color: '#D97706',
+    lightBg: '#FFFBEB',
+    badgeBorder: '#FDE68A'
+  },
+  {
+    step: '06',
+    phase: 'TEST',
+    title: 'Automated QA & Security Audits',
+    tagline: 'Cypress Regression Suites & OWASP Verification',
+    desc: 'Rigorous automated Cypress regression suites, stress tests, OWASP penetration checks, and cross-browser reliability verification.',
+    deliverable: 'Zero-Defect Audit & Security Certificate',
+    metric: 'Zero Critical Vulnerabilities',
+    milestones: [
+      'Automated end-to-end Cypress & Playwright regression suites',
+      'Concurrency stress testing simulating 10,000+ simultaneous users',
+      'OWASP Top 10 security audits, SQLi and XSS vulnerability defense'
+    ],
+    previewType: 'qa',
+    stage: '06',
+    icon: FlaskConical,
+    color: '#EA580C',
+    lightBg: '#FFF7ED',
+    badgeBorder: '#FED7AA'
+  },
+  {
+    step: '07',
+    phase: 'DEPLOY',
+    title: 'Zero-Downtime Cloud Launch',
+    tagline: 'Automated CI/CD Blue-Green Infrastructure',
+    desc: 'Automated CI/CD container pipelines (Docker, AWS, Vercel), SSL/TLS security hardening, automated backups, and real-time health telemetry.',
+    deliverable: 'Live Production URL & Cloud Setup',
+    metric: 'Zero-Downtime Blue-Green Cutover',
+    milestones: [
+      'Containerized Docker CI/CD deployment with automated testing gate',
+      'Cloudflare Edge CDN caching & TLS/SSL A+ encryption grade',
+      'Automated instant rollback safety rails and health probes'
+    ],
+    previewType: 'deploy',
+    stage: '07',
+    icon: Rocket,
+    color: '#E11D48',
+    lightBg: '#FFF1F2',
+    badgeBorder: '#FECDD3'
+  },
+  {
+    step: '08',
+    phase: 'SUPPORT',
+    title: '24/7 Monitoring & SLA Evolution',
+    tagline: 'Continuous APM Telemetry & Instant Response',
+    desc: 'Continuous APM performance tracking, database optimization, proactive security patches, and dedicated engineering SLA response.',
+    deliverable: '24/7 SLA Dashboard & Maintenance',
+    metric: '99.99% Production Uptime',
+    milestones: [
+      'Real-time APM telemetry with automated threshold error alerts',
+      'Scheduled encrypted database backups every 6 hours',
+      'Dedicated Slack/WhatsApp engineering channel with guaranteed response'
+    ],
+    previewType: 'support',
+    stage: '08',
+    icon: Headphones,
+    color: '#4F46E5',
+    lightBg: '#EEF2FF',
+    badgeBorder: '#C7D2FE'
+  }
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -292,6 +447,9 @@ export default function ServicesPage() {
 
       {/* ── 5. HOW WE WORK ─────────────────────────────────── */}
       <HowWeWork />
+
+      {/* ── TECHNOLOGIES WE WORK WITH ──────────────────────── */}
+      <TechnologiesMarquee />
 
       {/* ── 6. CTA ─────────────────────────────────────────── */}
       <ServiceCTA />
@@ -855,19 +1013,23 @@ function OurCapabilities() {
 }
 
 // ─────────────────────────────────────────────────────────────
-// 5. HOW WE WORK — 4×2 grid, no images, typography-driven
+// 5. HOW WE WORK — Interactive Engineering Command Center & Roadmap
 // ─────────────────────────────────────────────────────────────
 function HowWeWork() {
+  const [activeStepIdx, setActiveStepIdx] = useState(0)
+  const [hoveredIdx, setHoveredIdx] = useState(null)
+
   return (
-    <section className="py-24 lg:py-32 bg-[#FAF8FF] border-t border-[#E9E2F5] select-none relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-gradient-to-b from-[#FAF8FF] via-[#F8F6FF] to-[#FAF8FF] border-t border-[#E9E2F5] select-none relative overflow-hidden">
 
-      {/* Ambient background glow */}
-      <div className="absolute top-1/3 right-1/4 w-[580px] h-[580px] bg-gradient-to-bl from-[#EDE9FE]/38 to-transparent rounded-full blur-3xl pointer-events-none" />
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 -left-32 w-[540px] h-[540px] bg-gradient-to-tr from-[#DDD6FE]/35 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-[540px] h-[540px] bg-gradient-to-bl from-[#EDE9FE]/40 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-12">
 
-        {/* Section header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 lg:mb-20">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-2">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -893,54 +1055,157 @@ function HowWeWork() {
           </motion.p>
         </div>
 
-        {/* 4×2 phase grid — gap-px creates the clean divider lines */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#E9E2F5] rounded-[24px] overflow-hidden border border-[#E9E2F5] shadow-sm">
-          {PROCESS_PHASES.map((phase, idx) => {
-            const IconComp = phase.icon
+        {/* Navigation Above: Connected Milestone Stepper Track (01 to 08) */}
+        <div className="bg-white/90 rounded-2xl p-5 border border-[#E9E2F5] shadow-xs backdrop-blur-sm overflow-x-auto scrollbar-none">
+          <div className="min-w-[760px] flex items-center justify-between relative">
+            {/* Horizontal Track Line */}
+            <div className="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-[3px] bg-[#E2E8F0] z-0 rounded-full" />
+            <div
+              className="absolute left-6 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#0D9488] z-0 rounded-full transition-all duration-500"
+              style={{
+                width: `${(activeStepIdx / (PROCESS_PHASES.length - 1)) * 95}%`
+              }}
+            />
+
+            {PROCESS_PHASES.map((p, idx) => {
+              const isActive = idx === activeStepIdx
+              const isPast = idx < activeStepIdx
+              const PhaseIcon = p.icon
+
+              return (
+                <button
+                  key={p.step}
+                  onClick={() => setActiveStepIdx(idx)}
+                  className="relative z-10 flex flex-col items-center gap-2 group cursor-pointer focus:outline-hidden"
+                >
+                  <div
+                    className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 font-mono font-bold text-xs shadow-xs ${
+                      isActive
+                        ? 'scale-115 ring-4 text-white shadow-md'
+                        : isPast
+                        ? 'bg-white text-[#6D28D9] border-2 border-[#DDD6FE]'
+                        : 'bg-white text-[#64748B] border border-[#E2E8F0] hover:border-[#CBD5E1]'
+                    }`}
+                    style={{
+                      backgroundColor: isActive ? p.color : '#FFFFFF',
+                      ringColor: isActive ? `${p.color}35` : 'transparent',
+                      color: isActive ? '#FFFFFF' : isPast ? p.color : '#64748B',
+                      borderColor: isActive ? p.color : isPast ? p.badgeBorder : undefined
+                    }}
+                  >
+                    <PhaseIcon className="w-4 h-4" />
+                  </div>
+                  <div className="text-center">
+                    <span className="block font-mono text-[9px] font-bold text-[#94A3B8]">
+                      {p.step}
+                    </span>
+                    <span
+                      className={`text-[10px] font-mono font-bold uppercase tracking-wider transition-colors ${
+                        isActive ? 'text-[#17131F]' : 'text-[#64748B] group-hover:text-[#17131F]'
+                      }`}
+                      style={{ color: isActive ? p.color : undefined }}
+                    >
+                      {p.phase}
+                    </span>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Navigation Below: 8-Phase Interactive Horizontal Cards Strip */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+          {PROCESS_PHASES.map((p, idx) => {
+            const isSelected = idx === activeStepIdx
+            const StepIcon = p.icon
 
             return (
-              <motion.div
-                key={phase.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.08 }}
-                transition={{
-                  duration: 0.5,
-                  delay: (idx % 4) * 0.07,
-                  ease: [0.16, 1, 0.3, 1]
+              <button
+                key={p.step}
+                onClick={() => setActiveStepIdx(idx)}
+                className={`p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer flex flex-col justify-between h-[155px] relative overflow-hidden ${
+                  isSelected
+                    ? 'bg-white shadow-lg border-2 -translate-y-1'
+                    : 'bg-white/80 hover:bg-white border border-[#E9E2F5] hover:border-[#DDD6FE] shadow-xs'
+                }`}
+                style={{
+                  borderColor: isSelected ? p.color : undefined
                 }}
-                className="group bg-white hover:bg-[#F7F3FF] transition-colors duration-300 p-6 lg:p-8 space-y-5 relative"
               >
-                {/* Step number */}
-                <span className="font-mono text-[11px] font-bold text-[#CBD5E1] tracking-[0.2em] block">
-                  {phase.step}
-                </span>
-
-                {/* Icon + phase label */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#F7F3FF] group-hover:bg-white text-[#6D28D9] flex items-center justify-center transition-all duration-300 border border-[#E9E2F5] group-hover:border-[#DDD0FF] group-hover:shadow-sm shrink-0">
-                    <IconComp className="w-4 h-4" />
+                {/* Step number badge */}
+                <div className="flex items-center justify-between">
+                  <div
+                    className="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-xs transition-colors"
+                    style={{
+                      backgroundColor: isSelected ? p.color : p.lightBg,
+                      color: isSelected ? '#FFFFFF' : p.color
+                    }}
+                  >
+                    <StepIcon className="w-4 h-4" />
                   </div>
-                  <span className="text-[9px] font-mono font-bold text-[#6D28D9] uppercase tracking-[0.22em]">
-                    {phase.phase}
+                  <span className="font-mono text-xs font-bold text-[#94A3B8]">
+                    {p.step}
                   </span>
                 </div>
 
-                {/* Title + description */}
-                <div className="space-y-1.5">
-                  <h3 className="font-display font-black text-lg text-[#0F172A] group-hover:text-[#6D28D9] transition-colors duration-200 leading-tight">
-                    {phase.title}
-                  </h3>
-                  <p className="text-xs text-[#64748B] leading-relaxed font-medium">
-                    {phase.desc}
-                  </p>
+                {/* Title & Phase */}
+                <div className="space-y-1">
+                  <span
+                    className="text-[9px] font-mono font-bold uppercase tracking-wider block"
+                    style={{ color: p.color }}
+                  >
+                    {p.phase}
+                  </span>
+                  <h4 className="text-xs font-bold text-[#0F172A] leading-tight line-clamp-2">
+                    {p.title}
+                  </h4>
                 </div>
 
-                {/* Active indicator line at bottom — appears on hover */}
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#6D28D9] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-[24px]" />
-              </motion.div>
+                {/* Active Indicator Bar */}
+                {isSelected && (
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1 rounded-t-full"
+                    style={{ backgroundColor: p.color }}
+                  />
+                )}
+              </button>
             )
           })}
+        </div>
+
+        {/* Enterprise Delivery Assurance Strip */}
+        <div className="rounded-3xl bg-white/95 border border-[#E9E2F5] p-6 sm:p-8 shadow-sm backdrop-blur-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E9E2F5]/80">
+            {[
+              {
+                title: '100% IP & Code Ownership',
+                desc: 'Full Git repository, cloud credentials & intellectual property transfer upon project sign-off.'
+              },
+              {
+                title: 'Bi-Weekly Demo Cycles',
+                desc: 'Clickable live staging previews every 14 days with direct feedback integration before proceeding.'
+              },
+              {
+                title: 'Zero-Downtime Guarantee',
+                desc: 'Containerized CI/CD automated blue-green rollouts ensuring uninterrupted live service uptime.'
+              },
+              {
+                title: '24/7 SLA Engineering',
+                desc: 'Proactive APM error tracking, database maintenance, and dedicated urgent response windows.'
+              }
+            ].map((item, idx) => (
+              <div key={idx} className={`space-y-1.5 ${idx > 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''}`}>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6D28D9] shrink-0" />
+                  <h4 className="text-sm font-bold text-[#0F172A]">{item.title}</h4>
+                </div>
+                <p className="text-xs text-[#64748B] leading-relaxed pl-6">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

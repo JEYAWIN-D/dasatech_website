@@ -94,9 +94,8 @@ export default function IotSolutionsServiceView() {
             
             {/* Left Content */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFEDD5] border border-[#FDBA74] text-[#EA580C] text-xs font-mono font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#EA580C]" />
-                <span>FACTORY IOT &amp; WORKFLOW AUTOMATION</span>
+              <div className="text-xs font-bold uppercase tracking-wider text-[#EA580C]">
+                Factory IoT &amp; Machine Telemetry
               </div>
 
               <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#17121F] tracking-tight leading-[1.08]">

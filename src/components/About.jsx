@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
 import {
   Brain,
   Eye,
@@ -72,21 +72,8 @@ const ARCHITECTURE_FLOW = [
 ]
 
 export default function About() {
-  const sectionRef = useRef(null)
-  const [activeCapability, setActiveCapability] = useState(null)
-
-  // Scroll driven animation triggers
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start']
-  })
-
-  const visualScale = useTransform(scrollYProgress, [0.1, 0.4], [0.92, 1.0])
-  const visualOpacity = useTransform(scrollYProgress, [0.1, 0.35], [0.4, 1.0])
-
   return (
     <section
-      ref={sectionRef}
       id="about"
       className="relative text-white select-none"
     >
@@ -107,16 +94,15 @@ export default function About() {
             {/* Left Column: Distinctive Typography on Deep Violet */}
             <div className="lg:col-span-6 space-y-6">
               
-              {/* Eyebrow Chip */}
+              {/* Clean Section Lead */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6D28D9]/40 border border-[#A855F7]/40 text-xs font-mono font-bold text-[#E9D5FF]"
+                className="text-xs sm:text-sm font-semibold text-[#C084FC] tracking-wide uppercase"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#A855F7]" />
-                <span>DIGITAL SOLUTIONS PLATFORM</span>
+                About DASA Tech
               </motion.div>
 
               {/* Typography Hierarchy: Pure White & Gradient Text */}

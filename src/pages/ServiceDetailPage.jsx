@@ -781,9 +781,8 @@ export default function ServiceDetailPage() {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F3FF] border border-[#DDD0FF] text-[#6D28D9] text-xs font-mono font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#8B5CF6]" />
-                <span>{service.category}</span>
+              <div className="text-xs font-bold uppercase tracking-wider text-[#6D28D9]">
+                {service.category}
               </div>
 
               <h1 className="font-display font-black text-4xl sm:text-5xl text-[#17121F] tracking-tight leading-[1.12]">

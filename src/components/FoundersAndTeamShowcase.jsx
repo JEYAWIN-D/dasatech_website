@@ -20,7 +20,9 @@ import { Link } from './Router.jsx'
 
 // Local High-Definition 3D Character Avatars
 import jeyawin3d from '../assets/team-3d/jeyawin.jpg'
+import mithul3d from '../assets/team-3d/mithul.jpg'
 import arun3d from '../assets/team-3d/arun.jpg'
+import akash3d from '../assets/team-3d/akash.jpg'
 import priya3d from '../assets/team-3d/priya.jpg'
 import ramesh3d from '../assets/team-3d/ramesh.jpg'
 import divya3d from '../assets/team-3d/divya.jpg'
@@ -29,8 +31,10 @@ import nithin3d from '../assets/team-3d/nithin.jpg'
 import naveen3d from '../assets/team-3d/naveen.jpg'
 import kiran3d from '../assets/team-3d/kiran.jpg'
 import anand3d from '../assets/team-3d/anand.jpg'
+import karthick3d from '../assets/team-3d/karthick.jpg'
+import rubitha3d from '../assets/team-3d/rubitha.jpg'
 
-// Team & Family Members Dataset (10 Stylized 3D Avatars with Signature Live Actions)
+// Team & Family Members Dataset (Stylized 3D Avatars with Signature Live Actions)
 export const TEAM_MEMBERS = [
   {
     id: 'jeyawin',
@@ -52,6 +56,52 @@ export const TEAM_MEMBERS = [
     actionMessage: 'Enterprise Systems: Operational • 99.99% Architecture Uptime',
     actionType: 'executive',
     email: 'dasatechmu@gmail.com',
+    phone: '+91 76399 30148',
+    linkedin: 'https://www.linkedin.com/in/jeyawin-d/'
+  },
+  {
+    id: 'karthick',
+    name: 'Karthick',
+    verticalName: 'KARTHICK',
+    role: 'Director (Nexomatic)',
+    verticalTag: '*director',
+    badge: 'DIRECTOR & INDUSTRIAL AUTOMATION PARTNER',
+    badgeCategory: 'EXECUTIVE PARTNERSHIP',
+    skills: 'Automation • IoT • Hardware',
+    skillsList: ['Industrial Automation', 'IoT Architecture', 'Smart Factory Systems', 'Embedded Hardware', 'NFC Production Workflows', 'Robotics & PLC'],
+    specialty: 'Industrial Automation, Smart Factory Systems & Embedded IoT',
+    bio: 'Director at Nexomatic and strategic collaborator with DASA TECH. Leading intelligent industrial automation, smart robotics, and connected hardware solutions, bridging software architectures with physical production lines.',
+    image: karthick3d,
+    color: '#10B981',
+    deptColor: '#34D399',
+    propName: 'Industrial PLC Controller',
+    actionTitle: 'Factory Automation Sync',
+    actionMessage: '⚙️ Nexomatic Automation Core: Synced • PLC & Sensor Telemetry Active',
+    actionType: 'iot',
+    email: 'contact@nexomatic.in',
+    phone: '+91 76399 30148',
+    linkedin: 'https://nexomatic.in'
+  },
+  {
+    id: 'mithul',
+    name: 'Mithul Pranav K K',
+    verticalName: 'MITHUL',
+    role: 'Full Stack Developer',
+    verticalTag: '*full stack',
+    badge: 'FULL STACK SOFTWARE ENGINEER',
+    badgeCategory: 'ENGINEERING & ARCHITECTURE',
+    skills: 'React • Node.js • Cloud',
+    skillsList: ['React.js', 'Next.js', 'Node.js Core', 'Express.js', 'PostgreSQL', 'MongoDB', 'REST & GraphQL APIs', 'Tailwind CSS'],
+    specialty: 'Full Stack Web Architecture, Responsive UIs & High-Performance APIs',
+    bio: 'Specializing in end-to-end full stack software development, I architect scalable web applications, robust backend microservices, and modern responsive frontends. Focused on clean system design, fast database queries, and seamless user experiences from concept to cloud deployment.',
+    image: mithul3d,
+    color: '#0284C7',
+    deptColor: '#38BDF8',
+    propName: 'Full Stack IDE Terminal',
+    actionTitle: 'Compile Full-Stack Microservices',
+    actionMessage: '🚀 Full-Stack Cluster Synchronized • API Gateway & Frontend Active',
+    actionType: 'code',
+    email: 'mithul@dasatech.com',
     phone: '+91 76399 30148',
     linkedin: 'https://linkedin.com'
   },
@@ -75,6 +125,52 @@ export const TEAM_MEMBERS = [
     actionMessage: '🚀 Deploying React & Node.js Cluster • Build Passed in 240ms',
     actionType: 'code',
     email: 'arun@dasatech.com',
+    phone: '+91 76399 30148',
+    linkedin: 'https://linkedin.com'
+  },
+  {
+    id: 'akash',
+    name: 'Akash AR',
+    verticalName: 'AKASH',
+    role: 'Full Stack Developer',
+    verticalTag: '*full stack',
+    badge: 'FULL STACK SYSTEMS DEVELOPER',
+    badgeCategory: 'ENGINEERING & ARCHITECTURE',
+    skills: 'React • Node.js • Cloud',
+    skillsList: ['React.js', 'Next.js', 'Node.js', 'PostgreSQL', 'Express', 'Cloud APIs', 'Tailwind CSS', 'Docker'],
+    specialty: 'Full Stack Engineering, Scalable Web Applications & Cloud APIs',
+    bio: 'Focused on developing resilient full-stack web architectures, I engineer high-speed backend services, seamless database integrations, and elegant frontend interfaces designed for optimal performance and user engagement.',
+    image: akash3d,
+    color: '#2563EB',
+    deptColor: '#60A5FA',
+    propName: 'MacBook Pro & Cloud Suite',
+    actionTitle: 'Deploy Web & Cloud Services',
+    actionMessage: '🚀 Cloud Microservices Deployed • Database Connection Stable',
+    actionType: 'code',
+    email: 'akash@dasatech.com',
+    phone: '+91 76399 30148',
+    linkedin: 'https://linkedin.com'
+  },
+  {
+    id: 'rubitha',
+    name: 'Rubitha',
+    verticalName: 'RUBITHA',
+    role: 'Full-Stack Developer',
+    verticalTag: '*full stack',
+    badge: 'FULL STACK ARCHITECT & ENGINEER',
+    badgeCategory: 'ENGINEERING & ARCHITECTURE',
+    skills: 'Full Stack • Web • APIs',
+    skillsList: ['Scalable Web Apps', 'Frontend UI', 'Backend Architecture', 'React.js', 'Node.js Core', 'Database Optimization', 'High-Performance APIs', 'Clean Code'],
+    specialty: 'Scalable Web Applications, Frontend UI & Backend Architecture',
+    bio: 'Full-Stack Developer specialized in building scalable web applications from frontend UI to backend architecture. Passionate about translating complex business logic into clean, efficient, and high-performance code.',
+    image: rubitha3d,
+    color: '#E11D48',
+    deptColor: '#FB7185',
+    propName: 'Developer Tablet & Cloud Suite',
+    actionTitle: 'Deploy Web Architecture & Logic',
+    actionMessage: '🚀 Scalable Web Application Active • Clean Architecture & High Performance',
+    actionType: 'code',
+    email: 'rubitha@dasatech.com',
     phone: '+91 76399 30148',
     linkedin: 'https://linkedin.com'
   },
@@ -613,9 +709,8 @@ export default function FoundersAndTeamShowcase() {
             transition={{ duration: 0.6 }}
             className="space-y-3"
           >
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#C084FC] uppercase bg-purple-950/40 px-4 py-1.5 rounded-full border border-purple-500/30 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#A855F7]" />
-              <span>OUR FAMILY &amp; TEAM LEADERSHIP</span>
+            <div className="text-xs font-bold tracking-wider text-purple-400 uppercase">
+              Team Leadership
             </div>
             <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] via-[#C084FC] to-[#38BDF8]">Family</span>
@@ -669,7 +764,7 @@ export default function FoundersAndTeamShowcase() {
             ref={scrollContainerRef}
             className="w-full overflow-x-auto scrollbar-none scroll-smooth rounded-2xl"
           >
-            <div className="flex items-stretch min-w-[1950px] w-full h-[520px] sm:h-[580px] divide-x divide-white/10">
+            <div className="flex items-stretch min-w-[2350px] w-full h-[460px] sm:h-[510px] divide-x divide-white/10">
               
               {TEAM_MEMBERS.map((m, idx) => {
                 const isHovered = hoveredId === m.id
@@ -692,12 +787,12 @@ export default function FoundersAndTeamShowcase() {
                     }`}
                   >
                     {/* Full Height 3D Character Avatar Image (Head & Face fully preserved with zero clipping) */}
-                    <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#0a0d1f] flex items-end justify-center pt-12 sm:pt-14 pb-2">
+                    <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#0a0d1f] flex items-end justify-center">
                       <motion.img
                         animate={
                           isHovered
                             ? {
-                                scale: 1.04,
+                                scale: 1.05,
                                 y: 0
                               }
                             : { scale: 1, y: 0 }
@@ -705,12 +800,12 @@ export default function FoundersAndTeamShowcase() {
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         src={m.image}
                         alt={m.name}
-                        className={`w-full h-full max-h-[92%] object-contain object-bottom transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom ${
+                        className={`w-full h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom ${
                           isHovered
-                            ? 'filter-none opacity-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]'
+                            ? 'object-contain object-bottom filter-none opacity-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]'
                             : hasActiveHover
-                            ? 'grayscale opacity-25'
-                            : 'grayscale opacity-60'
+                            ? 'object-cover object-top grayscale opacity-25'
+                            : 'object-cover object-top grayscale opacity-60'
                         }`}
                       />
 
@@ -728,22 +823,8 @@ export default function FoundersAndTeamShowcase() {
                       }}
                     />
 
-                    {/* Top Vertical Tag (like grustl.com: *full stack, *front end, *qa lead) */}
-                    <div className="relative z-30 pt-4 px-4 flex items-center justify-between">
-                      <span
-                        className={`font-mono text-[10px] sm:text-[11px] font-bold tracking-wider lowercase transition-colors duration-300 ${
-                          isHovered ? 'text-[#C084FC] drop-shadow-[0_0_8px_#A855F7]' : 'text-slate-400'
-                        }`}
-                      >
-                        {m.verticalTag}
-                      </span>
-                      {isHovered && (
-                        <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse shadow-[0_0_8px_#00E5FF]" />
-                      )}
-                    </div>
-
-                    {/* Middle: Giant Bold Vertical Name Typography (like grustl.com) */}
-                    <div className="relative z-30 flex-1 flex items-center pl-4 sm:pl-6">
+                    {/* Middle: Giant Bold Vertical Name Typography (starts near top to fill height) */}
+                    <div className="relative z-30 flex-1 flex items-start pt-7 pl-4 sm:pl-6">
                       <div
                         className={`font-mono font-black uppercase tracking-[0.18em] transition-all duration-500 select-none ${
                           isHovered

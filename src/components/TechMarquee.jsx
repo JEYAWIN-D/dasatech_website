@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react'
-import { motion, useMotionValue, useAnimationFrame } from 'framer-motion'
+import React from 'react'
 import { Pill, GraduationCap, Factory, Boxes, Camera, ShoppingCart } from 'lucide-react'
 
 const PROJECTS_SHOWCASE = [
@@ -21,11 +20,11 @@ const PROJECTS_SHOWCASE = [
   },
   {
     id: 'factorysync',
-    name: 'FactorySync Industrial Automation',
+    name: 'IoT Factory Automation',
     tagline: 'Smart Factory & Production Tracking',
     image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=85',
     icon: Factory,
-    badge: 'INDUSTRIAL AUTOMATION'
+    badge: 'IOT AUTOMATION'
   },
   {
     id: 'wareflex',
@@ -56,84 +55,38 @@ const PROJECTS_SHOWCASE = [
 const INFINITE_ITEMS = [...PROJECTS_SHOWCASE, ...PROJECTS_SHOWCASE, ...PROJECTS_SHOWCASE]
 
 export default function TechMarquee() {
-  const [hoveredIdx, setHoveredIdx] = useState(null)
-  const marqueeRef = useRef(null)
-  const x = useMotionValue(0)
-  const speed = 0.055 // Smooth pixel speed per ms
-
-  // Continuous animation loop via requestAnimationFrame
-  useAnimationFrame((time, delta) => {
-    if (hoveredIdx !== null) return
-
-    let currentX = x.get() - speed * delta
-    
-    // Wrap around calculation for seamless 3-set infinite loop
-    const container = marqueeRef.current
-    if (container) {
-      const oneSetWidth = container.scrollWidth / 3
-      if (oneSetWidth > 0 && Math.abs(currentX) >= oneSetWidth) {
-        currentX += oneSetWidth
-      }
-    }
-    x.set(currentX)
-  })
-
   return (
     <section className="w-full py-6 bg-white border-y border-[#E9E2F5] overflow-hidden relative select-none z-20">
       
       {/* Marquee Track Container */}
-      <div
-        className="w-full overflow-hidden relative py-3"
-        onMouseLeave={() => setHoveredIdx(null)}
-      >
-        <motion.div
-          ref={marqueeRef}
-          className="flex items-center gap-6 w-max py-1"
-          style={{ x }}
-        >
+      <div className="w-full overflow-hidden relative py-3">
+        <div className="animate-marquee flex items-center gap-6 w-max py-1">
           {INFINITE_ITEMS.map((item, idx) => {
             const Icon = item.icon
-            const isHovered = hoveredIdx === idx
 
             return (
-              <motion.div
+              <div
                 key={`${item.id}-${idx}`}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
-                animate={{
-                  scale: isHovered ? 1.03 : 1,
-                  y: isHovered ? -3 : 0
-                }}
-                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex items-center gap-4 p-3.5 pr-6 rounded-2xl transition-all duration-300 shrink-0 cursor-pointer group ${
-                  isHovered
-                    ? 'bg-white border-2 border-[#6C2BD9] shadow-lg'
-                    : 'bg-[#F5F0FF]/60 border border-[#E9E2F5] hover:border-[#6C2BD9] shadow-2xs'
-                }`}
+                className="flex items-center gap-4 p-3.5 pr-6 rounded-2xl transition-all duration-300 shrink-0 cursor-pointer group bg-[#F5F0FF]/60 border border-[#E9E2F5] hover:border-[#6C2BD9] hover:bg-white hover:shadow-lg hover:-translate-y-0.5 shadow-2xs"
               >
                 {/* Big Image Thumbnail */}
                 <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#E9E2F5] bg-slate-900">
                   <img
                     src={item.image}
                     alt={item.name}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className={`absolute inset-0 transition-colors ${
-                    isHovered ? 'bg-transparent' : 'bg-[#6C2BD9]/15'
-                  }`} />
+                  <div className="absolute inset-0 bg-[#6C2BD9]/15 group-hover:bg-transparent transition-colors" />
                 </div>
 
                 {/* Logo Icon & Text */}
                 <div className="flex flex-col text-left">
                   <div className="flex items-center gap-2">
-                    <div className={`p-1 rounded-md transition-colors ${
-                      isHovered ? 'bg-[#6C2BD9] text-white' : 'bg-[#6C2BD9]/90 text-white'
-                    }`}>
+                    <div className="p-1 rounded-md bg-[#6C2BD9]/90 group-hover:bg-[#6C2BD9] text-white transition-colors">
                       <Icon className="w-3.5 h-3.5" />
                     </div>
-                    <span className={`font-display font-black text-base transition-colors leading-tight ${
-                      isHovered ? 'text-[#6C2BD9]' : 'text-[#17121F]'
-                    }`}>
+                    <span className="font-display font-black text-base leading-tight text-[#17121F] group-hover:text-[#6C2BD9] transition-colors">
                       {item.name}
                     </span>
                   </div>
@@ -143,19 +96,16 @@ export default function TechMarquee() {
                 </div>
 
                 {/* Badge Tag */}
-                <span className={`ml-3 text-[10px] font-mono font-bold px-3 py-1 rounded-full border uppercase tracking-wider transition-colors ${
-                  isHovered
-                    ? 'bg-[#6C2BD9] text-white border-[#6C2BD9]'
-                    : 'bg-white text-[#6C2BD9] border-[#DDD0FF]'
-                }`}>
+                <span className="ml-3 text-[10px] font-mono font-bold px-3 py-1 rounded-full border uppercase tracking-wider transition-colors bg-white text-[#6C2BD9] border-[#DDD0FF] group-hover:bg-[#6C2BD9] group-hover:text-white group-hover:border-[#6C2BD9]">
                   {item.badge}
                 </span>
-              </motion.div>
+              </div>
             )
           })}
-        </motion.div>
+        </div>
       </div>
 
     </section>
   )
 }
+

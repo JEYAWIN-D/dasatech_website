@@ -1,180 +1,175 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { Mail, Phone, Sparkles, MapPin, ShieldCheck, ArrowRight } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
 import { Link } from './Router'
-import PillButton from './PillButton'
-
-function AnimatedFooterLink({ to, children }) {
-  return (
-    <li>
-      <Link to={to} className="inline-block group">
-        <motion.span
-          whileHover={{ x: 3 }}
-          transition={{ type: 'spring', stiffness: 320, damping: 20 }}
-          className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#C084FC] transition-colors"
-        >
-          <span>{children}</span>
-        </motion.span>
-      </Link>
-    </li>
-  )
-}
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="relative bg-gradient-to-b from-[#0A0D18] via-[#090C16] to-[#05070E] border-t border-white/10 pt-20 pb-12 text-slate-300 overflow-hidden select-none">
-      
-      {/* Subtle Purple-Blue Ambient Sheen */}
-      <div 
-        className="absolute top-0 inset-x-0 h-[280px] pointer-events-none opacity-40 z-0"
-        style={{
-          background: 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(124, 58, 237, 0.22), transparent 75%)'
-        }}
-      />
-
-      {/* Subtle Oversized "DASA TECH" Watermark */}
-      <div className="absolute inset-x-0 bottom-4 pointer-events-none text-center font-orbitron font-black text-[9rem] sm:text-[14rem] md:text-[17rem] lg:text-[20rem] text-white/[0.02] tracking-widest leading-none select-none z-0">
-        DASA TECH
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 relative z-10">
+    <footer className="bg-[#080D1A] text-slate-400 border-t border-white/10 pt-16 pb-10 select-none">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
         
-        {/* Top CTA Row */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-14 border-b border-white/10">
-          <div className="max-w-2xl space-y-2">
-            <div className="inline-flex items-center gap-2 text-[#C084FC] font-mono text-xs uppercase font-bold tracking-widest">
-              <Sparkles className="w-3.5 h-3.5 text-[#A855F7]" />
-              <span>Technology That Solves Real Problems</span>
-            </div>
-            <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-              Ready to engineer your next platform?
-            </h3>
-            <p className="text-slate-300 text-sm sm:text-base font-normal">
-              Schedule a technical discovery session with our engineering leadership to review specifications and timelines.
-            </p>
-          </div>
-
-          <PillButton
-            to="/contact"
-            variant="primary"
-            arrow="up-right"
-            size="lg"
-          >
-            Start Project Discussion
-          </PillButton>
-        </div>
-
-        {/* 4 Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14">
+        {/* 4 Clean Columns matching reference design exactly */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
           
-          {/* Col 1: Brand & Verified Contact Info */}
-          <div className="space-y-4">
-            <Link to="/" className="inline-flex flex-col items-start gap-1.5 select-none group">
+          {/* Column 1: DASA TECH Brand & Bio (Span 4) */}
+          <div className="lg:col-span-4 space-y-5">
+            <Link to="/" className="inline-block">
               <img
                 src="/dasa-wordmark.png"
-                alt="DASA"
-                className="h-8 sm:h-9 w-auto object-contain"
+                alt="DASA TECH"
+                className="h-8 w-auto object-contain"
               />
-              <div className="flex items-center gap-1.5 text-[8px] sm:text-[8.5px] font-mono tracking-[0.16em] text-slate-200 uppercase font-semibold">
-                <span>TECHNOLOGY</span>
-                <span className="text-[#0066FF] font-bold">•</span>
-                <span>INNOVATION</span>
-                <span className="text-[#00C5B5] font-bold">•</span>
-                <span>FUTURE</span>
-              </div>
-              <div className="text-[7.5px] font-mono tracking-[0.2em] text-indigo-300/80 uppercase font-medium">
-                DASA IS THE SOLUTION
-              </div>
             </Link>
 
-            <p className="text-xs text-slate-300 leading-relaxed font-normal">
-              Engineering proprietary ERP software, real-time AI computer vision, industrial workflow automation, and enterprise cloud solutions.
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-normal">
+              Engineering proprietary enterprise software, real-time AI computer vision, industrial workflow automation, and tailored digital solutions.
             </p>
 
-            <div className="pt-2 space-y-2.5 text-xs font-mono">
-              <a href="mailto:dasatechmu@gmail.com" className="flex items-center gap-2.5 text-slate-200 hover:text-[#C084FC] transition">
-                <Mail className="w-4 h-4 text-[#A855F7] shrink-0" />
-                <span>dasatechmu@gmail.com</span>
+            {/* Social Pill Icons */}
+            <div className="flex items-center gap-3 pt-1">
+              <a
+                href="https://www.linkedin.com/in/jeyawin-d/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#0A66C2] text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-xs"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
               </a>
-              <a href="tel:+917639930148" className="flex items-center gap-2.5 text-slate-200 hover:text-[#C084FC] transition">
-                <Phone className="w-4 h-4 text-[#A855F7] shrink-0" />
-                <span>+91 76399 30148</span>
+              <a
+                href="mailto:dasatechmu@gmail.com"
+                aria-label="Email"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#6D28D9] text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-xs"
+              >
+                <Mail className="w-3.5 h-3.5" />
               </a>
-              <div className="flex items-center gap-2.5 text-slate-300">
-                <MapPin className="w-4 h-4 text-[#A855F7] shrink-0" />
+            </div>
+          </div>
+
+          {/* Column 2: SERVICES (Span 3) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">
+              SERVICES
+            </h4>
+            <ul className="space-y-3 text-sm font-normal">
+              <li>
+                <Link to="/services/custom-erp" className="hover:text-white transition-colors duration-200">
+                  Custom ERP Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ai-solutions" className="hover:text-white transition-colors duration-200">
+                  AI &amp; Computer Vision
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/iot-solutions" className="hover:text-white transition-colors duration-200">
+                  Industrial Automation
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/web-mobile" className="hover:text-white transition-colors duration-200">
+                  Web &amp; Mobile Apps
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/software-development" className="hover:text-white transition-colors duration-200">
+                  Cloud &amp; DevOps
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/digital-marketing" className="hover:text-white transition-colors duration-200">
+                  Digital Marketing
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: COMPANY (Span 2) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">
+              COMPANY
+            </h4>
+            <ul className="space-y-3 text-sm font-normal">
+              <li>
+                <Link to="/about" className="hover:text-white transition-colors duration-200">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors duration-200">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/products" className="hover:text-white transition-colors duration-200">
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects" className="hover:text-white transition-colors duration-200">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="hover:text-white transition-colors duration-200">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-white transition-colors duration-200">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: CONTACT (Span 3) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="font-display font-bold text-sm text-white uppercase tracking-wider">
+              CONTACT
+            </h4>
+            <ul className="space-y-3.5 text-sm font-normal">
+              <li>
+                <a
+                  href="mailto:dasatechmu@gmail.com"
+                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <Mail className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="break-all">dasatechmu@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+917639930148"
+                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <Phone className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>+91 76399 30148</span>
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-slate-300">
+                <MapPin className="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" />
                 <span>Erode, Tamil Nadu, India</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Col 2: Developed Platforms */}
-          <div>
-            <div className="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4 flex items-center justify-between">
-              <span>Platforms</span>
-              <Link to="/products" className="text-[10px] text-[#C084FC] hover:text-white transition-colors">View All &rarr;</Link>
-            </div>
-            <ul className="space-y-2.5 text-xs font-display">
-              <AnimatedFooterLink to="/products/pharmacy-erp">Pharmacy ERP (MedFlow)</AnimatedFooterLink>
-              <AnimatedFooterLink to="/products/school-erp">EduCore Campus ERP</AnimatedFooterLink>
-              <AnimatedFooterLink to="/products/factory-erp">Factory Operations ERP</AnimatedFooterLink>
-              <AnimatedFooterLink to="/products/warehouse-erp">Warehouse System</AnimatedFooterLink>
-              <AnimatedFooterLink to="/products/snapshare-social">SnapFlow Studio AI</AnimatedFooterLink>
-              <AnimatedFooterLink to="/products/ecommerce-engine">CommerceEngine Store</AnimatedFooterLink>
+              </li>
             </ul>
-          </div>
-
-          {/* Col 3: Enterprise Solutions */}
-          <div>
-            <div className="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4 flex items-center justify-between">
-              <span>Solutions</span>
-              <Link to="/services" className="text-[10px] text-[#C084FC] hover:text-white transition-colors">View All &rarr;</Link>
-            </div>
-            <ul className="space-y-2.5 text-xs font-display">
-              <AnimatedFooterLink to="/services/digital-marketing">Digital Marketing</AnimatedFooterLink>
-              <AnimatedFooterLink to="/services/crm-solutions">CRM Solutions</AnimatedFooterLink>
-              <AnimatedFooterLink to="/services/custom-erp">Custom ERP Development</AnimatedFooterLink>
-              <AnimatedFooterLink to="/services/iot-solutions">Industrial Workflow Automation</AnimatedFooterLink>
-              <AnimatedFooterLink to="/services/business-automation">Business Automation</AnimatedFooterLink>
-              <AnimatedFooterLink to="/services/web-mobile">Web &amp; Mobile Development</AnimatedFooterLink>
-            </ul>
-          </div>
-
-          {/* Col 4: Company & Leadership */}
-          <div>
-            <div className="text-xs font-mono uppercase font-bold tracking-widest text-white mb-4">Company</div>
-            <ul className="space-y-2.5 text-xs font-display mb-6">
-              <AnimatedFooterLink to="/">Overview</AnimatedFooterLink>
-              <AnimatedFooterLink to="/about">About DASA TECH</AnimatedFooterLink>
-              <AnimatedFooterLink to="/projects">Project Case Studies</AnimatedFooterLink>
-              <AnimatedFooterLink to="/contact">Contact Leadership Team</AnimatedFooterLink>
-            </ul>
-
-            {/* Founder & CEO Card */}
-            <div className="p-4 rounded-2xl bg-[#130E26]/80 border border-[#A855F7]/30 backdrop-blur-md text-xs font-mono shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-[#6D28D9] via-[#A855F7] to-[#3B82F6]" />
-              <div className="text-[#C084FC] font-bold text-[10px] uppercase tracking-wider mb-1 flex items-center justify-between">
-                <span>Founder &amp; CEO</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              </div>
-              <div className="text-white font-bold text-sm font-display">Jeyawin D</div>
-              <div className="text-slate-300 text-[11px] mt-0.5">+91 76399 30148</div>
-            </div>
           </div>
 
         </div>
 
-        {/* Bottom Copyright Strip */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-300">
-          <div>
-            &copy; {new Date().getFullYear()} DASA TECH. All Rights Reserved. Established in 2025.
-          </div>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-mono">
-            <Link to="/privacy" className="hover:text-[#C084FC] transition">Privacy &amp; Data Protection</Link>
-            <span className="text-white/20 hidden sm:inline">&bull;</span>
-            <Link to="/terms" className="hover:text-[#C084FC] transition">Master Services Agreement</Link>
-            <span className="text-white/20 hidden sm:inline">&bull;</span>
-            <Link to="/security" className="hover:text-[#C084FC] transition">Security &amp; Trust Center</Link>
-          </div>
+        {/* Bottom Centered Copyright Bar matching reference exactly */}
+        <div className="border-t border-white/10 pt-8 text-center text-xs text-slate-400 font-normal">
+          <p>
+            &copy; {currentYear} DASA TECH. All rights reserved.{' '}
+            <Link to="/privacy" className="hover:text-white underline underline-offset-4 transition-colors">
+              Privacy Policy
+            </Link>
+            {' '}&amp;{' '}
+            <Link to="/terms" className="hover:text-white underline underline-offset-4 transition-colors">
+              Terms of Services
+            </Link>
+          </p>
         </div>
 
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Sparkles,
@@ -7,144 +7,273 @@ import {
   Users,
   Building2,
   Radio,
-  Zap
+  Zap,
+  CheckCircle2
 } from 'lucide-react'
 import { Link } from './Router.jsx'
 
 export const SERVICES_LIST = [
   {
-    id: 'digital-marketing',
-    title: 'Digital Marketing',
-    category: 'BUSINESS TECHNOLOGY SOLUTIONS',
-    icon: TrendingUp,
-    headline: 'Data-driven campaigns for global reach.',
-    desc: 'Search engine optimization (SEO), targeted online ads, social media management, and lead generation.',
-    tags: ['SEO Optimization', 'Targeted Ads', 'Lead Generation'],
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90',
-    link: '/services/digital-marketing'
-  },
-  {
-    id: 'crm-solutions',
-    title: 'CRM Solutions',
-    category: 'BUSINESS TECHNOLOGY SOLUTIONS',
-    icon: Users,
-    headline: 'Unified customer lifecycle management.',
-    desc: 'Organized customer management, automated sales tracking, customer insights, and multi-channel support.',
-    tags: ['Lead Tracking', 'Sales Analytics', 'Customer Support'],
-    img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=90',
-    link: '/services/crm-solutions'
-  },
-  {
     id: 'custom-erp',
-    title: 'Custom ERP',
-    category: 'BUSINESS TECHNOLOGY SOLUTIONS',
+    title: 'Custom ERP Development',
+    category: 'ENTERPRISE PLATFORMS',
     icon: Building2,
-    headline: 'Tailored core modules for complex business ops.',
-    desc: 'All-in-one business software linking inventory across branches, staff payroll, billing, and core operations.',
-    tags: ['Multi-Branch Sync', 'Inventory System', 'HR & Payroll'],
+    headline: 'Tailored core modules for complex operations.',
+    desc: 'All-in-one business software linking inventory across branches, staff payroll, automated billing, and live management dashboards.',
+    tags: ['Multi-Branch Sync', 'Inventory Control', 'POS Billing', 'Tax Invoicing'],
     img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=90',
-    link: '/services/custom-erp'
+    link: '/services/custom-erp',
+    featured: true
   },
   {
     id: 'industrial-workflow-automation',
     title: 'Industrial Workflow Automation',
-    category: 'BUSINESS TECHNOLOGY SOLUTIONS',
+    category: 'SMART FACTORY',
     icon: Radio,
     headline: 'Automated order handling and work execution.',
     desc: 'Connect factory operations to receive orders through smart NFC systems and automate the complete workflow from order handling to work execution.',
-    tags: ['Order Handling', 'NFC Workflows', 'Automated Execution'],
+    tags: ['Order Handling', 'NFC Smart Tags', 'Shop-Floor Tracking', 'Automated Execution'],
     img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90',
-    link: '/services/iot-solutions'
+    link: '/services/iot-solutions',
+    featured: true
+  },
+  {
+    id: 'crm-solutions',
+    title: 'CRM Solutions',
+    category: 'CUSTOMER LIFECYCLE',
+    icon: Users,
+    headline: 'Unified customer tracking & automated sales.',
+    desc: 'Organized customer pipelines, automated WhatsApp and email communications, and complete customer activity history.',
+    tags: ['Lead Tracking', 'WhatsApp Automation', 'Sales Pipelines'],
+    img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=90',
+    link: '/services/crm-solutions',
+    featured: false
+  },
+  {
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    category: 'GROWTH & MEDIA',
+    icon: TrendingUp,
+    headline: 'Grow Your Brand. Reach the Right Audience.',
+    desc: 'Professional video making, poster designing, SEO, social media marketing, and targeted advertising tailored to your business goals.',
+    tags: ['Video Making', 'Poster Design', 'SEO', 'Digital Ads'],
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90',
+    link: '/services/digital-marketing',
+    featured: false
   },
   {
     id: 'business-automation',
     title: 'Business Automation',
-    category: 'BUSINESS TECHNOLOGY SOLUTIONS',
+    category: 'WORKFLOW ENGINES',
     icon: Zap,
-    headline: 'Automated workflow engines and document processing.',
-    desc: 'Automated business workflows, document scanning, instant notification triggers, and digital processing.',
-    tags: ['Automated Workflows', 'Document Scanning', 'Task Schedulers'],
+    headline: 'Automated document processing & system sync.',
+    desc: 'Automate daily routine tasks, multi-step management approvals, document scanning, and real-time database sync.',
+    tags: ['Task Approvals', 'Document Scanning', 'System Sync'],
     img: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=1200&q=90',
-    link: '/services/business-automation'
+    link: '/services/business-automation',
+    featured: false
   }
 ]
 
 export default function ServicesJourney() {
+  const featuredServices = SERVICES_LIST.filter((s) => s.featured)
+  const regularServices = SERVICES_LIST.filter((s) => !s.featured)
+
   return (
-    <section className="py-14 lg:py-20 bg-white text-[#17131F] relative overflow-hidden border-t border-[#E9E2F5] select-none">
+    <section className="py-20 lg:py-28 bg-[#FAF8FF] text-[#17131F] relative overflow-hidden border-t border-[#E9E2F5] select-none">
       
       {/* Soft Ambient Background Accents */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-r from-[#EDE9FE]/30 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-r from-[#EDE9FE]/40 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-l from-[#FAF5FF] to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-10 lg:space-y-12">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-12">
         
-        {/* Section Header with Inside -> Outside Scale Reveal */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.93, y: 25 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>BUSINESS TECHNOLOGY SOLUTIONS</span>
-          </div>
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17131F] tracking-tight leading-[1.18] pb-1">
-            Business Technology{' '}
-            <span className="text-color-shift">Solutions.</span>
-          </h2>
-          <p className="text-[#64748B] text-base leading-relaxed font-normal">
-            Explore our core solutions — Digital Marketing, CRM Solutions, Custom ERP, Industrial Workflow Automation, and Business Automation — engineered to transform operations and drive business growth.
-          </p>
-        </motion.div>
+        {/* Section Header with Clean Hierarchy */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-2xl space-y-3"
+          >
+            <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+              Technology Solutions
+            </div>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17131F] tracking-tight leading-[1.18]">
+              Business Technology{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] via-[#8B5CF6] to-[#A855F7]">
+                Solutions.
+              </span>
+            </h2>
+            <p className="text-[#64748B] text-base sm:text-lg leading-relaxed font-normal">
+              Explore our core solutions — Custom ERP, Industrial Workflow Automation, CRM, Digital Marketing, and Business Automation — engineered to transform operations and drive sustainable growth.
+            </p>
+          </motion.div>
 
-        {/* ── THE INTERACTIVE SERVICE JOURNEY SPINE (CONTINUOUS ALTERNATING LEFT → RIGHT LAYOUT) ── */}
-        <div className="relative pt-4">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#DDD0FF] text-[#6D28D9] font-display font-bold text-xs sm:text-sm hover:bg-[#6D28D9] hover:text-white transition-all shadow-xs hover:shadow-md self-start md:self-end shrink-0"
+          >
+            <span>View All Services</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* ── MODERN BENTO GRID (REPLACES THE AWKWARD ZIGZAG TIMELINE) ── */}
+        <div className="space-y-6 lg:space-y-8">
           
-          {/* Vertical Connecting Spine Line (Desktop) */}
-          <div className="hidden lg:block absolute left-1/2 top-8 bottom-12 w-1 bg-gradient-to-b from-[#6D28D9] via-[#A855F7] to-[#6D28D9] rounded-full opacity-35 -translate-x-1/2 pointer-events-none" />
-
-          {/* Vertical Connecting Spine Line (Mobile / Tablet) */}
-          <div className="lg:hidden absolute left-6 top-8 bottom-12 w-1 bg-gradient-to-b from-[#6D28D9] via-[#A855F7] to-[#6D28D9] rounded-full opacity-35 -translate-x-1/2 pointer-events-none" />
-
-          <div className="space-y-8 lg:space-y-12">
-            {SERVICES_LIST.map((service, idx) => {
+          {/* Row 1: Top 2 Featured Enterprise Solutions (Span 6 each) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            {featuredServices.map((service, idx) => {
               const IconComp = service.icon || Sparkles
-              // Continuous alternating left -> right pattern for all items
-              const isLeft = idx % 2 === 0
-
               return (
                 <motion.div
                   key={service.id}
-                  initial={{
-                    opacity: 1,
-                    x: 0,
-                    scale: 1
-                  }}
-                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.65, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative grid grid-cols-12 gap-8 items-center"
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:col-span-6 bg-white border border-[#E9E2F5] rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:border-[#6D28D9] transition-all duration-300 flex flex-col justify-between group"
                 >
-                  
-                  {/* Central Node Pulse Marker on Spine Line */}
-                  <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center">
-                    <div className="w-5 h-5 rounded-full bg-white border-4 border-[#6D28D9] shadow-lg shadow-[#6D28D9]/40 flex items-center justify-center" />
+                  {/* Top Image Banner */}
+                  <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-slate-900">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D18]/90 via-[#0A0D18]/40 to-transparent pointer-events-none" />
+
+                    {/* Top Badges */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                      <span className="text-[10px] font-mono font-bold text-white bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 uppercase tracking-wider">
+                        {service.category}
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-[#6D28D9] text-white flex items-center justify-center shadow-lg border border-white/20">
+                        <IconComp className="w-4 h-4" />
+                      </div>
+                    </div>
+
+                    {/* Image Overlay Title */}
+                    <div className="absolute bottom-5 left-6 right-6 z-10">
+                      <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight leading-tight">
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
 
-                  {/* Alternating Left or Right Column Placement */}
-                  <div
-                    className={`col-span-12 ${
-                      isLeft
-                        ? 'lg:col-span-6 lg:pr-10'
-                        : 'lg:col-span-6 lg:col-start-7 lg:pl-10'
-                    }`}
-                  >
-                    <ServiceJourneyNode service={service} IconComp={IconComp} />
+                  {/* Card Body */}
+                  <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow space-y-5">
+                    <div className="space-y-3">
+                      <p className="text-xs font-mono font-bold text-[#6D28D9] uppercase tracking-wider">
+                        {service.headline}
+                      </p>
+                      <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    <div className="space-y-4 pt-2">
+                      <div className="flex flex-wrap gap-2">
+                        {service.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[11px] font-mono font-bold text-slate-700 bg-[#F7F3FF] px-3 py-1 rounded-lg border border-[#DDD0FF]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <Link
+                          to={service.link}
+                          className="inline-flex items-center gap-2 font-display font-bold text-sm text-[#6D28D9] group-hover:translate-x-1 transition-transform"
+                        >
+                          <span>Explore Solution Architecture</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Row 2: 3 Specialized Growth Solutions (Span 4 each) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+            {regularServices.map((service, idx) => {
+              const IconComp = service.icon || Sparkles
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.6, delay: 0.15 + idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:col-span-4 bg-white border border-[#E9E2F5] rounded-3xl overflow-hidden shadow-xs hover:shadow-xl hover:border-[#6D28D9] transition-all duration-300 flex flex-col justify-between group"
+                >
+                  {/* Top Image Banner */}
+                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D18]/85 via-[#0A0D18]/30 to-transparent pointer-events-none" />
+
+                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
+                      <span className="text-[10px] font-mono font-bold text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
+                        {service.category}
+                      </span>
+                      <div className="w-8 h-8 rounded-lg bg-[#6D28D9] text-white flex items-center justify-center shadow-md border border-white/20">
+                        <IconComp className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-4 left-5 right-5 z-10">
+                      <h3 className="font-display font-black text-xl sm:text-2xl text-white tracking-tight leading-tight">
+                        {service.title}
+                      </h3>
+                    </div>
                   </div>
 
+                  {/* Card Body */}
+                  <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                    <div className="space-y-2.5">
+                      <p className="text-[11px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider">
+                        {service.headline}
+                      </p>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    <div className="space-y-4 pt-1">
+                      <div className="flex flex-wrap gap-1.5">
+                        {service.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] font-mono font-bold text-slate-700 bg-[#F7F3FF] px-2.5 py-1 rounded-md border border-[#DDD0FF]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <Link
+                          to={service.link}
+                          className="inline-flex items-center gap-1.5 font-display font-bold text-xs text-[#6D28D9] group-hover:translate-x-1 transition-transform"
+                        >
+                          <span>Explore Solution</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               )
             })}
@@ -155,128 +284,5 @@ export default function ServicesJourney() {
       </div>
 
     </section>
-  )
-}
-
-// ─────────────────────────────────────────────────────────────
-// REUSABLE SERVICE JOURNEY NODE (COMPACT & BOTTOM → TOP SLIDE REVEAL)
-// ─────────────────────────────────────────────────────────────
-function ServiceJourneyNode({ service, IconComp }) {
-  const [isHovered, setIsHovered] = useState(false)
-
-  return (
-    <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="group relative w-full h-[260px] sm:h-[300px] rounded-[20px] overflow-hidden border-2 border-[#E9E2F5] hover:border-[#6D28D9] bg-[#0F0B18] shadow-lg hover:shadow-xl hover:shadow-[#6D28D9]/20 transition-all duration-500 cursor-pointer"
-    >
-      {/* High-Resolution Background Image with Parallax Scale */}
-      <img
-        src={service.img}
-        alt={service.title}
-        className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
-          isHovered ? 'scale-108 opacity-80' : 'scale-100 opacity-90'
-        }`}
-      />
-
-      {/* Deep Dark Gradient Overlay for Maximum Heading Readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18]/95 via-[#0F0B18]/40 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#6D28D9]/25 via-transparent to-transparent pointer-events-none" />
-
-      {/* Top Header Row (Default Unhovered): Category Tag & Icon */}
-      <div
-        className={`absolute top-4 left-4 right-4 z-10 flex items-center justify-between transition-opacity duration-300 ${
-          isHovered ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
-      >
-        <span className="text-[10px] font-mono font-bold text-white bg-[#0F0B18]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 uppercase tracking-wider shadow-md">
-          {service.category}
-        </span>
-        <div className="w-9 h-9 rounded-xl bg-[#6D28D9] text-white flex items-center justify-center shadow-lg border border-[#A855F7]/40">
-          <IconComp className="w-4 h-4" />
-        </div>
-      </div>
-
-      {/* Default Bottom Heading (Unhovered State - Large, Clear & Readable) */}
-      <div
-        className={`absolute bottom-5 left-5 right-5 z-10 transition-all duration-300 ${
-          isHovered ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'
-        }`}
-      >
-        <div className="p-4 sm:p-4.5 rounded-2xl bg-[#0F0B18]/85 backdrop-blur-md border border-white/20 shadow-2xl flex items-center justify-between gap-4">
-          <div className="space-y-0.5">
-            <span className="text-[9px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block">
-              {service.category}
-            </span>
-            <h3 className="font-display font-black text-xl sm:text-2xl text-white tracking-tight leading-tight">
-              {service.title}
-            </h3>
-          </div>
-          <div className="w-9 h-9 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shadow-lg shrink-0 border border-[#A855F7]/40">
-            <ArrowRight className="w-4 h-4" />
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom → Top Smooth Content Overlay Reveal (Triggered on Hover) */}
-      <div
-        className={`absolute inset-x-0 bottom-0 top-auto z-20 transition-all duration-500 ease-out transform ${
-          isHovered
-            ? 'translate-y-0 opacity-100 pointer-events-auto'
-            : 'translate-y-full opacity-0 pointer-events-none'
-        }`}
-      >
-        <div className="p-5 sm:p-6 rounded-t-[24px] bg-white border-t-2 border-[#6D28D9] shadow-2xl space-y-3">
-          
-          {/* Header Row in Hover Overlay */}
-          <div className="flex items-center justify-between gap-2">
-            <div>
-              <span className="text-[9px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider block">
-                {service.category}
-              </span>
-              <h3 className="font-display font-black text-xl sm:text-2xl text-[#0F172A]">
-                {service.title}
-              </h3>
-            </div>
-            <div className="w-9 h-9 rounded-xl bg-[#6D28D9] text-white flex items-center justify-center shadow-md shrink-0">
-              <IconComp className="w-4 h-4" />
-            </div>
-          </div>
-
-          <p className="text-xs font-bold text-[#6D28D9]">
-            {service.headline}
-          </p>
-
-          <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-semibold">
-            {service.desc}
-          </p>
-
-          {/* Capability Tags */}
-          <div className="flex flex-wrap gap-1.5 pt-0.5">
-            {service.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] font-mono font-bold text-[#5B21B6] bg-[#F7F3FF] px-2.5 py-1 rounded-md border border-[#C4B5FD]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Direct Explore Service Link */}
-          <div className="pt-1">
-            <Link
-              to={service.link}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs shadow-md transition-all group/btn"
-            >
-              <span>Explore {service.title}</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
-            </Link>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
   )
 }

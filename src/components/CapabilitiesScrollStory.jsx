@@ -6,10 +6,12 @@ import {
   ChevronRight,
   Brain,
   Database,
+  Users,
   Radio,
   Globe,
   Cloud,
-  Zap
+  Zap,
+  TrendingUp
 } from 'lucide-react'
 import { Link } from './Router.jsx'
 
@@ -21,20 +23,31 @@ export const CORE_CAPABILITIES = [
     category: 'ARTIFICIAL INTELLIGENCE',
     desc: 'Smart AI tools, automated quality inspection, intelligent search, and decision support for your business.',
     tags: ['Computer Vision', 'Smart Search', 'AI Inspection', 'Automated Quality'],
-    img: 'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=90',
+    img: '/images/ai-computer-vision.jpg',
     link: '/services/ai-solutions',
     accent: '#6D28D9'
   },
   {
-    id: 'erp-engineering',
+    id: 'erp-solutions',
     icon: Database,
-    title: 'ERP Engineering',
+    title: 'ERP Solutions',
     category: 'ENTERPRISE PLATFORMS',
     desc: 'Custom all-in-one business software for managing inventory, billing, multi-branch stores, and daily operations.',
     tags: ['Pharmacy ERP', 'School ERP', 'Warehouse WMS', 'Multi-Branch Sync'],
     img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90',
     link: '/services/custom-erp',
     accent: '#7C3AED'
+  },
+  {
+    id: 'crm-solutions',
+    icon: Users,
+    title: 'CRM Solutions',
+    category: 'CUSTOMER RELATIONSHIP',
+    desc: 'Intelligent lead tracking, multi-channel customer communications, automated WhatsApp inquiries, and visual sales pipelines.',
+    tags: ['Lead Pipeline', 'WhatsApp Ingestion', 'Customer Radar', 'Sales Tracking'],
+    img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=90',
+    link: '/services/crm-solutions',
+    accent: '#D97706'
   },
   {
     id: 'industrial-workflow-automation',
@@ -79,6 +92,17 @@ export const CORE_CAPABILITIES = [
     img: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=1200&q=90',
     link: '/services/business-automation',
     accent: '#8B5CF6'
+  },
+  {
+    id: 'digital-marketing',
+    icon: TrendingUp,
+    title: 'Digital Marketing',
+    category: 'GROWTH & MEDIA',
+    desc: 'Professional video making, poster designing, SEO, social media marketing, and targeted advertising tailored to your business goals.',
+    tags: ['Video Production', 'Poster Design', 'SEO & Search', 'Targeted Ads'],
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90',
+    link: '/services/digital-marketing',
+    accent: '#6D28D9'
   }
 ]
 
@@ -129,9 +153,8 @@ export default function CapabilitiesScrollStory() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl space-y-4"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>CORE ENGINEERING CAPABILITIES</span>
+          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+            Core Engineering Capabilities
           </div>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17131F] tracking-tight leading-[1.18] pb-1">
             Engineering Technology Built for{' '}

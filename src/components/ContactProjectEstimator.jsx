@@ -110,9 +110,8 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
       {/* Clean, Minimalist Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-blue-600 uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>SELECT SOLUTIONS FOR YOUR INQUIRY</span>
+          <div className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+            Select Solutions for Your Inquiry
           </div>
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 font-display">
             Which software solutions are you interested in?

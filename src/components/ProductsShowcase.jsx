@@ -6,18 +6,18 @@ import { Link } from './Router.jsx'
 export const PRODUCTS_ITEMS = [
   {
     id: 'pharmacy-erp',
-    title: 'Pharmacy ERP',
+    title: 'DASA Pharmacy ERP',
     category: 'HEALTHCARE & PHARMA',
     headline: 'Complete pharmacy operations in one connected platform.',
     desc: 'Automated batch & expiry management, medicine compliance tracking, quick customer billing, and smart stock alerts.',
     tags: ['Batch Inventory', 'Regulated Drug Logs', 'Fast Billing'],
-    img: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=90',
+    img: '/images/dasa-pharmacy-erp.jpg',
     link: '/products/erp',
     flow: 'left'
   },
   {
     id: 'school-erp',
-    title: 'School & Campus ERP',
+    title: 'DASA School & Campus ERP',
     category: 'EDUCATION & CAMPUS',
     headline: 'Unified institutional management for modern academia.',
     desc: 'Complete school management system connecting student records, attendance, fee collection, and parent communication.',
@@ -28,7 +28,7 @@ export const PRODUCTS_ITEMS = [
   },
   {
     id: 'nfc-erp',
-    title: 'NFC Access & Asset ERP',
+    title: 'DASA NFC Access & Asset ERP',
     category: 'SMART CONTACTLESS',
     headline: 'Contactless identification and touchless operations.',
     desc: 'Tap-and-go staff attendance, digital security access passes, equipment tracking, and instant verification.',
@@ -39,7 +39,7 @@ export const PRODUCTS_ITEMS = [
   },
   {
     id: 'warehouse-wms',
-    title: 'Warehouse WMS Hub',
+    title: 'DASA Warehouse WMS Hub',
     category: 'LOGISTICS & SUPPLY CHAIN',
     headline: 'End-to-end inventory and depot control.',
     desc: 'Real-time warehouse layout tracking, smart stock dispatching, barcode scanning, and multi-location inventory control.',
@@ -50,7 +50,7 @@ export const PRODUCTS_ITEMS = [
   },
   {
     id: 'snapshare',
-    title: 'SnapShare Photography Studio',
+    title: 'DASA SnapShare Photography Studio',
     category: 'AI PHOTOGRAPHY & EVENT CRM',
     headline: 'AI-powered event photo distribution and studio CRM.',
     desc: '512D facial recognition photo search, dynamic QR guest galleries, digital contracts, and automated client delivery.',
@@ -61,7 +61,7 @@ export const PRODUCTS_ITEMS = [
   },
   {
     id: 'ecommerce',
-    title: 'Commerce Engine',
+    title: 'DASA Commerce Engine',
     category: 'DIGITAL COMMERCE',
     headline: 'High-concurrency storefronts engineered for scale.',
     desc: 'Custom online stores, smooth checkout experience, payment processing, and automatic inventory sync.',
@@ -72,7 +72,7 @@ export const PRODUCTS_ITEMS = [
   },
   {
     id: 'custom-apps',
-    title: 'Custom App Engineering',
+    title: 'DASA Custom App Engineering',
     category: 'APPLICATION ENGINEERING',
     headline: 'Bespoke mobile and web architectures.',
     desc: 'Custom mobile apps for iOS & Android, modern web apps, fast backend integrations, and secure cloud setups.',
@@ -103,9 +103,8 @@ export default function ProductsShowcase() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl space-y-3"
         >
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>PRODUCTS &amp; SOLUTIONS SHOWCASE</span>
+          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+            Products &amp; Solutions
           </div>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17131F] tracking-tight leading-[1.18] pb-1">
             Enterprise Platform Systems{' '}
@@ -120,11 +119,11 @@ export default function ProductsShowcase() {
         <div className="space-y-6 lg:space-y-8">
           
           {/* ========================================================= */}
-          {/* BAND 1: Left → Right Serpentine Flow (Pharmacy ERP + School ERP) */}
+          {/* BAND 1: Left → Right Serpentine Flow (DASA Pharmacy ERP + DASA School ERP) */}
           {/* ========================================================= */}
           <div className="grid grid-cols-12 gap-5 lg:gap-6 items-center">
             
-            {/* Tile 1: Pharmacy ERP (Dominant Left Anchor) */}
+            {/* Tile 1: DASA Pharmacy ERP (Dominant Left Anchor) */}
             <motion.div
               initial={{ opacity: 0, x: -40, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -135,7 +134,7 @@ export default function ProductsShowcase() {
               <ProductVisualTile item={PRODUCTS_ITEMS[0]} heightClass="h-[280px] sm:h-[320px]" />
             </motion.div>
 
-            {/* Tile 2: School & Campus ERP (Right Offset Elevation) */}
+            {/* Tile 2: DASA School & Campus ERP (Right Offset Elevation) */}
             <motion.div
               initial={{ opacity: 0, x: 40, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -150,11 +149,11 @@ export default function ProductsShowcase() {
 
 
           {/* ========================================================= */}
-          {/* BAND 2: Right → Left Serpentine Flow (NFC ERP + Warehouse WMS) */}
+          {/* BAND 2: Right → Left Reverse Serpentine Flow (DASA NFC + DASA Warehouse WMS) */}
           {/* ========================================================= */}
           <div className="grid grid-cols-12 gap-5 lg:gap-6 items-center">
             
-            {/* Tile 3: NFC Access & Asset ERP (Compact Left Feature) */}
+            {/* Tile 3: DASA NFC Access & Asset ERP (Left Offset Accent) */}
             <motion.div
               initial={{ opacity: 0, x: -35, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -165,7 +164,7 @@ export default function ProductsShowcase() {
               <ProductVisualTile item={PRODUCTS_ITEMS[2]} heightClass="h-[250px] sm:h-[290px]" />
             </motion.div>
 
-            {/* Tile 4: Warehouse WMS Hub (Dominant Right Anchor) */}
+            {/* Tile 4: DASA Warehouse WMS Hub (Dominant Right Anchor) */}
             <motion.div
               initial={{ opacity: 0, x: 35, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -180,11 +179,11 @@ export default function ProductsShowcase() {
 
 
           {/* ========================================================= */}
-          {/* BAND 3: 3-Column Triad Flow (SnapShare + Commerce + Custom Apps) */}
+          {/* BAND 3: 3-Column Triad Flow (DASA SnapShare + DASA Commerce + DASA Custom Apps) */}
           {/* ========================================================= */}
           <div className="grid grid-cols-12 gap-5 lg:gap-6 items-stretch">
             
-            {/* Tile 5: SnapShare Platform */}
+            {/* Tile 5: DASA SnapShare Platform */}
             <motion.div
               initial={{ opacity: 0, x: -30, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -195,7 +194,7 @@ export default function ProductsShowcase() {
               <ProductVisualTile item={PRODUCTS_ITEMS[4]} heightClass="h-[250px] sm:h-[290px]" />
             </motion.div>
 
-            {/* Tile 6: Commerce Engine */}
+            {/* Tile 6: DASA Commerce Engine */}
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -206,7 +205,7 @@ export default function ProductsShowcase() {
               <ProductVisualTile item={PRODUCTS_ITEMS[5]} heightClass="h-[250px] sm:h-[290px]" />
             </motion.div>
 
-            {/* Tile 7: Custom App Engineering */}
+            {/* Tile 7: DASA Custom App Engineering */}
             <motion.div
               initial={{ opacity: 0, x: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}

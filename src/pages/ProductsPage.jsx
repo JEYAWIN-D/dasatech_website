@@ -25,26 +25,76 @@ import { PRODUCT_DATA } from './ProductDetailPage'
 // PRODUCT CATALOG ORGANIZED BY 3 CORE CATEGORIES
 // ─────────────────────────────────────────────────────────────
 export const PRODUCTS_CATALOG = [
-  // 1. Smart Automation Solutions
+  // 1. Smart Automation Solutions (Referenced from Nexomatic.in 7 Industry Sectors)
   {
     id: 'home-automation',
     categoryGroup: 'Smart Automation Solutions',
     category: 'HOME AUTOMATION',
     name: 'DASA SmartHome Automation',
-    headline: 'Intelligent Residential Lighting, Climate & Biometric Access',
-    summary: 'Adaptive lighting scenes, multi-zone HVAC climate control, biometric door access, AI surveillance cameras, and local voice AI hub.',
-    tags: ['Smart Lighting', 'Biometric Access', 'Climate Control'],
+    headline: 'Intelligent Residential Lighting, Climate, Curtains & Offline Gateway',
+    summary: 'Centralized app and voice control for lights, fans, ACs, curtains, and security. 100% offline-first edge architecture and retrofit installation without wall hacking.',
+    tags: ['Offline Edge Gateway', 'Voice & Touch Keypads', 'Retrofit Ready'],
     img: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'hospital-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'HOSPITAL AUTOMATION',
+    name: 'DASA Hospital & Clinical Automation',
+    headline: 'Operation Theater Precision Climate, Nurse Call & Cleanroom Controls',
+    summary: 'Clinical-grade patient room environment, laminar OT precision temperature/humidity, medical gas line alarms, and wireless IP nurse call systems with instant audio intercom.',
+    tags: ['Nurse Call Telemetry', 'OT Cleanroom Climate', 'NABH Compliant'],
+    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'office-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'OFFICE AUTOMATION',
+    name: 'DASA Office & Workplace Automation',
+    headline: 'Smart Conference Rooms, Centralized HVAC & Occupancy Lighting',
+    summary: 'Commercial workplace intelligence: one-touch meeting room launch, occupancy and daylight harvesting, centralized AC scheduling, and IAQ indoor air quality monitoring.',
+    tags: ['Smart Meeting Rooms', 'Occupancy Lighting', 'Centralized HVAC'],
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'hotel-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'HOTEL AUTOMATION',
+    name: 'DASA Hotel Automation (GRMS)',
+    headline: 'Guest Room Management System (GRMS), Keyless Entry & Master Consoles',
+    summary: 'Luxury hospitality tech: automated welcome scenes, keyless mobile check-in, bedside capacitive touch master panels, DND/MUR indicators, and energy cut on vacancy.',
+    tags: ['GRMS System', 'Welcome Scenes', 'Bedside Master Glass'],
+    img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'industrial-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'INDUSTRIAL AUTOMATION',
+    name: 'DASA Industrial Automation & Plant Telemetry',
+    headline: 'Factory Floor Motor Management, Per-Machine Metering & Safety Interlocks',
+    summary: 'Heavy-duty industrial controls: motor and pump telemetry, per-machine energy metering, safety monitoring, light curtains, and PLC/SCADA integration.',
+    tags: ['Per-Machine Metering', 'PLC / SCADA', 'Safety Interlocks'],
+    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90'
   },
   {
     id: 'agri-automation',
     categoryGroup: 'Smart Automation Solutions',
-    category: 'AGRICULTURAL AUTOMATION',
+    category: 'AGRI AUTOMATION',
     name: 'DASA AgriSmart Automation',
-    headline: 'Precision Soil Moisture Telemetry & Wireless Solenoid Irrigation',
-    summary: 'Wireless soil moisture sensors, automated solenoid valve irrigation scheduling, weather forecast integration, and crop health telemetry.',
-    tags: ['Wireless Irrigation', 'Soil Moisture Telemetry', 'Crop Health'],
+    headline: 'Precision Soil Moisture Telemetry, Dry-Run Protection & Drip Control',
+    summary: 'Automated drip and micro-sprinkler irrigation, dry-run pump protection, multi-depth soil probes, and solar pump remote control via LoRaWAN.',
+    tags: ['Dry-Run Pump Protection', 'LoRaWAN Long-Range', 'Automated Fertigation'],
     img: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'cold-storage-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'COLD STORAGE AUTOMATION',
+    name: 'DASA Cold Storage & Refrigeration Automation',
+    headline: 'Multi-Zone Temperature Logging (-40°C), Peak Load Shedding & Gas Detection',
+    summary: 'Refrigeration energy management: multi-point data logging (-40°C to +15°C), per-freezer circuit metering, peak load shedding within safe limits, and ammonia leak alarms.',
+    tags: ['Sub-Zero Telemetry', 'Peak Load Shedding', 'Ammonia Gas Alert'],
+    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90'
   },
   {
     id: 'iot-telemetry',
@@ -182,9 +232,8 @@ function ProductHero() {
           className="flex items-center gap-3 mb-8 sm:mb-10"
         >
           <span className="w-8 h-px bg-[#A855F7]" />
-          <span className="text-[11px] font-mono font-bold tracking-[0.3em] text-[#C084FC] uppercase flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#A855F7]" />
-            <span>DASA TECH · ENTERPRISE SOFTWARE PLATFORMS</span>
+          <span className="text-xs font-semibold tracking-wider text-purple-300 uppercase">
+            Enterprise Software &amp; Automations
           </span>
         </motion.div>
 
@@ -398,25 +447,30 @@ export default function ProductsPage() {
       {/* ── 2. CATALOG HEADER & CLEAR CATEGORY SELECTION ─────────── */}
       <section id="catalog" className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8">
         
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#E9E2F5]">
-          <div className="space-y-1">
-            <span className="text-[11px] font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase block">
-              ENTERPRISE PLATFORM PORTFOLIO
+        <div className="space-y-6 pb-6 border-b border-[#E9E2F5]">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-1">
+              <span className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase block">
+                Software &amp; Automations Portfolio
+              </span>
+              <h2 className="font-display font-black text-2xl sm:text-3xl text-[#17121F] tracking-tight">
+                Production-Ready <span className="text-color-shift">Software Platforms</span>
+              </h2>
+            </div>
+            <span className="text-xs font-mono font-semibold text-slate-500">
+              Showing {filteredProducts.length} Platforms
             </span>
-            <h2 className="font-display font-black text-2xl sm:text-3xl text-[#17121F] tracking-tight">
-              Production-Ready <span className="text-color-shift">Software Platforms</span>
-            </h2>
           </div>
 
-          {/* Fluid Sliding Pill Category Filters */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Fluid Sliding Pill Category Filters - Arranged Cleanly in Single Balanced Row */}
+          <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
             {filterTabs.map((tab) => {
               const isActive = selectedTab === tab.id
               return (
                 <button
                   key={tab.id}
                   onClick={() => setSelectedTab(tab.id)}
-                  className={`relative px-4 py-2 rounded-2xl text-xs font-mono font-bold tracking-wide transition-all duration-300 shrink-0 cursor-pointer ${
+                  className={`relative px-5 py-2.5 rounded-2xl text-xs font-mono font-bold tracking-wide transition-all duration-300 shrink-0 cursor-pointer ${
                     isActive
                       ? 'text-white'
                       : 'text-[#64748B] hover:text-[#17121F] bg-[#FAF8FF] border border-[#E9E2F5] hover:border-[#DDD0FF] hover:bg-[#F7F3FF]'
@@ -464,9 +518,8 @@ export default function ProductsPage() {
       {/* ── 4. ELEVATED CONSULTATION CTA ──────────────────────────── */}
       <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-16 text-center">
         <div className="relative p-10 sm:p-14 rounded-[32px] border border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg overflow-hidden space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>BESPOKE ENTERPRISE ARCHITECTURE</span>
+          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+            Custom Development &amp; Deployment
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#17121F] font-display tracking-tight">

@@ -10,6 +10,7 @@ import SchoolErpProductView from '../components/products/SchoolErpProductView'
 import IotTelemetryProductView from '../components/products/IotTelemetryProductView'
 import HomeAutomationProductView from '../components/products/HomeAutomationProductView'
 import AgriAutomationProductView from '../components/products/AgriAutomationProductView'
+import AutomationDetailProductView from '../components/products/AutomationDetailProductView'
 
 // ─────────────────────────────────────────────────────────────
 // PRODUCT DATA CATALOG & DELEGATED PRODUCT VIEWS
@@ -24,7 +25,12 @@ export const PRODUCT_DATA = {
   'school-erp': { name: 'DASA EduCore Campus ERP', category: 'Education & Academics' },
   'iot-telemetry': { name: 'DASA EdgeMesh IoT', category: 'Smart Automation Solutions' },
   'home-automation': { name: 'DASA SmartHome Automation', category: 'Smart Automation Solutions' },
-  'agri-automation': { name: 'DASA AgriSmart Automation', category: 'Smart Automation Solutions' }
+  'hospital-automation': { name: 'DASA Hospital & Clinical Automation', category: 'Smart Automation Solutions' },
+  'office-automation': { name: 'DASA Office & Workplace Automation', category: 'Smart Automation Solutions' },
+  'hotel-automation': { name: 'DASA Hotel Automation (GRMS)', category: 'Smart Automation Solutions' },
+  'industrial-automation': { name: 'DASA Industrial Automation & Plant Telemetry', category: 'Smart Automation Solutions' },
+  'agri-automation': { name: 'DASA AgriSmart Automation', category: 'Smart Automation Solutions' },
+  'cold-storage-automation': { name: 'DASA Cold Storage & Refrigeration Automation', category: 'Smart Automation Solutions' }
 }
 
 export default function ProductDetailPage() {
@@ -56,9 +62,19 @@ export default function ProductDetailPage() {
     case 'iot-telemetry':
       return <IotTelemetryProductView />
     case 'home-automation':
-      return <HomeAutomationProductView />
+      return <AutomationDetailProductView automationId="home" />
+    case 'hospital-automation':
+      return <AutomationDetailProductView automationId="hospital" />
+    case 'office-automation':
+      return <AutomationDetailProductView automationId="office" />
+    case 'hotel-automation':
+      return <AutomationDetailProductView automationId="hotel" />
+    case 'industrial-automation':
+      return <AutomationDetailProductView automationId="industrial" />
     case 'agri-automation':
-      return <AgriAutomationProductView />
+      return <AutomationDetailProductView automationId="agri" />
+    case 'cold-storage-automation':
+      return <AutomationDetailProductView automationId="cold-storage" />
     default:
       return <PharmacyErpProductView />
   }

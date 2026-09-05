@@ -16,15 +16,29 @@ export function Router({ children }) {
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
 
+  const scrollToTop = () => {
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { duration: 1.2 })
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const navigate = (to) => {
-    if (to === path) return
+    if (to === path) {
+      scrollToTop()
+      return
+    }
     window.history.pushState({}, '', to)
     setPath(to)
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true })
+    }
     window.scrollTo({ top: 0, behavior: 'instant' })
   }
 
   return (
-    <RouterContext.Provider value={{ path, navigate }}>
+    <RouterContext.Provider value={{ path, navigate, scrollToTop }}>
       {children}
     </RouterContext.Provider>
   )
@@ -35,13 +49,17 @@ export function usePath() {
 }
 
 export function Link({ to, children, className = '', onClick, ...props }) {
-  const { navigate } = usePath()
+  const { navigate, path, scrollToTop } = usePath()
 
   const handleClick = (e) => {
     if (onClick) onClick(e)
     if (!e.defaultPrevented && e.button === 0 && !e.metaKey && !e.altKey && !e.ctrlKey && !e.shiftKey) {
       e.preventDefault()
-      navigate(to)
+      if (to === path) {
+        scrollToTop()
+      } else {
+        navigate(to)
+      }
     }
   }
 
@@ -64,6 +82,9 @@ export function Route({ path: routePath, component: Component }) {
     return <Component />
   }
   if (routePath === '/projects/:projectId' && path.startsWith('/projects/') && path !== '/projects') {
+    return <Component />
+  }
+  if (routePath === '/automations/:automationId' && path.startsWith('/automations/') && path !== '/automations') {
     return <Component />
   }
   if (path !== routePath) return null

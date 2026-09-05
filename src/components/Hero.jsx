@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Sparkles, ArrowUpRight, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react'
+import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react'
 import { Link } from './Router.jsx'
 
 export default function Hero() {
@@ -48,16 +48,15 @@ export default function Hero() {
       >
         <div className="max-w-4xl space-y-6">
 
-          {/* Eyebrow Header Tag */}
+          {/* Clean Eyebrow Lead */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-xs sm:text-sm font-mono text-white/90 border border-white/20 bg-white/10 backdrop-blur-md shadow-xs font-bold"
+            className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 font-medium"
           >
-            <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" />
-            <Sparkles className="w-4 h-4 text-[#7C3AED]" />
-            <span className="tracking-widest uppercase">DASA TECH &bull; ENGINEERING THE FUTURE</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-white/90 font-medium tracking-wide">Enterprise Software, Automation &amp; IoT Systems</span>
           </motion.div>
 
           {/* VERY LARGE HIGH-CONTRAST TYPOGRAPHY WITH MASK REVEAL */}
@@ -170,17 +169,6 @@ export default function Hero() {
               <span>START YOUR PROJECT</span>
               <div className="w-8 h-8 rounded-full bg-white text-[#7C3AED] flex items-center justify-center group-hover:scale-110 group-hover:rotate-45 transition-transform duration-300">
                 <ArrowRight className="w-4 h-4" />
-              </div>
-            </Link>
-
-            {/* CTA 2: EXPLORE OUR SOLUTIONS → */}
-            <Link
-              to="/projects"
-              className="group inline-flex items-center gap-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/50 backdrop-blur-md px-8 py-4 font-display font-bold text-sm text-white hover:scale-105 transition-all duration-300 cursor-pointer"
-            >
-              <span>EXPLORE OUR SOLUTIONS</span>
-              <div className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center group-hover:bg-white group-hover:text-[#17121F] group-hover:scale-110 transition-all duration-300">
-                <ArrowUpRight className="w-4 h-4" />
               </div>
             </Link>
           </motion.div>

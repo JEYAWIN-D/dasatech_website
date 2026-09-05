@@ -117,16 +117,14 @@ function HolographicQuantumSculpture({ mousePos }) {
         {/* Layer 1: Outer Faceted Transparent Geometric Crystal (Icosahedron) */}
         <mesh ref={crystalOuter}>
           <icosahedronGeometry args={[1.5, 0]} />
-          <meshPhysicalMaterial
+          <meshStandardMaterial
             color="#00C5B5"
             emissive="#0066FF"
-            emissiveIntensity={0.25}
-            roughness={0.1}
-            metalness={0.2}
-            transmission={0.88}
-            ior={1.45}
+            emissiveIntensity={0.35}
+            roughness={0.15}
+            metalness={0.8}
             transparent
-            opacity={0.65}
+            opacity={0.7}
             wireframe={false}
           />
         </mesh>
@@ -290,11 +288,18 @@ export default function DasaCinematicIntro({ onComplete }) {
 
   // Track mouse movements smoothly
   useEffect(() => {
+    let ticking = false
     const handleMouseMove = (e) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1
       const y = -(e.clientY / window.innerHeight) * 2 + 1
       mousePos.current = { x, y }
-      setMouseUi({ x, y })
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setMouseUi({ x, y })
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
     const handleKeyDown = (e) => {

@@ -410,7 +410,7 @@ export default function ProjectDetailPage() {
             <div className="p-8 sm:p-10 rounded-3xl bg-blue-50/50 border border-blue-100 space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700">
-                  <Sparkles className="w-5 h-5" />
+                  <Zap className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 font-display">The Engineered DASA Solution</h3>
@@ -1126,7 +1126,7 @@ export default function ProjectDetailPage() {
               ].map((item, i) => (
                 <div key={i} className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
                   <div className="text-xs font-bold text-slate-900 font-display flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{item.title}</span>
                   </div>
                   <p className="text-xs text-slate-600 font-medium leading-relaxed">

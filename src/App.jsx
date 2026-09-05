@@ -19,6 +19,7 @@ import EmsPage from './pages/EmsPage'
 import IotPage from './pages/IotPage'
 import ServicesPage from './pages/ServicesPage'
 import ProductsPage from './pages/ProductsPage'
+import AutomationsPage from './pages/AutomationsPage'
 import ProjectsPage from './pages/ProjectsPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
@@ -29,6 +30,8 @@ import ProjectDetailPage from './pages/ProjectDetailPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsPage from './pages/TermsPage'
 import SecurityPage from './pages/SecurityPage'
+import BlogPage from './pages/BlogPage'
+import CareersPage from './pages/CareersPage'
 
 export default function App() {
   return (
@@ -50,9 +53,13 @@ export default function App() {
             <Route path="/products/erp" component={ErpPage} />
             <Route path="/products/ems" component={EmsPage} />
             <Route path="/products/iot" component={IotPage} />
+            <Route path="/automations" component={AutomationsPage} />
+            <Route path="/automations/:automationId" component={AutomationsPage} />
             <Route path="/projects" component={ProjectsPage} />
             <Route path="/projects/:projectId" component={ProjectDetailPage} />
             <Route path="/about" component={AboutPage} />
+            <Route path="/blog" component={BlogPage} />
+            <Route path="/careers" component={CareersPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/team" component={TeamMemberProfilePage} />
             <Route path="/privacy" component={PrivacyPolicyPage} />

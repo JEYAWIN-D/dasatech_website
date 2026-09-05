@@ -337,9 +337,8 @@ export default function EditorialProductsServices() {
         
         {/* Editorial Section Intro Header */}
         <div className="max-w-4xl mx-auto space-y-4 mb-20">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>DASA TECH PRODUCT SYSTEMS &amp; SERVICES</span>
+          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+            Product Systems &amp; Engineering
           </div>
           <h2 className="font-display font-black text-4xl sm:text-5xl text-[#17131F] tracking-tight leading-[1.18] pb-1">
             Technology Built Around the Way{' '}
@@ -795,9 +794,8 @@ export default function EditorialProductsServices() {
       <section className="relative bg-gradient-to-b from-white via-[#FAF8FF] to-white py-32 px-8 lg:px-16 border-t border-[#E9E2F5] z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-[0.25em] text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>DASA TECH PRODUCT SUITE &amp; ENGINEERING</span>
+          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+            Product Suite &amp; Solutions
           </div>
 
           <h2 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl text-[#17131F] tracking-tight leading-[1.16] pb-2">

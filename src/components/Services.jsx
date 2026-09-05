@@ -34,9 +34,8 @@ export default function Services() {
         {/* Header with Line Reveal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#DDD0FF] bg-[#F5F0FF] text-[#6C2BD9] text-xs font-mono w-fit mb-3 font-bold">
-              <Sparkles className="w-3.5 h-3.5 text-[#6C2BD9]" />
-              <span>CORE ENGINEERING CAPABILITIES</span>
+            <div className="text-xs font-bold tracking-wider text-[#6C2BD9] uppercase mb-3">
+              Core Engineering Capabilities
             </div>
 
             <TextLineReveal

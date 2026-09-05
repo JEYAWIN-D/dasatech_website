@@ -74,9 +74,8 @@ export default function PageHeaderHero({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.7 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold uppercase tracking-wider"
+              className="text-xs font-bold uppercase tracking-wider text-[#6C2BD9]"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#6C2BD9]" />
               <span>{tagline}</span>
             </motion.div>
 

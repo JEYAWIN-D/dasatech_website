@@ -75,9 +75,8 @@ export default function Industries() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <Reveal>
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-purple-500/30 bg-purple-950/40 text-purple-300 text-xs font-mono w-fit mb-3 font-bold">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>Target Industry Verticals</span>
+          <div className="text-xs font-bold tracking-wider text-purple-400 uppercase mb-3">
+            Target Industry Verticals
           </div>
 
           <TextLineReveal
