@@ -13,8 +13,8 @@ export default function SmoothLogoReveal({ onComplete }) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const totalTime = 2400 // 2.4-second fast, punchy cinematic reveal
-    const intervalTime = 40
+    const totalTime = 6000 // 6-second smooth cinematic experience
+    const intervalTime = 30
     const increment = (intervalTime / totalTime) * 100
 
     const timer = setInterval(() => {
@@ -31,34 +31,23 @@ export default function SmoothLogoReveal({ onComplete }) {
       if (onComplete) onComplete()
     }, totalTime)
 
-    const handleKeyDown = (e) => {
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
-        if (onComplete) onComplete()
-      }
-    }
-    window.addEventListener('keydown', handleKeyDown)
-
     return () => {
       clearInterval(timer)
       clearTimeout(completeTimeout)
-      window.removeEventListener('keydown', handleKeyDown)
     }
   }, [onComplete])
 
   return (
-    <div
-      onClick={onComplete}
-      className="relative w-full h-full flex flex-col items-center justify-center select-none overflow-hidden bg-[#050711] text-white cursor-pointer"
-    >
+    <div className="relative w-full h-full flex flex-col items-center justify-center select-none overflow-hidden bg-[#050711] text-white">
       
       {/* 1. Deep Multi-Color Aurora Atmosphere */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ 
           opacity: [0.3, 0.85, 0.7],
-          scale: [0.85, 1.05, 1]
+          scale: [0.85, 1.08, 1]
         }}
-        transition={{ duration: 2.4, ease: 'easeInOut' }}
+        transition={{ duration: 6, ease: 'easeInOut' }}
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(0,102,255,0.22)_0%,rgba(0,197,181,0.12)_25%,rgba(124,43,248,0.15)_45%,rgba(5,7,17,1)_75%)] pointer-events-none"
       />
 
@@ -71,32 +60,33 @@ export default function SmoothLogoReveal({ onComplete }) {
         }}
       />
 
-      {/* 3. Floating Holographic Energy Particles (Optimized count for 60+ FPS) */}
+      {/* 3. Floating Holographic Energy Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(24)].map((_, i) => (
           <motion.div
             key={i}
             initial={{
-              x: `${(i * 17 + 9) % 100}vw`,
-              y: `${(i * 23 + 11) % 100}vh`,
+              x: `${(i * 13 + 7) % 100}vw`,
+              y: `${(i * 19 + 5) % 100}vh`,
               opacity: 0,
-              scale: 0.4
+              scale: 0.3
             }}
             animate={{
-              y: [`${(i * 23 + 11) % 100}vh`, `${((i * 23 + 11) % 100) - 25}vh`],
-              opacity: [0, 0.85, 0],
-              scale: [0.4, 1.2, 0.4]
+              y: [`${(i * 19 + 5) % 100}vh`, `${((i * 19 + 5) % 100) - 30}vh`],
+              opacity: [0, 0.9, 0],
+              scale: [0.3, 1.3, 0.3]
             }}
             transition={{
-              duration: 2.2 + (i % 2),
+              duration: 4.0 + (i % 3),
               repeat: Infinity,
-              delay: (i * 0.18) % 1.5,
+              delay: (i * 0.2) % 2.5,
               ease: 'easeInOut'
             }}
             className={`absolute rounded-full ${
-              i % 3 === 0 ? 'w-1.5 h-1.5 bg-[#00C5B5] shadow-[0_0_8px_#00C5B5]' :
-              i % 3 === 1 ? 'w-2 h-2 bg-[#0066FF] shadow-[0_0_10px_#0066FF]' :
-              'w-1.5 h-1.5 bg-[#7C2BF8] shadow-[0_0_8px_#7C2BF8]'
+              i % 4 === 0 ? 'w-1.5 h-1.5 bg-[#00C5B5] shadow-[0_0_10px_#00C5B5]' :
+              i % 4 === 1 ? 'w-2 h-2 bg-[#0066FF] shadow-[0_0_12px_#0066FF]' :
+              i % 4 === 2 ? 'w-1.5 h-1.5 bg-[#7C2BF8] shadow-[0_0_10px_#7C2BF8]' :
+              'w-1 h-1 bg-white shadow-[0_0_8px_#ffffff]'
             }`}
           />
         ))}
