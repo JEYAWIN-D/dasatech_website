@@ -63,10 +63,10 @@ export const TEAM_MEMBERS = [
     id: 'karthick',
     name: 'Karthick',
     verticalName: 'KARTHICK',
-    role: 'Director (Nexomatic)',
-    verticalTag: '*director',
-    badge: 'DIRECTOR & INDUSTRIAL AUTOMATION PARTNER',
-    badgeCategory: 'EXECUTIVE PARTNERSHIP',
+    role: 'Director (Automation)',
+    verticalTag: '*director (automation)',
+    badge: 'DIRECTOR (AUTOMATION)',
+    badgeCategory: 'EXECUTIVE LEADERSHIP',
     skills: 'Automation • IoT • Hardware',
     skillsList: ['Industrial Automation', 'IoT Architecture', 'Smart Factory Systems', 'Embedded Hardware', 'NFC Production Workflows', 'Robotics & PLC'],
     specialty: 'Industrial Automation, Smart Factory Systems & Embedded IoT',
@@ -764,16 +764,16 @@ export default function FoundersAndTeamShowcase() {
             ref={scrollContainerRef}
             className="w-full overflow-x-auto scrollbar-none scroll-smooth rounded-2xl"
           >
-            <div className="flex items-stretch min-w-[2350px] w-full h-[460px] sm:h-[510px] divide-x divide-white/10">
+            <div className="flex items-stretch min-w-[2850px] w-full h-[480px] sm:h-[530px] divide-x divide-white/10">
               
               {TEAM_MEMBERS.map((m, idx) => {
                 const isHovered = hoveredId === m.id
                 const hasActiveHover = hoveredId !== null
 
-                // Compute Accordion Column Flex Ratio
-                let flexStyle = 'flex-1'
+                // Compute Accordion Column Flex & Width Ratio (balanced so full photo remains visible)
+                let flexStyle = 'flex-1 min-w-[195px] sm:min-w-[215px]'
                 if (hasActiveHover) {
-                  flexStyle = isHovered ? 'flex-[4.6]' : 'flex-[0.6]'
+                  flexStyle = isHovered ? 'flex-[2.6] min-w-[250px] sm:min-w-[280px]' : 'flex-[0.8] min-w-[160px]'
                 }
 
                 return (
@@ -781,37 +781,46 @@ export default function FoundersAndTeamShowcase() {
                     key={m.id}
                     onMouseEnter={() => setHoveredId(m.id)}
                     onMouseLeave={() => setHoveredId(null)}
+                    onTouchStart={() => setHoveredId(m.id)}
                     onClick={() => setActiveProfileIndex(idx)}
-                    className={`${flexStyle} min-w-[170px] h-full flex flex-col justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer relative group rounded-xl overflow-hidden ${
+                    className={`${flexStyle} h-full flex flex-col justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer relative group rounded-xl overflow-hidden ${
                       isHovered ? 'z-30 shadow-[0_20px_60px_rgba(124,58,237,0.45)]' : 'z-10'
                     }`}
                   >
-                    {/* Full Height 3D Character Avatar Image (Head & Face fully preserved with zero clipping) */}
-                    <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#0a0d1f] flex items-end justify-center">
+                    {/* Full Height 3D Character Avatar Image (Entire character preserved from head to toe with zero face-crop) */}
+                    <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#070a18] flex items-end justify-center pb-2">
                       <motion.img
                         animate={
                           isHovered
                             ? {
                                 scale: 1.05,
-                                y: 0
+                                y: -4
                               }
                             : { scale: 1, y: 0 }
                         }
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         src={m.image}
                         alt={m.name}
-                        className={`w-full h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom ${
+                        className={`w-full h-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] object-contain object-bottom origin-bottom ${
                           isHovered
-                            ? 'object-contain object-bottom filter-none opacity-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]'
+                            ? 'filter-none opacity-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] brightness-105'
                             : hasActiveHover
-                            ? 'object-cover object-top grayscale opacity-25'
-                            : 'object-cover object-top grayscale opacity-60'
+                            ? 'grayscale opacity-35'
+                            : 'grayscale opacity-65'
                         }`}
                       />
 
-                      {/* Left Dark Gradient Overlay for Crisp Typography Contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#070A18]/90 via-[#070A18]/30 to-transparent pointer-events-none z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#070A18]/95 via-transparent to-[#070A18]/40 pointer-events-none z-10" />
+                      {/* Left Dark Gradient Overlay for Typography - Fades out completely when hovered/touched */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-r from-[#070A18]/90 via-[#070A18]/30 to-transparent pointer-events-none z-10 transition-opacity duration-500 ${
+                          isHovered ? 'opacity-0' : 'opacity-100'
+                        }`}
+                      />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-t from-[#070A18]/95 via-transparent to-[#070A18]/40 pointer-events-none z-10 transition-opacity duration-500 ${
+                          isHovered ? 'opacity-40' : 'opacity-100'
+                        }`}
+                      />
                     </div>
 
                     {/* Glowing Border & Aura Accent on Hover */}
@@ -823,12 +832,12 @@ export default function FoundersAndTeamShowcase() {
                       }}
                     />
 
-                    {/* Middle: Giant Bold Vertical Name Typography (starts near top to fill height) */}
-                    <div className="relative z-30 flex-1 flex items-start pt-7 pl-4 sm:pl-6">
+                    {/* Middle: Giant Bold Vertical Name Typography (Disappears completely when hovered/touched so the photo shines) */}
+                    <div className="relative z-30 flex-1 flex items-start pt-7 pl-4 sm:pl-6 pointer-events-none">
                       <div
                         className={`font-mono font-black uppercase tracking-[0.18em] transition-all duration-500 select-none ${
                           isHovered
-                            ? 'text-5xl sm:text-6xl text-white drop-shadow-[0_0_35px_rgba(168,85,247,0.9)] opacity-100 scale-105'
+                            ? 'opacity-0 scale-75 -translate-x-10 pointer-events-none'
                             : hasActiveHover
                             ? 'text-3xl text-slate-600 opacity-30 scale-95'
                             : 'text-3xl sm:text-4xl text-slate-300/80 opacity-80 scale-100'

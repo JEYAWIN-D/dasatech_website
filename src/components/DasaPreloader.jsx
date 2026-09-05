@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SmoothLogoReveal from './SmoothLogoReveal'
 
-const INTRO_STORAGE_KEY = 'dasa_tech_intro_seen_v5'
+const INTRO_STORAGE_KEY = 'dasa_tech_intro_seen_v8'
 
 export default function DasaPreloader({ onFinish }) {
   const [showPreloader, setShowPreloader] = useState(() => {

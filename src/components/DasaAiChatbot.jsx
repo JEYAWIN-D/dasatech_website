@@ -255,6 +255,7 @@ You can also send a project inquiry directly through our Contact form!`,
     response: `👥 **DASA TECH Team Leadership**:
 
 • **Jeyawin D** — Founder & CEO (System Architecture & Enterprise ERP)
+• **Karthick** — Director (Automation)
 • **Mithul Pranav K K** — Full Stack Developer (React & Cloud Microservices)
 • **Akash AR** — Full Stack Developer (Web Engineering & Cloud APIs)
 • **Arun** — Full Stack Systems Engineer (React & Distributed Node.js)
