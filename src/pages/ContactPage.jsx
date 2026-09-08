@@ -237,7 +237,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Request Project Consultation Form */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7" id="consultation-form">
             <div className="rounded-3xl p-8 sm:p-10 border-2 border-[#E9E2F5] bg-white shadow-lg space-y-6">
               
               <div className="space-y-1 border-b border-[#E9E2F5] pb-5">

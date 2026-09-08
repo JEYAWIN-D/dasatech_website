@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { Menu, X, ArrowUpRight, Check } from 'lucide-react'
 import { Link, usePath } from './Router.jsx'
 import PillButton from './PillButton.jsx'
 
@@ -29,10 +29,12 @@ export default function Nav() {
     { label: 'Products', to: '/products' }
   ]
 
-  const isActive = (to) => {
+    const isActive = (to) => {
     if (to === '/') return path === '/'
     return path.startsWith(to)
   }
+
+  const isContact = isActive('/contact')
 
   return (
     <>
@@ -148,11 +150,30 @@ export default function Nav() {
             <div className="flex items-center gap-3.5">
               <Link
                 to="/contact"
-                className="hidden sm:inline-flex group relative items-center gap-2.5 px-6 py-2.5 rounded-full font-display text-sm font-bold text-white overflow-hidden shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_30px_rgba(129,140,248,0.6)] border border-white/25 transition-all duration-300 hover:-translate-y-0.5 bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#7C3AED] hover:from-[#3B82F6] hover:to-[#8B5CF6]"
+                className={`hidden sm:inline-flex group relative items-center gap-2.5 px-6 py-2.5 rounded-full font-display text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 ${
+                  isContact
+                    ? 'bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#7C3AED] border-2 border-violet-400 shadow-[0_0_25px_rgba(139,92,246,0.45)]'
+                    : 'bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#7C3AED] hover:from-[#3B82F6] hover:to-[#8B5CF6] border border-white/25 shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_30px_rgba(129,140,248,0.6)]'
+                }`}
               >
+                {/* Clean subtle bottom active glow bar */}
+                {isContact && (
+                  <span className="absolute bottom-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-90" />
+                )}
+
                 <span className="relative z-10">Schedule Consultation</span>
-                <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform">
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:rotate-45 transition-transform duration-300" />
+
+                {/* Clean indicator circle: (✓) when active on page, (↗) on other pages */}
+                <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  isContact
+                    ? 'bg-white text-indigo-700 shadow-sm'
+                    : 'bg-white/20 text-white group-hover:scale-110'
+                }`}>
+                  {isContact ? (
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  ) : (
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:rotate-45 transition-transform duration-300" />
+                  )}
                 </span>
               </Link>
 
@@ -234,10 +255,18 @@ export default function Nav() {
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-2xl font-display text-base font-bold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 shadow-[0_0_20px_rgba(99,102,241,0.4)] border border-white/20 text-center"
+                  className={`w-full inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-2xl font-display text-base font-bold text-white transition-all text-center ${
+                    isContact
+                      ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 border-2 border-violet-400 shadow-[0_0_24px_rgba(139,92,246,0.45)]'
+                      : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 shadow-[0_0_20px_rgba(99,102,241,0.4)] border border-white/20'
+                  }`}
                 >
                   <span>Schedule Consultation</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
+                    isContact ? 'bg-white text-indigo-700' : 'bg-white/20 text-white'
+                  }`}>
+                    {isContact ? <Check className="w-3 h-3 stroke-[3]" /> : <ArrowUpRight className="w-3.5 h-3.5" />}
+                  </span>
                 </Link>
               </div>
             </motion.div>

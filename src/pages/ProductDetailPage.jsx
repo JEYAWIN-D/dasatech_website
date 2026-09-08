@@ -18,7 +18,7 @@ import AutomationDetailProductView from '../components/products/AutomationDetail
 export const PRODUCT_DATA = {
   'pharmacy-erp': { name: 'DASA MedFlow ERP', category: 'Healthcare & Pharma' },
   'finance-accounting': { name: 'DASA LedgerFlow & GST Finance', category: 'Finance & Accounting' },
-  'factory-erp': { name: 'DASA FactorySync ERP', category: 'Manufacturing & SCADA' },
+  'factory-erp': { name: 'IoT Textile ERP', category: 'Textile & Garment IoT' },
   'warehouse-erp': { name: 'DASA WMS Hub', category: 'Logistics & Supply Chain' },
   'ecommerce-engine': { name: 'DASA CommerceEngine', category: 'E-Commerce & Retail' },
   'snapshare-social': { name: 'DASA SnapFlow Studio AI', category: 'Creative Media & AI Studio' },

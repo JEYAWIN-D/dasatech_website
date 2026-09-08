@@ -79,8 +79,8 @@ export default function ProductImplementationShowcase({
   }
 
   return (
-    <section id="implementation-screens" className="py-20 lg:py-28 bg-[#FAFBFD] text-slate-900 border-y border-slate-200/80 select-none">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
+    <section id="implementation-screens" className="py-12 lg:py-16 bg-[#FAFBFD] text-slate-900 border-y border-slate-200/80 select-none">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-8">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -93,7 +93,7 @@ export default function ProductImplementationShowcase({
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight">
-            Explore All 10 Production Modules
+            Explore Production Modules
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">

@@ -96,16 +96,6 @@ export const PRODUCTS_CATALOG = [
     tags: ['Sub-Zero Telemetry', 'Peak Load Shedding', 'Ammonia Gas Alert'],
     img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90'
   },
-  {
-    id: 'iot-telemetry',
-    categoryGroup: 'Smart Automation Solutions',
-    category: 'IOT AUTOMATION',
-    name: 'DASA EdgeMesh IoT',
-    headline: 'Sub-GHz Sensor Mesh, Machine Health & IoT Automation',
-    summary: 'Long-range wireless environmental and machine telemetry mesh operating across multi-kilometer industrial sites with 5+ year battery life.',
-    tags: ['Sub-GHz Mesh', 'Machine Telemetry', 'IoT Automation'],
-    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90'
-  },
 
   // 2. Business Operations Suites
   {
@@ -131,12 +121,12 @@ export const PRODUCTS_CATALOG = [
   {
     id: 'factory-erp',
     categoryGroup: 'Business Operations Suites',
-    category: 'MANUFACTURING & SCADA',
-    name: 'DASA FactorySync ERP',
-    headline: 'Shop Floor Manufacturing & Work-In-Progress SCADA ERP',
-    summary: 'Multi-level Bill of Materials (BOM) explosion, live machine uptime telemetry, overall equipment effectiveness (OEE), and touch job cards.',
-    tags: ['Modbus / OPC-UA', 'Multi-Level BOM', 'Live OEE Telemetry'],
-    img: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1200&q=90'
+    category: 'TEXTILE & GARMENT IOT',
+    name: 'IoT Textile ERP',
+    headline: 'Smart Textile Mill ERP, Loom IoT Telemetry & Garment SCADA',
+    summary: 'Real-time loom and spinning telemetry, raw yarn lot traceability, NFC piece-rate bundle tracking, automated OEE metrics, and barcode roll inventory.',
+    tags: ['Loom IoT Telemetry', 'Yarn Lot Traceability', 'NFC Bundle MES'],
+    img: '/textile-iot-erp.jpg'
   },
   {
     id: 'warehouse-erp',
@@ -343,8 +333,8 @@ function HomepageStyleProductTile({ product }) {
 
       {/* 2. Default Unhovered State: Crisp Title Card at Image Base */}
       <div
-        className={`absolute bottom-4 left-4 right-4 z-10 transition-all duration-400 ease-[0.16,1,0.3,1] ${
-          isHovered ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0'
+        className={`absolute bottom-4 left-4 right-4 z-10 transition-all duration-300 ease-out ${
+          isHovered ? 'opacity-0 pointer-events-none hidden' : 'opacity-100'
         }`}
       >
         <div className="p-4 rounded-2xl bg-[#0F0B18]/85 backdrop-blur-md border border-white/20 shadow-2xl flex items-center justify-between gap-3">
@@ -370,7 +360,7 @@ function HomepageStyleProductTile({ product }) {
             : 'translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div className="p-5 sm:p-6 rounded-t-[24px] bg-white border-t-2 border-[#6D28D9] shadow-2xl space-y-3">
+        <div style={{ backgroundColor: "#FFFFFF" }} className="p-5 sm:p-6 rounded-t-[24px] border-t-2 border-[#6D28D9] shadow-2xl space-y-3">
           
           <div className="flex items-center justify-between gap-2">
             <div>
