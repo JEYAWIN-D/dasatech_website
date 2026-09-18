@@ -40,7 +40,7 @@ export default function App() {
         <ScrollToTop />
         <div className="font-body min-h-screen bg-white text-slate-900 flex flex-col justify-between relative selection:bg-blue-600 selection:text-white">
           {/* Cinematic Studio Opening Intro Preloader */}
-          <DasaPreloader />
+          {/* <DasaPreloader /> */}
 
 
           <Nav />
