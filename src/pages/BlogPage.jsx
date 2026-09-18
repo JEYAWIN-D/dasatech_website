@@ -33,7 +33,7 @@ const BLOG_POSTS = [
       name: 'Mithul PR',
       role: 'Founding Engineer & Architecture Lead'
     },
-    image: '/images/ai-computer-vision.jpg',
+    image: import.meta.env.BASE_URL + 'images/ai-computer-vision.jpg',
     tags: ['Computer Vision', 'PyTorch', 'TensorRT', 'Edge Inference', 'Industrial AI'],
     featured: true
   },

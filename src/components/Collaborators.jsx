@@ -6,7 +6,7 @@ export default function Collaborators() {
     {
       id: 'dc-innovision',
       name: 'DC Innovision',
-      logo: '/images/dc-innovision-logo.png',
+      logo: import.meta.env.BASE_URL + 'images/dc-innovision-logo.png',
       logoAlt: 'DC Innovision Logo',
       accentBorder: 'hover:border-sky-300',
       accentGlow: 'hover:shadow-[0_16px_36px_rgba(2,132,199,0.1)]',
@@ -15,7 +15,7 @@ export default function Collaborators() {
     {
       id: 'nexomatic',
       name: 'Nexomatic',
-      logo: '/images/nexomatic-logo.svg',
+      logo: import.meta.env.BASE_URL + 'images/nexomatic-logo.svg',
       logoAlt: 'Nexomatic Logo',
       accentBorder: 'hover:border-emerald-300',
       accentGlow: 'hover:shadow-[0_16px_36px_rgba(16,185,129,0.1)]',

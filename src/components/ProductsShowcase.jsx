@@ -11,7 +11,7 @@ export const PRODUCTS_ITEMS = [
     headline: 'Complete pharmacy operations in one connected platform.',
     desc: 'Automated batch & expiry management, medicine compliance tracking, quick customer billing, and smart stock alerts.',
     tags: ['Batch Inventory', 'Regulated Drug Logs', 'Fast Billing'],
-    img: '/images/dasa-pharmacy-erp.jpg',
+    img: import.meta.env.BASE_URL + 'images/dasa-pharmacy-erp.jpg',
     link: '/products/erp',
     flow: 'left'
   },

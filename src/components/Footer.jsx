@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-5">
             <Link to="/" className="inline-block">
               <img
-                src="/dasa-wordmark.png"
+                src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
                 alt="DASA TECH"
                 className="h-8 w-auto object-contain"
               />

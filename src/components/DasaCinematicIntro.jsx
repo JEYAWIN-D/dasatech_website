@@ -415,7 +415,7 @@ export default function DasaCinematicIntro({ onComplete }) {
           {/* High-Resolution DASA Emblem */}
           <div className="relative px-8 py-3">
             <motion.img
-              src="/dasa-wordmark.png"
+              src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
               alt="DASA"
               initial={{ filter: 'brightness(1.6) contrast(1.1) drop-shadow(0 0 45px rgba(0,197,181,0.6))' }}
               animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 0 35px rgba(0,102,255,0.45))' }}

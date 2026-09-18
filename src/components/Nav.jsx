@@ -75,7 +75,7 @@ export default function Nav() {
               className="flex items-center"
             >
               <img
-                src="/dasa-wordmark.png"
+                src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
                 alt="DASA"
                 className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_2px_12px_rgba(0,102,255,0.3)]"
               />
@@ -201,7 +201,7 @@ export default function Nav() {
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
                 <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5">
                   <img
-                    src="/dasa-wordmark.png"
+                    src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
                     alt="DASA"
                     className="h-7 w-auto object-contain"
                   />

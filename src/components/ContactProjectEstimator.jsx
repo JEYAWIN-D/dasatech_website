@@ -29,7 +29,7 @@ const PROJECTS = [
     id: 'factory-erp',
     title: 'IoT Textile ERP',
     category: 'Textile & Garment IoT',
-    img: '/textile-iot-erp.jpg'
+    img: import.meta.env.BASE_URL + 'textile-iot-erp.jpg'
   },
   {
     id: 'warehouse-erp',
