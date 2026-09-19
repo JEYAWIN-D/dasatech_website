@@ -37,7 +37,8 @@ export default function ProductDetailPage() {
   const { path } = usePath()
 
   // Extract raw ID from route e.g. /products/pharmacy-erp
-  const productId = path.replace('/products/', '').replace('/products', '').replace(/\/$/, '')
+  const cleanPath = (path || '').split('#')[0].split('?')[0]
+  const productId = cleanPath.replace('/products/', '').replace('/products', '').replace(/\/$/, '')
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })

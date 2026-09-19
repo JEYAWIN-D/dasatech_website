@@ -65,21 +65,21 @@ export const TEAM_MEMBERS = [
     id: 'nandhakumar',
     name: 'Nandha kumar',
     verticalName: 'NANDHA',
-    role: 'Co-Founder',
-    verticalTag: '*co-founder',
-    badge: 'CO-FOUNDER & STRATEGIC DIRECTOR',
+    role: 'CTO',
+    verticalTag: '*cto',
+    badge: 'CHIEF TECHNOLOGY OFFICER & CO-FOUNDER',
     badgeCategory: 'EXECUTIVE LEADERSHIP',
     initial: 'N',
-    skills: 'Strategy • Growth • Operations',
-    skillsList: ['Enterprise Strategy', 'Business Growth', 'Operational Scale', 'Strategic Partnerships', 'Client Solutions', 'Executive Leadership'],
-    specialty: 'Business Strategy, Executive Leadership & Enterprise Growth',
-    bio: 'As Co-Founder of DASA TECH, I drive company growth, strategic alliances, and operational excellence across our enterprise initiatives. Working closely with our engineering and product teams to deliver transformative digital solutions for our global clients.',
+    skills: 'Strategy • Technology • Architecture',
+    skillsList: ['Enterprise Architecture', 'Cloud Systems', 'Technology Strategy', 'Operational Scale', 'Engineering Leadership', 'Strategic Partnerships'],
+    specialty: 'Technology Strategy, Cloud Architecture & Engineering Leadership',
+    bio: 'As Co-Founder & CTO of DASA TECH, I drive company growth, core technology strategy, and architectural excellence across our enterprise initiatives. Working closely with our engineering and product teams to deliver transformative digital solutions for our global clients.',
     image: nandhakumar3d,
     color: '#06B6D4',
     deptColor: '#22D3EE',
-    propName: 'Executive Suit',
-    actionTitle: 'Strategic Growth Telemetry',
-    actionMessage: 'Strategic Operations: Synchronized • 100% Growth Velocity',
+    propName: 'Executive Suite & Terminal',
+    actionTitle: 'Strategic Technology Telemetry',
+    actionMessage: 'Enterprise Systems: Synchronized • 100% Core Architecture Uptime',
     actionType: 'executive',
     email: 'dasatechmu@gmail.com',
     phone: '+91 76399 30148',
@@ -969,7 +969,7 @@ export default function FoundersAndTeamShowcase() {
                   NANDHA
                 </div>
                 <div className="font-mono text-[9.5px] sm:text-[11px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">
-                  CO - FOUNDER
+                  CTO
                 </div>
               </div>
 

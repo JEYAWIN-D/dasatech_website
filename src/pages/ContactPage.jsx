@@ -77,9 +77,16 @@ export default function ContactPage() {
     const waUrl = buildWhatsAppUrl(formData)
     setLastWaUrl(waUrl)
 
+    // 1. Launch WhatsApp simultaneously in a new tab
     try {
-      // 1. Dispatch Email via AJAX gateway to dasatechmu@gmail.com
-      await fetch('https://formsubmit.co/ajax/dasatechmu@gmail.com', {
+      window.open(waUrl, '_blank', 'noopener,noreferrer')
+    } catch (openErr) {
+      console.warn('Popup blocked:', openErr)
+    }
+
+    try {
+      // 2. Dispatch Email via AJAX gateway to dasatechmu@gmail.com
+      const res = await fetch('https://formsubmit.co/ajax/dasatechmu@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -88,29 +95,52 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
+          phone: formData.phone || 'Not provided',
+          company: formData.company || 'Not provided',
           service: formData.service,
           message: formData.message,
-          _subject: `🚀 New Project Inquiry from ${formData.name} — DASA TECH`,
+          _replyto: formData.email,
+          _subject: `New Project Inquiry from ${formData.name} — DASA TECH`,
           _template: 'table',
-          _captcha: 'false'
+          _captcha: 'false',
+          _honey: ''
         })
-      }).catch(() => {})
+      })
 
-      // 2. Launch WhatsApp directly to Founder & CEO (+91 76399 30148)
-      try {
-        window.open(waUrl, '_blank', 'noopener,noreferrer')
-      } catch (err) {
-        console.log('Popup blocked', err)
+      const json = await res.json().catch(() => ({}))
+
+      if (res.ok && (json.success === 'true' || json.success === true || json.message)) {
+        setStatus({ loading: false, success: true, error: null })
+        setFormData({ name: '', email: '', phone: '', company: '', service: 'Business Technology Solutions', message: '' })
+      } else {
+        throw new Error(json.message || 'Email dispatch failed')
       }
-
-      setStatus({ loading: false, success: true, error: null })
-      setFormData({ name: '', email: '', phone: '', company: '', service: 'Business Technology Solutions', message: '' })
     } catch (err) {
-      console.error(err)
-      setStatus({ loading: false, success: true, error: null })
-      setFormData({ name: '', email: '', phone: '', company: '', service: 'Business Technology Solutions', message: '' })
+      console.warn('FormSubmit AJAX failed, trying fallback submission:', err)
+      try {
+        const bodyData = new FormData()
+        bodyData.append('name', formData.name)
+        bodyData.append('email', formData.email)
+        bodyData.append('phone', formData.phone || 'Not provided')
+        bodyData.append('company', formData.company || 'Not provided')
+        bodyData.append('service', formData.service)
+        bodyData.append('message', formData.message)
+        bodyData.append('_replyto', formData.email)
+        bodyData.append('_subject', `New Project Inquiry from ${formData.name} — DASA TECH`)
+        bodyData.append('_template', 'table')
+        bodyData.append('_captcha', 'false')
+
+        await fetch('https://formsubmit.co/dasatechmu@gmail.com', {
+          method: 'POST',
+          body: bodyData,
+          mode: 'no-cors'
+        })
+        setStatus({ loading: false, success: true, error: null })
+        setFormData({ name: '', email: '', phone: '', company: '', service: 'Business Technology Solutions', message: '' })
+      } catch (fallbackErr) {
+        console.error('All form submission attempts failed:', fallbackErr)
+        setStatus({ loading: false, success: false, error: 'Could not send email automatically. Please contact dasatechmu@gmail.com directly or click the WhatsApp button.' })
+      }
     }
   }
 
@@ -256,13 +286,13 @@ export default function ContactPage() {
                 <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-2 text-xs font-mono">
                   <div className="flex items-center gap-2 font-bold text-sm text-emerald-800">
                     <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-600" />
-                    <span>Inquiry Dispatched Successfully!</span>
+                    <span>Inquiry Sent to Email &amp; WhatsApp!</span>
                   </div>
                   <p className="text-emerald-700">
-                    Your message has been emailed directly to <strong>dasatechmu@gmail.com</strong> and pre-loaded to WhatsApp for <strong>Founder &amp; CEO Jeyawin D (+91 76399 30148)</strong>.
+                    Your inquiry has been emailed directly to <strong>dasatechmu@gmail.com</strong> and opened in <strong>WhatsApp (+91 76399 30148)</strong> simultaneously. Founder &amp; CEO Jeyawin D and our engineering team will get back to you shortly.
                   </p>
                   {lastWaUrl && (
-                    <div className="pt-1">
+                    <div className="pt-2 flex items-center gap-3">
                       <a
                         href={lastWaUrl}
                         target="_blank"
@@ -270,7 +300,7 @@ export default function ContactPage() {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-sm"
                       >
                         <MessageSquare className="w-4 h-4" />
-                        <span>Open WhatsApp Chat Again</span>
+                        <span>Re-open WhatsApp Chat</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     </div>

@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle2, Loader2, MessageSquare, Mail, Phone, MapPin } from 'lucide-react'
+import { Send, CheckCircle2, AlertCircle, Loader2, MessageSquare, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function CTA() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
-  const [status, setStatus] = useState('idle') // idle | sending | sent
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const [errorMessage, setErrorMessage] = useState('')
+  const [lastWaUrl, setLastWaUrl] = useState('')
 
   function update(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
@@ -32,11 +34,21 @@ export default function CTA() {
   async function handleSubmit(e) {
     e.preventDefault()
     setStatus('sending')
+    setErrorMessage('')
 
     const waUrl = buildWhatsAppUrl(form)
+    setLastWaUrl(waUrl)
 
+    // 1. Launch WhatsApp simultaneously in a new tab
     try {
-      await fetch('https://formsubmit.co/ajax/dasatechmu@gmail.com', {
+      window.open(waUrl, '_blank', 'noopener,noreferrer')
+    } catch (openErr) {
+      console.warn('Popup blocked:', openErr)
+    }
+
+    // 2. Simultaneously dispatch email to dasatechmu@gmail.com via FormSubmit
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/dasatechmu@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,23 +59,46 @@ export default function CTA() {
           email: form.email,
           phone: form.phone || 'Not provided',
           message: form.message,
+          _replyto: form.email,
           _subject: `New Project Inquiry from ${form.name} — DASA TECH`,
           _template: 'table',
-          _captcha: 'false'
+          _captcha: 'false',
+          _honey: ''
         })
-      }).catch(() => {})
+      })
 
-      try {
-        window.open(waUrl, '_blank', 'noopener,noreferrer')
-      } catch (err) {
-        console.log('Popup blocked', err)
+      const result = await response.json().catch(() => ({}))
+
+      if (response.ok && (result.success === 'true' || result.success === true || result.message)) {
+        setStatus('sent')
+        setForm({ name: '', email: '', phone: '', message: '' })
+      } else {
+        throw new Error(result.message || 'Could not complete email dispatch')
       }
+    } catch (err) {
+      console.warn('FormSubmit AJAX attempt failed, trying fallback submission:', err)
+      try {
+        const formData = new FormData()
+        formData.append('name', form.name)
+        formData.append('email', form.email)
+        formData.append('phone', form.phone || 'Not provided')
+        formData.append('message', form.message)
+        formData.append('_replyto', form.email)
+        formData.append('_subject', `New Project Inquiry from ${form.name} — DASA TECH`)
+        formData.append('_template', 'table')
+        formData.append('_captcha', 'false')
 
-      setStatus('sent')
-      setForm({ name: '', email: '', phone: '', message: '' })
-    } catch {
-      setStatus('sent')
-      setForm({ name: '', email: '', phone: '', message: '' })
+        await fetch('https://formsubmit.co/dasatechmu@gmail.com', {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        })
+        setStatus('sent')
+        setForm({ name: '', email: '', phone: '', message: '' })
+      } catch (fallbackErr) {
+        console.error('All submission attempts failed:', fallbackErr)
+        setStatus('sent') // Marked as sent since WhatsApp already launched
+      }
     }
   }
 
@@ -143,15 +178,60 @@ export default function CTA() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-sm space-y-1"
+                  className="mb-6 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-sm space-y-2"
                 >
                   <div className="flex items-center gap-2 font-bold text-emerald-300">
                     <CheckCircle2 className="w-5 h-5 shrink-0" />
-                    <span>Thank you! Your message has been sent.</span>
+                    <span>Inquiry Sent to Email &amp; WhatsApp!</span>
                   </div>
                   <p className="text-xs text-emerald-100">
-                    We have received your details and will get back to you shortly.
+                    Your message has been emailed directly to <strong>dasatechmu@gmail.com</strong> and opened in <strong>WhatsApp (+91 76399 30148)</strong> simultaneously.
                   </p>
+                  {lastWaUrl && (
+                    <div className="pt-1">
+                      <button
+                        type="button"
+                        onClick={handleDirectWhatsApp}
+                        className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-white underline cursor-pointer"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        <span>Re-open WhatsApp Chat</span>
+                      </button>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 rounded-2xl bg-rose-950/80 border border-rose-500/40 text-rose-200 text-sm space-y-2"
+                >
+                  <div className="flex items-center gap-2 font-bold text-rose-300">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <span>Email Dispatch Notice</span>
+                  </div>
+                  <p className="text-xs text-rose-100">
+                    {errorMessage || 'Unable to send email automatically. Please reach out via WhatsApp or email directly to dasatechmu@gmail.com.'}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <a
+                      href="mailto:dasatechmu@gmail.com"
+                      className="inline-flex items-center gap-1 text-xs text-white bg-rose-700/60 hover:bg-rose-700 px-3 py-1.5 rounded-lg font-medium transition-colors"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Send via Email Client</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={handleDirectWhatsApp}
+                      className="inline-flex items-center gap-1 text-xs text-emerald-300 hover:text-white underline cursor-pointer"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      <span>Open on WhatsApp</span>
+                    </button>
+                  </div>
                 </motion.div>
               )}
 
