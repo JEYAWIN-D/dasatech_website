@@ -2,7 +2,6 @@ import React from 'react'
 import { Router, Route } from './components/Router'
 import ScrollToTop from './components/ScrollToTop'
 import DasaAiChatbot from './components/DasaAiChatbot'
-import DasaPreloader from './components/DasaPreloader'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import { SmoothScrollProvider } from './components/SmoothScroll'
@@ -39,9 +38,6 @@ export default function App() {
       <SmoothScrollProvider>
         <ScrollToTop />
         <div className="font-body min-h-screen bg-white text-slate-900 flex flex-col justify-between relative selection:bg-blue-600 selection:text-white">
-          {/* Cinematic Studio Opening Intro Preloader */}
-          <DasaPreloader />
-
           <Nav />
 
           <div className="flex-grow">
