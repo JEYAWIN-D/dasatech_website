@@ -23,7 +23,7 @@ export const CORE_CAPABILITIES = [
     category: 'ARTIFICIAL INTELLIGENCE',
     desc: 'Smart AI tools, automated quality inspection, intelligent search, and decision support for your business.',
     tags: ['Computer Vision', 'Smart Search', 'AI Inspection', 'Automated Quality'],
-    img: '/images/ai-computer-vision.jpg',
+    img: import.meta.env.BASE_URL + 'images/ai-computer-vision.jpg',
     link: '/services/ai-solutions',
     accent: '#6D28D9'
   },

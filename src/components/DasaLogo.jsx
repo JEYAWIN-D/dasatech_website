@@ -30,7 +30,7 @@ export default function DasaLogo({ size = 'md', showTaglines = true, className =
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
       {/* Left: DASA Ribbon Wordmark */}
       <img
-        src="/dasa-wordmark.png"
+        src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
         alt="DASA"
         className={`${heights[size] || heights.md} w-auto object-contain shrink-0`}
       />

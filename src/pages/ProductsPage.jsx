@@ -126,7 +126,7 @@ export const PRODUCTS_CATALOG = [
     headline: 'Smart Textile Mill ERP, Loom IoT Telemetry & Garment SCADA',
     summary: 'Real-time loom and spinning telemetry, raw yarn lot traceability, NFC piece-rate bundle tracking, automated OEE metrics, and barcode roll inventory.',
     tags: ['Loom IoT Telemetry', 'Yarn Lot Traceability', 'NFC Bundle MES'],
-    img: '/textile-iot-erp.jpg'
+    img: import.meta.env.BASE_URL + 'textile-iot-erp.jpg'
   },
   {
     id: 'warehouse-erp',
@@ -177,7 +177,7 @@ export const PRODUCTS_CATALOG = [
 // ─────────────────────────────────────────────────────────────
 function ProductHero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [heroImgSrc, setHeroImgSrc] = useState('/project-pg.png')
+  const [heroImgSrc, setHeroImgSrc] = useState(import.meta.env.BASE_URL + 'project-pg.png')
 
   const handleMouseMove = (e) => {
     setMousePos({
@@ -204,7 +204,7 @@ function ProductHero() {
       >
         <img
           src={heroImgSrc}
-          onError={() => setHeroImgSrc('/project-pg.png')}
+          onError={() => setHeroImgSrc(import.meta.env.BASE_URL + 'project-pg.png')}
           alt="DASA TECH Enterprise Software Platforms"
           className="w-full h-full object-cover opacity-75"
         />

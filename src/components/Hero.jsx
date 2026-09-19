@@ -5,7 +5,7 @@ import { Link } from './Router.jsx'
 
 export default function Hero() {
   const containerRef = useRef(null)
-  const [imgSrc, setImgSrc] = useState('/uploaded-hero-bg.png')
+  const [imgSrc, setImgSrc] = useState(import.meta.env.BASE_URL + 'uploaded-hero-bg.png')
 
   // Scroll linked animations
   const { scrollYProgress } = useScroll({

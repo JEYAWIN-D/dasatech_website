@@ -24,7 +24,7 @@ const TEXFLOW_SCREEN_ASSETS = [
     title: 'Live 2D/3D Factory Floor Digital Twin & Workstation Telemetry',
     subtitle: 'Real-time WebSocket mapping broadcasting machine states, line velocity, active bundle progression, and line balancing rates across sewing lines.',
     tag: 'Digital Twin SCADA',
-    img: '/smart-garment-iot-factory.jpg',
+    img: import.meta.env.BASE_URL + 'smart-garment-iot-factory.jpg',
     route: 'app.dasatech.com/texflow/digital-twin',
     specs: ['Sub-100ms WebSocket Stream', 'Color-Coded Status Heatmap', 'Interactive Machine Detail Drawer']
   },
@@ -712,7 +712,7 @@ export default function FactoryErpProductView() {
                 /* ── VIEW B: SMART GARMENT FACTORY PHOTOGRAPH ─────────── */
                 <div className="relative aspect-[16/9] sm:aspect-[21/10] w-full overflow-hidden bg-slate-950">
                   <img
-                    src="/smart-garment-iot-factory.jpg"
+                    src={import.meta.env.BASE_URL + 'smart-garment-iot-factory.jpg'}
                     alt="DASA Smart Garment & Textile Manufacturing Factory Floor"
                     className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700 opacity-95"
                   />

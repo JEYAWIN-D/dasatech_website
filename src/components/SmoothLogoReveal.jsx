@@ -373,7 +373,7 @@ export default function SmoothLogoReveal({ onComplete }) {
           {/* High-Resolution DASA Ribbon Mark */}
           <div className="relative">
             <motion.img
-              src="/dasa-wordmark.png"
+              src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
               alt="DASA"
               initial={{ filter: 'brightness(1.5) contrast(1.1) drop-shadow(0 4px 30px rgba(0,102,255,0.6))' }}
               animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 30px rgba(0,102,255,0.45))' }}

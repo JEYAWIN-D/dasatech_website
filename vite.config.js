@@ -6,7 +6,7 @@ import path from 'path'
 function ensureImages() {
   const artifactDir = 'C:/Users/Naveen S/.gemini/antigravity-ide/brain/fb929536-5ce2-4059-9950-5b246d2657ac'
   const destDir = path.resolve(__dirname, 'public')
-  
+
   try {
     if (!fs.existsSync(destDir)) {
       fs.mkdirSync(destDir, { recursive: true })
@@ -72,5 +72,6 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true
-  }
+  },
+  base: '/dasatech_website/'
 })
