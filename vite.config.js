@@ -73,5 +73,5 @@ export default defineConfig({
     port: 5173,
     host: true
   },
-  base: '/dasatech_website/'
+  base: process.env.GITHUB_PAGES === 'true' ? '/dasatech_website/' : '/'
 })

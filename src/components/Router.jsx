@@ -5,7 +5,9 @@ const BASE_PATH = RAW_BASE.endsWith('/') && RAW_BASE.length > 1 ? RAW_BASE.slice
 
 export function normalizePath(pathname) {
   let p = pathname || '/'
-  if (BASE_PATH && p.startsWith(BASE_PATH)) {
+  if (p.startsWith('/dasatech_website')) {
+    p = p.slice('/dasatech_website'.length)
+  } else if (BASE_PATH && p.startsWith(BASE_PATH)) {
     p = p.slice(BASE_PATH.length)
   }
   if (!p || p === '') p = '/'
