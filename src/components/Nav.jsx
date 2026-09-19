@@ -62,38 +62,38 @@ export default function Nav() {
           <div className="absolute top-0 right-1/4 w-96 h-24 bg-violet-500/10 rounded-full blur-3xl" />
         </div>
 
-        <nav className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between gap-6 relative z-10">
+        <nav className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-12 flex items-center justify-between gap-3 sm:gap-6 relative z-10">
           
           {/* Official Brand Logo - Horizontal Inline Layout */}
           <Link
             to="/"
-            className="group flex items-center gap-3 shrink-0 select-none py-1"
+            className="group flex items-center gap-2 sm:gap-3 shrink-0 select-none py-1"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-              className="flex items-center"
+              className="flex items-center shrink-0"
             >
               <img
                 src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
                 alt="DASA"
-                className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_2px_12px_rgba(0,102,255,0.3)]"
+                className="h-7 sm:h-9 w-auto object-contain drop-shadow-[0_2px_12px_rgba(0,102,255,0.3)]"
               />
             </motion.div>
 
             {/* Vertical Divider */}
-            <div className="hidden sm:block h-7 w-[1px] bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+            <div className="h-6 sm:h-7 w-[1px] bg-gradient-to-b from-transparent via-white/30 to-transparent shrink-0" />
 
-            {/* Tagline Side Column */}
-            <div className="hidden sm:flex flex-col text-left justify-center leading-tight">
-              <div className="flex items-center gap-1 text-[8px] sm:text-[8.5px] font-mono tracking-[0.2em] text-slate-200 uppercase font-semibold">
+            {/* Tagline Side Column - Visible on Mobile and Desktop */}
+            <div className="flex flex-col text-left justify-center leading-tight shrink-0">
+              <div className="flex items-center gap-1 text-[6.5px] sm:text-[8.5px] font-mono tracking-[0.14em] sm:tracking-[0.2em] text-slate-200 uppercase font-semibold whitespace-nowrap">
                 <span>TECHNOLOGY</span>
                 <span className="text-[#0066FF] font-bold">•</span>
                 <span>INNOVATION</span>
                 <span className="text-[#00C5B5] font-bold">•</span>
                 <span>FUTURE</span>
               </div>
-              <span className="text-[7px] sm:text-[7.5px] font-mono tracking-[0.24em] text-indigo-300/80 uppercase font-medium mt-0.5">
+              <span className="text-[5.5px] sm:text-[7.5px] font-mono tracking-[0.18em] sm:tracking-[0.24em] text-indigo-300/80 uppercase font-medium mt-0.5 whitespace-nowrap">
                 DASA IS THE SOLUTION
               </span>
             </div>
@@ -199,23 +199,23 @@ export default function Nav() {
               className="lg:hidden mx-4 mt-3 rounded-3xl p-6 flex flex-col gap-4 max-h-[85vh] overflow-y-auto border border-white/15 bg-[#0a0e24]/95 backdrop-blur-2xl shadow-2xl z-[100] text-white"
             >
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5">
+                <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2 sm:gap-3 shrink-0">
                   <img
                     src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
                     alt="DASA"
                     className="h-7 w-auto object-contain"
                   />
-                  <div className="h-6 w-[1px] bg-gradient-to-b from-transparent via-white/25 to-transparent" />
-                  <div className="flex flex-col text-left">
-                    <div className="flex items-center gap-1 text-[7px] font-mono tracking-[0.18em] text-slate-200 uppercase font-semibold">
-                      <span>TECH</span>
+                  <div className="h-6 w-[1px] bg-gradient-to-b from-transparent via-white/25 to-transparent shrink-0" />
+                  <div className="flex flex-col text-left justify-center leading-tight shrink-0">
+                    <div className="flex items-center gap-1 text-[6.5px] sm:text-[7.5px] font-mono tracking-[0.14em] sm:tracking-[0.18em] text-slate-200 uppercase font-semibold whitespace-nowrap">
+                      <span>TECHNOLOGY</span>
                       <span className="text-[#0066FF] font-bold">•</span>
-                      <span>INNOV</span>
+                      <span>INNOVATION</span>
                       <span className="text-[#00C5B5] font-bold">•</span>
                       <span>FUTURE</span>
                     </div>
-                    <span className="text-[6px] font-mono tracking-[0.2em] text-indigo-300/80 uppercase">
-                      THE SOLUTION
+                    <span className="text-[5.5px] sm:text-[6.5px] font-mono tracking-[0.18em] text-indigo-300/80 uppercase font-medium mt-0.5 whitespace-nowrap">
+                      DASA IS THE SOLUTION
                     </span>
                   </div>
                 </Link>

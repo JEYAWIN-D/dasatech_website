@@ -14,12 +14,25 @@ export default function Footer() {
           
           {/* Column 1: DASA TECH Brand & Bio (Span 4) */}
           <div className="lg:col-span-4 space-y-5">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3 group select-none">
               <img
                 src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
-                alt="DASA TECH"
-                className="h-8 w-auto object-contain"
+                alt="DASA"
+                className="h-7 sm:h-8 w-auto object-contain shrink-0"
               />
+              <div className="h-6 sm:h-7 w-[1px] bg-gradient-to-b from-transparent via-white/30 to-transparent shrink-0" />
+              <div className="flex flex-col text-left justify-center leading-tight shrink-0">
+                <div className="flex items-center gap-1 text-[7px] sm:text-[8.5px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-slate-200 uppercase font-semibold whitespace-nowrap">
+                  <span>TECHNOLOGY</span>
+                  <span className="text-[#0066FF] font-bold">•</span>
+                  <span>INNOVATION</span>
+                  <span className="text-[#00C5B5] font-bold">•</span>
+                  <span>FUTURE</span>
+                </div>
+                <span className="text-[6px] sm:text-[7.5px] font-mono tracking-[0.2em] sm:tracking-[0.24em] text-indigo-300/80 uppercase font-medium mt-0.5 whitespace-nowrap">
+                  DASA IS THE SOLUTION
+                </span>
+              </div>
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-normal">
