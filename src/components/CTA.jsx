@@ -118,8 +118,8 @@ export default function CTA() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-10 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Simple, Warm & Client-Friendly Info */}
           <div className="lg:col-span-5 space-y-6">
@@ -172,7 +172,7 @@ export default function CTA() {
 
           {/* Right Column: Clean, Simple & Uncluttered Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-2xl">
+            <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-2xl">
               
               {status === 'sent' && (
                 <motion.div

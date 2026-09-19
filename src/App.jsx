@@ -37,7 +37,7 @@ export default function App() {
     <Router>
       <SmoothScrollProvider>
         <ScrollToTop />
-        <div className="font-body min-h-screen bg-white text-slate-900 flex flex-col justify-between relative selection:bg-blue-600 selection:text-white">
+        <div className="font-body min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-white text-slate-900 flex flex-col justify-between relative selection:bg-blue-600 selection:text-white">
           <Nav />
 
           <div className="flex-grow">

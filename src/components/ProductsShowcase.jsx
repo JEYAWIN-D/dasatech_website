@@ -93,7 +93,7 @@ export default function ProductsShowcase() {
       <div className="absolute top-0 right-1/4 w-[750px] h-[750px] bg-gradient-to-br from-[#EDE9FE]/50 via-[#F3E8FF]/25 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
       <div className="absolute bottom-10 left-10 w-[550px] h-[550px] bg-gradient-to-tr from-[#FAF5FF] via-transparent to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-10 lg:space-y-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 relative z-10 space-y-10 lg:space-y-12">
         
         {/* Section Header with Inside -> Outside Scale Reveal */}
         <motion.div
@@ -236,6 +236,7 @@ function ProductVisualTile({ item, heightClass }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setIsHovered((prev) => !prev)}
       className={`relative w-full ${heightClass} rounded-[24px] overflow-hidden border-2 border-[#E9E2F5] hover:border-[#6D28D9] bg-[#0F0B18] shadow-lg hover:shadow-2xl hover:shadow-[#6D28D9]/25 transition-all duration-500 cursor-pointer group`}
     >
       {/* High-Resolution Product Image with Fluid Easing Scale */}

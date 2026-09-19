@@ -52,8 +52,8 @@ export default function Nav() {
         }}
         className={`fixed top-0 left-0 right-0 z-[80] backdrop-blur-xl transition-all duration-300 select-none ${
           scrolled
-            ? 'py-3.5 sm:py-4 border-b border-indigo-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5)]'
-            : 'py-5 sm:py-6 border-b border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.3)]'
+            ? 'py-2.5 sm:py-4 border-b border-indigo-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5)]'
+            : 'py-3 sm:py-6 border-b border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.3)]'
         }`}
       >
         {/* Subtle Ambient Radial Light Accent */}
@@ -196,38 +196,9 @@ export default function Nav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-              className="lg:hidden mx-4 mt-3 rounded-3xl p-6 flex flex-col gap-4 max-h-[85vh] overflow-y-auto border border-white/15 bg-[#0a0e24]/95 backdrop-blur-2xl shadow-2xl z-[100] text-white"
+              className="lg:hidden mx-3 sm:mx-4 mt-2 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col gap-3 max-h-[82vh] overflow-y-auto border border-white/15 bg-[#0a0e24]/98 backdrop-blur-2xl shadow-2xl z-[100] text-white"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2 sm:gap-3 shrink-0">
-                  <img
-                    src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
-                    alt="DASA"
-                    className="h-7 w-auto object-contain"
-                  />
-                  <div className="h-6 w-[1px] bg-gradient-to-b from-transparent via-white/25 to-transparent shrink-0" />
-                  <div className="flex flex-col text-left justify-center leading-tight shrink-0">
-                    <div className="flex items-center gap-1 text-[6.5px] sm:text-[7.5px] font-mono tracking-[0.14em] sm:tracking-[0.18em] text-slate-200 uppercase font-semibold whitespace-nowrap">
-                      <span>TECHNOLOGY</span>
-                      <span className="text-[#0066FF] font-bold">•</span>
-                      <span>INNOVATION</span>
-                      <span className="text-[#00C5B5] font-bold">•</span>
-                      <span>FUTURE</span>
-                    </div>
-                    <span className="text-[5.5px] sm:text-[6.5px] font-mono tracking-[0.18em] text-indigo-300/80 uppercase font-medium mt-0.5 whitespace-nowrap">
-                      DASA IS THE SOLUTION
-                    </span>
-                  </div>
-                </Link>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 cursor-pointer transition-colors"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-
-              <div className="flex flex-col gap-2 pt-1">
+              <div className="flex flex-col gap-1.5 pt-0.5">
                 {navLinks.map((item) => {
                   const active = isActive(item.to)
 
@@ -236,7 +207,7 @@ export default function Nav() {
                       key={item.to}
                       to={item.to}
                       onClick={() => setOpen(false)}
-                      className={`py-3 px-4 rounded-2xl text-base font-display transition-all duration-200 flex items-center justify-between ${
+                      className={`py-2.5 px-4 rounded-xl text-sm sm:text-base font-display transition-all duration-200 flex items-center justify-between ${
                         active
                           ? 'bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-white font-bold border border-indigo-400/40 shadow-xs'
                           : 'text-slate-300 hover:text-white hover:bg-white/5 font-medium'
@@ -251,22 +222,18 @@ export default function Nav() {
                 })}
               </div>
 
-              <div className="pt-3 border-t border-white/10">
+              <div className="pt-2.5 border-t border-white/10">
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className={`w-full inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-2xl font-display text-base font-bold text-white transition-all text-center ${
+                  className={`w-full inline-flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-display text-sm sm:text-base font-bold text-white transition-all text-center ${
                     isContact
                       ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 border-2 border-violet-400 shadow-[0_0_24px_rgba(139,92,246,0.45)]'
-                      : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 shadow-[0_0_20px_rgba(99,102,241,0.4)] border border-white/20'
+                      : 'bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#7C3AED] hover:from-[#3B82F6] hover:to-[#8B5CF6] border border-white/25 shadow-lg'
                   }`}
                 >
                   <span>Schedule Consultation</span>
-                  <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
-                    isContact ? 'bg-white text-indigo-700' : 'bg-white/20 text-white'
-                  }`}>
-                    {isContact ? <Check className="w-3 h-3 stroke-[3]" /> : <ArrowUpRight className="w-3.5 h-3.5" />}
-                  </span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
             </motion.div>

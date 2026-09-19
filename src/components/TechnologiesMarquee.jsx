@@ -50,7 +50,7 @@ export default function TechnologiesMarquee() {
         style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.15) 0%, rgba(217,70,239,0.08) 60%, transparent 80%)' }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10 space-y-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10 space-y-6">
         {/* Top Section Eyebrow Title */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-purple-700 uppercase">
@@ -60,7 +60,7 @@ export default function TechnologiesMarquee() {
         </div>
 
         {/* 2 Flagship Product Logo Cards */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8 max-w-2xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 max-w-2xl mx-auto">
           
           {/* SafeScroll Card */}
           <a
@@ -68,7 +68,7 @@ export default function TechnologiesMarquee() {
             target="_blank"
             rel="noopener noreferrer"
             id="safescroll-logo-link"
-            className="group relative w-full sm:w-auto min-w-[260px] sm:min-w-[290px] flex items-center justify-between gap-5 sm:gap-6 px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#0B0716] border border-[#2D1B69]/80 hover:border-[#8B5CF6] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_rgba(139,92,246,0.35)] hover:-translate-y-1 cursor-pointer"
+            className="group relative w-full sm:w-auto min-w-0 sm:min-w-[290px] flex items-center justify-between gap-4 sm:gap-6 px-4 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#0B0716] border border-[#2D1B69]/80 hover:border-[#8B5CF6] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_rgba(139,92,246,0.35)] hover:-translate-y-1 cursor-pointer"
           >
             <SafeScrollVectorLogo />
 
@@ -84,7 +84,7 @@ export default function TechnologiesMarquee() {
             target="_blank"
             rel="noopener noreferrer"
             id="teeninbox-logo-link"
-            className="group relative w-full sm:w-auto min-w-[260px] sm:min-w-[290px] flex items-center justify-between gap-5 sm:gap-6 px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#070417] border border-[#381B6D]/80 hover:border-[#D946EF] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_rgba(217,70,239,0.35)] hover:-translate-y-1 cursor-pointer"
+            className="group relative w-full sm:w-auto min-w-0 sm:min-w-[290px] flex items-center justify-between gap-4 sm:gap-6 px-4 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#070417] border border-[#381B6D]/80 hover:border-[#D946EF] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_rgba(217,70,239,0.35)] hover:-translate-y-1 cursor-pointer"
           >
             <TeenInboxVectorLogo />
 

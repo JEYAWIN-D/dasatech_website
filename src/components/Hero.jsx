@@ -44,7 +44,7 @@ export default function Hero() {
 
       {/* 2. HERO TYPOGRAPHY & MAIN CONTENT LAYER (PERFECTLY VISIBLE AT ALL TIMES) */}
       <div
-        className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 w-full py-8 lg:py-12 my-auto pb-16"
+        className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 w-full py-8 lg:py-12 my-auto pb-16"
       >
         <div className="max-w-4xl space-y-6">
 
@@ -68,7 +68,7 @@ export default function Hero() {
                 initial={{ y: '115%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.85, delay: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-extrabold pb-1"
+                className="text-3xl sm:text-6xl lg:text-7xl font-extrabold pb-1"
               >
                 INTELLIGENT
               </motion.div>
@@ -80,7 +80,7 @@ export default function Hero() {
                 initial={{ y: '115%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.85, delay: 0.38, ease: [0.215, 0.61, 0.355, 1] }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-extrabold pb-1"
+                className="text-3xl sm:text-6xl lg:text-7xl font-extrabold pb-1"
               >
                 ENTERPRISE
               </motion.div>
@@ -92,7 +92,7 @@ export default function Hero() {
                 initial={{ y: '115%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.85, delay: 0.46, ease: [0.215, 0.61, 0.355, 1] }}
-                className="text-3xl sm:text-5xl lg:text-6xl font-light text-transparent tracking-wide pb-1"
+                className="text-2xl sm:text-5xl lg:text-6xl font-light text-transparent tracking-wide pb-1"
                 style={{
                   WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.9)',
                 }}
@@ -107,7 +107,7 @@ export default function Hero() {
                 initial={{ y: '115%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.85, delay: 0.54, ease: [0.215, 0.61, 0.355, 1] }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-extrabold pb-1"
+                className="text-3xl sm:text-6xl lg:text-7xl font-extrabold pb-1"
               >
                 DIGITAL
               </motion.div>
@@ -119,7 +119,7 @@ export default function Hero() {
                 initial={{ y: '115%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.85, delay: 0.62, ease: [0.215, 0.61, 0.355, 1] }}
-                className="text-3xl sm:text-5xl lg:text-6xl font-light text-white/90 tracking-wide pb-1"
+                className="text-2xl sm:text-5xl lg:text-6xl font-light text-white/90 tracking-wide pb-1"
               >
                 SOLUTIONS FOR
               </motion.div>
@@ -131,12 +131,12 @@ export default function Hero() {
                 initial={{ y: '115%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
                 transition={{ duration: 0.85, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-extrabold inline-flex items-center gap-3 pb-1"
+                className="text-3xl sm:text-6xl lg:text-7xl font-extrabold flex flex-wrap items-center gap-2 sm:gap-3 pb-1"
               >
                 <span className="text-color-shift">
                   MODERN
                 </span>
-                <span className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white">
+                <span className="text-3xl sm:text-6xl lg:text-7xl font-extrabold text-white">
                   BUSINESSES
                 </span>
               </motion.div>

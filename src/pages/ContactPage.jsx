@@ -166,19 +166,19 @@ export default function ContactPage() {
       />
 
       {/* ── 2. PROJECT ESTIMATOR & MAIN CONTACT GRID ─────────── */}
-      <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20">
+      <section className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 py-12 sm:py-20">
 
         {/* Live Project Estimator Calculator */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <ContactProjectEstimator onSelectEstimate={handleApplyEstimate} />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column: Direct Contact Information */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             
-            <div className="rounded-3xl p-8 border-2 border-[#E9E2F5] bg-[#FAF8FF] space-y-6 shadow-sm">
+            <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#E9E2F5] bg-[#FAF8FF] space-y-6 shadow-sm">
               <div className="space-y-1">
                 <span className="text-[10px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider block">
                   COMMUNICATION CHANNELS
@@ -268,7 +268,7 @@ export default function ContactPage() {
 
           {/* Right Column: Request Project Consultation Form */}
           <div className="lg:col-span-7" id="consultation-form">
-            <div className="rounded-3xl p-8 sm:p-10 border-2 border-[#E9E2F5] bg-white shadow-lg space-y-6">
+            <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-10 border-2 border-[#E9E2F5] bg-white shadow-lg space-y-6">
               
               <div className="space-y-1 border-b border-[#E9E2F5] pb-5">
                 <span className="text-[10px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider block">

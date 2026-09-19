@@ -81,15 +81,15 @@ export default function About() {
       {/* ======================================================================== */}
       {/* 1. ABOUT / COMPANY SECTION - DEEP VIOLET-PURPLE BACKGROUND (#24113F)    */}
       {/* ======================================================================== */}
-      <div className="bg-[#24113F] py-24 lg:py-32 relative overflow-clip">
+      <div className="bg-[#24113F] py-16 sm:py-24 lg:py-32 relative overflow-clip">
         
         {/* Glowing Ambient Violet Orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.15)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#6D28D9]/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 relative z-10">
           
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
             {/* Left Column: Distinctive Typography on Deep Violet */}
             <div className="lg:col-span-6 space-y-6">
@@ -113,13 +113,13 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="font-display leading-[1.18] tracking-tight space-y-2 pb-1"
               >
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white">
                   Building Smart
                 </h2>
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white">
                   Digital Solutions for
                 </h2>
-                <div className="text-4xl sm:text-6xl lg:text-7xl font-black text-color-shift pb-1">
+                <div className="text-3xl sm:text-6xl lg:text-7xl font-black text-color-shift pb-1">
                   Growing Businesses
                 </div>
               </motion.div>
@@ -130,7 +130,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-[#E9D5FF] text-lg sm:text-xl font-normal leading-relaxed max-w-xl"
+                className="text-[#E9D5FF] text-base sm:text-xl font-normal leading-relaxed max-w-xl"
               >
                 At DASA TECH, we combine deep technology experience with modern design to create easy-to-use software that connects your team, systems, and customers.
               </motion.p>
@@ -144,7 +144,7 @@ export default function About() {
               >
                 <Link
                   to="/services"
-                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#A855F7] hover:from-[#A855F7] hover:to-[#6D28D9] px-8 py-4 font-display font-bold text-sm text-white shadow-lg shadow-[#6D28D9]/40 hover:shadow-xl hover:shadow-[#A855F7]/50 transition-all duration-300 cursor-pointer"
+                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#A855F7] hover:from-[#A855F7] hover:to-[#6D28D9] px-7 sm:px-8 py-3.5 sm:py-4 font-display font-bold text-sm text-white shadow-lg shadow-[#6D28D9]/40 hover:shadow-xl hover:shadow-[#A855F7]/50 transition-all duration-300 cursor-pointer"
                 >
                   <span>Explore Our Services</span>
                   <div className="w-8 h-8 rounded-full bg-white text-[#6D28D9] flex items-center justify-center group-hover:scale-110 group-hover:rotate-45 transition-transform duration-300">
@@ -172,20 +172,20 @@ export default function About() {
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=90"
                   alt="Digital Engineering Environment"
-                  className="w-full h-[380px] sm:h-[460px] object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[320px] sm:h-[460px] object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#24113F]/90 via-transparent to-transparent" />
 
                 {/* Floating Live Telemetry Badge over Visual */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#24113F]/90 backdrop-blur-md border border-[#A855F7]/30 shadow-lg flex items-center justify-between font-mono text-xs text-white">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-3 sm:p-4 rounded-2xl bg-[#24113F]/90 backdrop-blur-md border border-[#A855F7]/30 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 font-mono text-xs text-white">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                     <div>
-                      <div className="font-bold font-display text-sm text-white">System Performance</div>
-                      <div className="text-[#E9D5FF]">24/7 Monitoring &amp; High Reliability</div>
+                      <div className="font-bold font-display text-xs sm:text-sm text-white">System Performance</div>
+                      <div className="text-[#E9D5FF] text-[10px] sm:text-xs">24/7 Monitoring &amp; High Reliability</div>
                     </div>
                   </div>
-                  <span className="font-bold text-[#A855F7] bg-[#6D28D9]/30 px-3 py-1 rounded-full border border-[#A855F7]/40">
+                  <span className="self-start sm:self-auto font-bold text-[10px] sm:text-xs text-[#A855F7] bg-[#6D28D9]/30 px-2.5 py-1 rounded-full border border-[#A855F7]/40">
                     99.9% Uptime
                   </span>
                 </div>

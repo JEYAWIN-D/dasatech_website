@@ -17,13 +17,13 @@ export default function PageHeaderHero({
   tools = []
 }) {
   return (
-    <div className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 bg-white text-[#17121F] overflow-hidden select-none border-b border-[#E9E2F5]">
+    <div className="relative pt-24 pb-12 sm:pt-32 sm:pb-20 bg-white text-[#17121F] overflow-hidden select-none border-b border-[#E9E2F5]">
       
       {/* Soft Light Violet Glow Backdrop */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(108,43,217,0.08)_0%,rgba(255,255,255,1)_70%)] pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* ============================================================== */}
           {/* STEP 1: BIG IMAGE - ANIMATES FROM BACK TO FRONT (ZOOM IN 3D)   */}
@@ -36,7 +36,7 @@ export default function PageHeaderHero({
                 duration: 1.0,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className="relative w-full max-w-lg h-[300px] sm:h-[380px] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E9E2F5] group bg-[#F5F0FF]"
+              className="relative w-full max-w-lg h-[230px] sm:h-[380px] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E9E2F5] group bg-[#F5F0FF]"
             >
               {/* High Quality Sub-Page Image */}
               <img
@@ -50,11 +50,11 @@ export default function PageHeaderHero({
 
               {/* Floating Tool Badges Overlay */}
               {tools && tools.length > 0 && (
-                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 z-10">
+                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5 sm:gap-2 z-10">
                   {tools.map((t, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-full text-xs font-mono font-bold text-white bg-[#6C2BD9]/90 backdrop-blur-md border border-[#8B5CF6]/50 shadow-sm"
+                      className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold text-white bg-[#6C2BD9]/90 backdrop-blur-md border border-[#8B5CF6]/50 shadow-sm"
                     >
                       {t}
                     </span>
@@ -67,7 +67,7 @@ export default function PageHeaderHero({
           {/* ============================================================== */}
           {/* STEP 2: TEXT & DETAILS - ANIMATES AFTER THE IMAGE (DELAYED)   */}
           {/* ============================================================== */}
-          <div className="lg:col-span-6 lg:order-1 space-y-6">
+          <div className="lg:col-span-6 lg:order-1 space-y-5 sm:space-y-6">
             
             {/* Staggered Tagline Pill */}
             <motion.div
@@ -84,7 +84,7 @@ export default function PageHeaderHero({
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7 }}
-              className="font-display text-4xl sm:text-6xl font-black tracking-tight text-[#17121F] leading-[1.1]"
+              className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#17121F] leading-[1.14]"
             >
               {title.includes(' ') ? (
                 <>
