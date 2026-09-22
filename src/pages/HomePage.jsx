@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <main className="bg-[#FAF8FF] text-slate-900">
       <Hero />
-      <TechMarquee />
+     <TechMarquee />
       <About />
       <CapabilitiesScrollStory />
       <TechnologiesMarquee />
