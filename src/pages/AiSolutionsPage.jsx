@@ -4,8 +4,25 @@ import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
 import AiVisionSimulator from '../components/AiVisionSimulator'
+import { useSEO } from '../hooks/useSEO'
 
 export default function AiSolutionsPage() {
+  useSEO({
+    title: 'AI Development Services | DASA TECH',
+    description: 'Custom AI solutions for business automation. We develop AI agents, machine learning models, and enterprise computer vision systems.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Development Services",
+      "provider": {
+        "@type": "Organization",
+        "name": "DASA TECH"
+      },
+      "serviceType": "Artificial Intelligence",
+      "description": "Custom AI software development, workflow automation, and machine learning solutions."
+    }
+  });
+
   const aiOfferings = [
     {
       icon: Brain,

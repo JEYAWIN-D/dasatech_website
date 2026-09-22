@@ -32,6 +32,9 @@ import SecurityPage from './pages/SecurityPage'
 import BlogPage from './pages/BlogPage'
 import CareersPage from './pages/CareersPage'
 
+import TextileErpPage from './pages/TextileErpPage'
+import DigitalMarketingPage from './pages/DigitalMarketingPage'
+
 export default function App() {
   return (
     <Router>
@@ -46,9 +49,21 @@ export default function App() {
             <Route path="/services/:serviceId" component={ServiceDetailPage} />
             <Route path="/products" component={ProductsPage} />
             <Route path="/products/:productId" component={ProductDetailPage} />
+            
+            {/* Flat SEO URLs */}
+            <Route path="/software-development" component={SoftwareDevelopmentPage} />
+            <Route path="/custom-software-development" component={SoftwareDevelopmentPage} />
+            <Route path="/erp-development" component={ErpPage} />
             <Route path="/products/erp" component={ErpPage} />
-            <Route path="/products/ems" component={EmsPage} />
+            <Route path="/textile-erp" component={TextileErpPage} />
+            <Route path="/iot-development" component={IotPage} />
             <Route path="/products/iot" component={IotPage} />
+            <Route path="/products/ems" component={EmsPage} />
+            <Route path="/industrial-automation" component={IndustrialAutomationPage} />
+            <Route path="/home-automation" component={HomeAutomationPage} />
+            <Route path="/ai-development" component={AiSolutionsPage} />
+            <Route path="/digital-marketing" component={DigitalMarketingPage} />
+            
             <Route path="/automations" component={AutomationsPage} />
             <Route path="/automations/:automationId" component={AutomationsPage} />
             <Route path="/projects" component={ProjectsPage} />

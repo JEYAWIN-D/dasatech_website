@@ -4,8 +4,25 @@ import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
 import IotMeshSimulator from '../components/IotMeshSimulator'
+import { useSEO } from '../hooks/useSEO'
 
 export default function IotPage() {
+  useSEO({
+    title: 'Industrial IoT Development Services | DASA TECH',
+    description: 'Custom IoT development company. We build Industrial IoT (IIoT) solutions, factory machine monitoring, real-time dashboards, and smart automation systems.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Industrial IoT Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "DASA TECH"
+      },
+      "serviceType": "Internet of Things",
+      "description": "Industrial IoT solutions for factory machine monitoring, sensor integration, and real-time production analytics."
+    }
+  })
+
   const iotCapabilities = [
     {
       icon: Cpu,
@@ -53,7 +70,7 @@ export default function IotPage() {
 
             <TextLineReveal
               as="h1"
-              lines={['IoT-Based Hardware &', 'Cloud Telemetry Solutions']}
+              lines={['Industrial IoT', 'Development Services']}
               className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-slate-900 font-display"
             />
 

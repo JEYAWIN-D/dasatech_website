@@ -4,8 +4,25 @@ import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
 import ScadaTelemetrySimulator from '../components/ScadaTelemetrySimulator'
+import { useSEO } from '../hooks/useSEO'
 
 export default function IndustrialAutomationPage() {
+  useSEO({
+    title: 'Industrial Automation Solutions | DASA TECH',
+    description: 'Transform your manufacturing with Industry 4.0 smart factory solutions. We provide industrial automation software, machine monitoring, and production automation.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Industrial Automation Solutions",
+      "provider": {
+        "@type": "Organization",
+        "name": "DASA TECH"
+      },
+      "serviceType": "Industrial Automation",
+      "description": "Smart factory software and industrial automation systems for manufacturing plants."
+    }
+  })
+
   const capabilities = [
     {
       icon: Factory,
@@ -53,7 +70,7 @@ export default function IndustrialAutomationPage() {
 
             <TextLineReveal
               as="h1"
-              lines={['Industrial Automation', '& SCADA Solutions']}
+              lines={['Industrial Automation', 'Solutions']}
               className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-slate-900 font-display"
             />
 

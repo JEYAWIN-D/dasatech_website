@@ -5,8 +5,25 @@ import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 
 export default function ErpPage() {
+  useSEO({
+    title: 'ERP Software Development Company | DASA TECH',
+    description: 'Custom ERP software development company offering Pharmacy ERP, School ERP, Textile ERP, and Garment Manufacturing ERP solutions with IoT integration.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "ERP Software Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "DASA TECH"
+      },
+      "serviceType": "Enterprise Resource Planning",
+      "description": "Custom enterprise resource planning software including inventory, billing, textile manufacturing, and pharmacy management."
+    }
+  });
+
   const [activeTab, setActiveTab] = useState('pharmacy')
 
   const modules = [
@@ -58,7 +75,7 @@ export default function ErpPage() {
 
             <TextLineReveal
               as="h1"
-              lines={['DASA TECH', 'ERP Solutions']}
+              lines={['Custom ERP Software', 'Development Company']}
               className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-slate-900 font-display"
             />
 

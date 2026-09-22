@@ -3,8 +3,26 @@ import { Code2, Server, Smartphone, Cloud, Database, ShieldCheck } from 'lucide-
 import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
+import { useSEO } from '../hooks/useSEO'
 
 export default function SoftwareDevelopmentPage() {
+  useSEO({
+    title: 'Custom Software Development Company in Erode | DASA TECH',
+    description: 'Top software development company in Erode, Tamil Nadu. We build custom business software, enterprise web applications, and tailor-made mobile apps.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Custom Software Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "DASA TECH"
+      },
+      "serviceType": "Software Development",
+      "areaServed": "Erode, Tamil Nadu, India",
+      "description": "Custom software development, business web applications, and enterprise software solutions."
+    }
+  });
+
   const devServices = [
     {
       icon: Code2,
@@ -52,7 +70,7 @@ export default function SoftwareDevelopmentPage() {
 
             <TextLineReveal
               as="h1"
-              lines={['Custom Software', 'Development & Engineering']}
+              lines={['Custom Software', 'Development Company']}
               className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 text-slate-900 font-display"
             />
 
