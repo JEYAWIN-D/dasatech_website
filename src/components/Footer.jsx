@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, MessageCircle } from 'lucide-react'
 import { Link } from './Router'
 
 export default function Footer() {
@@ -155,11 +155,13 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+917639930148"
+                  href="https://wa.me/917639930148"
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
                 >
-                  <Phone className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>+91 76399 30148</span>
+                  <MessageCircle className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>+91 76399 30148 (WhatsApp Only)</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-slate-300">

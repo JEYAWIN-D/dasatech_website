@@ -10,7 +10,6 @@ import {
 import { Link, usePath } from '../components/Router'
 import { PAGE_HERO_IMAGES } from '../constants/images.js'
 import { BACKEND_ASSETS } from '../data/backendAssets.js'
-import TechnologiesMarquee from '../components/TechnologiesMarquee'
 
 // ─────────────────────────────────────────────────────────────
 // SERVICES DATA — 7 services with clear, client-friendly descriptions
@@ -447,9 +446,6 @@ export default function ServicesPage() {
 
       {/* ── 5. HOW WE WORK ─────────────────────────────────── */}
       <HowWeWork />
-
-      {/* ── TECHNOLOGIES WE WORK WITH ──────────────────────── */}
-      <TechnologiesMarquee />
 
       {/* ── 6. CTA ─────────────────────────────────────────── */}
       <ServiceCTA />

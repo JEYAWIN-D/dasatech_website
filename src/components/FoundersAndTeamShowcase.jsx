@@ -20,8 +20,7 @@ import { Link } from './Router.jsx'
 
 // Local High-Definition 3D Character Avatars
 import jeyawin3d from '../assets/team-3d/jeyawin.jpg'
-import nandhakumar3d from '../assets/team-3d/nandhakumar.jpg'
-import foundersDuoImg from '../assets/team-3d/founders-duo.png'
+import founderSoloImg from '../assets/team-3d/founder-jeyawin.png'
 import mithul3d from '../assets/team-3d/mithul.jpg'
 import arun3d from '../assets/team-3d/arun.jpg'
 import akash3d from '../assets/team-3d/akash.jpg'
@@ -60,30 +59,6 @@ export const TEAM_MEMBERS = [
     email: 'dasatechmu@gmail.com',
     phone: '+91 76399 30148',
     linkedin: 'https://www.linkedin.com/in/jeyawin-d/'
-  },
-  {
-    id: 'nandhakumar',
-    name: 'Nandha kumar',
-    verticalName: 'NANDHA',
-    role: 'CTO',
-    verticalTag: '*cto',
-    badge: 'CHIEF TECHNOLOGY OFFICER & CO-FOUNDER',
-    badgeCategory: 'EXECUTIVE LEADERSHIP',
-    initial: 'N',
-    skills: 'Strategy • Technology • Architecture',
-    skillsList: ['Enterprise Architecture', 'Cloud Systems', 'Technology Strategy', 'Operational Scale', 'Engineering Leadership', 'Strategic Partnerships'],
-    specialty: 'Technology Strategy, Cloud Architecture & Engineering Leadership',
-    bio: 'As Co-Founder & CTO of DASA TECH, I drive company growth, core technology strategy, and architectural excellence across our enterprise initiatives. Working closely with our engineering and product teams to deliver transformative digital solutions for our global clients.',
-    image: nandhakumar3d,
-    color: '#06B6D4',
-    deptColor: '#22D3EE',
-    propName: 'Executive Suite & Terminal',
-    actionTitle: 'Strategic Technology Telemetry',
-    actionMessage: 'Enterprise Systems: Synchronized • 100% Core Architecture Uptime',
-    actionType: 'executive',
-    email: 'dasatechmu@gmail.com',
-    phone: '+91 76399 30148',
-    linkedin: 'https://linkedin.com'
   },
   {
     id: 'karthick',
@@ -898,7 +873,7 @@ export default function FoundersAndTeamShowcase() {
 
     </section>
 
-    {/* ── MEET THE FOUNDERS (MATCHING REFERENCE DESIGN) ── */}
+    {/* ── MEET THE FOUNDER ── */}
     <section className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 border-b border-slate-200 select-none relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -910,69 +885,48 @@ export default function FoundersAndTeamShowcase() {
                 Meet
               </span>
               <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-[46px] text-slate-950 tracking-tight leading-none">
-                The Founders
+                The Founder
               </h2>
             </div>
 
             {/* Sweet & Short Executive Narrative */}
             <p className="max-w-lg text-slate-600 text-sm sm:text-base leading-relaxed font-normal text-left">
-              Jeyawin leads enterprise systems architecture, cloud infrastructure, and custom ERP development. Partnering with Nandha Kumar, an enterprise strategist focused on operational scale and business growth, they founded DASA TECH to engineer intelligent, mission-critical software built to scale globally.
+              Jeyawin leads enterprise systems architecture, cloud infrastructure, and custom ERP development. Founding DASA TECH to engineer intelligent, mission-critical software, he directs high-performance cloud architectures, ERP platforms, and custom digital solutions built to scale globally.
             </p>
           </div>
 
-          {/* Right Column: Heroic Duo with Clean Backdrop & Properly Arranged Typography */}
+          {/* Right Column: Solo Founder with Clean Backdrop & Properly Arranged Typography */}
           <div className="lg:col-span-6 flex flex-col items-center">
             
-            <div className="relative w-full max-w-[360px] sm:max-w-[400px] lg:max-w-[420px] mx-auto group">
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[400px] mx-auto group">
 
               {/* Clean Pure-White Background Image with Grey DT Monogram */}
               <img
-                src={foundersDuoImg}
-                alt="DASA TECH Founders - Jeyawin D & Nandha Kumar"
-                className="w-auto h-[340px] sm:h-[410px] lg:h-[460px] mx-auto object-contain select-none pointer-events-none relative z-10 transition-transform duration-500 group-hover:scale-[1.015]"
+                src={founderSoloImg}
+                alt="DASA TECH Founder & CEO - Jeyawin D"
+                className="w-auto h-[360px] sm:h-[430px] lg:h-[490px] mx-auto object-contain select-none pointer-events-none relative z-10 transition-transform duration-500 group-hover:scale-[1.015]"
               />
 
-              {/* Interactive Click Hotspots to Open 3D Spotlight Profile */}
-              <div className="absolute inset-0 grid grid-cols-2 z-20">
+              {/* Interactive Click Hotspot to Open 3D Spotlight Profile */}
+              <div className="absolute inset-0 z-20">
                 <button
                   onClick={() => setActiveProfileIndex(0)}
                   className="w-full h-full cursor-pointer"
                   title="Click to view Jeyawin D's Profile"
                   aria-label="View Jeyawin D Profile"
                 />
-                <button
-                  onClick={() => setActiveProfileIndex(1)}
-                  className="w-full h-full cursor-pointer"
-                  title="Click to view Nandha Kumar's Profile"
-                  aria-label="View Nandha Kumar Profile"
-                />
               </div>
 
             </div>
 
-            {/* Clean, Properly Arranged Designation Typography - Aligned Directly Underneath Each Founder with Zero Collision */}
-            <div className="w-full max-w-[360px] sm:max-w-[400px] lg:max-w-[420px] mx-auto grid grid-cols-2 gap-4 px-3 sm:px-4 pt-3 z-20">
-              
-              {/* Jeyawin Designation (Aligned under left person) */}
-              <div className="flex flex-col items-start text-left">
-                <div className="font-orbitron font-black text-lg sm:text-xl lg:text-2xl text-slate-950 tracking-wider">
-                  JEYAWIN
-                </div>
-                <div className="font-mono text-[9.5px] sm:text-[11px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">
-                  FOUNDER &amp; CEO
-                </div>
+            {/* Clean, Properly Arranged Designation Typography - Centered Directly Underneath Founder */}
+            <div className="w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[400px] mx-auto flex flex-col items-center text-center px-4 pt-3 z-20">
+              <div className="font-orbitron font-black text-xl sm:text-2xl lg:text-3xl text-slate-950 tracking-wider">
+                JEYAWIN
               </div>
-
-              {/* Nandha Designation (Aligned under right person) */}
-              <div className="flex flex-col items-end text-right">
-                <div className="font-orbitron font-black text-lg sm:text-xl lg:text-2xl text-slate-950 tracking-wider">
-                  NANDHA
-                </div>
-                <div className="font-mono text-[9.5px] sm:text-[11px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">
-                  CTO
-                </div>
+              <div className="font-mono text-[10px] sm:text-[11.5px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">
+                FOUNDER &amp; CEO
               </div>
-
             </div>
 
           </div>

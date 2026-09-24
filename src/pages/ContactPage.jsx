@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Clock,
-  Sparkles, ShieldCheck, ArrowRight, MessageSquare, HelpCircle, User, Building, ExternalLink
+  Sparkles, ShieldCheck, ArrowRight, MessageSquare, HelpCircle, User, Building, ExternalLink, MessageCircle
 } from 'lucide-react'
 import PageHeaderHero from '../components/PageHeaderHero'
 import ContactProjectEstimator from '../components/ContactProjectEstimator'
@@ -16,7 +16,7 @@ import { PAGE_HERO_IMAGES } from '../constants/images.js'
 const FAQS = [
   {
     question: 'How fast can I expect a response?',
-    answer: 'Our team reviews all inquiries within 24 business hours. Direct calls to Founder & CEO Jeyawin D are handled immediately.'
+    answer: 'Our team reviews all inquiries within 24 business hours. Direct WhatsApp inquiries to Founder & CEO Jeyawin D are handled promptly.'
   },
   {
     question: 'Can we execute a Non-Disclosure Agreement (NDA)?',
@@ -162,7 +162,7 @@ export default function ContactPage() {
         title="Connect With DASA TECH"
         description="Reach out directly to Founder & CEO Jeyawin D and our engineering team to discuss custom software, smart automation, ERP platforms, or project estimates."
         image={PAGE_HERO_IMAGES?.contact?.path || 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1400&q=85'}
-        tools={['Direct Founder Line', 'Free Discovery Discussion', 'Tailored Project Scoping', '24-Hour SLA']}
+        tools={['Direct WhatsApp Channel', 'Free Discovery Discussion', 'Tailored Project Scoping', '24-Hour SLA']}
       />
 
       {/* ── 2. PROJECT ESTIMATOR & MAIN CONTACT GRID ─────────── */}
@@ -204,18 +204,20 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Phone / WhatsApp Channel */}
+              {/* WhatsApp Channel */}
               <div className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-[#E9E2F5]">
-                <div className="w-10 h-10 rounded-xl bg-[#F7F3FF] border border-[#DDD0FF] flex items-center justify-center text-[#6D28D9] shrink-0">
-                  <Phone className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-[10px] font-mono text-slate-500 font-bold uppercase">Direct Phone / WhatsApp (Founder &amp; CEO)</div>
+                  <div className="text-[10px] font-mono text-slate-500 font-bold uppercase">Direct WhatsApp (Founder &amp; CEO)</div>
                   <a
-                    href="tel:+917639930148"
-                    className="text-sm font-display font-bold text-[#17121F] hover:text-[#6D28D9] transition-colors block"
+                    href="https://wa.me/917639930148"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-display font-bold text-[#17121F] hover:text-emerald-600 transition-colors block"
                   >
-                    +91 76399 30148
+                    +91 76399 30148 (WhatsApp Only)
                   </a>
                 </div>
               </div>
@@ -255,10 +257,12 @@ export default function ContactPage() {
                   Send Email
                 </a>
                 <a
-                  href="tel:+917639930148"
-                  className="flex-1 py-3 rounded-xl bg-white border border-[#DDD0FF] text-[#6D28D9] hover:bg-[#F7F3FF] font-display font-bold text-xs text-center transition-all"
+                  href="https://wa.me/917639930148"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-bold text-xs text-center transition-all shadow-md flex items-center justify-center gap-1.5"
                 >
-                  Call Founder Line
+                  WhatsApp Founder
                 </a>
               </div>
 
@@ -421,7 +425,7 @@ export default function ContactPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E9E2F5]">
                   <div className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span>Direct line to Founder &amp; CEO Jeyawin D</span>
+                    <span>Direct WhatsApp channel to Founder &amp; CEO Jeyawin D</span>
                   </div>
 
                   <div className="flex items-center gap-3 w-full sm:w-auto justify-end">

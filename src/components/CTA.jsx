@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle2, AlertCircle, Loader2, MessageSquare, Mail, Phone, MapPin } from 'lucide-react'
+import { Send, CheckCircle2, AlertCircle, Loader2, MessageSquare, Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
 
 export default function CTA() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
@@ -155,9 +155,9 @@ export default function CTA() {
                 className="flex items-center gap-3 hover:text-white transition-colors group"
               >
                 <div className="w-9 h-9 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-                  <Phone className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4" />
                 </div>
-                <span>+91 76399 30148 (WhatsApp / Call)</span>
+                <span>+91 76399 30148 (WhatsApp Only)</span>
               </a>
 
               <div className="flex items-center gap-3 text-slate-300">

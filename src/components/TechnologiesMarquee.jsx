@@ -41,64 +41,7 @@ export const TeenInboxVectorLogo = () => (
 )
 
 export default function TechnologiesMarquee() {
-  return (
-    <section className="w-full py-10 sm:py-14 bg-white border-y border-[#E9E2F5] select-none overflow-hidden relative z-20">
-      
-      {/* Soft Ambient Background Glow */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[180px] rounded-full blur-[90px] pointer-events-none opacity-40"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.15) 0%, rgba(217,70,239,0.08) 60%, transparent 80%)' }}
-      />
-
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10 space-y-6">
-        {/* Top Section Eyebrow Title */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-purple-700 uppercase">
-            <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-            <span>PRODUCTS FOR THE SOCIETY</span>
-          </div>
-        </div>
-
-        {/* 2 Flagship Product Logo Cards */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 max-w-2xl mx-auto">
-          
-          {/* SafeScroll Card */}
-          <a
-            href="https://www.safescroll.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="safescroll-logo-link"
-            className="group relative w-full sm:w-auto min-w-0 sm:min-w-[290px] flex items-center justify-between gap-4 sm:gap-6 px-4 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#0B0716] border border-[#2D1B69]/80 hover:border-[#8B5CF6] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_rgba(139,92,246,0.35)] hover:-translate-y-1 cursor-pointer"
-          >
-            <SafeScrollVectorLogo />
-
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono font-semibold text-purple-300 group-hover:bg-purple-600/30 group-hover:border-purple-400/50 group-hover:text-white transition-all shrink-0">
-              <span>Visit</span>
-              <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          </a>
-
-          {/* TeenInbox Card */}
-          <a
-            href="https://teeninbox.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="teeninbox-logo-link"
-            className="group relative w-full sm:w-auto min-w-0 sm:min-w-[290px] flex items-center justify-between gap-4 sm:gap-6 px-4 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#070417] border border-[#381B6D]/80 hover:border-[#D946EF] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_rgba(217,70,239,0.35)] hover:-translate-y-1 cursor-pointer"
-          >
-            <TeenInboxVectorLogo />
-
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono font-semibold text-fuchsia-300 group-hover:bg-fuchsia-600/30 group-hover:border-fuchsia-400/50 group-hover:text-white transition-all shrink-0">
-              <span>Visit</span>
-              <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-  )
+  return null
 }
 
 
