@@ -10,7 +10,8 @@
     "postbuild": "node -e \"const fs=require('fs'); if(!fs.existsSync('dist/404.html')) fs.copyFileSync('dist/index.html', 'dist/404.html');\"",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy:server": "npm run build && scp -r dist/* root@187.127.150.113:/var/www/dasatech"
   },
   "dependencies": {
     "@react-three/drei": "^9.109.4",
