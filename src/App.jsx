@@ -35,6 +35,17 @@ import CareersPage from './pages/CareersPage'
 import TextileErpPage from './pages/TextileErpPage'
 import DigitalMarketingPage from './pages/DigitalMarketingPage'
 
+function ExternalRedirect({ to }) {
+  React.useEffect(() => {
+    window.location.href = to
+  }, [to])
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white text-slate-700 font-mono text-sm">
+      Redirecting to {to}...
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <Router>
@@ -45,6 +56,8 @@ export default function App() {
 
           <div className="flex-grow">
             <Route path="/" component={HomePage} />
+            <Route path="/pharmacy" component={() => <ExternalRedirect to="https://pharmacy.dasatech.in/" />} />
+            <Route path="/pharmacy-erp" component={() => <ExternalRedirect to="https://pharmacy.dasatech.in/" />} />
             <Route path="/services" component={ServicesPage} />
             <Route path="/services/:serviceId" component={ServiceDetailPage} />
             <Route path="/products" component={ProductsPage} />

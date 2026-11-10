@@ -17,6 +17,7 @@ import {
   Cpu
 } from 'lucide-react'
 import { Link } from './Router.jsx'
+import SignalBrandIcon from './SignalBrandIcon'
 
 // Local High-Definition 3D Character Avatars
 import jeyawin3d from '../assets/team-3d/jeyawin.jpg'
@@ -56,8 +57,7 @@ export const TEAM_MEMBERS = [
     actionTitle: 'Strategic Architecture Pulse',
     actionMessage: 'Enterprise Systems: Operational • 99.99% Architecture Uptime',
     actionType: 'executive',
-    email: 'dasatechmu@gmail.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://www.linkedin.com/in/jeyawin-d/'
   },
   {
@@ -80,7 +80,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '⚙️ Nexomatic Automation Core: Synced • PLC & Sensor Telemetry Active',
     actionType: 'iot',
     email: 'contact@nexomatic.in',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://nexomatic.in'
   },
   {
@@ -103,7 +103,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '🚀 Full-Stack Cluster Synchronized • API Gateway & Frontend Active',
     actionType: 'code',
     email: 'mithul@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -126,7 +126,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '🚀 Deploying React & Node.js Cluster • Build Passed in 240ms',
     actionType: 'code',
     email: 'arun@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -149,7 +149,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '🚀 Cloud Microservices Deployed • Database Connection Stable',
     actionType: 'code',
     email: 'akash@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -172,7 +172,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '🚀 Scalable Web Application Active • Clean Architecture & High Performance',
     actionType: 'code',
     email: 'rubitha@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -195,7 +195,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '✨ Glassmorphism Design System: 60 FPS Micro-Animations Active',
     actionType: 'design',
     email: 'priya@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -218,7 +218,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '☕ Sips Coffee • PostgreSQL Pool: 50,000 QPS • 0.8ms Latency',
     actionType: 'coffee',
     email: 'ramesh@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -241,7 +241,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '✅ 428/428 Cypress Tests Passed • 0 Vulnerabilities Detected',
     actionType: 'qa',
     email: 'kiran@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -264,7 +264,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '🎨 Digital Wireframe Rendered • 100% User Experience Score',
     actionType: 'wireframe',
     email: 'nithin@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -287,7 +287,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '⚡ Multi-Region Kubernetes Auto-Scaled: 8 Pods Healthy',
     actionType: 'devops',
     email: 'naveen@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -310,7 +310,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '📱 React Native Bundle Synced • iOS & Android Live Stream',
     actionType: 'mobile',
     email: 'vikram@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -333,7 +333,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '👁️ Computer Vision Model: 120 FPS Inference • 99.8% Accuracy',
     actionType: 'ai',
     email: 'divya@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   },
   {
@@ -356,7 +356,7 @@ export const TEAM_MEMBERS = [
     actionMessage: '📡 LoRaWAN 915MHz Telemetry: 14 Sensor Nodes Online',
     actionType: 'iot',
     email: 'anand@dasatech.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
     linkedin: 'https://linkedin.com'
   }
 ]
@@ -1026,11 +1026,13 @@ export default function FoundersAndTeamShowcase() {
               <div className="pt-8 mt-6 border-t border-white/10 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <a
-                    href={`mailto:${activeMember.email}`}
+                    href="https://signal.me/#u/dasatech.99"
+                    target="_blank"
+                    rel="noreferrer"
                     className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#3B82F6] hover:opacity-90 text-white font-bold text-xs font-mono transition inline-flex items-center gap-2 shadow-lg cursor-pointer"
                   >
-                    <Mail className="w-4 h-4" />
-                    <span>Contact Direct</span>
+                    <SignalBrandIcon className="w-4 h-4" />
+                    <span>Signal: @dasatech.99</span>
                   </a>
                 </div>
 

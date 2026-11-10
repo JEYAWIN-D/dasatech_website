@@ -370,15 +370,15 @@ export default function SmoothLogoReveal({ onComplete }) {
             transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          {/* High-Resolution DASA Ribbon Mark */}
+          {/* High-Resolution DASA Logo Mark */}
           <div className="relative">
             <motion.img
               src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
-              alt="DASA"
-              initial={{ filter: 'brightness(1.5) contrast(1.1) drop-shadow(0 4px 30px rgba(0,102,255,0.6))' }}
-              animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 30px rgba(0,102,255,0.45))' }}
+              alt="DASA TECH"
+              initial={{ filter: 'brightness(1.3) contrast(1.1) drop-shadow(0 4px 30px rgba(235,110,40,0.5))' }}
+              animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 30px rgba(235,110,40,0.35))' }}
               transition={{ delay: 0.3, duration: 1.6 }}
-              className="h-16 sm:h-20 md:h-24 w-auto object-contain"
+              className="h-20 sm:h-24 md:h-28 w-auto object-contain"
             />
 
             {/* Shimmer Light Sweep */}

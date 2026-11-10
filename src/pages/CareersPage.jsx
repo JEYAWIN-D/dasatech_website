@@ -13,7 +13,6 @@ import {
   Rocket, 
   Users, 
   HeartHandshake, 
-  Mail, 
   ExternalLink,
   ChevronDown,
   X
@@ -22,6 +21,7 @@ import { Link } from '../components/Router'
 import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
+import SignalBrandIcon from '../components/SignalBrandIcon'
 
 const OPEN_POSITIONS = [
   {
@@ -135,12 +135,12 @@ const PERKS = [
 
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState(null)
-  const [copiedEmail, setCopiedEmail] = useState(false)
+  const [copiedSignal, setCopiedSignal] = useState(false)
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('dasatechmu@gmail.com')
-    setCopiedEmail(true)
-    setTimeout(() => setCopiedEmail(false), 2500)
+  const handleCopySignal = () => {
+    navigator.clipboard.writeText('dasatech.99')
+    setCopiedSignal(true)
+    setTimeout(() => setCopiedSignal(false), 2500)
   }
 
   return (
@@ -181,11 +181,12 @@ export default function CareersPage() {
                 View Open Positions ({OPEN_POSITIONS.length})
               </a>
               <button
-                onClick={handleCopyEmail}
-                className="px-6 py-3 rounded-full bg-white border border-[#DDD0FF] text-slate-700 font-display text-sm font-bold shadow-xs hover:border-[#6D28D9] hover:text-[#6D28D9] transition-all flex items-center gap-2"
+                type="button"
+                onClick={handleCopySignal}
+                className="px-6 py-3 rounded-full bg-white border border-[#DDD0FF] text-slate-700 font-display text-sm font-bold shadow-xs hover:border-[#3A76F0] hover:text-[#3A76F0] transition-all flex items-center gap-2 cursor-pointer"
               >
-                <Mail className="w-4 h-4 text-[#6D28D9]" />
-                <span>{copiedEmail ? 'Email Copied!' : 'Copy Careers Email'}</span>
+                <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
+                <span>{copiedSignal ? 'Signal @dasatech.99 Copied!' : 'Signal: @dasatech.99'}</span>
               </button>
             </div>
           </Reveal>
@@ -362,15 +363,26 @@ export default function CareersPage() {
 
               <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-xs text-slate-500">
-                  Send CV with portfolio / GitHub link directly to our founders.
+                  Send CV with portfolio / GitHub link directly to our founders via Signal or our Consultation Portal.
                 </div>
-                <a
-                  href={`mailto:dasatechmu@gmail.com?subject=Application for ${encodeURIComponent(selectedJob.title)}&body=Hi DASA TECH Team,%0D%0A%0D%0AI am excited to apply for the position of ${encodeURIComponent(selectedJob.title)}.%0D%0A%0D%0APlease find my resume and links below:%0D%0AGitHub / Portfolio: %0D%0ALinkedIn: %0D%0A%0D%0AThank you.`}
-                  className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-display text-sm font-bold shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center gap-2"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Apply for this Role via Email</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                  <a
+                    href="https://signal.me/#u/dasatech.99"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#3A76F0] hover:bg-[#2F65D6] text-white font-display text-sm font-bold shadow-md hover:shadow-lg transition-all text-center flex items-center justify-center gap-2"
+                  >
+                    <SignalBrandIcon className="w-4 h-4" />
+                    <span>Signal: @dasatech.99</span>
+                  </a>
+                  <Link
+                    to="/contact"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-display text-sm font-bold shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center gap-2"
+                  >
+                    <span>Apply via Portal</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -392,13 +404,24 @@ export default function CareersPage() {
             </p>
           </div>
 
-          <a
-            href="mailto:dasatechmu@gmail.com?subject=Open Application - Engineering Talent&body=Hi DASA TECH Team,%0D%0A%0D%0AI would love to explore opportunities with DASA TECH.%0D%0A%0D%0AMy background and portfolio:%0D%0A"
-            className="px-8 py-4 rounded-full bg-white text-[#6D28D9] font-display text-sm font-bold shadow-xl hover:bg-slate-100 transition-all shrink-0 flex items-center gap-2"
-          >
-            <Mail className="w-4 h-4 text-[#6D28D9]" />
-            <span>Send Open Application</span>
-          </a>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href="https://signal.me/#u/dasatech.99"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-4 rounded-full bg-[#3A76F0] text-white font-display text-sm font-bold shadow-xl hover:bg-[#2F65D6] transition-all flex items-center gap-2"
+            >
+              <SignalBrandIcon className="w-4 h-4" />
+              <span>Connect on Signal</span>
+            </a>
+            <Link
+              to="/contact"
+              className="px-6 py-4 rounded-full bg-white text-[#6D28D9] font-display text-sm font-bold shadow-xl hover:bg-slate-100 transition-all flex items-center gap-2"
+            >
+              <span>Submit Career Brief</span>
+              <ArrowRight className="w-4 h-4 text-[#6D28D9]" />
+            </Link>
+          </div>
         </div>
       </section>
 

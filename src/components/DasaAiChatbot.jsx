@@ -234,17 +234,17 @@ Our pricing is transparent and modular based on system scope:
   // 8. CONTACT DETAILS
   {
     id: 'contact',
-    matchRegex: /(contact|email|phone|call|reach|location|address|whatsapp|office|support|where.*(located|office))/i,
-    keywords: ['contact', 'email', 'phone', 'call', 'location', 'address', 'office'],
-    response: `📞 **Contact DASA TECH Direct**:
+    matchRegex: /(contact|signal|phone|call|reach|location|address|office|support|where.*(located|office))/i,
+    keywords: ['contact', 'signal', 'phone', 'call', 'location', 'address', 'office'],
+    response: `💬 **Contact DASA TECH Direct**:
 
-• 📧 **Email**: dasatechmu@gmail.com
-• 📱 **Phone**: +91 76399 30148
-• 🏢 **HQ**: Enterprise Tech Center, India
+• 🛡️ **Signal Messenger**: @dasatech.99 (Encrypted Direct Channel)
+• 🏢 **HQ**: Erode, Tamil Nadu, India
 • ⏰ **Business Hours**: Mon – Sat, 9:00 AM – 7:00 PM IST
+• 🔒 **Confidentiality**: Bilateral NDA Standard
 
-You can also send a project inquiry directly through our Contact form!`,
-    cta: { text: 'Open Contact Form', to: '/contact' }
+You can also submit a technical project brief through our Consultation Form!`,
+    cta: { text: 'Open Project Consultation Form', to: '/contact' }
   },
 
   // 9. FOUNDERS & TEAM

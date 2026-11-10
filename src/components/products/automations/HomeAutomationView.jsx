@@ -6,6 +6,7 @@ import {
   Sun, Moon, Shield, Tv, Droplets, Flame, HelpCircle, ChevronDown, Award, MessageCircle
 } from 'lucide-react'
 import { Link } from '../../Router'
+import SignalBrandIcon from '../../SignalBrandIcon'
 
 export default function HomeAutomationView() {
   const [activeMood, setActiveMood] = useState('evening')
@@ -106,13 +107,13 @@ export default function HomeAutomationView() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/917639930148"
+              href="https://signal.me/#p/@dasatech.99"
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3.5 rounded-2xl bg-white/90 border border-amber-300 text-amber-950 text-xs font-semibold hover:bg-amber-50 shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600" />
-              <span>WhatsApp Home Architect: +91 76399 30148</span>
+              <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
+              <span>Signal Home Architect: @dasatech.99</span>
             </a>
           </div>
 

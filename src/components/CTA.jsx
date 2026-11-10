@@ -1,34 +1,17 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle2, AlertCircle, Loader2, MessageSquare, Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
+import { Send, CheckCircle2, AlertCircle, Loader2, MapPin, ArrowRight, ShieldCheck, Lock } from 'lucide-react'
+import { Link } from './Router'
+import SignalBrandIcon from './SignalBrandIcon'
 
 export default function CTA() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState({ name: '', phone: '', company: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [errorMessage, setErrorMessage] = useState('')
-  const [lastWaUrl, setLastWaUrl] = useState('')
+  const [refCode, setRefCode] = useState('')
 
   function update(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
-  }
-
-  const buildWhatsAppUrl = (formData) => {
-    const lines = [
-      'Hello DASA TECH Team,',
-      '',
-      'I would like to discuss a project. Here are my details:',
-      '',
-      `• Name: ${formData.name || 'Not provided'}`,
-      `• Email: ${formData.email || 'Not provided'}`,
-      `• Phone: ${formData.phone || 'Not provided'}`,
-      '',
-      'Message:',
-      formData.message || 'I would like to get a project estimate.',
-      '',
-      'Thank you!'
-    ].filter(Boolean).join('\n')
-
-    return `https://wa.me/917639930148?text=${encodeURIComponent(lines)}`
   }
 
   async function handleSubmit(e) {
@@ -36,17 +19,10 @@ export default function CTA() {
     setStatus('sending')
     setErrorMessage('')
 
-    const waUrl = buildWhatsAppUrl(form)
-    setLastWaUrl(waUrl)
+    const referenceId = `DASA-CTA-${Math.random().toString(36).substring(2, 8).toUpperCase()}`
+    setRefCode(referenceId)
 
-    // 1. Launch WhatsApp simultaneously in a new tab
-    try {
-      window.open(waUrl, '_blank', 'noopener,noreferrer')
-    } catch (openErr) {
-      console.warn('Popup blocked:', openErr)
-    }
-
-    // 2. Simultaneously dispatch email to dasatechmu@gmail.com via FormSubmit
+    // Secure Internal Dispatch via FormSubmit Relay (No public email exposed on UI)
     try {
       const response = await fetch('https://formsubmit.co/ajax/dasatechmu@gmail.com', {
         method: 'POST',
@@ -55,12 +31,12 @@ export default function CTA() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone || 'Not provided',
-          message: form.message,
-          _replyto: form.email,
-          _subject: `New Project Inquiry from ${form.name} — DASA TECH`,
+          'Reference ID': referenceId,
+          'Full Name': form.name,
+          'Phone / Contact': form.phone,
+          'Company': form.company || 'Not provided',
+          'Requirements': form.message,
+          _subject: `[Project Consultation Request] ${form.name} Ref: ${referenceId}`,
           _template: 'table',
           _captcha: 'false',
           _honey: ''
@@ -71,20 +47,20 @@ export default function CTA() {
 
       if (response.ok && (result.success === 'true' || result.success === true || result.message)) {
         setStatus('sent')
-        setForm({ name: '', email: '', phone: '', message: '' })
+        setForm({ name: '', phone: '', company: '', message: '' })
       } else {
-        throw new Error(result.message || 'Could not complete email dispatch')
+        throw new Error(result.message || 'Transmission failed')
       }
     } catch (err) {
       console.warn('FormSubmit AJAX attempt failed, trying fallback submission:', err)
       try {
         const formData = new FormData()
-        formData.append('name', form.name)
-        formData.append('email', form.email)
-        formData.append('phone', form.phone || 'Not provided')
-        formData.append('message', form.message)
-        formData.append('_replyto', form.email)
-        formData.append('_subject', `New Project Inquiry from ${form.name} — DASA TECH`)
+        formData.append('Reference ID', referenceId)
+        formData.append('Full Name', form.name)
+        formData.append('Phone / Contact', form.phone)
+        formData.append('Company', form.company || 'Not provided')
+        formData.append('Requirements', form.message)
+        formData.append('_subject', `[Project Consultation Request] ${form.name} Ref: ${referenceId}`)
         formData.append('_template', 'table')
         formData.append('_captcha', 'false')
 
@@ -94,17 +70,13 @@ export default function CTA() {
           mode: 'no-cors'
         })
         setStatus('sent')
-        setForm({ name: '', email: '', phone: '', message: '' })
+        setForm({ name: '', phone: '', company: '', message: '' })
       } catch (fallbackErr) {
         console.error('All submission attempts failed:', fallbackErr)
-        setStatus('sent') // Marked as sent since WhatsApp already launched
+        setStatus('error')
+        setErrorMessage('Our dispatch gateway is temporarily unreachable. You can connect immediately with our engineering team on Signal: @dasatech.99.')
       }
     }
-  }
-
-  const handleDirectWhatsApp = () => {
-    const waUrl = buildWhatsAppUrl(form)
-    window.open(waUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -121,84 +93,110 @@ export default function CTA() {
       <div className="max-w-6xl mx-auto px-4 sm:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
-          {/* Left Column: Simple, Warm & Client-Friendly Info */}
+          {/* Left Column: Corporate Engagement & Signal Access */}
           <div className="lg:col-span-5 space-y-6">
             
-            <span className="text-xs font-mono font-bold tracking-widest text-[#C084FC] uppercase">
-              GET IN TOUCH
-            </span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-[#C084FC] text-xs font-mono font-bold tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>CORPORATE ENGAGEMENT</span>
+            </div>
 
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.18] tracking-tight">
               Let's talk about your project.
             </h2>
 
             <p className="text-slate-300 text-base leading-relaxed font-normal">
-              Have an idea or need software for your business? Send us a message and our team will get in touch to discuss details and give you a free estimate.
+              Have an idea, a business challenge, or need tailored software? Connect with our engineering leadership to review system architecture and receive a tailored estimate.
             </p>
 
-            {/* Direct Contact Details */}
-            <div className="space-y-4 pt-2 text-sm text-slate-300 font-normal">
+            {/* Direct Contact Channels – Signal & Headquarters */}
+            <div className="space-y-3.5 pt-2 text-sm text-slate-300 font-normal">
+              
+              {/* Signal Direct Link */}
               <a
-                href="mailto:dasatechmu@gmail.com"
-                className="flex items-center gap-3 hover:text-white transition-colors group"
-              >
-                <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-[#38BDF8] group-hover:scale-105 transition-transform">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <span>dasatechmu@gmail.com</span>
-              </a>
-
-              <a
-                href="https://wa.me/917639930148"
+                href="https://signal.me/#u/dasatech.99"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 hover:text-white transition-colors group"
+                className="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#3A76F0]/60 hover:bg-white/[0.07] transition-all group cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-                  <MessageCircle className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-xl bg-[#3A76F0]/20 border border-[#3A76F0]/30 flex items-center justify-center text-[#3A76F0] group-hover:scale-105 transition-transform shrink-0">
+                  <SignalBrandIcon className="w-4 h-4" />
                 </div>
-                <span>+91 76399 30148 (WhatsApp Only)</span>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                    Official Signal Channel
+                  </div>
+                  <div className="text-white font-mono font-bold text-sm">
+                    @dasatech.99
+                  </div>
+                </div>
               </a>
 
-              <div className="flex items-center gap-3 text-slate-300">
-                <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-purple-400">
+              {/* Consultation Portal Link */}
+              <Link
+                to="/contact"
+                className="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-violet-500/60 hover:bg-white/[0.07] transition-all group"
+              >
+                <div className="w-9 h-9 rounded-xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-300 group-hover:scale-105 transition-transform shrink-0">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                    Full Consultation Portal
+                  </div>
+                  <div className="text-white font-display font-bold text-sm">
+                    Scope Your Technology Architecture
+                  </div>
+                </div>
+              </Link>
+
+              {/* Headquarters */}
+              <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.04] border border-white/10 text-slate-300">
+                <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-slate-400 shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span>Erode, Tamil Nadu, India</span>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                    Company Headquarters
+                  </div>
+                  <div className="text-slate-200 font-display font-medium text-sm">
+                    Erode, Tamil Nadu, India
+                  </div>
+                </div>
               </div>
+
             </div>
 
           </div>
 
           {/* Right Column: Clean, Simple & Uncluttered Form */}
           <div className="lg:col-span-7">
-            <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-2xl">
+            <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-2xl space-y-5">
               
               {status === 'sent' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-sm space-y-2"
+                  className="p-5 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-sm space-y-3"
                 >
                   <div className="flex items-center gap-2 font-bold text-emerald-300">
                     <CheckCircle2 className="w-5 h-5 shrink-0" />
-                    <span>Inquiry Sent to Email &amp; WhatsApp!</span>
+                    <span>Project Brief Successfully Dispatched!</span>
                   </div>
-                  <p className="text-xs text-emerald-100">
-                    Your message has been emailed directly to <strong>dasatechmu@gmail.com</strong> and opened in <strong>WhatsApp (+91 76399 30148)</strong> simultaneously.
+                  <p className="text-xs text-emerald-100 leading-relaxed font-body">
+                    Your requirements have been recorded under tracking code <strong>{refCode}</strong>. Our engineering architects will analyze your scope and follow up within 24 business hours.
                   </p>
-                  {lastWaUrl && (
-                    <div className="pt-1">
-                      <button
-                        type="button"
-                        onClick={handleDirectWhatsApp}
-                        className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-white underline cursor-pointer"
-                      >
-                        <MessageSquare className="w-3.5 h-3.5" />
-                        <span>Re-open WhatsApp Chat</span>
-                      </button>
-                    </div>
-                  )}
+                  <div className="pt-1 flex items-center gap-3">
+                    <a
+                      href="https://signal.me/#u/dasatech.99"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#3A76F0] hover:bg-[#2F65D6] text-white font-mono text-xs font-bold transition-all shadow-sm"
+                    >
+                      <SignalBrandIcon className="w-3.5 h-3.5" />
+                      <span>Connect on Signal: @dasatech.99</span>
+                    </a>
+                  </div>
                 </motion.div>
               )}
 
@@ -206,38 +204,32 @@ export default function CTA() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 rounded-2xl bg-rose-950/80 border border-rose-500/40 text-rose-200 text-sm space-y-2"
+                  className="p-4 rounded-2xl bg-rose-950/80 border border-rose-500/40 text-rose-200 text-sm space-y-2"
                 >
                   <div className="flex items-center gap-2 font-bold text-rose-300">
                     <AlertCircle className="w-5 h-5 shrink-0" />
-                    <span>Email Dispatch Notice</span>
+                    <span>Transmission Notice</span>
                   </div>
                   <p className="text-xs text-rose-100">
-                    {errorMessage || 'Unable to send email automatically. Please reach out via WhatsApp or email directly to dasatechmu@gmail.com.'}
+                    {errorMessage || 'Unable to send brief automatically. Please reach out directly on Signal: @dasatech.99.'}
                   </p>
-                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <div className="pt-1">
                     <a
-                      href="mailto:dasatechmu@gmail.com"
-                      className="inline-flex items-center gap-1 text-xs text-white bg-rose-700/60 hover:bg-rose-700 px-3 py-1.5 rounded-lg font-medium transition-colors"
+                      href="https://signal.me/#u/dasatech.99"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-white bg-[#3A76F0] hover:bg-[#2F65D6] px-3.5 py-1.5 rounded-lg font-mono font-bold transition-colors"
                     >
-                      <Mail className="w-3.5 h-3.5" />
-                      <span>Send via Email Client</span>
+                      <SignalBrandIcon className="w-3.5 h-3.5" />
+                      <span>Open Signal Messenger</span>
                     </a>
-                    <button
-                      type="button"
-                      onClick={handleDirectWhatsApp}
-                      className="inline-flex items-center gap-1 text-xs text-emerald-300 hover:text-white underline cursor-pointer"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Open on WhatsApp</span>
-                    </button>
                   </div>
                 </motion.div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 
-                {/* Name & Email */}
+                {/* Name & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs font-semibold text-slate-300 block mb-1.5">
@@ -247,83 +239,94 @@ export default function CTA() {
                       required
                       value={form.name}
                       onChange={update('name')}
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all"
-                      placeholder="John Doe"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all font-medium"
+                      placeholder="e.g. Alex Mercer"
                     />
                   </div>
 
                   <div>
                     <label className="text-xs font-semibold text-slate-300 block mb-1.5">
-                      Email Address *
+                      Phone / Contact Number *
                     </label>
                     <input
                       required
-                      type="email"
-                      value={form.email}
-                      onChange={update('email')}
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all"
-                      placeholder="john@example.com"
+                      type="tel"
+                      value={form.phone}
+                      onChange={update('phone')}
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all font-medium"
+                      placeholder="+91 98765 43210"
                     />
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* Company (Optional) */}
                 <div>
                   <label className="text-xs font-semibold text-slate-300 block mb-1.5">
-                    Phone Number <span className="text-slate-400 font-normal">(Optional)</span>
+                    Company / Organization <span className="text-slate-400 font-normal">(Optional)</span>
                   </label>
                   <input
-                    type="tel"
-                    value={form.phone}
-                    onChange={update('phone')}
-                    className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all"
-                    placeholder="+91 98765 43210"
+                    value={form.company}
+                    onChange={update('company')}
+                    className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all font-medium"
+                    placeholder="e.g. Acme Enterprises"
                   />
                 </div>
 
                 {/* Message */}
                 <div>
                   <label className="text-xs font-semibold text-slate-300 block mb-1.5">
-                    How can we help? *
+                    Project Requirements / Brief *
                   </label>
                   <textarea
                     required
                     rows={4}
                     value={form.message}
                     onChange={update('message')}
-                    className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all resize-none"
-                    placeholder="Tell us about your project or business requirements..."
+                    className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all resize-none font-medium"
+                    placeholder="Describe your technical requirements, goals, or operational scope..."
                   />
                 </div>
 
-                {/* Submit & WhatsApp buttons */}
+                {/* Submit & Signal Action Bar */}
                 <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full sm:flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#8B5CF6] text-white font-display font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#4F46E5] hover:from-[#581CBA] hover:to-[#4338CA] text-white font-display font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     {status === 'sending' ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Sending...</span>
+                        <span>Dispatching Project Brief...</span>
                       </>
                     ) : (
                       <>
-                        <span>Send Message</span>
+                        <span>Submit Project Brief</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={handleDirectWhatsApp}
-                    className="w-full sm:w-auto py-3 px-6 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/40 hover:border-emerald-500 font-display font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  <a
+                    href="https://signal.me/#u/dasatech.99"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full sm:w-auto py-3.5 px-6 rounded-xl bg-[#3A76F0]/20 hover:bg-[#3A76F0] text-[#70A1FF] hover:text-white border border-[#3A76F0]/40 hover:border-[#3A76F0] font-display font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer text-center"
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>WhatsApp</span>
-                  </button>
+                    <SignalBrandIcon className="w-4 h-4" />
+                    <span>Signal: @dasatech.99</span>
+                  </a>
+                </div>
+
+                <div className="pt-1 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Bilateral NDA Confidentiality</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Lock className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>Signal Encrypted Direct Channel</span>
+                  </div>
                 </div>
 
               </form>

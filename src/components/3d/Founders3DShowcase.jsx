@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import {
   Sparkles,
-  Mail,
-  Phone,
   ShieldCheck,
   ArrowUpRight
 } from 'lucide-react'
 import Reveal from '../Reveal'
+import { Link } from '../Router'
+import SignalBrandIcon from '../SignalBrandIcon'
 
 const FOUNDERS = [
   {
@@ -17,8 +17,8 @@ const FOUNDERS = [
     specialty: 'Chief Systems Architect & Solutions Lead',
     badge: 'EXECUTIVE LEADERSHIP',
     color: '#2563EB',
-    email: 'dasatechmu@gmail.com',
-    phone: '+91 76399 30148',
+    signal: 'dasatech.99',
+    signalLink: 'https://signal.me/#p/@dasatech.99',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85',
     bio: 'Oversees technical direction, high-availability PostgreSQL distributed ERP platforms, edge neural computer vision, and industrial automation infrastructures across all DASA TECH enterprise ecosystems.',
     stats: [
@@ -163,19 +163,21 @@ function InteractiveFounderCard({ founder }) {
             {activeTab === 'connect' && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs">
                 <a
-                  href={`mailto:${founder.email}`}
+                  href={founder.signalLink}
+                  target="_blank"
+                  rel="noreferrer"
                   className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 text-slate-700 hover:text-blue-600 transition flex items-center gap-2"
                 >
-                  <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span className="truncate">{founder.email}</span>
+                  <SignalBrandIcon className="w-4 h-4 text-[#3A76F0] shrink-0" />
+                  <span className="truncate">Signal: @{founder.signal}</span>
                 </a>
-                <a
-                  href={`tel:${founder.phone.replace(/[^0-9+]/g, '')}`}
+                <Link
+                  to="/contact"
                   className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 text-slate-700 hover:text-blue-600 transition flex items-center gap-2"
                 >
-                  <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="truncate">{founder.phone}</span>
-                </a>
+                  <ArrowUpRight className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="truncate">Consult Direct</span>
+                </Link>
               </div>
             )}
           </div>
@@ -186,13 +188,13 @@ function InteractiveFounderCard({ founder }) {
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>{founder.telemetry}</span>
             </span>
-            <a
-              href={`mailto:${founder.email}`}
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-1 font-bold text-blue-600 hover:text-blue-700 transition"
             >
               <span>Consult Direct</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
 
         </div>

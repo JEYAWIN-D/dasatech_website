@@ -202,6 +202,17 @@ export default function ErpPage() {
                       </div>
                     ))}
                   </div>
+                  {m.id === 'pharmacy' && (
+                    <div className="pt-2">
+                      <a
+                        href="https://pharmacy.dasatech.in/"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/25 transition-all hover:scale-105"
+                      >
+                        <span>Launch Live Pharmacy ERP (pharmacy.dasatech.in)</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  )}
                   <div className="pt-2">
                     <Link
                       to="/contact"

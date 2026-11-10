@@ -158,8 +158,8 @@ export default function SecurityPage() {
             Enterprise clients requiring custom SOC2 compliance attestation reports, third-party penetration test executive summaries, or security questionnaire onboarding:
           </p>
           <div className="pt-3 font-mono text-xs text-[#6D28D9] space-y-1">
-            <div className="font-bold">Security Hotline: dasatechmu@gmail.com</div>
-            <div>Direct Line: +91 76399 30148</div>
+            <div className="font-bold">Official Channel: Signal @dasatech.99</div>
+            <div>Consultation Portal: https://dasatech.in/contact</div>
             <div className="text-slate-500 pt-1">DASA TECH Corporation &bull; Erode, Tamil Nadu, India</div>
           </div>
         </div>

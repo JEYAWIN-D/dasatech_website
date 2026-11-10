@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { Link, usePath } from '../components/Router.jsx'
 import { TEAM_MEMBERS } from '../components/FoundersAndTeamShowcase.jsx'
+import SignalBrandIcon from '../components/SignalBrandIcon'
 
 export default function TeamMemberProfilePage() {
   const { path, navigate } = usePath()
@@ -177,11 +178,13 @@ export default function TeamMemberProfilePage() {
               {/* Quick Connect Actions */}
               <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
                 <a
-                  href={`mailto:${member.email}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-purple-500/25 cursor-pointer"
+                  href="https://signal.me/#u/dasatech.99"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#3A76F0] hover:bg-[#2F65D6] text-white font-display font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-blue-500/25 cursor-pointer"
                 >
-                  <Mail className="w-4 h-4" />
-                  <span>Send Direct Email</span>
+                  <SignalBrandIcon className="w-4 h-4" />
+                  <span>Connect on Signal</span>
                 </a>
 
                 <Link

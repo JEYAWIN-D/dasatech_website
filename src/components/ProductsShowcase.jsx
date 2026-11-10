@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Sparkles, Layers, ExternalLink, CheckCircle2 } from 'lucide-react'
-import { Link } from './Router.jsx'
+import { Link, usePath } from './Router.jsx'
 
 export const PRODUCTS_ITEMS = [
   {
@@ -12,7 +12,7 @@ export const PRODUCTS_ITEMS = [
     desc: 'Automated batch & expiry management, medicine compliance tracking, quick customer billing, and smart stock alerts.',
     tags: ['Batch Inventory', 'Regulated Drug Logs', 'Fast Billing'],
     img: import.meta.env.BASE_URL + 'images/dasa-pharmacy-erp.jpg',
-    link: '/products/erp',
+    link: 'https://pharmacy.dasatech.in/',
     flow: 'left'
   },
   {
@@ -231,12 +231,30 @@ export default function ProductsShowcase() {
 // ─────────────────────────────────────────────────────────────
 function ProductVisualTile({ item, heightClass }) {
   const [isHovered, setIsHovered] = useState(false)
+  const { navigate } = usePath()
+
+  const handleTileClick = (e) => {
+    // If user clicked inside an <a> tag directly, let normal link handling run
+    if (e.target.closest('a')) return
+
+    if (item.link) {
+      if (item.link.startsWith('http')) {
+        window.location.href = item.link
+        return
+      }
+      navigate(item.link)
+      return
+    }
+    setIsHovered((prev) => !prev)
+  }
+
+  const isExternal = item.link && item.link.startsWith('http')
 
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsHovered((prev) => !prev)}
+      onClick={handleTileClick}
       className={`relative w-full ${heightClass} rounded-[24px] overflow-hidden border-2 border-[#E9E2F5] hover:border-[#6D28D9] bg-[#0F0B18] shadow-lg hover:shadow-2xl hover:shadow-[#6D28D9]/25 transition-all duration-500 cursor-pointer group`}
     >
       {/* High-Resolution Product Image with Fluid Easing Scale */}
@@ -261,6 +279,12 @@ function ProductVisualTile({ item, heightClass }) {
         <span className="text-[10px] font-mono font-bold text-white bg-[#0F0B18]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 uppercase tracking-wider shadow-md">
           {item.category}
         </span>
+        {isExternal && (
+          <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/40 flex items-center gap-1 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>LIVE PLATFORM</span>
+          </span>
+        )}
       </div>
 
       {/* Default Unhovered State: Crisp Title Card at Image Base */}
@@ -279,7 +303,11 @@ function ProductVisualTile({ item, heightClass }) {
             </h3>
           </div>
           <div className="w-8 h-8 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shadow-lg shrink-0 border border-[#A855F7]/40">
-            <ArrowRight className="w-4 h-4" />
+            {isExternal ? (
+              <ExternalLink className="w-4 h-4" />
+            ) : (
+              <ArrowRight className="w-4 h-4" />
+            )}
           </div>
         </div>
       </div>
@@ -304,7 +332,7 @@ function ProductVisualTile({ item, heightClass }) {
               </h3>
             </div>
             <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F7F3FF] px-2.5 py-1 rounded-full border border-[#DDD0FF] shrink-0">
-              SOLUTION
+              {isExternal ? 'LIVE' : 'SOLUTION'}
             </span>
           </div>
 
@@ -329,9 +357,19 @@ function ProductVisualTile({ item, heightClass }) {
             <Link
               to={item.link}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs shadow-md transition-all group/btn"
+              onClick={(e) => {
+                if (isExternal) {
+                  e.stopPropagation()
+                  window.location.href = item.link
+                }
+              }}
             >
-              <span>Explore {item.title}</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
+              <span>{item.id === 'pharmacy-erp' ? 'Launch Live Pharmacy ERP' : `Explore ${item.title}`}</span>
+              {isExternal ? (
+                <ExternalLink className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform duration-300" />
+              ) : (
+                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
+              )}
             </Link>
           </div>
 

@@ -23,6 +23,7 @@ import {
 import { AUTOMATIONS_CATALOG } from '../data/automationsData'
 import { Link, usePath } from '../components/Router'
 import CTA from '../components/CTA'
+import SignalBrandIcon from '../components/SignalBrandIcon'
 
 const SECTOR_ICONS = {
   home: Home,
@@ -200,11 +201,13 @@ export default function AutomationsPage() {
                   </Link>
 
                   <a
-                    href="tel:+917639930148"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-white border border-[#E9E2F5] hover:border-purple-300 text-slate-700 font-mono text-xs font-semibold shadow-2xs transition-all"
+                    href="https://signal.me/#u/dasatech.99"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-white border border-[#E9E2F5] hover:border-[#3A76F0] text-slate-700 font-mono text-xs font-semibold shadow-2xs transition-all"
                   >
-                    <PhoneCall className="w-4 h-4 text-purple-600" />
-                    <span>Speak with Specialist</span>
+                    <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
+                    <span>Signal: @dasatech.99</span>
                   </a>
                 </div>
               </div>

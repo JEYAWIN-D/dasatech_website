@@ -410,17 +410,17 @@ export default function DasaCinematicIntro({ onComplete }) {
           }}
         >
           {/* Logo Volumetric Core Backlight */}
-          <div className="absolute -inset-10 bg-gradient-to-r from-cyan-500/20 via-blue-600/25 to-purple-600/20 blur-[50px] rounded-full -z-10 pointer-events-none" />
+          <div className="absolute -inset-10 bg-gradient-to-r from-amber-500/20 via-orange-600/25 to-purple-600/20 blur-[50px] rounded-full -z-10 pointer-events-none" />
 
           {/* High-Resolution DASA Emblem */}
           <div className="relative px-8 py-3">
             <motion.img
               src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
-              alt="DASA"
-              initial={{ filter: 'brightness(1.6) contrast(1.1) drop-shadow(0 0 45px rgba(0,197,181,0.6))' }}
-              animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 0 35px rgba(0,102,255,0.45))' }}
+              alt="DASA TECH"
+              initial={{ filter: 'brightness(1.4) contrast(1.1) drop-shadow(0 0 45px rgba(235,110,40,0.5))' }}
+              animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 0 35px rgba(235,110,40,0.35))' }}
               transition={{ duration: 2.0, ease: 'easeOut' }}
-              className="h-16 sm:h-20 md:h-24 w-auto object-contain select-none"
+              className="h-20 sm:h-24 md:h-28 w-auto object-contain select-none"
             />
 
             {/* Shimmer Light Reflection Sweep */}

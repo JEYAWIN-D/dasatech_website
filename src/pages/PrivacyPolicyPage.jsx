@@ -197,8 +197,8 @@ export default function PrivacyPolicyPage() {
             For formal Data Processing Addendum (DPA) execution, custom NDA processing, or GDPR/DPDP regulatory inquiries, contact our Data Protection Officer and Corporate Legal Counsel directly:
           </p>
           <div className="pt-3 font-mono text-xs text-[#6D28D9] space-y-1">
-            <div className="font-bold">Email: dasatechmu@gmail.com</div>
-            <div>Direct Line: +91 76399 30148</div>
+            <div className="font-bold">Official Channel: Signal @dasatech.99</div>
+            <div>Consultation Portal: https://dasatech.in/contact</div>
             <div className="text-slate-500 pt-1">Corporate Headquarters: Erode, Tamil Nadu, India</div>
           </div>
         </div>

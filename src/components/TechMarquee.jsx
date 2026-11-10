@@ -8,7 +8,8 @@ const PROJECTS_SHOWCASE = [
     tagline: 'Pharmacy Operations & Billing',
     image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=85',
     icon: Pill,
-    badge: 'HEALTHCARE'
+    badge: 'HEALTHCARE',
+    link: 'https://pharmacy.dasatech.in/'
   },
   {
     id: 'educore',
@@ -67,6 +68,11 @@ export default function TechMarquee() {
             return (
               <div
                 key={`${item.id}-${idx}`}
+                onClick={() => {
+                  if (item.link) {
+                    window.location.href = item.link
+                  }
+                }}
                 className="flex items-center gap-4 p-3.5 pr-6 rounded-2xl transition-all duration-300 shrink-0 cursor-pointer group bg-[#F5F0FF]/60 border border-[#E9E2F5] hover:border-[#6C2BD9] hover:bg-white hover:shadow-lg hover:-translate-y-0.5 shadow-2xs"
               >
                 {/* Big Image Thumbnail */}

@@ -750,13 +750,22 @@ export default function PharmacyErpProductView() {
             <span className="text-[#10B981] font-bold">PharmaPulse ERP</span>
           </div>
 
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#10B981] bg-white hover:bg-[#F0FDF4] border border-[#E9E2F5] hover:border-[#A7F3D0] px-4 py-1.5 rounded-full transition-all shadow-2xs"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>All Products</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://pharmacy.dasatech.in/"
+              className="inline-flex items-center gap-2 text-xs font-display font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-4 py-1.5 rounded-full transition-all shadow-sm shadow-emerald-600/30"
+            >
+              <span>Live Application</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#10B981] bg-white hover:bg-[#F0FDF4] border border-[#E9E2F5] hover:border-[#A7F3D0] px-4 py-1.5 rounded-full transition-all shadow-2xs"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>All Products</span>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -796,6 +805,18 @@ export default function PharmacyErpProductView() {
                   <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
                     A unified enterprise platform connecting inventory, clinical dispensing, billing, cold-chain intelligence, and workforce operations.
                   </p>
+                  <div className="pt-3 flex flex-wrap items-center gap-3">
+                    <a
+                      href="https://pharmacy.dasatech.in/"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all hover:scale-105"
+                    >
+                      <span>Launch Live Pharmacy ERP</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                    <span className="text-xs font-mono text-slate-500 font-semibold">
+                      pharmacy.dasatech.in
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -2457,12 +2478,19 @@ export default function PharmacyErpProductView() {
           <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Discuss FEFO inventory intelligence, IoT cold-chain monitoring, Schedule H1 compliance registers, and thermal printer setups directly with Founder &amp; CEO Jeyawin D and our healthcare software leads.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex flex-wrap justify-center gap-3">
+            <a
+              href="https://pharmacy.dasatech.in/"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm shadow-xl shadow-emerald-600/30 transition-all hover:scale-105"
+            >
+              <span>Launch Live Pharmacy ERP</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#10B981] hover:bg-[#059669] text-white font-display font-bold text-sm shadow-xl shadow-[#10B981]/30 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display font-bold text-sm shadow-xl transition-all"
             >
-              <span>Start PharmaPulse Discussion</span>
+              <span>Schedule Custom Discussion</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

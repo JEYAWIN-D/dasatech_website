@@ -22,7 +22,7 @@ export const EDITORIAL_ITEMS = [
       { label: 'STOCK AUTO-SYNC', icon: CheckCircle2, pos: 'bottom-24 right-4' }
     ],
     img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=90',
-    link: '/products/erp',
+    link: 'https://pharmacy.dasatech.in/',
     accent: '#6D28D9'
   },
   {

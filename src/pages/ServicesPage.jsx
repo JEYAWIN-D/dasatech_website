@@ -348,7 +348,7 @@ const PROCESS_PHASES = [
     milestones: [
       'Real-time APM telemetry with automated threshold error alerts',
       'Scheduled encrypted database backups every 6 hours',
-      'Dedicated Slack/WhatsApp engineering channel with guaranteed response'
+      'Dedicated Slack/Signal engineering channel with guaranteed response'
     ],
     previewType: 'support',
     stage: '08',

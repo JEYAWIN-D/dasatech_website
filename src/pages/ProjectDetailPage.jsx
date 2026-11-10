@@ -257,6 +257,14 @@ export default function ProjectDetailPage() {
 
               {/* Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://pharmacy.dasatech.in/"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-sm text-white bg-emerald-600 hover:bg-emerald-500 transition-all shadow-md shadow-emerald-600/25"
+                >
+                  <span>Launch Live Pharmacy ERP</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
                 <PillButton
                   to="/contact"
                   variant="primary"

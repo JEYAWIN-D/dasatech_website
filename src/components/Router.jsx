@@ -19,6 +19,9 @@ export function normalizePath(pathname) {
 
 export function formatUrl(to) {
   if (!to) return BASE_PATH || '/'
+  if (to.startsWith('http://') || to.startsWith('https://') || to.startsWith('mailto:') || to.startsWith('tel:') || to.startsWith('//')) {
+    return to
+  }
   const cleanTo = to.startsWith('/') ? to : '/' + to
   if (!BASE_PATH) return cleanTo
   return cleanTo === '/' ? BASE_PATH + '/' : BASE_PATH + cleanTo
@@ -49,6 +52,10 @@ export function Router({ children }) {
   }
 
   const navigate = (to) => {
+    if (to && (to.startsWith('http://') || to.startsWith('https://') || to.startsWith('//'))) {
+      window.location.href = to
+      return
+    }
     const normalizedTo = normalizePath(to)
     if (normalizedTo === path) {
       scrollToTop()
@@ -76,10 +83,14 @@ export function usePath() {
 
 export function Link({ to, children, className = '', onClick, ...props }) {
   const { navigate, path, scrollToTop } = usePath()
+  const isExternal = to && (to.startsWith('http://') || to.startsWith('https://') || to.startsWith('mailto:') || to.startsWith('tel:') || to.startsWith('//'))
   const targetHref = formatUrl(to)
 
   const handleClick = (e) => {
     if (onClick) onClick(e)
+    if (isExternal) {
+      return
+    }
     if (!e.defaultPrevented && e.button === 0 && !e.metaKey && !e.altKey && !e.ctrlKey && !e.shiftKey) {
       e.preventDefault()
       if (normalizePath(to) === path) {

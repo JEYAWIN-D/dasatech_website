@@ -15,7 +15,8 @@ import {
   Zap,
   ShieldCheck,
   Activity,
-  Database
+  Database,
+  ExternalLink
 } from 'lucide-react'
 import { Link, usePath } from '../components/Router'
 import PillButton from '../components/PillButton'
@@ -102,11 +103,12 @@ export const PRODUCTS_CATALOG = [
     id: 'pharmacy-erp',
     categoryGroup: 'Business Operations Suites',
     category: 'HEALTHCARE & PHARMA',
-    name: 'DASA MedFlow ERP',
+    name: 'DASA Pharmacy ERP',
     headline: 'Multi-Branch Pharmacy ERP & Prescription Inventory',
     summary: 'Sub-second POS thermal billing, automated FIFO batch expiry alerts, Schedule H1 drug registers, and automated supplier reordering.',
     tags: ['FIFO Expiry', 'Schedule H1', 'POS Thermal Billing'],
-    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90'
+    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90',
+    link: 'https://pharmacy.dasatech.in/'
   },
   {
     id: 'finance-accounting',
@@ -293,7 +295,17 @@ function HomepageStyleProductTile({ product }) {
   const [isHovered, setIsHovered] = useState(false)
   const { navigate } = usePath()
 
-  const openProduct = () => {
+  const isExternal = Boolean(product.link && product.link.startsWith('http'))
+  const targetLink = product.link || (product.id === 'pharmacy-erp' ? 'https://pharmacy.dasatech.in/' : `/products/${product.id}`)
+
+  const openProduct = (e) => {
+    // If clicked on an actual link, let the link handle it
+    if (e && e.target.closest('a')) return
+
+    if (product.id === 'pharmacy-erp' || isExternal) {
+      window.location.href = targetLink
+      return
+    }
     navigate(`/products/${product.id}`)
   }
 
@@ -325,10 +337,17 @@ function HomepageStyleProductTile({ product }) {
         <span className="text-[10px] font-mono font-bold text-white bg-[#0F0B18]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 uppercase tracking-wider shadow-md">
           {product.category}
         </span>
-        <span className="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/30 flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Production Ready</span>
-        </span>
+        {isExternal || product.id === 'pharmacy-erp' ? (
+          <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/40 flex items-center gap-1 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>LIVE CLOUD SYSTEM</span>
+          </span>
+        ) : (
+          <span className="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/30 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Production Ready</span>
+          </span>
+        )}
       </div>
 
       {/* 2. Default Unhovered State: Crisp Title Card at Image Base */}
@@ -347,7 +366,11 @@ function HomepageStyleProductTile({ product }) {
             </h3>
           </div>
           <div className="w-8 h-8 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shadow-lg shrink-0 border border-[#A855F7]/40">
-            <ArrowRight className="w-4 h-4" />
+            {isExternal || product.id === 'pharmacy-erp' ? (
+              <ExternalLink className="w-4 h-4" />
+            ) : (
+              <ArrowRight className="w-4 h-4" />
+            )}
           </div>
         </div>
       </div>
@@ -372,7 +395,7 @@ function HomepageStyleProductTile({ product }) {
               </h3>
             </div>
             <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F7F3FF] px-2.5 py-1 rounded-full border border-[#DDD0FF] shrink-0">
-              ARCHITECTURE
+              {isExternal || product.id === 'pharmacy-erp' ? 'LIVE' : 'ARCHITECTURE'}
             </span>
           </div>
 
@@ -395,12 +418,21 @@ function HomepageStyleProductTile({ product }) {
           {/* Direct Link CTA */}
           <div className="pt-1">
             <Link
-              to={`/products/${product.id}`}
+              to={targetLink}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs shadow-md transition-all group/btn"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation()
+                if (isExternal || product.id === 'pharmacy-erp') {
+                  window.location.href = targetLink
+                }
+              }}
             >
-              <span>View Architecture &amp; Case Study</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
+              <span>{isExternal || product.id === 'pharmacy-erp' ? 'Launch Live Pharmacy ERP' : 'View Architecture & Case Study'}</span>
+              {isExternal || product.id === 'pharmacy-erp' ? (
+                <ExternalLink className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform duration-300" />
+              ) : (
+                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
+              )}
             </Link>
           </div>
 

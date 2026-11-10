@@ -1,6 +1,7 @@
 import React from 'react'
-import { Mail, Phone, MapPin, Linkedin, MessageCircle } from 'lucide-react'
+import { MapPin, Linkedin, ArrowRight } from 'lucide-react'
 import { Link } from './Router'
+import SignalBrandIcon from './SignalBrandIcon'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,25 +15,12 @@ export default function Footer() {
           
           {/* Column 1: DASA TECH Brand & Bio (Span 4) */}
           <div className="lg:col-span-4 space-y-5">
-            <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3 group select-none">
+            <Link to="/" className="inline-flex items-center group select-none">
               <img
                 src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
-                alt="DASA"
-                className="h-7 sm:h-8 w-auto object-contain shrink-0"
+                alt="DASA TECH"
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_14px_rgba(235,110,40,0.3)] group-hover:scale-105 transition-transform"
               />
-              <div className="h-6 sm:h-7 w-[1px] bg-gradient-to-b from-transparent via-white/30 to-transparent shrink-0" />
-              <div className="flex flex-col text-left justify-center leading-tight shrink-0">
-                <div className="flex items-center gap-1 text-[7px] sm:text-[8.5px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-slate-200 uppercase font-semibold whitespace-nowrap">
-                  <span>TECHNOLOGY</span>
-                  <span className="text-[#0066FF] font-bold">•</span>
-                  <span>INNOVATION</span>
-                  <span className="text-[#00C5B5] font-bold">•</span>
-                  <span>FUTURE</span>
-                </div>
-                <span className="text-[6px] sm:text-[7.5px] font-mono tracking-[0.2em] sm:tracking-[0.24em] text-indigo-300/80 uppercase font-medium mt-0.5 whitespace-nowrap">
-                  DASA IS THE SOLUTION
-                </span>
-              </div>
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-normal">
@@ -47,15 +35,19 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#0A66C2] text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-xs"
+                title="LinkedIn"
               >
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
               <a
-                href="mailto:dasatechmu@gmail.com"
-                aria-label="Email"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#6D28D9] text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-xs"
+                href="https://signal.me/#u/dasatech.99"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Signal"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#3A76F0] text-white flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-xs"
+                title="Connect on Signal: @dasatech.99"
               >
-                <Mail className="w-3.5 h-3.5" />
+                <SignalBrandIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
@@ -146,23 +138,23 @@ export default function Footer() {
             <ul className="space-y-3.5 text-sm font-normal">
               <li>
                 <a
-                  href="mailto:dasatechmu@gmail.com"
-                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
-                >
-                  <Mail className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="break-all">dasatechmu@gmail.com</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/917639930148"
+                  href="https://signal.me/#u/dasatech.99"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>+91 76399 30148 (WhatsApp Only)</span>
+                  <SignalBrandIcon className="w-4 h-4 text-[#3A76F0] shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>@dasatech.99 (Signal)</span>
                 </a>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <ArrowRight className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                  <span>Consultation Portal</span>
+                </Link>
               </li>
               <li className="flex items-start gap-3 text-slate-300">
                 <MapPin className="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" />
