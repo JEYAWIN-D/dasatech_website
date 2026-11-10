@@ -4,11 +4,24 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'deploy-production'
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
-    name: Build & Deploy
+    name: Build & Deploy Live
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -26,8 +39,34 @@ jobs:
       - name: Build production bundle
         run: npm run build
 
-      - name: Sync files to production server
+      - name: Ensure Custom Domain CNAME
+        run: echo "dasatech.in" > dist/CNAME
+
+      # 1. Automatic GitHub Pages Branch Deployment (gh-pages)
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: dasatech.in
+          keep_files: false
+
+      # 2. Native GitHub Pages Deployment (Actions Environment)
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+        continue-on-error: true
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      # 3. VPS Deployment Sync via SSH (if secrets are configured)
+      - name: Sync files to production VPS server
         uses: easingthemes/ssh-deploy@main
+        continue-on-error: true
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
