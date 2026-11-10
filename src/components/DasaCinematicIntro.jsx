@@ -2,6 +2,7 @@ import React, { Suspense, useMemo, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { motion } from 'framer-motion'
 import * as THREE from 'three'
+import dasaWordmark from '../assets/dasa-wordmark.png'
 
 /**
  * 3D Interactive Quantum Crystalline Core & Orbital Holographic Structure
@@ -415,7 +416,7 @@ export default function DasaCinematicIntro({ onComplete }) {
           {/* High-Resolution DASA Emblem */}
           <div className="relative px-8 py-3">
             <motion.img
-              src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
+              src={dasaWordmark}
               alt="DASA TECH"
               initial={{ filter: 'brightness(1.4) contrast(1.1) drop-shadow(0 0 45px rgba(235,110,40,0.5))' }}
               animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 0 35px rgba(235,110,40,0.35))' }}

@@ -1,4 +1,5 @@
 import React from 'react'
+import dasaWordmark from '../assets/dasa-wordmark.png'
 
 /**
  * Official DASA Brand Logo Component
@@ -15,7 +16,7 @@ export default function DasaLogo({ size = 'md', className = '' }) {
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       <img
-        src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
+        src={dasaWordmark}
         alt="DASA TECH"
         className={`${heights[size] || heights.md} w-auto object-contain shrink-0 drop-shadow-[0_2px_14px_rgba(235,110,40,0.35)]`}
       />

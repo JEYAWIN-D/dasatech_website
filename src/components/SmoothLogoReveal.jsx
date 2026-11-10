@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { motion, AnimatePresence } from 'framer-motion'
 import * as THREE from 'three'
 import { ArrowRight } from 'lucide-react'
+import dasaWordmark from '../assets/dasa-wordmark.png'
 
 /**
  * 3D Celestial Astrolabe & Quantum Holographic Gyroscope
@@ -373,7 +374,7 @@ export default function SmoothLogoReveal({ onComplete }) {
           {/* High-Resolution DASA Logo Mark */}
           <div className="relative">
             <motion.img
-              src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
+              src={dasaWordmark}
               alt="DASA TECH"
               initial={{ filter: 'brightness(1.3) contrast(1.1) drop-shadow(0 4px 30px rgba(235,110,40,0.5))' }}
               animate={{ filter: 'brightness(1.05) contrast(1.05) drop-shadow(0 4px 30px rgba(235,110,40,0.35))' }}

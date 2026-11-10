@@ -2,6 +2,7 @@ import React from 'react'
 import { MapPin, Linkedin, ArrowRight } from 'lucide-react'
 import { Link } from './Router'
 import SignalBrandIcon from './SignalBrandIcon'
+import dasaWordmark from '../assets/dasa-wordmark.png'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,7 +18,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-5">
             <Link to="/" className="inline-flex items-center group select-none">
               <img
-                src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
+                src={dasaWordmark}
                 alt="DASA TECH"
                 className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_14px_rgba(235,110,40,0.3)] group-hover:scale-105 transition-transform"
               />

@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowUpRight, Check } from 'lucide-react'
 import { Link, usePath } from './Router.jsx'
 import PillButton from './PillButton.jsx'
+import dasaWordmark from '../assets/dasa-wordmark.png'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -78,7 +79,7 @@ export default function Nav() {
               className="flex items-center shrink-0"
             >
               <img
-                src={import.meta.env.BASE_URL + 'dasa-wordmark.png'}
+                src={dasaWordmark}
                 alt="DASA TECH"
                 className="h-10 sm:h-12 md:h-13 w-auto object-contain drop-shadow-[0_2px_16px_rgba(235,110,40,0.4)]"
               />
