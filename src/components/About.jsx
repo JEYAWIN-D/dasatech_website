@@ -79,19 +79,19 @@ export default function About() {
     >
       
       {/* ======================================================================== */}
-      {/* 1. ABOUT / COMPANY SECTION - DEEP VIOLET-PURPLE BACKGROUND (#24113F)    */}
+      {/* 1. ABOUT / COMPANY SECTION - LUXURY WARM OBSIDIAN & GOLD ACCENTS        */}
       {/* ======================================================================== */}
-      <div className="bg-[#24113F] py-16 sm:py-24 lg:py-32 relative overflow-clip">
+      <div className="bg-[#130E17] py-16 sm:py-24 lg:py-32 relative overflow-clip border-t border-amber-500/10">
         
-        {/* Glowing Ambient Violet Orbs */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.15)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#6D28D9]/20 rounded-full blur-3xl pointer-events-none" />
+        {/* Glowing Ambient Golden-Rose Brand Orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.14)_0%,rgba(225,29,72,0.06)_40%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 relative z-10">
           
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
-            {/* Left Column: Distinctive Typography on Deep Violet */}
+            {/* Left Column: Distinctive Typography on Luxury Obsidian */}
             <div className="lg:col-span-6 space-y-6">
               
               {/* Clean Section Lead */}
@@ -100,9 +100,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.4 }}
-                className="text-xs sm:text-sm font-semibold text-[#C084FC] tracking-wide uppercase"
+                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm font-mono font-bold text-amber-400 tracking-wider uppercase"
               >
-                About DASA Tech
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>About DASA TECH</span>
               </motion.div>
 
               {/* Typography Hierarchy: Pure White & Gradient Text */}
@@ -130,7 +131,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-[#E9D5FF] text-base sm:text-xl font-normal leading-relaxed max-w-xl"
+                className="text-amber-100/90 text-base sm:text-xl font-normal leading-relaxed max-w-xl"
               >
                 At DASA TECH, we combine deep technology experience with modern design to create easy-to-use software that connects your team, systems, and customers.
               </motion.p>
@@ -144,10 +145,10 @@ export default function About() {
               >
                 <Link
                   to="/services"
-                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#6D28D9] to-[#A855F7] hover:from-[#A855F7] hover:to-[#6D28D9] px-7 sm:px-8 py-3.5 sm:py-4 font-display font-bold text-sm text-white shadow-lg shadow-[#6D28D9]/40 hover:shadow-xl hover:shadow-[#A855F7]/50 transition-all duration-300 cursor-pointer"
+                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:via-orange-600 hover:to-rose-700 px-7 sm:px-8 py-3.5 sm:py-4 font-display font-bold text-sm text-white shadow-xl shadow-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/50 border border-amber-300/40 transition-all duration-300 cursor-pointer"
                 >
                   <span>Explore Our Services</span>
-                  <div className="w-8 h-8 rounded-full bg-white text-[#6D28D9] flex items-center justify-center group-hover:scale-110 group-hover:rotate-45 transition-transform duration-300">
+                  <div className="w-8 h-8 rounded-full bg-white text-orange-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-45 transition-transform duration-300 shadow-xs">
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </Link>
@@ -158,8 +159,8 @@ export default function About() {
             {/* Right Column: Visual with Ambient Glow */}
             <div className="lg:col-span-6 relative">
               
-              {/* Soft Violet Glow Aura */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#A855F7]/30 via-[#6D28D9]/20 to-transparent blur-2xl pointer-events-none" />
+              {/* Soft Amber Glow Aura */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-amber-500/25 via-rose-500/15 to-transparent blur-2xl pointer-events-none" />
 
               {/* Revealing Image Frame */}
               <motion.div
@@ -167,32 +168,32 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="relative rounded-3xl overflow-hidden border border-[#A855F7]/30 bg-[#170E2B] shadow-2xl group"
+                className="relative rounded-3xl overflow-hidden border border-amber-500/30 bg-[#120D16] shadow-2xl group"
               >
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=90"
                   alt="Digital Engineering Environment"
                   className="w-full h-[320px] sm:h-[460px] object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#24113F]/90 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#130E17]/95 via-[#130E17]/30 to-transparent" />
 
                 {/* Floating Live Telemetry Badge over Visual */}
-                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-3 sm:p-4 rounded-2xl bg-[#24113F]/90 backdrop-blur-md border border-[#A855F7]/30 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 font-mono text-xs text-white">
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-3 sm:p-4 rounded-2xl bg-[#130E17]/90 backdrop-blur-md border border-amber-500/30 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 font-mono text-xs text-white">
                   <div className="flex items-center gap-2.5 sm:gap-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                     <div>
                       <div className="font-bold font-display text-xs sm:text-sm text-white">System Performance</div>
-                      <div className="text-[#E9D5FF] text-[10px] sm:text-xs">24/7 Monitoring &amp; High Reliability</div>
+                      <div className="text-amber-200/80 text-[10px] sm:text-xs">24/7 Monitoring &amp; High Reliability</div>
                     </div>
                   </div>
-                  <span className="self-start sm:self-auto font-bold text-[10px] sm:text-xs text-[#A855F7] bg-[#6D28D9]/30 px-2.5 py-1 rounded-full border border-[#A855F7]/40">
+                  <span className="self-start sm:self-auto font-bold text-[10px] sm:text-xs text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-400/40">
                     99.9% Uptime
                   </span>
                 </div>
 
                 {/* Floating Decorative Digital Node */}
-                <div className="absolute top-6 right-6 p-3 rounded-2xl bg-[#6D28D9] text-white shadow-lg flex items-center gap-2 font-mono text-xs font-bold border border-[#A855F7]/40">
-                  <Cpu className="w-4 h-4 animate-spin-slow text-[#A855F7]" />
+                <div className="absolute top-6 right-6 p-3 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-600 text-white shadow-lg flex items-center gap-2 font-mono text-xs font-bold border border-amber-300/40">
+                  <Cpu className="w-4 h-4 animate-spin-slow text-amber-200" />
                   <span>Connected Systems</span>
                 </div>
 

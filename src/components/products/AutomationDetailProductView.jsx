@@ -37,8 +37,8 @@ export const SECTORS = [
     id: 'office',
     label: 'Office Automation',
     icon: Briefcase,
-    color: '#7C3AED',
-    lightBg: '#FAF5FF',
+    color: '#EA580C',
+    lightBg: '#FFF7ED',
     badge: 'Commercial Campus & Enterprise Energy BMS'
   },
   {

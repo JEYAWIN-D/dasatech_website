@@ -132,7 +132,7 @@ export default function WarehouseErpProductView() {
     <div className="min-h-screen bg-white text-[#17121F] selection:bg-[#06B6D4] selection:text-white pt-24 select-none">
 
       {/* ── BREADCRUMB BAR ────────────────────────────────────── */}
-      <div className="border-b border-[#E9E2F5] bg-[#FAF8FF]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
+      <div className="border-b border-[#EFE6D8] bg-[#FAF7F2]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
             <Link to="/" className="hover:text-[#06B6D4] transition-colors">Home</Link>
@@ -144,7 +144,7 @@ export default function WarehouseErpProductView() {
 
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#06B6D4] bg-white hover:bg-[#ECFEFF] border border-[#E9E2F5] hover:border-[#A5F3FC] px-4 py-1.5 rounded-full transition-all shadow-2xs"
+            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#06B6D4] bg-white hover:bg-[#ECFEFF] border border-[#EFE6D8] hover:border-[#A5F3FC] px-4 py-1.5 rounded-full transition-all shadow-2xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Products</span>
@@ -153,7 +153,7 @@ export default function WarehouseErpProductView() {
       </div>
 
       {/* ── 1. HERO: SMART WAREHOUSE TERMINAL ────────────────── */}
-      <section className="relative py-14 lg:py-22 bg-gradient-to-b from-[#ECFEFF] via-white to-white overflow-hidden border-b border-[#E9E2F5]">
+      <section className="relative py-14 lg:py-22 bg-gradient-to-b from-[#ECFEFF] via-white to-white overflow-hidden border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -239,7 +239,7 @@ export default function WarehouseErpProductView() {
       </section>
 
       {/* ── 2. INTERACTIVE 3D BIN LOCATION MATRIX ──────────────── */}
-      <section id="bin-matrix" className="py-16 lg:py-24 bg-white border-b border-[#E9E2F5]">
+      <section id="bin-matrix" className="py-16 lg:py-24 bg-white border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -265,12 +265,12 @@ export default function WarehouseErpProductView() {
                   className={`p-7 rounded-3xl border cursor-pointer transition-all duration-300 space-y-4 ${
                     isSelected
                       ? 'bg-[#CFFAFE]/40 border-[#06B6D4] shadow-xl scale-105'
-                      : 'bg-[#FAF8FF] border-[#E9E2F5] hover:border-[#A5F3FC]'
+                      : 'bg-[#FAF7F2] border-[#EFE6D8] hover:border-[#A5F3FC]'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-[#06B6D4]">{a.bin}</span>
-                    <span className="text-[10px] font-mono font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-[#E9E2F5]">{a.capacity}</span>
+                    <span className="text-[10px] font-mono font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-[#EFE6D8]">{a.capacity}</span>
                   </div>
                   <h3 className="font-display font-bold text-lg text-[#17121F]">{a.name}</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{a.items}</p>

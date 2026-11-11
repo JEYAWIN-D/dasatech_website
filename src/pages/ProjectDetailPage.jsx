@@ -202,7 +202,7 @@ export default function ProjectDetailPage() {
     <div className="min-h-screen bg-white text-[#0F172A] selection:bg-blue-600 selection:text-white pt-24 select-none">
       
       {/* ── BREADCRUMB BAR ────────────────────────────────────── */}
-      <div className="border-b border-slate-200 bg-[#FAF8FF]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
+      <div className="border-b border-[#EFE6D8] bg-[#FAF7F2]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
             <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
@@ -464,7 +464,7 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* ── SECTION 4: CORE CAPABILITIES (INTERACTIVE EXPLORER) ─ */}
-      <section className="py-16 px-6 sm:px-10 lg:px-16 border-b border-slate-100 bg-[#FAF8FF]">
+      <section className="py-16 px-6 sm:px-10 lg:px-16 border-b border-[#EFE6D8] bg-[#FAF7F2]">
         <div className="max-w-[1440px] mx-auto space-y-10">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -1003,7 +1003,7 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* ── SECTION 8: TEAM ROLES & DISCIPLINES ───────────────── */}
-      <section className="py-16 px-6 sm:px-10 lg:px-16 border-b border-slate-100 bg-[#FAF8FF]">
+      <section className="py-16 px-6 sm:px-10 lg:px-16 border-b border-[#EFE6D8] bg-[#FAF7F2]">
         <div className="max-w-[1440px] mx-auto space-y-10">
           
           <div className="text-center max-w-2xl mx-auto space-y-2">

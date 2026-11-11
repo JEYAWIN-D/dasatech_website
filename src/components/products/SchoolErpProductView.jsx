@@ -794,10 +794,10 @@ export default function SchoolErpProductView() {
           </div>
 
           {/* Role Showcase Display */}
-          <div className="max-w-5xl mx-auto p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#FAF8FF] to-white border border-purple-200/70 shadow-lg space-y-8">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-purple-100">
+          <div className="max-w-5xl mx-auto p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#FAF7F2] to-white border border-[#EFE6D8] shadow-lg space-y-8">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#EFE6D8]">
               <div className="space-y-2">
-                <span className="text-xs font-mono font-bold text-purple-600 uppercase tracking-widest bg-purple-100/70 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono font-bold text-amber-800 uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
                   {ROLE_PERSPECTIVES[activeRole].badge}
                 </span>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-slate-950">
@@ -921,7 +921,7 @@ export default function SchoolErpProductView() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 text-center">
               
               {/* Step 1 */}
-              <div className="p-6 rounded-3xl bg-[#FAF8FF] border border-purple-100 space-y-3">
+              <div className="p-6 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-3">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-700 text-white font-display font-black text-xl flex items-center justify-center mx-auto shadow-md shadow-indigo-500/30">
                   01
                 </div>
@@ -934,8 +934,8 @@ export default function SchoolErpProductView() {
               </div>
 
               {/* Step 2 */}
-              <div className="p-6 rounded-3xl bg-[#FAF8FF] border border-purple-100 space-y-3">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-700 text-white font-display font-black text-xl flex items-center justify-center mx-auto shadow-md shadow-purple-500/30">
+              <div className="p-6 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-3">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-rose-600 text-white font-display font-black text-xl flex items-center justify-center mx-auto shadow-md shadow-amber-500/30">
                   02
                 </div>
                 <h3 className="font-display font-bold text-lg text-slate-950 pt-2">
@@ -947,7 +947,7 @@ export default function SchoolErpProductView() {
               </div>
 
               {/* Step 3 */}
-              <div className="p-6 rounded-3xl bg-[#FAF8FF] border border-purple-100 space-y-3">
+              <div className="p-6 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-3">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white font-display font-black text-xl flex items-center justify-center mx-auto shadow-md shadow-emerald-500/30">
                   03
                 </div>

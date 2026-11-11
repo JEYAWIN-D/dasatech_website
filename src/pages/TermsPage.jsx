@@ -9,20 +9,20 @@ export default function TermsPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-[#17131F] selection:bg-[#6D28D9] selection:text-white pt-24 pb-20 select-none">
+    <div className="min-h-screen bg-white text-[#17131F] selection:bg-amber-500 selection:text-white pt-24 pb-20 select-none">
       
       {/* Top Breadcrumb Bar */}
-      <div className="border-b border-[#E9E2F5] bg-[#FAF8FF]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
+      <div className="border-b border-[#EFE6D8] bg-[#FAF7F2]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
-            <Link to="/" className="hover:text-[#6D28D9] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-amber-700 transition-colors">Home</Link>
             <span>/</span>
-            <span className="text-[#6D28D9] font-bold">Master Services Agreement</span>
+            <span className="text-amber-700 font-bold">Master Services Agreement</span>
           </div>
 
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17131F] hover:text-[#6D28D9] bg-white hover:bg-[#F7F3FF] border border-[#E9E2F5] hover:border-[#DDD0FF] px-4 py-1.5 rounded-full transition-all shadow-2xs"
+            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17131F] hover:text-amber-700 bg-white hover:bg-[#FDF8EE] border border-[#EFE6D8] hover:border-amber-300 px-4 py-1.5 rounded-full transition-all shadow-2xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Home</span>
@@ -31,10 +31,10 @@ export default function TermsPage() {
       </div>
 
       {/* Header Banner */}
-      <section className="py-14 sm:py-20 bg-gradient-to-b from-[#FAF8FF] via-[#F4EFFE]/40 to-white border-b border-[#E9E2F5]">
+      <section className="py-14 sm:py-20 bg-gradient-to-b from-[#FAF7F2] via-[#FDFBF7] to-white border-b border-[#EFE6D8]">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F7F3FF] border border-[#DDD0FF] text-[#6D28D9] text-xs font-mono font-bold uppercase tracking-widest">
-            <FileText className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200/70 text-amber-800 text-xs font-mono font-bold uppercase tracking-widest">
+            <FileText className="w-4 h-4 text-amber-600" />
             <span>ENTERPRISE MASTER SERVICES AGREEMENT (MSA)</span>
           </div>
           <h1 className="font-display font-black text-3xl sm:text-5xl text-[#17131F] tracking-tight">
@@ -57,9 +57,9 @@ export default function TermsPage() {
       <main className="max-w-4xl mx-auto px-6 py-12 sm:py-16 space-y-12 leading-relaxed text-slate-700">
         
         {/* Section 1: Agreement Structure */}
-        <div className="p-8 rounded-3xl bg-[#FAF8FF] border border-[#E9E2F5] space-y-4">
+        <div className="p-8 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-4">
           <h2 className="font-display font-bold text-2xl text-[#17131F] flex items-center gap-3">
-            <Scale className="w-6 h-6 text-[#6D28D9]" />
+            <Scale className="w-6 h-6 text-amber-600" />
             <span>1. Contractual Framework & Statement of Work (SOW)</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -73,23 +73,23 @@ export default function TermsPage() {
         {/* Section 2: Complete IP Ownership Assignment */}
         <div className="space-y-4">
           <h2 className="font-display font-bold text-2xl text-[#17131F] flex items-center gap-3">
-            <Code2 className="w-6 h-6 text-[#6D28D9]" />
+            <Code2 className="w-6 h-6 text-amber-600" />
             <span>2. Intellectual Property (IP) & Source Code Transfer</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             DASA TECH upholds an industry-leading <strong>100% Client IP Ownership Standard</strong> for custom software engineering engagements:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-            <div className="p-5 rounded-2xl bg-white border border-[#E9E2F5] space-y-2">
+            <div className="p-5 rounded-2xl bg-white border border-[#EFE6D8] space-y-2">
               <div className="font-display font-bold text-sm text-[#17131F] flex items-center gap-2">
-                <CheckSquare className="w-4 h-4 text-[#6D28D9]" />
+                <CheckSquare className="w-4 h-4 text-amber-600" />
                 <span>Full Source Code Ownership</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">Upon milestone settlement, 100% unencumbered title, copyright, and ownership of all custom frontend/backend repositories, SQL schemas, and design assets transfer perpetually to the Client.</p>
             </div>
-            <div className="p-5 rounded-2xl bg-white border border-[#E9E2F5] space-y-2">
+            <div className="p-5 rounded-2xl bg-white border border-[#EFE6D8] space-y-2">
               <div className="font-display font-bold text-sm text-[#17131F] flex items-center gap-2">
-                <CheckSquare className="w-4 h-4 text-[#6D28D9]" />
+                <CheckSquare className="w-4 h-4 text-amber-600" />
                 <span>Zero Hidden Code Lock-ins</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">We deliver thoroughly documented, clean codebases with zero proprietary compiler obfuscation or restrictive licensing traps.</p>
@@ -98,25 +98,25 @@ export default function TermsPage() {
         </div>
 
         {/* Section 3: SLA Uptime & Severity Response Matrix */}
-        <div className="space-y-4 p-8 rounded-3xl bg-[#FAF8FF] border border-[#E9E2F5]">
+        <div className="space-y-4 p-8 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8]">
           <h2 className="font-display font-bold text-2xl text-[#17131F] flex items-center gap-3">
-            <Clock className="w-6 h-6 text-[#6D28D9]" />
+            <Clock className="w-6 h-6 text-amber-600" />
             <span>3. Enterprise SLA & Incident Severity Matrix</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Production cloud hosting and enterprise ERP deployments maintained by DASA TECH are governed by a <strong>99.99% Annual System Availability SLA</strong>, backed by our 24/7/365 engineering incident response matrix:
           </p>
           <div className="overflow-x-auto pt-2">
-            <table className="w-full text-xs text-left border-collapse bg-white rounded-2xl overflow-hidden border border-[#E9E2F5]">
+            <table className="w-full text-xs text-left border-collapse bg-white rounded-2xl overflow-hidden border border-[#EFE6D8]">
               <thead>
-                <tr className="bg-[#F7F3FF] border-b border-[#E9E2F5] text-[#6D28D9] font-mono font-bold">
+                <tr className="bg-amber-50/70 border-b border-[#EFE6D8] text-amber-900 font-mono font-bold">
                   <th className="p-3">Severity Level</th>
                   <th className="p-3">Definition</th>
                   <th className="p-3">Target Response Time</th>
                   <th className="p-3">Resolution Target</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E9E2F5] text-slate-600">
+              <tbody className="divide-y divide-[#EFE6D8] text-slate-600">
                 <tr>
                   <td className="p-3 font-mono font-bold text-rose-600">P1 (Critical)</td>
                   <td className="p-3">Core production ERP down or critical business interruption</td>
@@ -163,15 +163,15 @@ export default function TermsPage() {
         </div>
 
         {/* Section 6: Corporate Governance & Legal Contacts */}
-        <div className="space-y-4 p-8 rounded-3xl bg-[#F7F3FF] border border-[#DDD0FF] text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#DDD0FF] text-[#6D28D9] text-xs font-mono font-bold uppercase">
+        <div className="space-y-4 p-8 rounded-3xl bg-gradient-to-br from-amber-50/60 to-orange-50/40 border border-amber-200/60 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-amber-200 text-amber-800 text-xs font-mono font-bold uppercase">
             <span>LEGAL COUNSEL & CONTRACTS</span>
           </div>
           <h2 className="font-display font-bold text-2xl text-[#17131F]">Contract Inquiries & Master Service Agreements</h2>
           <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
             For custom MSA negotiations, enterprise procurement onboarding, or SLA modifications, reach out directly to our corporate legal desk:
           </p>
-          <div className="pt-3 font-mono text-xs text-[#6D28D9] space-y-1">
+          <div className="pt-3 font-mono text-xs text-amber-800 space-y-1">
             <div className="font-bold">Official Channel: Signal @dasatech.99</div>
             <div>Consultation Portal: https://dasatech.in/contact</div>
             <div className="text-slate-500 pt-1">DASA TECH Corporation &bull; Erode, Tamil Nadu, India</div>

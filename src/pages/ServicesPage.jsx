@@ -213,9 +213,9 @@ const PROCESS_PHASES = [
     previewType: 'prd',
     stage: '01',
     icon: Search,
-    color: '#7C3AED',
-    lightBg: '#F5F3FF',
-    badgeBorder: '#DDD6FE'
+    color: '#D97706',
+    lightBg: '#FFFBEB',
+    badgeBorder: '#FDE68A'
   },
   {
     step: '02',
@@ -505,8 +505,8 @@ function ServiceHero() {
           transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3 mb-10"
         >
-          <span className="w-8 h-px bg-[#A855F7]" />
-          <span className="text-[11px] font-mono font-bold tracking-[0.3em] text-[#C084FC] uppercase">
+          <span className="w-8 h-px bg-amber-500" />
+          <span className="text-[11px] font-mono font-bold tracking-[0.3em] text-amber-400 uppercase">
             DASA TECH · ENGINEERING SERVICES
           </span>
         </motion.div>
@@ -555,7 +555,7 @@ function ServiceHero() {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href="#svc-grid"
-              className="px-6 py-3.5 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-sm transition-all flex items-center gap-2 group shadow-2xl shadow-[#6D28D9]/40"
+              className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-black text-sm transition-all flex items-center gap-2 group shadow-2xl shadow-amber-500/30"
             >
               <span>Explore Services</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
@@ -593,7 +593,7 @@ function ServiceHero() {
 // ─────────────────────────────────────────────────────────────
 function WhatWeProvide({ selectedService, onSelectService }) {
   return (
-    <section id="svc-grid" className="py-20 lg:py-28 bg-white border-t border-[#E9E2F5] select-none">
+    <section id="svc-grid" className="py-20 lg:py-28 bg-[#FAF7F2] border-t border-[#EFE6D8] select-none">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* Section header */}
@@ -604,10 +604,10 @@ function WhatWeProvide({ selectedService, onSelectService }) {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-[11px] font-mono font-bold tracking-[0.28em] text-[#6D28D9] uppercase mb-3 block">
+            <span className="text-[11px] font-mono font-bold tracking-[0.28em] text-amber-800 uppercase mb-3 block">
               ENGINEERING SERVICES
             </span>
-            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#17131F] tracking-tight leading-[1.18] pb-1 sm:pb-2">
+            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#141017] tracking-tight leading-[1.18] pb-1 sm:pb-2">
               What We <span className="text-color-shift">Provide</span>
             </h2>
           </motion.div>
@@ -661,8 +661,8 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
         onClick={() => onSelect(service)}
         className={`relative w-full ${service.height} rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 ${
           isSelected
-            ? 'ring-2 ring-[#6D28D9] ring-offset-2 shadow-2xl shadow-[#6D28D9]/30'
-            : 'ring-1 ring-[#E9E2F5] hover:ring-[#C4B5FD] hover:shadow-xl hover:shadow-[#6D28D9]/10'
+            ? 'ring-2 ring-amber-500 ring-offset-2 shadow-2xl shadow-amber-500/30'
+            : 'ring-1 ring-[#EFE6D8] hover:ring-amber-300 hover:shadow-xl hover:shadow-amber-500/10'
         }`}
       >
 
@@ -676,14 +676,14 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
         />
 
         {/* Overlay gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18]/92 via-[#0F0B18]/45 to-[#0F0B18]/8 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#6D28D9]/14 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#120D16]/92 via-[#120D16]/45 to-[#120D16]/8 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/15 via-transparent to-transparent pointer-events-none" />
 
         {/* Top category chip */}
         <div className={`absolute top-4 left-4 z-10 transition-all duration-300 ${
           hovered ? 'opacity-0 -translate-y-1' : 'opacity-100 translate-y-0'
         }`}>
-          <span className="text-[10px] font-mono font-bold text-white bg-[#0F0B18]/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 uppercase tracking-wider">
+          <span className="text-[10px] font-mono font-bold text-white bg-[#120D16]/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 uppercase tracking-wider">
             {service.category}
           </span>
         </div>
@@ -691,7 +691,7 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
         {/* Selected indicator */}
         {isSelected && (
           <div className="absolute top-4 right-4 z-30">
-            <div className="w-8 h-8 rounded-full bg-[#6D28D9] flex items-center justify-center shadow-lg shadow-[#6D28D9]/40">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-amber-500 to-rose-600 flex items-center justify-center shadow-lg shadow-amber-500/40">
               <CheckCircle2 className="w-4 h-4 text-white" />
             </div>
           </div>
@@ -701,9 +701,9 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
         <div className={`absolute bottom-4 left-4 right-4 z-10 transition-all duration-500 ${
           hovered ? 'opacity-0 translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'
         }`}>
-          <div className="flex items-end justify-between gap-3 p-4 rounded-2xl bg-[#0F0B18]/82 backdrop-blur-md border border-white/12 shadow-xl">
+          <div className="flex items-end justify-between gap-3 p-4 rounded-2xl bg-[#120D16]/82 backdrop-blur-md border border-white/12 shadow-xl">
             <div>
-              <span className="text-[9px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block mb-0.5">
+              <span className="text-[9px] font-mono font-bold text-amber-400 uppercase tracking-wider block mb-0.5">
                 {service.category}
               </span>
               <h3 className="font-display font-black text-xl text-white leading-tight">
@@ -711,7 +711,7 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
               </h3>
             </div>
             <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 shadow-lg transition-colors ${
-              isSelected ? 'bg-[#A855F7]' : 'bg-[#6D28D9]'
+              isSelected ? 'bg-gradient-to-r from-amber-500 to-rose-600' : 'bg-gradient-to-r from-amber-500 to-rose-600'
             }`}>
               <ArrowUpRight className="w-4 h-4 text-white" />
             </div>
@@ -722,26 +722,26 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
         <div className={`absolute inset-x-0 bottom-0 z-20 transition-all duration-500 ease-out ${
           hovered ? 'translate-y-0 opacity-100 pointer-events-auto' : 'translate-y-full opacity-0 pointer-events-none'
         }`}>
-          <div className="p-5 sm:p-6 rounded-t-[20px] bg-white border-t-2 border-[#6D28D9] shadow-2xl space-y-3.5">
+          <div className="p-5 sm:p-6 rounded-t-[20px] bg-white border-t-2 border-amber-500 shadow-2xl space-y-3.5">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <span className="text-[9px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider block mb-0.5">
+                <span className="text-[9px] font-mono font-bold text-amber-800 uppercase tracking-wider block mb-0.5">
                   {service.category}
                 </span>
                 <h3 className="font-display font-black text-xl text-[#0F172A] leading-tight">
                   {service.title}
                 </h3>
               </div>
-              <div className="w-9 h-9 rounded-xl bg-[#F7F3FF] text-[#6D28D9] flex items-center justify-center shrink-0 border border-[#DDD0FF]">
+              <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-800 flex items-center justify-center shrink-0 border border-amber-200">
                 <IconComp className="w-4 h-4" />
               </div>
             </div>
 
-            <p className="text-xs font-bold text-[#6D28D9] leading-snug">{service.headline}</p>
+            <p className="text-xs font-bold text-amber-800 leading-snug">{service.headline}</p>
 
             <div className="flex flex-wrap gap-1.5">
               {service.tags.map((tag) => (
-                <span key={tag} className="text-[10px] font-mono font-bold text-[#5B21B6] bg-[#F7F3FF] px-2 py-0.5 rounded-md border border-[#C4B5FD]">
+                <span key={tag} className="text-[10px] font-mono font-bold text-amber-900 bg-amber-50/80 px-2 py-0.5 rounded-md border border-amber-200/80">
                   {tag}
                 </span>
               ))}
@@ -750,7 +750,7 @@ function ServiceTile({ service, idx, isSelected, onSelect }) {
             <div className="pt-0.5">
               <button
                 onClick={(e) => { e.stopPropagation(); onSelect(service) }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs transition-colors shadow-md"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-black text-xs transition-colors shadow-md"
               >
                 <span>{isSelected ? 'Close Details' : 'View Full Details'}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -778,17 +778,17 @@ function ServiceDetailPanel({ service, onClose }) {
       transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
       className="overflow-hidden"
     >
-      <div className="border-t-2 border-[#6D28D9] bg-[#FAF8FF] select-none">
+      <div className="border-t-2 border-amber-500 bg-[#FAF7F2] select-none">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-14 lg:py-16">
 
           {/* Panel header */}
           <div className="flex items-start justify-between mb-10 lg:mb-12">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#6D28D9] text-white flex items-center justify-center shadow-lg shadow-[#6D28D9]/30 shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-amber-500/25 shrink-0">
                 <IconComp className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[10px] font-mono font-bold text-[#6D28D9] uppercase tracking-[0.25em] block">
+                <span className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-[0.25em] block">
                   {service.category}
                 </span>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0F172A] leading-tight">
@@ -798,7 +798,7 @@ function ServiceDetailPanel({ service, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-full bg-white hover:bg-[#F7F3FF] border border-[#E9E2F5] flex items-center justify-center transition-colors shrink-0 mt-1"
+              className="w-9 h-9 rounded-full bg-white hover:bg-amber-50 border border-[#EFE6D8] flex items-center justify-center transition-colors shrink-0 mt-1"
               aria-label="Close service details"
             >
               <X className="w-4 h-4 text-[#64748B]" />
@@ -806,7 +806,7 @@ function ServiceDetailPanel({ service, onClose }) {
           </div>
 
           {/* Purpose statement */}
-          <p className="text-base sm:text-lg text-[#334155] leading-relaxed font-medium max-w-3xl mb-12 pl-5 border-l-4 border-[#6D28D9]/50">
+          <p className="text-base sm:text-lg text-[#334155] leading-relaxed font-medium max-w-3xl mb-12 pl-5 border-l-4 border-amber-500">
             {service.detail.purpose}
           </p>
 
@@ -815,13 +815,13 @@ function ServiceDetailPanel({ service, onClose }) {
 
             {/* Left: What We Provide */}
             <div>
-              <h4 className="font-mono font-bold text-xs text-[#6D28D9] uppercase tracking-[0.22em] mb-5">
+              <h4 className="font-mono font-bold text-xs text-amber-800 uppercase tracking-[0.22em] mb-5">
                 WHAT WE PROVIDE
               </h4>
               <ul className="space-y-3.5">
                 {service.detail.provides.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#6D28D9] mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
                     <span className="text-sm text-[#334155] font-medium leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -833,12 +833,12 @@ function ServiceDetailPanel({ service, onClose }) {
 
               {/* Technologies */}
               <div>
-                <h4 className="font-mono font-bold text-xs text-[#6D28D9] uppercase tracking-[0.22em] mb-4">
+                <h4 className="font-mono font-bold text-xs text-amber-800 uppercase tracking-[0.22em] mb-4">
                   TECHNOLOGIES & TOOLS
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {service.detail.technologies.map((tech) => (
-                    <span key={tech} className="text-xs font-mono font-bold text-[#5B21B6] bg-white px-3 py-1.5 rounded-lg border border-[#DDD0FF]">
+                    <span key={tech} className="text-xs font-mono font-bold text-amber-900 bg-white px-3 py-1.5 rounded-lg border border-amber-200">
                       {tech}
                     </span>
                   ))}
@@ -847,23 +847,23 @@ function ServiceDetailPanel({ service, onClose }) {
 
               {/* Business Value */}
               <div>
-                <h4 className="font-mono font-bold text-xs text-[#6D28D9] uppercase tracking-[0.22em] mb-3">
+                <h4 className="font-mono font-bold text-xs text-amber-800 uppercase tracking-[0.22em] mb-3">
                   BUSINESS VALUE
                 </h4>
-                <p className="text-sm text-[#334155] leading-relaxed font-medium bg-white rounded-xl p-4 border border-[#E9E2F5]">
+                <p className="text-sm text-[#334155] leading-relaxed font-medium bg-white rounded-xl p-4 border border-[#EFE6D8]">
                   {service.detail.value}
                 </p>
               </div>
 
               {/* Typical Use Cases */}
               <div>
-                <h4 className="font-mono font-bold text-xs text-[#6D28D9] uppercase tracking-[0.22em] mb-4">
+                <h4 className="font-mono font-bold text-xs text-amber-800 uppercase tracking-[0.22em] mb-4">
                   TYPICAL USE CASES
                 </h4>
                 <ul className="space-y-2.5">
                   {service.detail.cases.map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-[#475569] font-medium">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#A855F7] shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -886,7 +886,7 @@ function OurCapabilities() {
   const [activeIdx, setActiveIdx] = useState(0)
 
   return (
-    <section className="py-24 lg:py-32 bg-white border-t border-[#E9E2F5] select-none overflow-hidden">
+    <section className="py-24 lg:py-32 bg-[#FAF7F2] border-t border-[#EFE6D8] select-none overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* Section header */}
@@ -898,10 +898,10 @@ function OurCapabilities() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-3"
           >
-            <span className="text-[11px] font-mono font-bold tracking-[0.28em] text-[#6D28D9] uppercase block">
+            <span className="text-[11px] font-mono font-bold tracking-[0.28em] text-amber-800 uppercase block">
               WHAT WE DELIVER
             </span>
-            <h2 className="font-display font-black text-4xl sm:text-5xl text-[#17131F] tracking-tight leading-[1.18] pb-1 sm:pb-2">
+            <h2 className="font-display font-black text-4xl sm:text-5xl text-[#141017] tracking-tight leading-[1.18] pb-1 sm:pb-2">
               Our Service<br /><span className="text-color-shift">Capabilities</span>
             </h2>
           </motion.div>
@@ -932,32 +932,32 @@ function OurCapabilities() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 className={`flex items-center gap-4 py-4 px-5 rounded-xl cursor-pointer transition-all duration-200 group ${
                   activeIdx === idx
-                    ? 'bg-[#F7F3FF] border border-[#DDD0FF]'
-                    : 'border border-transparent hover:bg-[#FAF8FF] hover:border-[#F0EBFF]'
+                    ? 'bg-[#FDF8EE] border border-amber-300'
+                    : 'border border-transparent hover:bg-white hover:border-[#EFE6D8]'
                 }`}
               >
                 {/* Left accent bar */}
                 <div className={`w-0.5 h-6 rounded-full transition-all duration-300 shrink-0 ${
-                  activeIdx === idx ? 'bg-[#6D28D9]' : 'bg-[#E9E2F5] group-hover:bg-[#DDD0FF]'
+                  activeIdx === idx ? 'bg-gradient-to-b from-amber-500 to-rose-600' : 'bg-[#EFE6D8] group-hover:bg-amber-300'
                 }`} />
 
                 {/* Number */}
                 <span className={`font-mono text-xs font-bold w-7 shrink-0 transition-colors duration-200 ${
-                  activeIdx === idx ? 'text-[#6D28D9]' : 'text-[#CBD5E1] group-hover:text-[#A855F7]'
+                  activeIdx === idx ? 'text-amber-800' : 'text-[#CBD5E1] group-hover:text-amber-600'
                 }`}>
                   {cap.num}
                 </span>
 
                 {/* Title */}
                 <h3 className={`font-display font-bold text-sm sm:text-base flex-1 transition-colors duration-200 ${
-                  activeIdx === idx ? 'text-[#6D28D9] font-black' : 'text-[#334155] group-hover:text-[#17131F]'
+                  activeIdx === idx ? 'text-amber-800 font-black' : 'text-[#334155] group-hover:text-[#141017]'
                 }`}>
                   {cap.title}
                 </h3>
 
                 {/* Chevron */}
                 <ChevronRight className={`w-4 h-4 transition-all duration-200 shrink-0 ${
-                  activeIdx === idx ? 'text-[#6D28D9] translate-x-0.5' : 'text-[#E9E2F5] group-hover:text-[#C4B5FD]'
+                  activeIdx === idx ? 'text-amber-600 translate-x-0.5' : 'text-[#EFE6D8] group-hover:text-amber-400'
                 }`} />
               </motion.div>
             ))}
@@ -972,9 +972,9 @@ function OurCapabilities() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-[28px] bg-[#FAF8FF] border border-[#E9E2F5] p-8 lg:p-10 space-y-5"
+                className="rounded-[28px] bg-white border border-[#EFE6D8] p-8 lg:p-10 space-y-5 shadow-sm"
               >
-                <span className="text-[10px] font-mono font-bold text-[#6D28D9] uppercase tracking-[0.25em] block">
+                <span className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-[0.25em] block">
                   CAPABILITY · {CAPABILITIES[activeIdx].num}
                 </span>
                 <h3 className="font-display font-black text-2xl lg:text-3xl text-[#0F172A] leading-tight">
@@ -985,13 +985,13 @@ function OurCapabilities() {
                 </p>
 
                 {/* Progress indicators */}
-                <div className="pt-4 border-t border-[#E9E2F5] flex items-center gap-3">
+                <div className="pt-4 border-t border-[#EFE6D8] flex items-center gap-3">
                   <div className="flex gap-1">
                     {CAPABILITIES.map((_, i) => (
                       <div
                         key={i}
                         className={`h-1 rounded-full transition-all duration-300 ${
-                          i === activeIdx ? 'w-6 bg-[#6D28D9]' : 'w-1.5 bg-[#DDD0FF]'
+                          i === activeIdx ? 'w-6 bg-gradient-to-r from-amber-500 to-rose-600' : 'w-1.5 bg-amber-200'
                         }`}
                       />
                     ))}
@@ -1016,11 +1016,11 @@ function HowWeWork() {
   const [hoveredIdx, setHoveredIdx] = useState(null)
 
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-[#FAF8FF] via-[#F8F6FF] to-[#FAF8FF] border-t border-[#E9E2F5] select-none relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-gradient-to-b from-[#FAF7F2] via-white to-[#FAF7F2] border-t border-[#EFE6D8] select-none relative overflow-hidden">
 
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 -left-32 w-[540px] h-[540px] bg-gradient-to-tr from-[#DDD6FE]/35 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-[540px] h-[540px] bg-gradient-to-bl from-[#EDE9FE]/40 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-32 w-[540px] h-[540px] bg-gradient-to-tr from-amber-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-[540px] h-[540px] bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-12">
 
@@ -1033,10 +1033,10 @@ function HowWeWork() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-3"
           >
-            <span className="text-[11px] font-mono font-bold tracking-[0.28em] text-[#6D28D9] uppercase block">
+            <span className="text-[11px] font-mono font-bold tracking-[0.28em] text-amber-800 uppercase block">
               OUR PROCESS
             </span>
-            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#17131F] tracking-tight leading-[1.18] pb-1 sm:pb-2">
+            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#141017] tracking-tight leading-[1.18] pb-1 sm:pb-2">
               How We <span className="text-color-shift">Work</span>
             </h2>
           </motion.div>
@@ -1052,12 +1052,12 @@ function HowWeWork() {
         </div>
 
         {/* Navigation Above: Connected Milestone Stepper Track (01 to 08) */}
-        <div className="bg-white/90 rounded-2xl p-5 border border-[#E9E2F5] shadow-xs backdrop-blur-sm overflow-x-auto scrollbar-none">
+        <div className="bg-white/90 rounded-2xl p-5 border border-[#EFE6D8] shadow-xs backdrop-blur-sm overflow-x-auto scrollbar-none">
           <div className="min-w-[760px] flex items-center justify-between relative">
             {/* Horizontal Track Line */}
             <div className="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-[3px] bg-[#E2E8F0] z-0 rounded-full" />
             <div
-              className="absolute left-6 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#0D9488] z-0 rounded-full transition-all duration-500"
+              className="absolute left-6 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 z-0 rounded-full transition-all duration-500"
               style={{
                 width: `${(activeStepIdx / (PROCESS_PHASES.length - 1)) * 95}%`
               }}
@@ -1079,7 +1079,7 @@ function HowWeWork() {
                       isActive
                         ? 'scale-115 ring-4 text-white shadow-md'
                         : isPast
-                        ? 'bg-white text-[#6D28D9] border-2 border-[#DDD6FE]'
+                        ? 'bg-white text-amber-700 border-2 border-amber-300'
                         : 'bg-white text-[#64748B] border border-[#E2E8F0] hover:border-[#CBD5E1]'
                     }`}
                     style={{
@@ -1097,7 +1097,7 @@ function HowWeWork() {
                     </span>
                     <span
                       className={`text-[10px] font-mono font-bold uppercase tracking-wider transition-colors ${
-                        isActive ? 'text-[#17131F]' : 'text-[#64748B] group-hover:text-[#17131F]'
+                        isActive ? 'text-[#141017]' : 'text-[#64748B] group-hover:text-[#141017]'
                       }`}
                       style={{ color: isActive ? p.color : undefined }}
                     >
@@ -1123,7 +1123,7 @@ function HowWeWork() {
                 className={`p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer flex flex-col justify-between h-[155px] relative overflow-hidden ${
                   isSelected
                     ? 'bg-white shadow-lg border-2 -translate-y-1'
-                    : 'bg-white/80 hover:bg-white border border-[#E9E2F5] hover:border-[#DDD6FE] shadow-xs'
+                    : 'bg-white/80 hover:bg-white border border-[#EFE6D8] hover:border-amber-300 shadow-xs'
                 }`}
                 style={{
                   borderColor: isSelected ? p.color : undefined
@@ -1171,8 +1171,8 @@ function HowWeWork() {
         </div>
 
         {/* Enterprise Delivery Assurance Strip */}
-        <div className="rounded-3xl bg-white/95 border border-[#E9E2F5] p-6 sm:p-8 shadow-sm backdrop-blur-sm">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E9E2F5]/80">
+        <div className="rounded-3xl bg-white/95 border border-[#EFE6D8] p-6 sm:p-8 shadow-sm backdrop-blur-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#EFE6D8]/80">
             {[
               {
                 title: '100% IP & Code Ownership',
@@ -1193,7 +1193,7 @@ function HowWeWork() {
             ].map((item, idx) => (
               <div key={idx} className={`space-y-1.5 ${idx > 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''}`}>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6D28D9] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
                   <h4 className="text-sm font-bold text-[#0F172A]">{item.title}</h4>
                 </div>
                 <p className="text-xs text-[#64748B] leading-relaxed pl-6">
@@ -1214,12 +1214,12 @@ function HowWeWork() {
 // ─────────────────────────────────────────────────────────────
 function ServiceCTA() {
   return (
-    <section className="py-24 lg:py-36 bg-[#0F0B18] text-white relative overflow-hidden select-none border-t border-[#A855F7]/20">
+    <section className="py-24 lg:py-36 bg-[#120D16] text-white relative overflow-hidden select-none border-t border-amber-500/20">
 
       {/* Radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(109,40,217,0.25)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#6D28D9]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-0 left-0 w-60 h-60 bg-[#A855F7]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(217,119,6,0.2)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-10 text-center relative z-10 space-y-10">
 
@@ -1230,7 +1230,7 @@ function ServiceCTA() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-5 max-w-3xl mx-auto"
         >
-          <span className="text-[11px] font-mono font-bold text-[#C084FC] uppercase tracking-[0.28em] block">
+          <span className="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-[0.28em] block">
             START YOUR PROJECT
           </span>
           <h2 className="font-display font-black text-4xl sm:text-6xl text-white tracking-tight leading-[1.18] pb-1 sm:pb-2">
@@ -1254,7 +1254,7 @@ function ServiceCTA() {
         >
           <Link
             to="/contact"
-            className="px-8 py-4 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-sm shadow-2xl shadow-[#6D28D9]/50 transition-all flex items-center gap-2.5 group"
+            className="px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-black text-sm shadow-2xl shadow-amber-500/40 transition-all flex items-center gap-2.5 group"
           >
             <span>Start Your Project</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />

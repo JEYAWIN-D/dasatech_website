@@ -63,7 +63,7 @@ export default function AgriAutomationProductView() {
     <div className="min-h-screen bg-white text-[#17121F] selection:bg-[#059669] selection:text-white pt-24 select-none">
 
       {/* ── BREADCRUMB BAR ────────────────────────────────────── */}
-      <div className="border-b border-[#E9E2F5] bg-[#FAF8FF]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
+      <div className="border-b border-[#EFE6D8] bg-[#FAF7F2]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
             <Link to="/" className="hover:text-[#059669] transition-colors">Home</Link>
@@ -75,7 +75,7 @@ export default function AgriAutomationProductView() {
 
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#059669] bg-white hover:bg-[#ECFDF5] border border-[#E9E2F5] hover:border-[#A7F3D0] px-4 py-1.5 rounded-full transition-all shadow-2xs"
+            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#059669] bg-white hover:bg-[#ECFDF5] border border-[#EFE6D8] hover:border-[#A7F3D0] px-4 py-1.5 rounded-full transition-all shadow-2xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Products</span>
@@ -84,7 +84,7 @@ export default function AgriAutomationProductView() {
       </div>
 
       {/* ── 1. HERO: PRECISION AGRICULTURE CONTROLLER ─────────── */}
-      <section className="relative py-14 lg:py-22 bg-gradient-to-b from-[#ECFDF5] via-white to-white overflow-hidden border-b border-[#E9E2F5]">
+      <section className="relative py-14 lg:py-22 bg-gradient-to-b from-[#ECFDF5] via-white to-white overflow-hidden border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

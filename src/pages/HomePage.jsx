@@ -27,7 +27,7 @@ export default function HomePage() {
   });
 
   return (
-    <main className="flex-grow w-full overflow-hidden bg-[#FAF8FF] text-slate-900">
+    <main className="flex-grow w-full overflow-hidden bg-[#FAF7F2] text-[#141017]">
       <Hero />
       <TechMarquee />
       <About />

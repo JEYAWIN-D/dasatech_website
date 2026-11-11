@@ -80,13 +80,13 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="py-20 lg:py-24 bg-[#0A0D18] text-white relative overflow-hidden border-t border-white/10 select-none">
+    <section id="contact" className="py-20 lg:py-24 bg-[#0E0A12] text-white relative overflow-hidden border-t border-amber-500/15 select-none">
       
       {/* Soft Ambient Radial Light */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] pointer-events-none opacity-25"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(109, 40, 217, 0.4), transparent 70%)'
+          background: 'radial-gradient(ellipse at center, rgba(245, 158, 11, 0.35) 0%, rgba(225, 29, 72, 0.15) 50%, transparent 70%)'
         }}
       />
 
@@ -96,7 +96,7 @@ export default function CTA() {
           {/* Left Column: Corporate Engagement & Signal Access */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-[#C084FC] text-xs font-mono font-bold tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold tracking-widest uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>CORPORATE ENGAGEMENT</span>
             </div>
@@ -239,7 +239,7 @@ export default function CTA() {
                       required
                       value={form.name}
                       onChange={update('name')}
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all font-medium"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-amber-400 focus:bg-white/[0.1] focus:ring-1 focus:ring-amber-400/30 transition-all font-medium"
                       placeholder="e.g. Alex Mercer"
                     />
                   </div>
@@ -253,7 +253,7 @@ export default function CTA() {
                       type="tel"
                       value={form.phone}
                       onChange={update('phone')}
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-[#C084FC] focus:bg-white/[0.1] transition-all font-medium"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3 text-white placeholder-slate-400 text-sm outline-none focus:border-amber-400 focus:bg-white/[0.1] focus:ring-1 focus:ring-amber-400/30 transition-all font-medium"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -292,7 +292,7 @@ export default function CTA() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#4F46E5] hover:from-[#581CBA] hover:to-[#4338CA] text-white font-display font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:via-orange-600 hover:to-rose-700 text-white font-display font-bold text-sm shadow-xl shadow-orange-500/25 border border-amber-300/40 hover:shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     {status === 'sending' ? (
                       <>

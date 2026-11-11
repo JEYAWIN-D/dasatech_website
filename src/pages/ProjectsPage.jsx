@@ -62,7 +62,7 @@ const PROJECTS_STORY = [
     title: 'High-Speed AI Optical Inspection Vision System',
     category: 'Artificial Intelligence & Vision',
     client: 'Automotive Component Foundry',
-    color: '#7C3AED',
+    color: '#EA580C',
     icon: Brain,
     heroStat: '12 Castings / Sec Inspected',
     metric: '99.7% Accuracy',
@@ -175,8 +175,8 @@ export default function ProjectsPage() {
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-4 py-2 rounded-2xl text-xs font-mono font-bold tracking-wide transition-all cursor-pointer ${
                   activeFilter === tab.id
-                    ? 'bg-[#6C2BD9] text-white shadow-xs'
-                    : 'bg-[#F5F0FF] text-[#6F6878] hover:text-[#17121F] border border-[#DDD0FF]'
+                    ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white shadow-md shadow-amber-500/20'
+                    : 'bg-[#FAF7F2] text-slate-600 hover:text-slate-900 border border-[#EFE6D8]'
                 }`}
               >
                 {tab.label}

@@ -20,7 +20,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="top"
-      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#17121F] text-white select-none pt-24 sm:pt-28"
+      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#120D16] text-white select-none pt-24 sm:pt-28"
     >
       
       {/* 1. FULL-WIDTH, FULL-VIEWPORT BACKGROUND IMAGE WITH PARALLAX & FADE-IN */}
@@ -38,8 +38,8 @@ export default function Hero() {
           className="w-full h-full object-cover object-center opacity-85"
         />
         {/* Subtle gradient overlay to ensure 100% legibility while keeping image clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#17121F]/85 via-[#17121F]/45 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#17121F]/40 via-transparent to-[#17121F]/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#120D16]/90 via-[#120D16]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#120D16]/45 via-transparent to-[#120D16]/95" />
       </motion.div>
 
       {/* 2. HERO TYPOGRAPHY & MAIN CONTENT LAYER (PERFECTLY VISIBLE AT ALL TIMES) */}
@@ -164,10 +164,10 @@ export default function Hero() {
             {/* CTA 1: START YOUR PROJECT → */}
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#6C2BD9] hover:from-[#8B5CF6] hover:to-[#7C3AED] px-8 py-4 font-display font-bold text-sm text-white shadow-lg shadow-[#7C3AED]/40 hover:shadow-xl hover:shadow-[#7C3AED]/60 hover:scale-105 transition-all duration-300 cursor-pointer"
+              className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:via-orange-600 hover:to-rose-700 px-8 py-4 font-display font-bold text-sm text-white shadow-xl shadow-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 border border-amber-300/40 transition-all duration-300 cursor-pointer"
             >
               <span>START YOUR PROJECT</span>
-              <div className="w-8 h-8 rounded-full bg-white text-[#7C3AED] flex items-center justify-center group-hover:scale-110 group-hover:rotate-45 transition-transform duration-300">
+              <div className="w-8 h-8 rounded-full bg-white text-orange-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-45 transition-transform duration-300 shadow-xs">
                 <ArrowRight className="w-4 h-4" />
               </div>
             </Link>

@@ -255,7 +255,7 @@ function ProductVisualTile({ item, heightClass }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleTileClick}
-      className={`relative w-full ${heightClass} rounded-[24px] overflow-hidden border-2 border-[#E9E2F5] hover:border-[#6D28D9] bg-[#0F0B18] shadow-lg hover:shadow-2xl hover:shadow-[#6D28D9]/25 transition-all duration-500 cursor-pointer group`}
+      className={`relative w-full ${heightClass} rounded-[24px] overflow-hidden border-2 border-[#EFE6D8] hover:border-amber-400 bg-[#0E0A12] shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 cursor-pointer group`}
     >
       {/* High-Resolution Product Image with Fluid Easing Scale */}
       <img
@@ -267,8 +267,8 @@ function ProductVisualTile({ item, heightClass }) {
       />
 
       {/* Ambient Gradient Underlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18]/90 via-[#0F0B18]/30 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#6D28D9]/20 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0E0A12]/90 via-[#0E0A12]/30 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 via-transparent to-transparent pointer-events-none" />
 
       {/* Top Header Badge (Default State) */}
       <div
@@ -345,7 +345,7 @@ function ProductVisualTile({ item, heightClass }) {
             {item.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] font-mono font-bold text-[#5B21B6] bg-[#F7F3FF] px-2.5 py-1 rounded-md border border-[#C4B5FD]"
+                className="text-[10px] font-mono font-bold text-amber-900 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200/80"
               >
                 {tag}
               </span>
@@ -356,7 +356,7 @@ function ProductVisualTile({ item, heightClass }) {
           <div className="pt-1">
             <Link
               to={item.link}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs shadow-md transition-all group/btn"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:via-orange-600 hover:to-rose-700 text-white font-display font-black text-xs shadow-md shadow-orange-500/25 border border-amber-300/40 transition-all group/btn"
               onClick={(e) => {
                 if (isExternal) {
                   e.stopPropagation()

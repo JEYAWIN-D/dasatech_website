@@ -274,7 +274,7 @@ function ProductHero() {
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <a
               href="#catalog"
-              className="px-6 py-3.5 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-sm transition-all flex items-center gap-2 group shadow-2xl shadow-[#6D28D9]/40"
+              className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-black text-sm transition-all flex items-center gap-2 group shadow-2xl shadow-amber-500/30"
             >
               <span>Explore Platform Portfolio</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
@@ -314,7 +314,7 @@ function HomepageStyleProductTile({ product }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={openProduct}
-      className="relative w-full h-[320px] sm:h-[350px] rounded-[24px] overflow-hidden border-2 border-[#E9E2F5] hover:border-[#6D28D9] bg-[#0F0B18] shadow-md hover:shadow-2xl hover:shadow-[#6D28D9]/25 transition-all duration-500 cursor-pointer group select-none"
+      className="relative w-full h-[320px] sm:h-[350px] rounded-[24px] overflow-hidden border-2 border-[#EFE6D8] hover:border-amber-400 bg-[#120D16] shadow-md hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer group select-none"
     >
       {/* 1. High-Resolution Product Image */}
       <img
@@ -326,7 +326,7 @@ function HomepageStyleProductTile({ product }) {
       />
 
       {/* Ambient Gradient Underlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18]/90 via-[#0F0B18]/30 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#120D16]/90 via-[#120D16]/30 to-transparent pointer-events-none" />
 
       {/* Top Header Badge (Default Unhovered State) */}
       <div
@@ -334,11 +334,11 @@ function HomepageStyleProductTile({ product }) {
           isHovered ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
-        <span className="text-[10px] font-mono font-bold text-white bg-[#0F0B18]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 uppercase tracking-wider shadow-md">
+        <span className="text-[10px] font-mono font-bold text-white bg-[#120D16]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider shadow-md">
           {product.category}
         </span>
         {isExternal || product.id === 'pharmacy-erp' ? (
-          <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/40 flex items-center gap-1 shadow-md">
+          <span className="text-[9px] font-mono font-bold text-amber-300 bg-amber-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1 shadow-md">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>LIVE CLOUD SYSTEM</span>
           </span>
@@ -356,16 +356,16 @@ function HomepageStyleProductTile({ product }) {
           isHovered ? 'opacity-0 pointer-events-none hidden' : 'opacity-100'
         }`}
       >
-        <div className="p-4 rounded-2xl bg-[#0F0B18]/85 backdrop-blur-md border border-white/20 shadow-2xl flex items-center justify-between gap-3">
+        <div className="p-4 rounded-2xl bg-[#120D16]/85 backdrop-blur-md border border-white/20 shadow-2xl flex items-center justify-between gap-3">
           <div className="space-y-0.5">
-            <span className="text-[9px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block">
+            <span className="text-[9px] font-mono font-bold text-amber-400 uppercase tracking-wider block">
               {product.categoryGroup}
             </span>
             <h3 className="font-display font-black text-lg sm:text-xl text-white tracking-tight leading-tight">
               {product.name}
             </h3>
           </div>
-          <div className="w-8 h-8 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shadow-lg shrink-0 border border-[#A855F7]/40">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-amber-500 to-rose-600 text-white flex items-center justify-center shadow-lg shrink-0 border border-amber-300/40">
             {isExternal || product.id === 'pharmacy-erp' ? (
               <ExternalLink className="w-4 h-4" />
             ) : (
@@ -383,18 +383,18 @@ function HomepageStyleProductTile({ product }) {
             : 'translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div style={{ backgroundColor: "#FFFFFF" }} className="p-5 sm:p-6 rounded-t-[24px] border-t-2 border-[#6D28D9] shadow-2xl space-y-3">
+        <div style={{ backgroundColor: "#FFFFFF" }} className="p-5 sm:p-6 rounded-t-[24px] border-t-2 border-amber-500 shadow-2xl space-y-3">
           
           <div className="flex items-center justify-between gap-2">
             <div>
-              <span className="text-[9px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider block">
+              <span className="text-[9px] font-mono font-bold text-amber-800 uppercase tracking-wider block">
                 {product.category}
               </span>
               <h3 className="font-display font-black text-lg sm:text-xl text-[#0F172A]">
                 {product.name}
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F7F3FF] px-2.5 py-1 rounded-full border border-[#DDD0FF] shrink-0">
+            <span className="text-[10px] font-mono font-bold text-amber-900 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200 shrink-0">
               {isExternal || product.id === 'pharmacy-erp' ? 'LIVE' : 'ARCHITECTURE'}
             </span>
           </div>
@@ -408,7 +408,7 @@ function HomepageStyleProductTile({ product }) {
             {product.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] font-mono font-bold text-[#5B21B6] bg-[#F7F3FF] px-2.5 py-1 rounded-md border border-[#C4B5FD]"
+                className="text-[10px] font-mono font-bold text-amber-900 bg-amber-50/80 px-2.5 py-1 rounded-md border border-amber-200/80"
               >
                 {tag}
               </span>
@@ -419,7 +419,7 @@ function HomepageStyleProductTile({ product }) {
           <div className="pt-1">
             <Link
               to={targetLink}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs shadow-md transition-all group/btn"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-black text-xs shadow-md transition-all group/btn"
               onClick={(e) => {
                 e.stopPropagation()
                 if (isExternal || product.id === 'pharmacy-erp') {
@@ -461,7 +461,7 @@ export default function ProductsPage() {
     : PRODUCTS_CATALOG.filter(p => p.categoryGroup === selectedTab)
 
   return (
-    <div className="min-h-screen bg-white text-[#17121F] relative overflow-hidden select-none">
+    <div className="min-h-screen bg-[#FAF7F2] text-[#141017] relative overflow-hidden select-none">
 
       {/* ── 1. CINEMATIC FULL-WIDTH OPENING HERO (project-pg.png) ── */}
       <ProductHero />
@@ -469,13 +469,13 @@ export default function ProductsPage() {
       {/* ── 2. CATALOG HEADER & CLEAR CATEGORY SELECTION ─────────── */}
       <section id="catalog" className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8">
         
-        <div className="space-y-6 pb-6 border-b border-[#E9E2F5]">
+        <div className="space-y-6 pb-6 border-b border-[#EFE6D8]">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-1">
-              <span className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase block">
+              <span className="text-xs font-bold tracking-wider text-amber-800 uppercase block">
                 Software &amp; Automations Portfolio
               </span>
-              <h2 className="font-display font-black text-2xl sm:text-3xl text-[#17121F] tracking-tight">
+              <h2 className="font-display font-black text-2xl sm:text-3xl text-[#141017] tracking-tight">
                 Production-Ready <span className="text-color-shift">Software Platforms</span>
               </h2>
             </div>
@@ -495,14 +495,14 @@ export default function ProductsPage() {
                   className={`relative px-5 py-2.5 rounded-2xl text-xs font-mono font-bold tracking-wide transition-all duration-300 shrink-0 cursor-pointer ${
                     isActive
                       ? 'text-white'
-                      : 'text-[#64748B] hover:text-[#17121F] bg-[#FAF8FF] border border-[#E9E2F5] hover:border-[#DDD0FF] hover:bg-[#F7F3FF]'
+                      : 'text-[#64748B] hover:text-[#141017] bg-white border border-[#EFE6D8] hover:border-amber-300 hover:bg-[#FAF7F2]'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeCategoryTab"
                       transition={{ type: 'spring', damping: 26, stiffness: 260 }}
-                      className="absolute inset-0 rounded-2xl bg-[#6D28D9] shadow-md shadow-[#6D28D9]/30"
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 shadow-md shadow-amber-500/30"
                     />
                   )}
                   <span className="relative z-10">{tab.label}</span>
@@ -539,12 +539,12 @@ export default function ProductsPage() {
 
       {/* ── 4. ELEVATED CONSULTATION CTA ──────────────────────────── */}
       <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-16 text-center">
-        <div className="relative p-10 sm:p-14 rounded-[32px] border border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg overflow-hidden space-y-4">
-          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+        <div className="relative p-10 sm:p-14 rounded-[32px] border border-[#EFE6D8] bg-gradient-to-b from-[#FAF7F2] via-white to-[#FDF8EE] shadow-lg overflow-hidden space-y-4">
+          <div className="text-xs font-bold tracking-wider text-amber-800 uppercase">
             Custom Development &amp; Deployment
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#17121F] font-display tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#141017] font-display tracking-tight">
             Need a <span className="text-color-shift">Customized ERP</span> or Dedicated Software?
           </h2>
 

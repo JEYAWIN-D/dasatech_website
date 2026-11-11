@@ -42,13 +42,13 @@ export default function TeamMemberProfilePage() {
   }, [prevMember.id, nextMember.id, navigate])
 
   return (
-    <div className="min-h-screen bg-[#07060B] text-white relative flex flex-col justify-between overflow-hidden select-none">
+    <div className="min-h-screen bg-[#0E0A12] text-white relative flex flex-col justify-between overflow-hidden select-none">
       
       {/* ── BACKGROUND WATERMARK LETTER & AMBIENT STUDIO LIGHTING ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         {/* Soft Radial Backlight Spotlight behind model */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[700px] h-[700px] bg-gradient-to-tr from-[#6D28D9]/15 via-[#2D6A5D]/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#A855F7]/10 via-transparent to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[700px] h-[700px] bg-gradient-to-tr from-amber-500/15 via-rose-500/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-amber-400/10 via-transparent to-transparent rounded-full blur-3xl" />
 
         {/* Oversized Faint Watermark Initial Letter */}
         <span className="font-display font-black text-[28rem] sm:text-[36rem] lg:text-[46rem] text-white/[0.03] leading-none select-none transform -translate-x-20 sm:-translate-x-32 translate-y-6">
@@ -109,8 +109,8 @@ export default function TeamMemberProfilePage() {
               />
 
               {/* Gradient Shading & Ambient Rim Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07060B] via-transparent to-transparent opacity-90 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#6D28D9]/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0A12] via-transparent to-transparent opacity-90 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 via-transparent to-transparent pointer-events-none" />
 
               {/* Status Floating Pill */}
               <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-mono text-emerald-400 font-bold">
@@ -149,7 +149,7 @@ export default function TeamMemberProfilePage() {
               </h1>
 
               {/* Official Role Subtitle */}
-              <div className="text-sm sm:text-base font-mono font-bold text-[#C084FC] tracking-wider uppercase">
+              <div className="text-sm sm:text-base font-mono font-bold text-amber-400 tracking-wider uppercase">
                 {member.role} &bull; <span className="text-slate-400">{member.specialty}</span>
               </div>
 
@@ -167,7 +167,7 @@ export default function TeamMemberProfilePage() {
                   {member.skillsList?.map((s, idx) => (
                     <span
                       key={idx}
-                      className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#C084FC]/50 text-slate-200 text-xs font-mono font-semibold transition-colors shadow-2xs"
+                      className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/50 text-slate-200 text-xs font-mono font-semibold transition-colors shadow-2xs"
                     >
                       {s}
                     </span>

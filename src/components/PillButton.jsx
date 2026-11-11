@@ -26,24 +26,24 @@ export default function PillButton({
 
   const variantClasses = {
     primary:
-      'bg-[#6C2BD9] text-white hover:bg-[#8B5CF6] shadow-md shadow-[#6C2BD9]/20 border border-[#6C2BD9]',
+      'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:via-orange-600 hover:to-rose-700 text-white shadow-lg shadow-orange-500/25 border border-amber-300/40',
     secondary:
-      'bg-[#17121F] text-white hover:bg-[#2A2338] shadow-sm border border-[#17121F]',
+      'bg-[#141017] text-white hover:bg-[#201825] shadow-sm border border-amber-500/20',
     glass:
-      'bg-white text-[#17121F] hover:text-[#6C2BD9] hover:border-[#DDD0FF] border border-[#E9E2F5] shadow-xs',
+      'bg-white text-[#141017] hover:text-amber-700 hover:border-amber-300 border border-[#EFE6D8] shadow-xs',
     dark:
-      'bg-[#17121F] text-white hover:bg-[#2A2338] shadow-sm border border-[#17121F]',
+      'bg-[#141017] text-white hover:bg-[#201825] shadow-sm border border-amber-500/25',
     outline:
-      'border border-[#DDD0FF] text-[#17121F] hover:text-[#6C2BD9] hover:border-[#6C2BD9] hover:bg-[#F5F0FF] bg-white/90',
-  }[variant] || 'bg-[#6C2BD9] text-white hover:bg-[#8B5CF6] shadow-md border border-[#6C2BD9]'
+      'border border-amber-300/80 text-[#141017] hover:text-amber-800 hover:border-amber-500 hover:bg-amber-50/70 bg-white/90',
+  }[variant] || 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white shadow-md border border-amber-300/40'
 
   const arrowBgClasses = {
-    primary: 'bg-white text-[#6C2BD9] group-hover:bg-[#F5F0FF]',
-    secondary: 'bg-white text-[#17121F]',
-    glass: 'bg-[#F5F0FF] text-[#6C2BD9] group-hover:bg-[#6C2BD9] group-hover:text-white',
-    dark: 'bg-white text-[#17121F]',
-    outline: 'bg-[#F5F0FF] text-[#6C2BD9] group-hover:bg-[#6C2BD9] group-hover:text-white',
-  }[variant] || 'bg-white text-[#6C2BD9]'
+    primary: 'bg-white text-orange-600 group-hover:bg-amber-50',
+    secondary: 'bg-white text-[#141017]',
+    glass: 'bg-amber-50 text-amber-700 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-rose-600 group-hover:text-white',
+    dark: 'bg-white text-[#141017]',
+    outline: 'bg-amber-50 text-amber-700 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-rose-600 group-hover:text-white',
+  }[variant] || 'bg-white text-orange-600'
 
 
   const content = (

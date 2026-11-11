@@ -181,13 +181,13 @@ export default function ErpPage() {
           if (m.id !== activeTab) return null
           return (
             <Reveal key={m.id}>
-              <div className="rounded-3xl p-8 lg:p-12 border-2 border-slate-200 hover:border-[#6D28D9]/40 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 items-center text-slate-900 shadow-md hover:shadow-2xl hover:shadow-[#6D28D9]/15 transition-all duration-500 relative overflow-hidden group select-none">
+              <div className="rounded-3xl p-8 lg:p-12 border-2 border-[#EFE6D8] hover:border-amber-400 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 items-center text-slate-900 shadow-md hover:shadow-2xl hover:shadow-amber-500/15 transition-all duration-500 relative overflow-hidden group select-none">
                 
                 {/* Center Radiant Bloom */}
-                <div className="absolute inset-0 bg-radial-gradient from-[#6D28D9]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-radial-gradient from-amber-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
-                  <div className="inline-block px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-mono text-xs font-bold">
+                  <div className="inline-block px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 font-mono text-xs font-bold">
                     {m.badge}
                   </div>
                   <h3 className="text-3xl font-black text-slate-900 font-display">{m.name}</h3>
@@ -196,9 +196,9 @@ export default function ErpPage() {
                     {m.metrics.map((metric, i) => (
                       <div
                         key={i}
-                        className="flex items-center gap-3 text-slate-700 font-medium p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#6D28D9]/30 hover:bg-[#FAF8FF] hover:scale-102 transition-all duration-300 shadow-2xs"
+                        className="flex items-center gap-3 text-slate-700 font-medium p-2.5 rounded-xl bg-[#FAF7F2] border border-[#EFE6D8] hover:border-amber-400 hover:bg-white hover:scale-102 transition-all duration-300 shadow-2xs"
                       >
-                        <CheckCircle2 className="w-5 h-5 text-[#6D28D9] shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0" />
                         <span className="text-xs sm:text-sm font-semibold">{metric}</span>
                       </div>
                     ))}
@@ -207,7 +207,7 @@ export default function ErpPage() {
                     <div className="pt-2">
                       <a
                         href="https://pharmacy.dasatech.in/"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/25 transition-all hover:scale-105"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-amber-500/25 transition-all hover:scale-105"
                       >
                         <span>Launch Live Pharmacy ERP (pharmacy.dasatech.in)</span>
                         <ArrowRight className="w-4 h-4" />
@@ -217,7 +217,7 @@ export default function ErpPage() {
                   <div className="pt-2">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 text-[#6D28D9] font-bold hover:text-[#5B21B6] transition font-mono text-sm group/link"
+                      className="inline-flex items-center gap-2 text-amber-800 font-bold hover:text-amber-950 transition font-mono text-sm group/link"
                     >
                       <span>Schedule specialized {m.name} walkthrough</span>
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
@@ -225,8 +225,8 @@ export default function ErpPage() {
                   </div>
                 </div>
 
-                <div className="relative z-10 rounded-2xl p-6 border border-slate-200 bg-slate-50 font-mono text-xs text-slate-700 shadow-2xs hover:shadow-lg hover:border-[#6D28D9]/40 transition-all duration-400">
-                  <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4 text-[#6D28D9] font-bold">
+                <div className="relative z-10 rounded-2xl p-6 border border-[#EFE6D8] bg-[#FAF7F2] font-mono text-xs text-slate-700 shadow-2xs hover:shadow-lg hover:border-amber-400 transition-all duration-400">
+                  <div className="flex items-center justify-between border-b border-[#EFE6D8] pb-3 mb-4 text-amber-800 font-bold">
                     <span>LIVE DASHBOARD STREAM</span>
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                   </div>

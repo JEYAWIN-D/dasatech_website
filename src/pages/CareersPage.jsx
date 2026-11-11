@@ -144,18 +144,18 @@ export default function CareersPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#FAF8FF] text-slate-900 select-none">
+    <main className="min-h-screen bg-[#FAF7F2] text-slate-900 select-none">
       
       {/* Top Hero Section */}
-      <section className="relative pt-36 sm:pt-40 pb-16 overflow-hidden border-b border-[#E9E2F5] bg-gradient-to-b from-white via-[#FAF8FF] to-white">
+      <section className="relative pt-36 sm:pt-40 pb-16 overflow-hidden border-b border-[#EFE6D8] bg-gradient-to-b from-white via-[#FAF7F2] to-white">
         <div className="absolute inset-0 pointer-events-none -z-10">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-rose-500/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 text-center">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#DDD0FF] text-[#6D28D9] text-xs font-mono font-bold tracking-wider uppercase mb-6 shadow-2xs">
-              <Briefcase className="w-3.5 h-3.5 text-[#6D28D9]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-bold tracking-wider uppercase mb-6 shadow-2xs">
+              <Briefcase className="w-3.5 h-3.5 text-amber-600" />
               <span>CAREERS AT DASA TECH</span>
             </div>
           </Reveal>
@@ -176,16 +176,16 @@ export default function CareersPage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#open-positions"
-                className="px-6 py-3 rounded-full bg-[#6D28D9] text-white font-display text-sm font-bold shadow-md hover:bg-[#5B21B6] transition-all"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display text-sm font-bold shadow-md shadow-amber-500/20 hover:opacity-95 transition-all"
               >
                 View Open Positions ({OPEN_POSITIONS.length})
               </a>
               <button
                 type="button"
                 onClick={handleCopySignal}
-                className="px-6 py-3 rounded-full bg-white border border-[#DDD0FF] text-slate-700 font-display text-sm font-bold shadow-xs hover:border-[#3A76F0] hover:text-[#3A76F0] transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3 rounded-full bg-white border border-[#EFE6D8] text-slate-700 font-display text-sm font-bold shadow-xs hover:border-amber-400 hover:text-amber-700 transition-all flex items-center gap-2 cursor-pointer"
               >
-                <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
+                <SignalBrandIcon className="w-4 h-4 text-amber-600" />
                 <span>{copiedSignal ? 'Signal @dasatech.99 Copied!' : 'Signal: @dasatech.99'}</span>
               </button>
             </div>
@@ -211,9 +211,9 @@ export default function CareersPage() {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-[#E9E2F5] rounded-3xl p-6 shadow-xs hover:border-[#6D28D9] hover:shadow-md transition-all duration-300 space-y-3"
+                  className="bg-white border border-[#EFE6D8] rounded-3xl p-6 shadow-xs hover:border-amber-400 hover:shadow-md transition-all duration-300 space-y-3"
                 >
-                  <div className="w-10 h-10 rounded-2xl bg-[#F7F3FF] border border-[#DDD0FF] flex items-center justify-center text-[#6D28D9]">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
                     <IconComp className="w-5 h-5" />
                   </div>
                   <h3 className="font-display font-bold text-lg text-slate-900">
@@ -233,7 +233,7 @@ export default function CareersPage() {
       <section id="open-positions" className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12 pb-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-[#6D28D9] mb-2">
+            <div className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
               Current Opportunities
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900">
@@ -251,12 +251,12 @@ export default function CareersPage() {
               key={job.id}
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.2 }}
-              className="bg-white border border-[#E9E2F5] rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-lg hover:border-[#6D28D9] transition-all duration-300 flex flex-col lg:flex-row lg:items-center justify-between gap-6 cursor-pointer"
+              className="bg-white border border-[#EFE6D8] rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-lg hover:border-amber-400 transition-all duration-300 flex flex-col lg:flex-row lg:items-center justify-between gap-6 cursor-pointer"
               onClick={() => setSelectedJob(job)}
             >
               <div className="space-y-3 max-w-2xl">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-[#F7F3FF] text-[#6D28D9] border border-[#DDD0FF]">
+                  <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200">
                     {job.department}
                   </span>
                   <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200">
@@ -267,7 +267,7 @@ export default function CareersPage() {
                   </span>
                 </div>
 
-                <h3 className="font-display font-black text-xl sm:text-2xl text-slate-900 group-hover:text-[#6D28D9] transition-colors">
+                <h3 className="font-display font-black text-xl sm:text-2xl text-slate-900 group-hover:text-amber-700 transition-colors">
                   {job.title}
                 </h3>
 
@@ -276,7 +276,7 @@ export default function CareersPage() {
                 </p>
 
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-500 pt-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#6D28D9]" />
+                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
                   <span>{job.location}</span>
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function CareersPage() {
                     e.stopPropagation()
                     setSelectedJob(job)
                   }}
-                  className="w-full lg:w-auto px-6 py-3 rounded-full bg-[#6D28D9] text-white font-display text-xs sm:text-sm font-bold hover:bg-[#5B21B6] transition-colors flex items-center justify-center gap-2 shadow-xs"
+                  className="w-full lg:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display text-xs sm:text-sm font-bold shadow-xs hover:opacity-95 transition-opacity flex items-center justify-center gap-2"
                 >
                   <span>Role Details &amp; Apply</span>
                   <ArrowRight className="w-4 h-4" />
@@ -307,7 +307,7 @@ export default function CareersPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 shadow-2xl border border-[#DDD0FF] relative space-y-6"
+              className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 shadow-2xl border border-[#EFE6D8] relative space-y-6"
             >
               <button
                 onClick={() => setSelectedJob(null)}
@@ -317,7 +317,7 @@ export default function CareersPage() {
               </button>
 
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#6D28D9] uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">
                   <span>{selectedJob.department}</span>
                   <span>•</span>
                   <span>{selectedJob.type}</span>
@@ -326,14 +326,14 @@ export default function CareersPage() {
                   {selectedJob.title}
                 </h2>
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-                  <MapPin className="w-3.5 h-3.5 text-[#6D28D9]" />
+                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
                   <span>{selectedJob.location}</span>
                   <span>•</span>
                   <span>Exp: {selectedJob.experience}</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FAF8FF] border border-[#DDD0FF] text-sm text-slate-700 leading-relaxed">
+              <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] text-sm text-slate-700 leading-relaxed">
                 {selectedJob.summary}
               </div>
 
@@ -342,7 +342,7 @@ export default function CareersPage() {
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
                   {selectedJob.responsibilities.map((resp, i) => (
                     <li key={i} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#6D28D9] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -377,7 +377,7 @@ export default function CareersPage() {
                   </a>
                   <Link
                     to="/contact"
-                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-display text-sm font-bold shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display text-sm font-bold shadow-lg shadow-amber-500/20 hover:opacity-95 transition-all text-center flex items-center justify-center gap-2"
                   >
                     <span>Apply via Portal</span>
                     <ArrowRight className="w-4 h-4" />
@@ -391,9 +391,9 @@ export default function CareersPage() {
 
       {/* General Application Banner */}
       <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
-        <div className="bg-gradient-to-br from-[#120B24] via-[#1E113A] to-[#0D0B1C] text-white rounded-3xl p-8 sm:p-12 border border-[#6D28D9]/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-gradient-to-br from-[#120D16] via-[#1A1220] to-[#0E0A12] text-white rounded-3xl p-8 sm:p-12 border border-amber-500/25 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-xl">
-            <div className="text-[#C084FC] text-xs font-bold uppercase tracking-wider">
+            <div className="text-amber-400 text-xs font-bold uppercase tracking-wider">
               Open Applications
             </div>
             <h3 className="font-display font-black text-2xl sm:text-3xl text-white">
@@ -416,10 +416,10 @@ export default function CareersPage() {
             </a>
             <Link
               to="/contact"
-              className="px-6 py-4 rounded-full bg-white text-[#6D28D9] font-display text-sm font-bold shadow-xl hover:bg-slate-100 transition-all flex items-center gap-2"
+              className="px-6 py-4 rounded-full bg-white text-amber-700 font-display text-sm font-bold shadow-xl hover:bg-amber-50 transition-all flex items-center gap-2"
             >
               <span>Submit Career Brief</span>
-              <ArrowRight className="w-4 h-4 text-[#6D28D9]" />
+              <ArrowRight className="w-4 h-4 text-amber-700" />
             </Link>
           </div>
         </div>

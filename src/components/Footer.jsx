@@ -8,8 +8,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#080D1A] text-slate-400 border-t border-white/10 pt-16 pb-10 select-none">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+    <footer className="bg-[#0E0A12] text-slate-400 border-t border-amber-500/15 pt-16 pb-10 select-none relative overflow-hidden">
+      {/* Subtle Luxury Ambient Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-gradient-to-r from-amber-500/10 via-orange-600/10 to-transparent blur-3xl pointer-events-none" />
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
         
         {/* 4 Clean Columns matching reference design exactly */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
@@ -151,14 +153,14 @@ export default function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 text-slate-300 hover:text-amber-300 transition-colors group"
                 >
-                  <ArrowRight className="w-4 h-4 text-[#38BDF8] shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-amber-400 shrink-0 group-hover:translate-x-0.5 transition-transform" />
                   <span>Consultation Portal</span>
                 </Link>
               </li>
               <li className="flex items-start gap-3 text-slate-300">
-                <MapPin className="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <span>Erode, Tamil Nadu, India</span>
               </li>
             </ul>

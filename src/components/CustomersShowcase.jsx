@@ -175,16 +175,16 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
   const [selectedCustomer, setSelectedCustomer] = useState(CUSTOMERS_DATA[0])
 
   return (
-    <section className="relative py-20 lg:py-28 bg-[#FAF8FF] overflow-hidden border-t border-b border-[#EAE2F7] select-none">
+    <section className="relative py-20 lg:py-28 bg-[#FAF7F2] overflow-hidden border-t border-b border-[#EFE6D8] select-none">
       
       {/* Background Soft Ambient Lights */}
       <div 
         className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[140px] pointer-events-none opacity-40"
-        style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.18) 0%, rgba(244,63,94,0.08) 50%, transparent 80%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.14) 0%, rgba(225,29,72,0.06) 50%, transparent 80%)' }}
       />
       <div 
         className="absolute bottom-10 left-10 w-[400px] h-[300px] rounded-full blur-[120px] pointer-events-none opacity-30"
-        style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(217,119,6,0.1) 0%, transparent 70%)' }}
       />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10 space-y-16">
@@ -192,14 +192,14 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
         {/* Section Header */}
         {showHeroHeader && (
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-purple-200/80 shadow-2xs text-xs font-mono font-bold text-purple-700 tracking-wider uppercase">
-              <Building2 className="w-3.5 h-3.5 text-purple-600" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 shadow-2xs text-xs font-mono font-bold text-amber-800 tracking-wider uppercase">
+              <Building2 className="w-3.5 h-3.5 text-amber-600" />
               <span>TRUSTED ENTERPRISE CLIENTS</span>
             </div>
 
-            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#18132A] tracking-tight leading-tight">
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#141017] tracking-tight leading-tight">
               Powering Operations for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-rose-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">
                 Industry Leaders
               </span>
             </h2>
@@ -220,13 +220,13 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
                 onClick={() => setSelectedCustomer(cust)}
                 className={`group relative p-5 rounded-2xl sm:rounded-3xl border transition-all duration-300 text-left flex flex-col items-center justify-between gap-4 cursor-pointer ${
                   isSelected
-                    ? 'bg-white border-purple-500 shadow-xl shadow-purple-500/10 -translate-y-1 ring-2 ring-purple-500/20'
-                    : 'bg-white/80 hover:bg-white border-[#E9E1F5] hover:border-purple-300 hover:shadow-md'
+                    ? 'bg-white border-amber-500 shadow-xl shadow-amber-500/15 -translate-y-1 ring-2 ring-amber-500/25'
+                    : 'bg-white/80 hover:bg-white border-[#EFE6D8] hover:border-amber-300 hover:shadow-md'
                 }`}
               >
                 {/* Active Indicator Pill */}
                 {isSelected && (
-                  <span className="absolute -top-2.5 px-2.5 py-0.5 rounded-full bg-purple-600 text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-xs">
+                  <span className="absolute -top-2.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-rose-600 text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-xs">
                     Selected
                   </span>
                 )}
@@ -244,7 +244,7 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
                 {/* Client Label */}
                 <div className="w-full text-center space-y-1">
                   <h4 className={`font-display font-bold text-sm sm:text-base leading-tight transition-colors line-clamp-1 ${
-                    isSelected ? 'text-purple-700' : 'text-[#18132A] group-hover:text-purple-600'
+                    isSelected ? 'text-amber-700' : 'text-[#141017] group-hover:text-amber-600'
                   }`}>
                     {cust.name}
                   </h4>
@@ -259,11 +259,11 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
 
         {/* ── DETAILED CLIENT SHOWCASE CARD ─────────────────────────────────── */}
         {!compact && (
-          <div className="relative rounded-3xl bg-white border border-[#E9E1F5] shadow-xl p-8 sm:p-12 overflow-hidden">
+          <div className="relative rounded-3xl bg-white border border-[#EFE6D8] shadow-xl p-8 sm:p-12 overflow-hidden">
             {/* Subtle Gradient Backdrop */}
             <div 
               className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-20"
-              style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%)' }}
+              style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.25) 0%, transparent 70%)' }}
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
@@ -282,17 +282,17 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
 
                 {/* Name & Industry Info */}
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono font-medium">
-                    <selectedCustomer.icon className="w-3.5 h-3.5 text-purple-600" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-mono font-medium border border-amber-200/60">
+                    <selectedCustomer.icon className="w-3.5 h-3.5 text-amber-600" />
                     <span>{selectedCustomer.industry}</span>
                   </div>
 
-                  <h3 className="font-display font-black text-2xl sm:text-3xl text-[#18132A]">
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-[#141017]">
                     {selectedCustomer.name}
                   </h3>
 
                   {selectedCustomer.tagline && (
-                    <p className="text-sm font-semibold italic text-purple-600">
+                    <p className="text-sm font-semibold italic text-amber-600">
                       "{selectedCustomer.tagline}"
                     </p>
                   )}
@@ -305,7 +305,7 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
                       href={selectedCustomer.livePlatform}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-mono font-bold transition-colors border border-purple-200"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-mono font-bold transition-colors border border-amber-200"
                     >
                       <span>Live Campus Portal: {selectedCustomer.livePlatform.replace('https://', '')}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -318,11 +318,11 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
               <div className="lg:col-span-7 space-y-6">
                 
                 <div className="space-y-2">
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 flex items-center gap-1.5">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>ENGINEERED BY DASA TECH</span>
                   </div>
-                  <h4 className="font-display font-black text-xl sm:text-2xl text-[#18132A]">
+                  <h4 className="font-display font-black text-xl sm:text-2xl text-[#141017]">
                     {selectedCustomer.solutionTitle}
                   </h4>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -339,7 +339,7 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
                     {selectedCustomer.modules.map((mod, idx) => (
                       <div 
                         key={idx}
-                        className="p-3.5 rounded-xl bg-[#FAF8FF] border border-[#EDE5F8] flex items-start gap-2.5 text-xs sm:text-sm text-slate-700"
+                        className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#EFE6D8] flex items-start gap-2.5 text-xs sm:text-sm text-slate-700"
                       >
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span className="font-medium leading-snug">{mod}</span>
@@ -351,13 +351,13 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
                 {/* Trust Footer CTA */}
                 <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-                    <ShieldCheck className="w-4 h-4 text-purple-600" />
+                    <ShieldCheck className="w-4 h-4 text-amber-600" />
                     <span>Proprietary Architecture & Dedicated SLA Support</span>
                   </div>
 
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#18132A] hover:bg-purple-700 text-white text-xs font-mono font-bold tracking-wider uppercase transition-colors shadow-xs"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-600 hover:to-rose-700 text-white text-xs font-mono font-bold tracking-wider uppercase transition-all shadow-md shadow-orange-500/20"
                   >
                     <span>Discuss Similar Solution</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -372,22 +372,22 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
 
         {/* ── ENTERPRISE TRUST METRICS BAR ──────────────────────────────────── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-4">
-          <div className="p-6 rounded-2xl bg-white border border-[#E9E1F5] shadow-2xs text-center space-y-1">
-            <div className="font-display font-black text-2xl sm:text-3xl text-purple-600">100%</div>
+          <div className="p-6 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs text-center space-y-1">
+            <div className="font-display font-black text-2xl sm:text-3xl text-amber-600">100%</div>
             <div className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">Custom Tailored Code</div>
             <div className="text-[11px] text-slate-400">No generic off-the-shelf locks</div>
           </div>
-          <div className="p-6 rounded-2xl bg-white border border-[#E9E1F5] shadow-2xs text-center space-y-1">
+          <div className="p-6 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs text-center space-y-1">
             <div className="font-display font-black text-2xl sm:text-3xl text-emerald-600">99.98%</div>
             <div className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">Cloud Uptime SLA</div>
             <div className="text-[11px] text-slate-400">High availability infrastructure</div>
           </div>
-          <div className="p-6 rounded-2xl bg-white border border-[#E9E1F5] shadow-2xs text-center space-y-1">
-            <div className="font-display font-black text-2xl sm:text-3xl text-sky-600">6+</div>
+          <div className="p-6 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs text-center space-y-1">
+            <div className="font-display font-black text-2xl sm:text-3xl text-orange-600">6+</div>
             <div className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">Major Industry Sectors</div>
             <div className="text-[11px] text-slate-400">Education, Ghee & FMCG, Agro, Feeds, Trade Conglomerates</div>
           </div>
-          <div className="p-6 rounded-2xl bg-white border border-[#E9E1F5] shadow-2xs text-center space-y-1">
+          <div className="p-6 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs text-center space-y-1">
             <div className="font-display font-black text-2xl sm:text-3xl text-rose-600">Direct</div>
             <div className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">Founder-Led Engineering</div>
             <div className="text-[11px] text-slate-400">Dedicated architectural leadership</div>

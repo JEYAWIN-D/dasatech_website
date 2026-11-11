@@ -614,10 +614,10 @@ function InsideOutCapabilityCard({ cap, index }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative p-6 rounded-2xl bg-[#FAF8FF] border border-[#E9E2F5] hover:border-[#6D28D9] shadow-2xs hover:shadow-xl hover:shadow-[#6D28D9]/15 transition-all duration-400 space-y-3 group overflow-hidden cursor-pointer select-none"
+      className="relative p-6 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] hover:border-amber-400 shadow-2xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-400 space-y-3 group overflow-hidden cursor-pointer select-none"
     >
       <div
-        className={`absolute inset-0 bg-gradient-to-tr from-[#6D28D9]/10 via-[#A855F7]/5 to-transparent pointer-events-none transition-all duration-500 ease-out ${
+        className={`absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-orange-500/5 to-transparent pointer-events-none transition-all duration-500 ease-out ${
           isHovered ? 'scale-110 opacity-100' : 'scale-90 opacity-0'
         }`}
       />
@@ -626,13 +626,13 @@ function InsideOutCapabilityCard({ cap, index }) {
         <div
           className={`w-10 h-10 rounded-xl border flex items-center justify-center font-bold text-xs shadow-2xs shrink-0 transition-all duration-400 ease-[0.16,1,0.3,1] ${
             isHovered
-              ? 'bg-[#6D28D9] text-white border-[#8B5CF6] scale-110 shadow-md shadow-[#6D28D9]/30'
-              : 'bg-white text-[#6D28D9] border-[#DDD0FF] scale-100'
+              ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white border-amber-400 scale-110 shadow-md shadow-amber-500/30'
+              : 'bg-white text-amber-700 border-[#EFE6D8] scale-100'
           }`}
         >
           <Icon className="w-5 h-5" />
         </div>
-        <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-white px-2 py-0.5 rounded-md border border-[#DDD0FF]">
+        <span className="text-[10px] font-mono font-bold text-amber-800 bg-white px-2 py-0.5 rounded-md border border-[#EFE6D8]">
           0{index + 1}
         </span>
       </div>
@@ -640,7 +640,7 @@ function InsideOutCapabilityCard({ cap, index }) {
       <div className="relative z-10 space-y-1">
         <h3
           className={`font-display font-bold text-base transition-colors duration-300 ${
-            isHovered ? 'text-[#6D28D9]' : 'text-[#17121F]'
+            isHovered ? 'text-amber-700' : 'text-[#17121F]'
           }`}
         >
           {cap.title}
@@ -651,11 +651,11 @@ function InsideOutCapabilityCard({ cap, index }) {
       </div>
 
       {cap.items && cap.items.length > 0 && (
-        <div className="relative z-10 pt-2 border-t border-[#E9E2F5]/80 flex flex-wrap gap-1.5">
+        <div className="relative z-10 pt-2 border-t border-[#EFE6D8]/80 flex flex-wrap gap-1.5">
           {cap.items.map((item, iIdx) => (
             <span
               key={iIdx}
-              className="text-[9px] font-mono font-medium text-slate-600 bg-white/80 border border-[#E9E2F5] px-2 py-0.5 rounded-md"
+              className="text-[9px] font-mono font-medium text-slate-600 bg-white/80 border border-[#EFE6D8] px-2 py-0.5 rounded-md"
             >
               {item}
             </span>
@@ -664,7 +664,7 @@ function InsideOutCapabilityCard({ cap, index }) {
       )}
 
       <div
-        className={`absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#6D28D9] to-transparent transition-transform duration-500 ease-out ${
+        className={`absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent transition-transform duration-500 ease-out ${
           isHovered ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
         }`}
       />
@@ -684,13 +684,13 @@ function InsideOutTechBadge({ label }) {
       onMouseLeave={() => setIsHovered(false)}
       className={`relative px-3 py-1.5 rounded-xl text-[11px] font-mono font-bold transition-all duration-300 cursor-pointer shadow-2xs inline-flex items-center gap-1.5 select-none ${
         isHovered
-          ? 'bg-[#6D28D9] text-white border border-[#8B5CF6] scale-106 shadow-md shadow-[#6D28D9]/25 -translate-y-0.5'
-          : 'bg-white text-[#5B21B6] border border-[#DDD0FF] scale-100 translate-y-0'
+          ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white border border-amber-400 scale-106 shadow-md shadow-amber-500/25 -translate-y-0.5'
+          : 'bg-white text-amber-800 border border-[#EFE6D8] scale-100 translate-y-0'
       }`}
     >
       <span
         className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${
-          isHovered ? 'bg-white animate-ping' : 'bg-[#8B5CF6]'
+          isHovered ? 'bg-white animate-ping' : 'bg-amber-500'
         }`}
       />
       <span>{label}</span>
@@ -751,22 +751,22 @@ export default function ServiceDetailPage() {
   const Icon = service.icon || Database
 
   return (
-    <div className="min-h-screen bg-white text-[#17121F] selection:bg-[#6D28D9] selection:text-white pt-24 select-none">
+    <div className="min-h-screen bg-white text-[#17121F] selection:bg-amber-500 selection:text-white pt-24 select-none">
 
       {/* ── BREADCRUMB BAR ────────────────────────────────────── */}
-      <div className="border-b border-[#E9E2F5] bg-[#FAF8FF]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
+      <div className="border-b border-[#EFE6D8] bg-[#FAF7F2]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
-            <Link to="/" className="hover:text-[#6D28D9] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-amber-700 transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/services" className="hover:text-[#6D28D9] transition-colors">Services</Link>
+            <Link to="/services" className="hover:text-amber-700 transition-colors">Services</Link>
             <span>/</span>
-            <span className="text-[#6D28D9] font-bold">{service.title}</span>
+            <span className="text-amber-700 font-bold">{service.title}</span>
           </div>
 
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-[#6D28D9] bg-white hover:bg-[#F7F3FF] border border-[#E9E2F5] hover:border-[#DDD0FF] px-4 py-1.5 rounded-full transition-all shadow-2xs"
+            className="inline-flex items-center gap-2 text-xs font-display font-bold text-[#17121F] hover:text-amber-700 bg-white hover:bg-[#FDF8EE] border border-[#EFE6D8] hover:border-amber-300 px-4 py-1.5 rounded-full transition-all shadow-2xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Services</span>
@@ -775,13 +775,13 @@ export default function ServiceDetailPage() {
       </div>
 
       {/* ── 1. HERO SECTION ───────────────────────────────────── */}
-      <section className="relative py-14 lg:py-20 bg-gradient-to-b from-[#FAF8FF] via-white to-white overflow-hidden border-b border-[#E9E2F5]">
+      <section className="relative py-14 lg:py-20 bg-gradient-to-b from-[#FAF7F2] via-white to-white overflow-hidden border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#6D28D9]">
+              <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
                 {service.category}
               </div>
 
@@ -792,7 +792,7 @@ export default function ServiceDetailPage() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg font-bold text-[#6D28D9] leading-snug">
+              <p className="text-base sm:text-lg font-bold text-amber-800 leading-snug">
                 {service.headline}
               </p>
 
@@ -803,7 +803,7 @@ export default function ServiceDetailPage() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="#capabilities"
-                  className="px-6 py-3 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+                  className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-amber-500/20 hover:opacity-95 transition-all flex items-center gap-2"
                 >
                   <span>Explore Capabilities</span>
                   <ArrowRight className="w-4 h-4" />
@@ -811,7 +811,7 @@ export default function ServiceDetailPage() {
 
                 <a
                   href="#workflow"
-                  className="px-5 py-3 rounded-full bg-[#F5F0FF] hover:bg-[#EDE9FE] text-[#6D28D9] font-display font-bold text-xs sm:text-sm border border-[#DDD0FF] transition-colors"
+                  className="px-5 py-3 rounded-full bg-amber-50 hover:bg-amber-100/70 text-amber-800 font-display font-bold text-xs sm:text-sm border border-amber-200 transition-colors"
                 >
                   <span>Architecture &amp; Workflow</span>
                 </a>
@@ -820,17 +820,17 @@ export default function ServiceDetailPage() {
 
             {/* Right Hero Visual */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border-2 border-[#E9E2F5] shadow-xl bg-[#0F0B18] h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] flex flex-col justify-end">
+              <div className="relative rounded-3xl overflow-hidden border-2 border-[#EFE6D8] shadow-xl bg-[#0E0A12] h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] flex flex-col justify-end">
                 <img
                   src={service.heroImg}
                   alt={service.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18] via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0E0A12] via-transparent to-transparent pointer-events-none" />
                 
                 <div className="relative z-10 p-6 flex items-center justify-between text-white">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-[#6D28D9] flex items-center justify-center text-white shadow-md shadow-[#6D28D9]/40">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-600 flex items-center justify-center text-white shadow-md shadow-amber-500/40">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="font-display font-bold text-base">{service.title}</span>
@@ -847,11 +847,11 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 2. PROBLEM & SOLUTION COMPARISON ──────────────────── */}
-      <section className="py-14 lg:py-20 bg-white border-b border-[#E9E2F5]">
+      <section className="py-14 lg:py-20 bg-white border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-8">
           
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-[#6D28D9] uppercase">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-amber-700 uppercase">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>THE OPERATIONAL PROBLEM &amp; OUR SOLUTION</span>
             </div>
@@ -876,8 +876,8 @@ export default function ServiceDetailPage() {
             </div>
 
             {/* Our Solution Card */}
-            <div className="p-7 rounded-3xl bg-purple-50/50 border-2 border-[#DDD0FF] space-y-3 relative overflow-hidden">
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#6D28D9] uppercase bg-[#F5F0FF] px-3 py-1 rounded-full border border-[#DDD0FF]">
+            <div className="p-7 rounded-3xl bg-amber-50/60 border-2 border-amber-200/80 space-y-3 relative overflow-hidden">
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amber-800 uppercase bg-white px-3 py-1 rounded-full border border-amber-200">
                 <span>DASA TECH Engineering</span>
               </div>
               <h3 className="font-display font-black text-xl text-[#17121F]">
@@ -894,11 +894,11 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 3. KEY CAPABILITIES (INSIDE-TO-OUTSIDE HOVER) ───────── */}
-      <section id="capabilities" className="py-14 lg:py-20 bg-[#FAF8FF] border-b border-[#E9E2F5]">
+      <section id="capabilities" className="py-14 lg:py-20 bg-[#FAF7F2] border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-8">
           
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-[#6D28D9] uppercase">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-amber-700 uppercase">
               <Layers className="w-3.5 h-3.5" />
               <span>CORE SERVICE DELIVERABLES</span>
             </div>
@@ -921,12 +921,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 4. DOMAIN-SPECIFIC WORKFLOW / ARCHITECTURE ─────────── */}
-      <section id="workflow" className="py-14 lg:py-20 bg-[#0B0F19] text-white border-b border-slate-800 relative overflow-hidden select-none">
+      <section id="workflow" className="py-14 lg:py-20 bg-[#0E0A12] text-white border-b border-white/10 relative overflow-hidden select-none">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-10">
           
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6D28D9]/40 text-[#C084FC] text-xs font-mono font-bold uppercase tracking-wider border border-[#8B5CF6]/50">
-              <Workflow className="w-3.5 h-3.5 text-[#C084FC]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider border border-amber-500/30">
+              <Workflow className="w-3.5 h-3.5 text-amber-400" />
               <span>SERVICE ARCHITECTURE &amp; WORKFLOW</span>
             </div>
             <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">
@@ -946,13 +946,13 @@ export default function ServiceDetailPage() {
                   onClick={() => setActiveWorkflowIdx(idx)}
                   className={`p-5 rounded-2xl border text-left transition-all duration-400 cursor-pointer flex flex-col justify-between gap-4 relative overflow-hidden group ${
                     isActive
-                      ? 'bg-[#6D28D9] text-white border-[#A855F7] shadow-xl shadow-[#6D28D9]/40 scale-102 ring-2 ring-[#C084FC]/50'
-                      : 'bg-slate-900/90 hover:bg-slate-800 hover:border-[#8B5CF6]/60 text-slate-300 border-slate-700/80 hover:scale-102'
+                      ? 'bg-gradient-to-br from-amber-500 via-orange-500 to-rose-600 text-white border-amber-300 shadow-xl shadow-amber-500/30 scale-102 ring-2 ring-amber-400/50'
+                      : 'bg-white/5 hover:bg-white/10 hover:border-amber-400/50 text-slate-300 border-white/10 hover:scale-102'
                   }`}
                 >
                   <div className="relative z-10 flex items-center justify-between w-full">
                     <span className={`text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded-md transition-colors ${
-                      isActive ? 'bg-white text-[#6D28D9]' : 'bg-slate-800 text-slate-400 group-hover:bg-[#6D28D9]/30 group-hover:text-purple-200'
+                      isActive ? 'bg-white text-amber-800' : 'bg-white/10 text-slate-400 group-hover:bg-amber-500/20 group-hover:text-amber-200'
                     }`}>
                       {wf.stage}
                     </span>
@@ -962,16 +962,16 @@ export default function ServiceDetailPage() {
                   </div>
 
                   <div className="relative z-10 space-y-1">
-                    <h4 className="font-display font-black text-sm text-white group-hover:text-purple-200 transition-colors">
+                    <h4 className="font-display font-black text-sm text-white group-hover:text-amber-200 transition-colors">
                       {wf.title}
                     </h4>
-                    <p className={`text-xs leading-relaxed ${isActive ? 'text-purple-100' : 'text-slate-400 group-hover:text-slate-300'}`}>
+                    <p className={`text-xs leading-relaxed ${isActive ? 'text-amber-100' : 'text-slate-400 group-hover:text-slate-300'}`}>
                       {wf.desc}
                     </p>
                   </div>
 
                   {isActive && (
-                    <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#C084FC] animate-ping" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-amber-400 animate-ping" />
                   )}
                 </button>
               )
@@ -982,11 +982,11 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 5. TECHNOLOGY & TOOLS STACK ───────────────────────── */}
-      <section className="py-14 lg:py-20 bg-white border-b border-[#E9E2F5]">
+      <section className="py-14 lg:py-20 bg-white border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-8">
           
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-[#6D28D9] uppercase">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-amber-700 uppercase">
               <Cpu className="w-3.5 h-3.5" />
               <span>PRODUCTION INFRASTRUCTURE</span>
             </div>
@@ -999,11 +999,11 @@ export default function ServiceDetailPage() {
             {Object.entries(service.technologies || {}).map(([category, items], idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-[#FAF8FF] border border-[#E9E2F5] hover:border-[#6D28D9]/40 space-y-3 transition-all duration-400 hover:shadow-md select-none group"
+                className="p-5 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] hover:border-amber-400 space-y-3 transition-all duration-400 hover:shadow-md select-none group"
               >
-                <div className="text-xs font-mono font-bold text-[#6D28D9] uppercase tracking-wider border-b border-[#E9E2F5] pb-2 flex items-center justify-between">
+                <div className="text-xs font-mono font-bold text-amber-800 uppercase tracking-wider border-b border-[#EFE6D8] pb-2 flex items-center justify-between">
                   <span>{category.replace(/([A-Z])/g, ' $1').trim()}</span>
-                  <Server className="w-3.5 h-3.5 text-[#8B5CF6] group-hover:scale-110 transition-transform" />
+                  <Server className="w-3.5 h-3.5 text-amber-600 group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {items.map((it, iIdx) => (
@@ -1021,11 +1021,11 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 6. TYPICAL USE CASES ──────────────────────────────── */}
-      <section className="py-14 lg:py-20 bg-[#FAF8FF] border-b border-[#E9E2F5]">
+      <section className="py-14 lg:py-20 bg-[#FAF7F2] border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-8">
           
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-[#6D28D9] uppercase">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-amber-700 uppercase">
               <Compass className="w-3.5 h-3.5" />
               <span>REAL-WORLD IMPLEMENTATION EXAMPLES</span>
             </div>
@@ -1038,12 +1038,12 @@ export default function ServiceDetailPage() {
             {service.cases?.map((cs, cIdx) => (
               <div
                 key={cIdx}
-                className="p-6 rounded-2xl bg-white border border-[#E9E2F5] hover:border-[#6D28D9] shadow-2xs hover:shadow-xl hover:shadow-[#6D28D9]/15 transition-all duration-400 space-y-3 group cursor-pointer"
+                className="p-6 rounded-2xl bg-white border border-[#EFE6D8] hover:border-amber-400 shadow-2xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-400 space-y-3 group cursor-pointer"
               >
-                <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F5F0FF] border border-[#DDD0FF] px-2.5 py-1 rounded-md uppercase">
+                <span className="text-[10px] font-mono font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md uppercase">
                   Case Study 0{cIdx + 1}
                 </span>
-                <h3 className="font-display font-bold text-lg text-[#17121F] group-hover:text-[#6D28D9] transition-colors">
+                <h3 className="font-display font-bold text-lg text-[#17121F] group-hover:text-amber-700 transition-colors">
                   {cs.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -1057,14 +1057,14 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 7. EXPECTED OUTCOME & WHY IT MATTERS ───────────────── */}
-      <section className="py-14 lg:py-20 bg-white border-b border-[#E9E2F5]">
+      <section className="py-14 lg:py-20 bg-white border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left Verified Outcomes */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-[#6D28D9] uppercase">
+              <div className="inline-flex items-center gap-2 text-[11px] font-mono font-bold tracking-wider text-amber-700 uppercase">
                 <Award className="w-3.5 h-3.5" />
                 <span>EXPECTED BUSINESS OUTCOMES</span>
               </div>
@@ -1074,8 +1074,8 @@ export default function ServiceDetailPage() {
               
               <div className="space-y-3 pt-2">
                 {service.outcomes?.map((oc, oIdx) => (
-                  <div key={oIdx} className="p-4 rounded-2xl bg-[#FAF8FF] border border-[#E9E2F5] flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div key={oIdx} className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                       <Check className="w-3.5 h-3.5" />
                     </div>
                     <p className="text-sm font-medium text-[#17121F] leading-relaxed">
@@ -1087,8 +1087,8 @@ export default function ServiceDetailPage() {
             </div>
 
             {/* Right Strategic Value Statement */}
-            <div className="lg:col-span-5 p-8 rounded-3xl bg-[#0F0B18] text-white border border-white/15 shadow-xl space-y-4">
-              <span className="text-[10px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block">
+            <div className="lg:col-span-5 p-8 rounded-3xl bg-[#0E0A12] text-white border border-amber-500/25 shadow-xl space-y-4">
+              <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider block">
                 STRATEGIC VALUE
               </span>
               <h3 className="font-display font-black text-xl text-white">
@@ -1100,7 +1100,7 @@ export default function ServiceDetailPage() {
               <div className="pt-2">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-xs shadow-md transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display font-bold text-xs shadow-md shadow-amber-500/25 transition-all"
                 >
                   <span>Request Technical Scoping</span>
                   <ArrowRight className="w-4 h-4" />
@@ -1114,10 +1114,10 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── 8. FAST-TRACK DISCOVERY SESSION FORM ───────────────── */}
-      <section className="py-14 lg:py-20 bg-[#FAF8FF]">
+      <section className="py-14 lg:py-20 bg-[#FAF7F2]">
         <div className="max-w-[900px] mx-auto px-6 sm:px-10">
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#0F0B18] border border-white/15 text-white shadow-xl text-center space-y-5">
-            <span className="text-xs font-mono font-bold text-[#C084FC] uppercase tracking-wider">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#0E0A12] border border-amber-500/25 text-white shadow-xl text-center space-y-5">
+            <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">
               TECHNICAL DISCOVERY &amp; SCOPING
             </span>
             <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">
@@ -1129,7 +1129,7 @@ export default function ServiceDetailPage() {
             <div className="pt-2">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-sm shadow-md transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display font-bold text-sm shadow-md shadow-amber-500/25 transition-all"
               >
                 <span>Start Project Discussion</span>
                 <ArrowRight className="w-4 h-4" />

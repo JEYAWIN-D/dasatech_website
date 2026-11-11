@@ -57,7 +57,7 @@ const INFINITE_ITEMS = [...PROJECTS_SHOWCASE, ...PROJECTS_SHOWCASE, ...PROJECTS_
 
 export default function TechMarquee() {
   return (
-    <section className="w-full py-6 bg-white border-y border-[#E9E2F5] overflow-hidden relative select-none z-20">
+    <section className="w-full py-6 bg-[#FAF7F2] border-y border-[#EFE6D8] overflow-hidden relative select-none z-20">
       
       {/* Marquee Track Container */}
       <div className="w-full overflow-hidden relative py-3">
@@ -73,26 +73,26 @@ export default function TechMarquee() {
                     window.location.href = item.link
                   }
                 }}
-                className="flex items-center gap-4 p-3.5 pr-6 rounded-2xl transition-all duration-300 shrink-0 cursor-pointer group bg-[#F5F0FF]/60 border border-[#E9E2F5] hover:border-[#6C2BD9] hover:bg-white hover:shadow-lg hover:-translate-y-0.5 shadow-2xs"
+                className="flex items-center gap-4 p-3.5 pr-6 rounded-2xl transition-all duration-300 shrink-0 cursor-pointer group bg-white/90 border border-[#EFE6D8] hover:border-amber-400 hover:bg-white hover:shadow-[0_8px_24px_rgba(217,119,6,0.14)] hover:-translate-y-0.5 shadow-2xs"
               >
                 {/* Big Image Thumbnail */}
-                <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#E9E2F5] bg-slate-900">
+                <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#EFE6D8] bg-slate-900">
                   <img
                     src={item.image}
                     alt={item.name}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-[#6C2BD9]/15 group-hover:bg-transparent transition-colors" />
+                  <div className="absolute inset-0 bg-amber-500/10 group-hover:bg-transparent transition-colors" />
                 </div>
 
                 {/* Logo Icon & Text */}
                 <div className="flex flex-col text-left">
                   <div className="flex items-center gap-2">
-                    <div className="p-1 rounded-md bg-[#6C2BD9]/90 group-hover:bg-[#6C2BD9] text-white transition-colors">
+                    <div className="p-1.5 rounded-md bg-gradient-to-r from-amber-500 to-rose-600 text-white shadow-xs">
                       <Icon className="w-3.5 h-3.5" />
                     </div>
-                    <span className="font-display font-black text-base leading-tight text-[#17121F] group-hover:text-[#6C2BD9] transition-colors">
+                    <span className="font-display font-black text-base leading-tight text-[#141017] group-hover:text-amber-700 transition-colors">
                       {item.name}
                     </span>
                   </div>
@@ -102,7 +102,7 @@ export default function TechMarquee() {
                 </div>
 
                 {/* Badge Tag */}
-                <span className="ml-3 text-[10px] font-mono font-bold px-3 py-1 rounded-full border uppercase tracking-wider transition-colors bg-white text-[#6C2BD9] border-[#DDD0FF] group-hover:bg-[#6C2BD9] group-hover:text-white group-hover:border-[#6C2BD9]">
+                <span className="ml-3 text-[10px] font-mono font-bold px-3 py-1 rounded-full border uppercase tracking-wider transition-colors bg-amber-50/80 text-amber-900 border-amber-200 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-rose-600 group-hover:text-white group-hover:border-transparent">
                   {item.badge}
                 </span>
               </div>

@@ -187,22 +187,22 @@ export default function SnapShareSocialProductView() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#0A0713] text-white selection:bg-[#8B5CF6] selection:text-white pt-24 select-none font-sans">
+    <div className="min-h-screen bg-[#0E0A12] text-white selection:bg-amber-500 selection:text-white pt-24 select-none font-sans">
       
       {/* ── BREADCRUMB HEADER ─────────────────────────────────── */}
-      <div className="border-b border-white/10 bg-[#0E091C]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
+      <div className="border-b border-white/10 bg-[#140F19]/90 backdrop-blur-md sticky top-[72px] sm:top-[80px] z-30 py-3.5 px-6 sm:px-10 lg:px-16">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-xs font-mono text-purple-300">
-            <Link to="/" className="hover:text-[#A855F7] transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
+            <Link to="/" className="hover:text-amber-400 transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/products" className="hover:text-[#A855F7] transition-colors">Products</Link>
+            <Link to="/products" className="hover:text-amber-400 transition-colors">Products</Link>
             <span>/</span>
-            <span className="text-[#A855F7] font-bold">DASA SnapFlow Studio AI</span>
+            <span className="text-amber-400 font-bold">DASA SnapFlow Studio AI</span>
           </div>
 
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 text-xs font-display font-bold text-white hover:text-[#A855F7] bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-1.5 rounded-full transition-all"
+            className="inline-flex items-center gap-2 text-xs font-display font-bold text-white hover:text-amber-400 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-1.5 rounded-full transition-all"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Products</span>
@@ -211,10 +211,10 @@ export default function SnapShareSocialProductView() {
       </div>
 
       {/* ── 1. CINEMATIC DARKROOM HERO WITH LIVE AI FACE MATCH SIMULATOR ── */}
-      <section className="relative py-16 lg:py-24 overflow-hidden border-b border-white/10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1E1138] via-[#0A0713] to-[#0A0713]">
+      <section className="relative py-16 lg:py-24 overflow-hidden border-b border-white/10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1C1424] via-[#0E0A12] to-[#0E0A12]">
         
         {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#8B5CF6]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-12">
           
@@ -223,14 +223,14 @@ export default function SnapShareSocialProductView() {
             {/* Left Column: Hero Copy & Quick Actions */}
             <div className="lg:col-span-7 space-y-6">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 text-[#C4B5FD] text-xs font-mono font-bold uppercase tracking-wider">
-                <Camera className="w-3.5 h-3.5 text-[#A855F7]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider">
+                <Camera className="w-3.5 h-3.5 text-amber-400" />
                 <span>AI PHOTO DISTRIBUTION &amp; STUDIO CRM</span>
               </div>
 
               <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1]">
                 The AI Operating System for <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] via-[#EC4899] to-[#06B6D4]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500">
                   High-Growth Photo Studios.
                 </span>
               </h1>
@@ -243,7 +243,7 @@ export default function SnapShareSocialProductView() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="#implementation-screens"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] hover:from-[#7C3AED] hover:to-[#4F46E5] text-white font-display font-bold text-xs shadow-lg shadow-[#8B5CF6]/30 transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display font-bold text-xs shadow-lg shadow-amber-500/25 transition-all hover:-translate-y-0.5"
                 >
                   <span>Inspect 10 Studio Modules</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -253,7 +253,7 @@ export default function SnapShareSocialProductView() {
                   to="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-display font-bold text-xs transition-all"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-[#EC4899]" />
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                   <span>Start Studio Pilot</span>
                 </Link>
               </div>
@@ -262,7 +262,7 @@ export default function SnapShareSocialProductView() {
 
             {/* Right Column: Live Interactive Face Match Widget */}
             <div className="lg:col-span-5">
-              <div className="rounded-3xl p-6 sm:p-7 bg-[#130E24] border border-[#8B5CF6]/40 shadow-2xl space-y-5 text-white font-sans relative overflow-hidden">
+              <div className="rounded-3xl p-6 sm:p-7 bg-[#140F19] border border-amber-500/30 shadow-2xl space-y-5 text-white font-sans relative overflow-hidden">
                 
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
@@ -368,16 +368,16 @@ export default function SnapShareSocialProductView() {
         productId="snapshare-social"
         productName="DASA SnapFlow Studio AI"
         screens={SNAPSHARE_SCREEN_ASSETS}
-        brandColor="#8B5CF6"
+        brandColor="#D97706"
       />
 
       {/* ── 3. FOUR-STAGE EVENT LIFECYCLE PIPELINE ──────────────── */}
-      <section className="py-16 sm:py-24 bg-[#0D081B] border-b border-white/10">
+      <section className="py-16 sm:py-24 bg-[#120D16] border-b border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#C4B5FD] text-xs font-mono font-bold uppercase tracking-wider">
-              <Workflow className="w-3.5 h-3.5 text-[#A855F7]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider">
+              <Workflow className="w-3.5 h-3.5 text-amber-400" />
               <span>EVENT LIFECYCLE PIPELINE</span>
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
@@ -398,18 +398,18 @@ export default function SnapShareSocialProductView() {
                   onClick={() => setActivePipelineStep(pipe.step)}
                   className={`p-6 sm:p-7 rounded-3xl cursor-pointer transition-all duration-300 border flex flex-col justify-between space-y-5 ${
                     isSelected
-                      ? 'bg-[#180E30] border-[#8B5CF6] shadow-xl shadow-[#8B5CF6]/20 scale-105'
+                      ? 'bg-[#1C1424] border-amber-500 shadow-xl shadow-amber-500/20 scale-105'
                       : 'bg-white/5 border-white/10 hover:border-white/20'
                   }`}
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <div className={`w-10 h-10 rounded-2xl flex items-center justify-center ${
-                        isSelected ? 'bg-[#8B5CF6] text-white' : 'bg-white/10 text-purple-300'
+                        isSelected ? 'bg-gradient-to-r from-amber-500 to-rose-600 text-white' : 'bg-white/10 text-amber-300'
                       }`}>
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 text-purple-200">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-white/10 text-amber-200">
                         {pipe.tag}
                       </span>
                     </div>
@@ -422,7 +422,7 @@ export default function SnapShareSocialProductView() {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/10 space-y-1 text-[11px] font-mono text-purple-300">
+                  <div className="pt-3 border-t border-white/10 space-y-1 text-[11px] font-mono text-amber-300">
                     {pipe.metrics.map((m, i) => (
                       <div key={i}>✓ {m}</div>
                     ))}
@@ -436,12 +436,12 @@ export default function SnapShareSocialProductView() {
       </section>
 
       {/* ── 4. PHOTOGRAPHER CRM & STUDIO REVENUE SUITE ──────────── */}
-      <section className="py-16 sm:py-24 bg-[#0A0713] border-b border-white/10">
+      <section className="py-16 sm:py-24 bg-[#0E0A12] border-b border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-purple-300 text-xs font-mono font-bold uppercase tracking-wider">
-              <DollarSign className="w-3.5 h-3.5 text-[#EC4899]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider">
+              <DollarSign className="w-3.5 h-3.5 text-amber-400" />
               <span>STUDIO REVENUE &amp; CRM</span>
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
@@ -453,15 +453,15 @@ export default function SnapShareSocialProductView() {
           </div>
 
           {/* CRM Kanban Showcase */}
-          <div className="max-w-5xl mx-auto p-8 rounded-3xl bg-[#140E26] border border-[#8B5CF6]/30 shadow-2xl space-y-6">
+          <div className="max-w-5xl mx-auto p-8 rounded-3xl bg-[#140F19] border border-amber-500/30 shadow-2xl space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[#8B5CF6]/20 border border-[#8B5CF6]/40 flex items-center justify-center text-[#A855F7]">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
                   <Users className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-base text-white">Studio Lead &amp; Deal Flow Kanban</h3>
-                  <div className="text-[11px] font-mono text-purple-300">Live Client Booking Funnel</div>
+                  <div className="text-[11px] font-mono text-amber-300">Live Client Booking Funnel</div>
                 </div>
               </div>
               <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -480,10 +480,10 @@ export default function SnapShareSocialProductView() {
                 <div key={idx} className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                   <div className="flex items-center justify-between text-xs font-mono text-slate-300">
                     <span className="font-bold">{col.stage}</span>
-                    <span className="text-purple-400 font-bold">{col.count}</span>
+                    <span className="text-amber-400 font-bold">{col.count}</span>
                   </div>
                   <div className="text-xl font-display font-black text-white">{col.val}</div>
-                  <div className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 inline-block">
+                  <div className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 inline-block">
                     {col.tag}
                   </div>
                 </div>
@@ -496,19 +496,19 @@ export default function SnapShareSocialProductView() {
       </section>
 
       {/* ── 5. FINAL CONSULTATION CTA ──────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#0A0713]">
+      <section className="py-16 sm:py-24 bg-[#0E0A12]">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
-          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-br from-[#1E1138] to-[#120A24] border border-[#8B5CF6]/40 text-white shadow-2xl space-y-6">
+          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-br from-[#1A1220] to-[#0E0A12] border border-amber-500/30 text-white shadow-2xl space-y-6">
             <h2 className="font-display font-black text-3xl sm:text-4xl text-white">
               Ready to Upgrade Your Photography Studio to AI?
             </h2>
-            <p className="text-purple-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-normal">
+            <p className="text-amber-200/90 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-normal">
               Schedule a live demonstration with Founder &amp; CEO Jeyawin D to see how DASA SnapFlow can automate your event photo distribution and client booking pipelines.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] hover:from-[#7C3AED] hover:to-[#4F46E5] text-white font-display font-bold text-xs shadow-lg shadow-[#8B5CF6]/30 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white font-display font-bold text-xs shadow-lg shadow-amber-500/25 transition-all hover:-translate-y-0.5"
               >
                 <span>Schedule Studio Discovery Call</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -183,7 +183,7 @@ export default function Nav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-              className="lg:hidden mx-3 sm:mx-4 mt-2 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col gap-3 max-h-[82vh] overflow-y-auto border border-white/15 bg-[#0a0e24]/98 backdrop-blur-2xl shadow-2xl z-[100] text-white"
+              className="lg:hidden mx-3 sm:mx-4 mt-2 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col gap-3 max-h-[82vh] overflow-y-auto border border-amber-500/20 bg-[#120D16]/98 backdrop-blur-2xl shadow-2xl z-[100] text-white"
             >
               <div className="flex flex-col gap-1.5 pt-0.5">
                 {navLinks.map((item) => {
@@ -196,13 +196,13 @@ export default function Nav() {
                       onClick={() => setOpen(false)}
                       className={`py-2.5 px-4 rounded-xl text-sm sm:text-base font-display transition-all duration-200 flex items-center justify-between ${
                         active
-                          ? 'bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-white font-bold border border-indigo-400/40 shadow-xs'
+                          ? 'bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-rose-600/20 text-amber-300 font-bold border border-amber-500/40 shadow-xs'
                           : 'text-slate-300 hover:text-white hover:bg-white/5 font-medium'
                       }`}
                     >
                       <span>{item.label}</span>
                       {active && (
-                        <span className="w-2 h-2 rounded-full bg-indigo-400 shadow-[0_0_10px_#818cf8]" />
+                        <span className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]" />
                       )}
                     </Link>
                   )
@@ -215,8 +215,8 @@ export default function Nav() {
                   onClick={() => setOpen(false)}
                   className={`w-full inline-flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-display text-sm sm:text-base font-bold text-white transition-all text-center ${
                     isContact
-                      ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 border-2 border-violet-400 shadow-[0_0_24px_rgba(139,92,246,0.45)]'
-                      : 'bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#7C3AED] hover:from-[#3B82F6] hover:to-[#8B5CF6] border border-white/25 shadow-lg'
+                      ? 'bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 border-2 border-amber-300 shadow-[0_0_24px_rgba(245,158,11,0.45)]'
+                      : 'bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 hover:from-amber-400 hover:to-rose-500 border border-white/25 shadow-lg'
                   }`}
                 >
                   <span>Schedule Consultation</span>

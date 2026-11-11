@@ -25,7 +25,7 @@ export const CORE_CAPABILITIES = [
     tags: ['Computer Vision', 'Smart Search', 'AI Inspection', 'Automated Quality'],
     img: import.meta.env.BASE_URL + 'images/ai-computer-vision.jpg',
     link: '/services/ai-solutions',
-    accent: '#6D28D9'
+    accent: '#D97706'
   },
   {
     id: 'erp-solutions',
@@ -36,15 +36,15 @@ export const CORE_CAPABILITIES = [
     tags: ['Pharmacy ERP', 'School ERP', 'Warehouse WMS', 'Multi-Branch Sync'],
     img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90',
     link: '/services/custom-erp',
-    accent: '#7C3AED'
+    accent: '#EA580C'
   },
   {
     id: 'crm-solutions',
     icon: Users,
     title: 'CRM Solutions',
     category: 'CUSTOMER RELATIONSHIP',
-    desc: 'Intelligent lead tracking, multi-channel customer communications, automated WhatsApp inquiries, and visual sales pipelines.',
-    tags: ['Lead Pipeline', 'WhatsApp Ingestion', 'Customer Radar', 'Sales Tracking'],
+    desc: 'Intelligent lead tracking, multi-channel customer communications, automated Signal inquiries, and visual sales pipelines.',
+    tags: ['Lead Pipeline', 'Signal Ingestion', 'Customer Radar', 'Sales Tracking'],
     img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=90',
     link: '/services/crm-solutions',
     accent: '#D97706'
@@ -58,7 +58,7 @@ export const CORE_CAPABILITIES = [
     tags: ['Order Handling', 'NFC Smart Tags', 'Workflow Tracking', 'Automated Execution'],
     img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90',
     link: '/services/iot-solutions',
-    accent: '#8B5CF6'
+    accent: '#BE123C'
   },
   {
     id: 'web-mobile',
@@ -69,7 +69,7 @@ export const CORE_CAPABILITIES = [
     tags: ['Mobile Apps', 'Web Applications', 'Custom Interfaces', 'Fast APIs'],
     img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=90',
     link: '/services/web-mobile',
-    accent: '#6D28D9'
+    accent: '#D97706'
   },
   {
     id: 'cloud-devops',
@@ -80,7 +80,7 @@ export const CORE_CAPABILITIES = [
     tags: ['Cloud Hosting', '24/7 Availability', 'Secure Backups', 'Auto-Scaling'],
     img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=90',
     link: '/services/software-development',
-    accent: '#7C3AED'
+    accent: '#EA580C'
   },
   {
     id: 'business-automation',
@@ -91,7 +91,7 @@ export const CORE_CAPABILITIES = [
     tags: ['Workflow Automation', 'Document Scanning', 'Task Schedulers', 'System Sync'],
     img: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=1200&q=90',
     link: '/services/business-automation',
-    accent: '#8B5CF6'
+    accent: '#BE123C'
   },
   {
     id: 'digital-marketing',
@@ -102,7 +102,7 @@ export const CORE_CAPABILITIES = [
     tags: ['Video Production', 'Poster Design', 'SEO & Search', 'Targeted Ads'],
     img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90',
     link: '/services/digital-marketing',
-    accent: '#6D28D9'
+    accent: '#D97706'
   }
 ]
 
@@ -137,11 +137,11 @@ export default function CapabilitiesScrollStory() {
   const activeCapability = CORE_CAPABILITIES[activeIdx] || CORE_CAPABILITIES[0]
 
   return (
-    <section className="py-24 lg:py-32 bg-white text-[#17131F] relative overflow-hidden border-t border-[#E9E2F5] select-none">
+    <section className="py-24 lg:py-32 bg-[#FAF7F2] text-[#141017] relative overflow-hidden border-t border-[#EFE6D8] select-none">
       
       {/* Soft Background Accents */}
-      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-gradient-to-br from-[#EDE9FE]/40 via-[#F3E8FF]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-[#FAF5FF] via-transparent to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-amber-500/5 via-rose-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-12 lg:space-y-16">
         
@@ -153,10 +153,10 @@ export default function CapabilitiesScrollStory() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl space-y-4"
         >
-          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+          <div className="text-xs font-bold tracking-wider text-amber-800 uppercase">
             Core Engineering Capabilities
           </div>
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17131F] tracking-tight leading-[1.18] pb-1">
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#141017] tracking-tight leading-[1.18] pb-1">
             Engineering Technology Built for{' '}
             <span className="text-color-shift">Real-World Impact.</span>
           </h2>
@@ -190,15 +190,15 @@ export default function CapabilitiesScrollStory() {
                   onClick={() => setActiveIdx(idx)}
                   className={`group relative p-5 lg:p-6 rounded-2xl transition-all duration-300 cursor-pointer border ${
                     isActive
-                      ? 'bg-[#F7F3FF] border-[#DDD0FF] shadow-sm'
-                      : 'bg-white border-transparent hover:border-[#E9E2F5] hover:bg-[#FAF8FF]'
+                      ? 'bg-[#FDF8EE] border-amber-300 shadow-sm'
+                      : 'bg-white border-transparent hover:border-[#EFE6D8] hover:bg-[#FAF7F2]'
                   }`}
                 >
-                  {/* Left Purple Accent Indicator for Active Item */}
+                  {/* Left Amber-Rose Accent Indicator for Active Item */}
                   {isActive && (
                     <motion.div
                       layoutId="activeCapabilityIndicator"
-                      className="absolute left-0 top-3 bottom-3 w-1.5 bg-[#6D28D9] rounded-r-full"
+                      className="absolute left-0 top-3 bottom-3 w-1.5 bg-gradient-to-b from-amber-500 via-orange-500 to-rose-600 rounded-r-full"
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     />
                   )}
@@ -209,8 +209,8 @@ export default function CapabilitiesScrollStory() {
                       <span
                         className={`p-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center ${
                           isActive
-                            ? 'text-[#6D28D9] bg-white border-[#DDD0FF] shadow-2xs scale-105'
-                            : 'text-[#94A3B8] bg-[#FAF8FF] border-[#E9E2F5] group-hover:text-[#6D28D9] group-hover:bg-white'
+                            ? 'text-amber-700 bg-white border-amber-200 shadow-2xs scale-105'
+                            : 'text-[#94A3B8] bg-[#FAF7F2] border-[#EFE6D8] group-hover:text-amber-700 group-hover:bg-white'
                         }`}
                       >
                         <IconComp className="w-4 h-4" />
@@ -220,8 +220,8 @@ export default function CapabilitiesScrollStory() {
                       <h3
                         className={`font-display font-bold text-lg sm:text-xl lg:text-2xl transition-colors ${
                           isActive
-                            ? 'text-[#6D28D9] font-black'
-                            : 'text-[#1E293B] group-hover:text-[#6D28D9]'
+                            ? 'text-amber-800 font-black'
+                            : 'text-[#1E293B] group-hover:text-amber-800'
                         }`}
                       >
                         {cap.title}
@@ -232,7 +232,7 @@ export default function CapabilitiesScrollStory() {
                     <ChevronRight
                       className={`w-5 h-5 transition-transform duration-300 ${
                         isActive
-                          ? 'text-[#6D28D9] translate-x-1'
+                          ? 'text-amber-600 translate-x-1'
                           : 'text-[#CBD5E1] group-hover:text-[#64748B] group-hover:translate-x-0.5'
                       }`}
                     />
@@ -246,13 +246,13 @@ export default function CapabilitiesScrollStory() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="pt-4 mt-4 border-t border-[#DDD0FF]/60 space-y-4"
+                        className="pt-4 mt-4 border-t border-amber-200/60 space-y-4"
                       >
                         <p className="text-sm text-[#475569] leading-relaxed">
                           {cap.desc}
                         </p>
 
-                        <div className="rounded-xl overflow-hidden border border-[#E9E2F5]">
+                        <div className="rounded-xl overflow-hidden border border-[#EFE6D8]">
                           <img
                             src={cap.img}
                             alt={cap.title}
@@ -264,7 +264,7 @@ export default function CapabilitiesScrollStory() {
                           {cap.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="text-[11px] font-mono font-bold text-[#17131F] bg-white px-2.5 py-1 rounded-md border border-[#E9E2F5]"
+                              className="text-[11px] font-mono font-bold text-[#141017] bg-white px-2.5 py-1 rounded-md border border-[#EFE6D8]"
                             >
                               {tag}
                             </span>
@@ -273,7 +273,7 @@ export default function CapabilitiesScrollStory() {
 
                         <Link
                           to={cap.link}
-                          className="inline-flex items-center gap-2 font-display font-bold text-xs text-[#6D28D9]"
+                          className="inline-flex items-center gap-2 font-display font-bold text-xs text-amber-700 hover:text-amber-900"
                         >
                           <span>Explore Capability</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -298,7 +298,7 @@ export default function CapabilitiesScrollStory() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="hidden lg:block col-span-12 lg:col-span-6 relative"
           >
-            <div className="sticky top-28 h-[480px] w-full rounded-[28px] overflow-hidden border border-[#E9E2F5] bg-white shadow-xl flex flex-col justify-between p-2 group">
+            <div className="sticky top-28 h-[480px] w-full rounded-[28px] overflow-hidden border border-[#EFE6D8] bg-[#FAF7F2] shadow-xl flex flex-col justify-between p-2 group">
               
               <AnimatePresence mode="wait">
                 <motion.div
@@ -317,15 +317,15 @@ export default function CapabilitiesScrollStory() {
                   />
 
                   {/* Gradient Overlays for Depth & Maximum Text Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18]/95 via-[#0F0B18]/60 to-transparent pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#6D28D9]/20 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141017]/95 via-[#141017]/60 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 via-orange-600/10 to-transparent pointer-events-none" />
 
                   {/* Top Category Tag & Symbol Badge (No Numbers) */}
                   <div className="relative z-10 p-6 flex items-center justify-between">
                     <span className="text-[11px] font-mono font-bold text-white bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 uppercase tracking-wider">
                       {activeCapability.category}
                     </span>
-                    <span className="text-xs font-mono font-bold text-[#E9D5FF] bg-[#6D28D9]/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#A855F7]/40 flex items-center gap-1.5">
+                    <span className="text-xs font-mono font-bold text-white bg-gradient-to-r from-amber-500 to-rose-600 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-amber-300/40 flex items-center gap-1.5 shadow-sm">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       <span>CORE ARCHITECTURE</span>
                     </span>
@@ -357,7 +357,7 @@ export default function CapabilitiesScrollStory() {
                     <div className="pt-2">
                       <Link
                         to={activeCapability.link}
-                        className="inline-flex items-center gap-2 font-display font-bold text-sm text-[#C084FC] hover:text-white transition-colors group/link"
+                        className="inline-flex items-center gap-2 font-display font-bold text-sm text-amber-300 hover:text-amber-100 transition-colors group/link"
                       >
                         <span>Explore {activeCapability.title}</span>
                         <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1.5 transition-transform duration-300" />

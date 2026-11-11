@@ -73,7 +73,7 @@ const CORE_SERVICES = [
     title: 'Custom Software & ERP Development',
     categoryMatch: 'ERP Solutions',
     icon: Layers,
-    color: '#6C2BD9',
+    color: '#D97706',
     badge: 'Enterprise Core',
     description: 'Multi-branch enterprise ERP platforms, microservice backend engines, and real-time distributed accounting ledgers.',
     highlights: ['Multi-Branch Inventory Sync', 'Double-Entry GST Engine', 'Keyboard-First POS Terminal']
@@ -123,7 +123,7 @@ const CORE_SERVICES = [
     title: 'Digital Marketing & CRM Solutions',
     categoryMatch: 'Digital Marketing & CRM',
     icon: TrendingUp,
-    color: '#7C3AED',
+    color: '#D97706',
     badge: 'Revenue Acceleration',
     description: 'Data-driven brand positioning, high-converting creative performance campaigns, and automated multi-channel CRM pipelines.',
     highlights: ['Omnichannel Lead Ingestion', 'Visual Deal Pipeline HUD', 'Integrated Messaging Workflows']
@@ -137,8 +137,8 @@ const DEPARTMENT_CARDS = [
   {
     title: 'General Enquiries',
     icon: Globe,
-    color: 'text-[#6C2BD9]',
-    bgColor: 'bg-violet-50 border-violet-200',
+    color: 'text-amber-700',
+    bgColor: 'bg-amber-50 border-amber-200',
     description: 'Corporate communications, technology advisory, and executive management correspondence.',
     category: 'General Enquiry'
   },
@@ -192,7 +192,7 @@ const TRUST_PILLARS = [
     title: 'Business-Focused Technology Solutions',
     desc: 'Every architecture decision is calibrated to commercial efficiency, operational throughput, and measurable return on investment.',
     icon: Briefcase,
-    color: '#6C2BD9'
+    color: '#D97706'
   },
   {
     title: 'Custom-Built Software Architecture',
@@ -222,7 +222,7 @@ const TRUST_PILLARS = [
     title: 'Continuous Technical Support',
     desc: 'Structured enterprise SLAs, proactive security patching, performance telemetry monitoring, and long-term evolutionary support.',
     icon: ShieldCheck,
-    color: '#7C3AED'
+    color: '#D97706'
   }
 ]
 
@@ -581,20 +581,20 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-[#17121F] selection:bg-[#6C2BD9] selection:text-white relative overflow-hidden font-body">
+    <div className="min-h-screen bg-[#FAF7F2] text-[#141017] selection:bg-amber-500 selection:text-white relative overflow-hidden font-body">
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 1 – PREMIUM HERO SECTION
           International enterprise aesthetics, sophisticated typography,
           abstract tech telemetry console, glowing accents, zero stock photo clutter.
       ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-[#E9E2F5] overflow-hidden bg-gradient-to-b from-[#FAF7FF] via-white to-white">
+      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-[#EFE6D8] overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-white to-white">
         
         {/* Subtle Tech Matrix Background Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#6C2BD9_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.035] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#D97706_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.035] pointer-events-none" />
         
-        {/* Soft Ambient Radial Violet Glow */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[480px] bg-gradient-to-b from-[#6C2BD9]/10 via-[#8B5CF6]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        {/* Soft Ambient Radial Warm Glow */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[480px] bg-gradient-to-b from-amber-500/10 via-orange-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -607,7 +607,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase shadow-xs"
+                className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-bold tracking-wider uppercase shadow-xs"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>CORPORATE COMMUNICATION PORTAL</span>
@@ -618,10 +618,10 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-display text-3xl sm:text-5xl lg:text-[58px] font-black tracking-tight text-[#17121F] leading-[1.12]"
+                className="font-display text-3xl sm:text-5xl lg:text-[58px] font-black tracking-tight text-[#141017] leading-[1.12]"
               >
                 Let's Build Something{' '}
-                <span className="bg-gradient-to-r from-[#6C2BD9] via-[#8B5CF6] to-[#4F46E5] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 bg-clip-text text-transparent">
                   Extraordinary.
                 </span>
               </motion.h1>
@@ -645,7 +645,7 @@ export default function ContactPage() {
               >
                 <a
                   href="#enquiry-form-section"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#6C2BD9] hover:bg-[#581CBA] text-white font-display text-sm font-bold shadow-md shadow-violet-500/20 hover:shadow-violet-500/35 transition-all cursor-pointer hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display text-sm font-bold shadow-md shadow-amber-500/25 transition-all cursor-pointer hover:-translate-y-0.5"
                 >
                   <span>Request Project Consultation</span>
                   <ArrowRight className="w-4 h-4" />
@@ -653,7 +653,7 @@ export default function ContactPage() {
 
                 <a
                   href="#signal-contact-card"
-                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-xl bg-white hover:bg-[#F5F0FF] text-[#17121F] border border-[#E9E2F5] hover:border-[#DDD0FF] font-display text-sm font-bold transition-all shadow-xs hover:-translate-y-0.5 cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-xl bg-white hover:bg-amber-50 text-[#141017] border border-[#EFE6D8] hover:border-amber-300 font-display text-sm font-bold transition-all shadow-xs hover:-translate-y-0.5 cursor-pointer"
                 >
                   <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
                   <span>Signal: @dasatech.99</span>
@@ -668,7 +668,7 @@ export default function ContactPage() {
                 className="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-slate-500"
               >
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-[#6C2BD9]" />
+                  <CheckCircle className="w-4 h-4 text-amber-600" />
                   <span>24-Hour Technical Review</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -689,10 +689,10 @@ export default function ContactPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative rounded-3xl p-6 sm:p-8 bg-[#0B0F1D] border border-slate-800 text-white shadow-2xl shadow-slate-900/40 space-y-6"
+                className="relative rounded-3xl p-6 sm:p-8 bg-[#120D16] border border-amber-500/20 text-white shadow-2xl shadow-slate-900/40 space-y-6"
               >
                 {/* Luminous Top Accent Line */}
-                <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-[#8B5CF6] to-transparent pointer-events-none" />
+                <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent pointer-events-none" />
 
                 {/* Console Header */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
@@ -702,7 +702,7 @@ export default function ContactPage() {
                       DISCOVERY TERMINAL
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-violet-300 bg-violet-950/70 px-2.5 py-1 rounded-md border border-violet-800/50">
+                  <span className="text-[11px] font-mono text-amber-300 bg-amber-950/70 px-2.5 py-1 rounded-md border border-amber-800/50">
                     SLA &lt; 24h
                   </span>
                 </div>
@@ -716,7 +716,7 @@ export default function ContactPage() {
 
                   <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/10">
                     <span className="text-slate-400">Direct Signal Channel</span>
-                    <span className="text-violet-300 font-bold flex items-center gap-1.5">
+                    <span className="text-amber-300 font-bold flex items-center gap-1.5">
                       <SignalBrandIcon className="w-3.5 h-3.5 text-[#3A76F0]" />
                       @dasatech.99
                     </span>
@@ -764,16 +764,16 @@ export default function ContactPage() {
           Show DASA TECH's actual service offerings.
           Allows users to click any card to automatically populate the form's service.
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-[#E9E2F5] relative">
+      <section className="py-16 sm:py-24 bg-[#FAF7F2] border-b border-[#EFE6D8] relative">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-12">
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-bold tracking-wider uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span>CAPABILITIES DIRECTORY</span>
             </div>
-            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-[40px] text-[#17121F] tracking-tight">
+            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-[40px] text-[#141017] tracking-tight">
               How Can We Help Your Business?
             </h2>
             <p className="text-sm sm:text-base text-[#6F6878] leading-relaxed font-normal">
@@ -787,8 +787,8 @@ export default function ContactPage() {
                 onClick={() => setActiveServicesTab('services')}
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-display text-xs font-bold transition-all cursor-pointer ${
                   activeServicesTab === 'services'
-                    ? 'bg-[#6C2BD9] text-white shadow-md shadow-violet-500/20'
-                    : 'bg-[#F5F0FF] text-[#6F6878] hover:text-[#17121F] hover:bg-[#EDE4FF]'
+                    ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white shadow-md shadow-amber-500/20'
+                    : 'bg-white text-[#6F6878] hover:text-[#141017] border border-[#EFE6D8] hover:bg-[#FAF7F2]'
                 }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
@@ -800,8 +800,8 @@ export default function ContactPage() {
                 onClick={() => setActiveServicesTab('platforms')}
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-display text-xs font-bold transition-all cursor-pointer ${
                   activeServicesTab === 'platforms'
-                    ? 'bg-[#6C2BD9] text-white shadow-md shadow-violet-500/20'
-                    : 'bg-[#F5F0FF] text-[#6F6878] hover:text-[#17121F] hover:bg-[#EDE4FF]'
+                    ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white shadow-md shadow-amber-500/20'
+                    : 'bg-white text-[#6F6878] hover:text-[#141017] border border-[#EFE6D8] hover:bg-[#FAF7F2]'
                 }`}
               >
                 <Box className="w-3.5 h-3.5" />
@@ -828,8 +828,8 @@ export default function ContactPage() {
                     onClick={() => handleSelectServiceCard(srv)}
                     className={`group rounded-2xl p-6 sm:p-7 border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden ${
                       isSelected
-                        ? 'bg-[#FAF8FF] border-[#6C2BD9] shadow-lg shadow-violet-500/10 -translate-y-1'
-                        : 'bg-white border-[#E9E2F5] hover:border-[#C2A8FF] hover:shadow-md hover:-translate-y-0.5'
+                        ? 'bg-[#FDF8EE] border-amber-500 shadow-lg shadow-amber-500/10 -translate-y-1'
+                        : 'bg-white border-[#EFE6D8] hover:border-amber-300 hover:shadow-md hover:-translate-y-0.5'
                     }`}
                   >
                     <div className="space-y-4">
@@ -841,14 +841,14 @@ export default function ContactPage() {
                         >
                           <IconComponent className="w-6 h-6" />
                         </div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F5F0FF] text-[#6C2BD9] border border-[#DDD0FF]">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200">
                           {srv.badge}
                         </span>
                       </div>
 
                       {/* Title & Description */}
                       <div className="space-y-2">
-                        <h3 className="font-display font-bold text-lg sm:text-xl text-[#17121F] group-hover:text-[#6C2BD9] transition-colors leading-snug">
+                        <h3 className="font-display font-bold text-lg sm:text-xl text-[#141017] group-hover:text-amber-800 transition-colors leading-snug">
                           {srv.title}
                         </h3>
                         <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">
@@ -857,7 +857,7 @@ export default function ContactPage() {
                       </div>
 
                       {/* Highlights */}
-                      <div className="space-y-1.5 pt-2 border-t border-[#E9E2F5]">
+                      <div className="space-y-1.5 pt-2 border-t border-[#EFE6D8]">
                         {srv.highlights.map((hl, hIdx) => (
                           <div key={hIdx} className="flex items-center gap-2 text-xs font-mono text-slate-600">
                             <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -868,14 +868,14 @@ export default function ContactPage() {
                     </div>
 
                     {/* Bottom Action Trigger */}
-                    <div className="pt-5 mt-4 border-t border-[#E9E2F5] flex items-center justify-between text-xs font-display font-bold">
-                      <span className={isSelected ? 'text-[#6C2BD9]' : 'text-slate-500 group-hover:text-[#6C2BD9] transition-colors'}>
+                    <div className="pt-5 mt-4 border-t border-[#EFE6D8] flex items-center justify-between text-xs font-display font-bold">
+                      <span className={isSelected ? 'text-amber-800' : 'text-slate-500 group-hover:text-amber-800 transition-colors'}>
                         {isSelected ? '✓ Selected for Inquiry' : 'Select This Service'}
                       </span>
                       <span className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                         isSelected
-                          ? 'bg-[#6C2BD9] text-white'
-                          : 'bg-slate-100 group-hover:bg-[#6C2BD9] group-hover:text-white text-slate-600'
+                          ? 'bg-gradient-to-r from-amber-500 to-rose-600 text-white'
+                          : 'bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-rose-600 group-hover:text-white text-slate-600'
                       }`}>
                         <ChevronRight className="w-4 h-4" />
                       </span>
@@ -908,7 +908,7 @@ export default function ContactPage() {
           LEFT: Connect With DASA TECH, 6 Department Cards, Signal Official Card, Headquarters
           RIGHT: Interactive Smart Enquiry Form with Dynamic Contextual Fields
       ─────────────────────────────────────────────────────────────── */}
-      <section id="enquiry-form-section" className="py-16 sm:py-24 bg-[#FAF7FF] relative">
+      <section id="enquiry-form-section" className="py-16 sm:py-24 bg-[#FAF7F2] relative">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -920,7 +920,7 @@ export default function ContactPage() {
               
               {/* Connect Intro Header */}
               <div className="space-y-3">
-                <span className="text-[11px] font-mono font-bold text-[#6C2BD9] uppercase tracking-wider block">
+                <span className="text-[11px] font-mono font-bold text-amber-800 uppercase tracking-wider block">
                   CORPORATE ENGAGEMENT
                 </span>
                 <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#17121F] tracking-tight">
@@ -1061,13 +1061,13 @@ export default function ContactPage() {
                       <div
                         key={dIdx}
                         onClick={() => handleDepartmentClick(dept.category)}
-                        className="p-4 rounded-2xl bg-white border border-[#E9E2F5] hover:border-[#6C2BD9] shadow-xs hover:shadow-md transition-all cursor-pointer group space-y-2"
+                        className="p-4 rounded-2xl bg-white border border-[#EFE6D8] hover:border-amber-400 shadow-xs hover:shadow-md transition-all cursor-pointer group space-y-2"
                       >
                         <div className="flex items-center gap-2.5">
                           <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${dept.bgColor}`}>
                             <DeptIcon className={`w-4 h-4 ${dept.color}`} />
                           </div>
-                          <h4 className="font-display font-bold text-xs text-[#17121F] group-hover:text-[#6C2BD9] transition-colors leading-tight">
+                          <h4 className="font-display font-bold text-xs text-[#141017] group-hover:text-amber-800 transition-colors leading-tight">
                             {dept.title}
                           </h4>
                         </div>
@@ -1084,22 +1084,22 @@ export default function ContactPage() {
                   SECTION 7 – VERIFIED HEADQUARTERS & TIMEZONE PRESENCE
                   Genuine verified information only, zero fake map claims
               ──────────────────────────────────────────────────────────── */}
-              <div className="rounded-2xl p-5 bg-white border border-[#E9E2F5] space-y-3 shadow-xs">
+              <div className="rounded-2xl p-5 bg-white border border-[#EFE6D8] space-y-3 shadow-xs">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#F5F0FF] border border-[#DDD0FF] flex items-center justify-center text-[#6C2BD9]">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider block">
                       COMPANY HEADQUARTERS
                     </span>
-                    <div className="font-display font-bold text-sm text-[#17121F]">
+                    <div className="font-display font-bold text-sm text-[#141017]">
                       Erode, Tamil Nadu, India
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-[#E9E2F5] grid grid-cols-2 gap-3 text-[11px] font-mono text-slate-600">
+                <div className="pt-2 border-t border-[#EFE6D8] grid grid-cols-2 gap-3 text-[11px] font-mono text-slate-600">
                   <div>
                     <span className="text-slate-400 block text-[10px] uppercase">Working Schedule</span>
                     <span className="font-bold text-slate-800">Mon – Sat: 9 AM – 7 PM</span>
@@ -1118,12 +1118,12 @@ export default function ContactPage() {
             {/* RIGHT SIDE – INTERACTIVE SMART ENQUIRY FORM                    */}
             {/* ============================================================== */}
             <div className="lg:col-span-7">
-              <div className="rounded-3xl p-6 sm:p-10 border-2 border-[#E9E2F5] bg-white shadow-xl space-y-7 relative">
+              <div className="rounded-3xl p-6 sm:p-10 border-2 border-[#EFE6D8] bg-white shadow-xl space-y-7 relative">
                 
                 {/* Form Header */}
-                <div className="space-y-1.5 border-b border-[#E9E2F5] pb-5">
-                  <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#6C2BD9] uppercase tracking-wider">
-                    <Terminal className="w-3.5 h-3.5" />
+                <div className="space-y-1.5 border-b border-[#EFE6D8] pb-5">
+                  <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amber-800 uppercase tracking-wider">
+                    <Terminal className="w-3.5 h-3.5 text-amber-600" />
                     <span>PROJECT CONSULTATION REQUEST</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black text-[#17121F] font-display tracking-tight">
@@ -1217,7 +1217,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Full Name <span className="text-[#6C2BD9]">*</span>
+                        Full Name <span className="text-amber-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -1226,10 +1226,10 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Alex Mercer"
-                        className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border text-[#17121F] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium ${
+                        className={`w-full px-4 py-3.5 rounded-xl bg-white border text-[#141017] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium ${
                           formErrors.name
                             ? 'border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200'
-                            : 'border-[#E9E2F5] focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/20'
+                            : 'border-[#EFE6D8] focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20'
                         }`}
                       />
                       {formErrors.name && (
@@ -1247,7 +1247,7 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="e.g. Nexus Global Enterprises"
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] placeholder-slate-400 focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#EFE6D8] text-[#141017] placeholder-slate-400 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all text-sm font-medium"
                       />
                     </div>
                   </div>
@@ -1256,7 +1256,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Phone Number <span className="text-[#6C2BD9]">*</span>
+                        Phone Number <span className="text-amber-600">*</span>
                       </label>
                       <input
                         type="tel"
@@ -1265,10 +1265,10 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="e.g. +91 98765 43210"
-                        className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border text-[#17121F] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium ${
+                        className={`w-full px-4 py-3.5 rounded-xl bg-white border text-[#141017] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium ${
                           formErrors.phone
                             ? 'border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200'
-                            : 'border-[#E9E2F5] focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/20'
+                            : 'border-[#EFE6D8] focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20'
                         }`}
                       />
                       {formErrors.phone && (
@@ -1278,14 +1278,14 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Country <span className="text-[#6C2BD9]">*</span>
+                        Country <span className="text-amber-600">*</span>
                       </label>
                       <select
                         name="country"
                         required
                         value={formData.country}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#EFE6D8] text-[#141017] focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
                       >
                         {COUNTRY_OPTIONS.map((c) => (
                           <option key={c.code} value={c.name}>
@@ -1303,14 +1303,14 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Enquiry Category <span className="text-[#6C2BD9]">*</span>
+                        Enquiry Category <span className="text-amber-600">*</span>
                       </label>
                       <select
                         name="category"
                         required
                         value={formData.category}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#EFE6D8] text-[#141017] focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
                       >
                         {ENQUIRY_CATEGORIES.map((cat, cIdx) => (
                           <option key={cIdx} value={cat}>
@@ -1322,14 +1322,14 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Service Interested In <span className="text-[#6C2BD9]">*</span>
+                        Service Interested In <span className="text-amber-600">*</span>
                       </label>
                       <select
                         name="service"
                         required
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#EFE6D8] text-[#141017] focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
                       >
                         <option value="Custom Software & ERP Development">Custom Software &amp; ERP Development</option>
                         <option value="Website & Mobile App Development">Website &amp; Mobile App Development</option>
@@ -1354,10 +1354,10 @@ export default function ContactPage() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="p-4 sm:p-5 rounded-2xl bg-[#F5F0FF] border border-[#DDD0FF] space-y-4"
+                      className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-4"
                     >
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#6C2BD9] uppercase tracking-wider">
-                        <Sparkles className="w-3.5 h-3.5" />
+                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-800 uppercase tracking-wider">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-600" />
                         <span>ERP Architecture Parameters</span>
                       </div>
 
@@ -1370,7 +1370,7 @@ export default function ContactPage() {
                             name="erpBusinessType"
                             value={formData.erpBusinessType}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-[#DDD0FF] text-xs font-medium text-slate-800 focus:outline-none focus:border-[#6C2BD9]"
+                            className="w-full px-3 py-2 rounded-lg bg-white border border-amber-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-amber-500"
                           >
                             <option value="">Select Industry...</option>
                             <option value="Healthcare & Pharmacy">Healthcare &amp; Pharmacy</option>
@@ -1391,7 +1391,7 @@ export default function ContactPage() {
                             name="erpRequirementType"
                             value={formData.erpRequirementType}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-[#DDD0FF] text-xs font-medium text-slate-800 focus:outline-none focus:border-[#6C2BD9]"
+                            className="w-full px-3 py-2 rounded-lg bg-white border border-amber-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-amber-500"
                           >
                             <option value="">Select Requirement...</option>
                             <option value="New ERP Implementation">New ERP Implementation</option>
@@ -1408,7 +1408,7 @@ export default function ContactPage() {
                             name="erpBottleneck"
                             value={formData.erpBottleneck}
                             onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-[#DDD0FF] text-xs font-medium text-slate-800 focus:outline-none focus:border-[#6C2BD9]"
+                            className="w-full px-3 py-2 rounded-lg bg-white border border-amber-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-amber-500"
                           >
                             <option value="">Select Main Challenge...</option>
                             <option value="Inventory Leakage & Expiry">Inventory Leakage &amp; Expiry</option>
@@ -1589,7 +1589,7 @@ export default function ContactPage() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#EFE6D8] text-[#141017] focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
                       >
                         <option value="">Select Anticipated Range...</option>
                         <option value="< $5,000 (Under ₹4 Lakhs)">&lt; $5,000 (Under ₹4 Lakhs)</option>
@@ -1609,7 +1609,7 @@ export default function ContactPage() {
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#EFE6D8] text-[#141017] focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
                       >
                         <option value="">Select Target Horizon...</option>
                         <option value="Immediate (< 1 Month)">Immediate (&lt; 1 Month)</option>
@@ -1625,7 +1625,7 @@ export default function ContactPage() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <label className="block text-xs font-mono text-slate-700 font-bold uppercase tracking-wider">
-                        Message / Project Requirements <span className="text-[#6C2BD9]">*</span>
+                        Message / Project Requirements <span className="text-amber-600">*</span>
                       </label>
                       <span className="text-[11px] font-mono text-slate-400">
                         {formData.message.length} chars
@@ -1638,10 +1638,10 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Outline your technology goals, current operational bottlenecks, scale requirements, or specific deliverables..."
-                      className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border text-[#17121F] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium resize-none ${
+                      className={`w-full px-4 py-3.5 rounded-xl bg-white border text-[#141017] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium resize-none ${
                         formErrors.message
                           ? 'border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200'
-                          : 'border-[#E9E2F5] focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/20'
+                          : 'border-[#EFE6D8] focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20'
                       }`}
                     ></textarea>
                     {formErrors.message && (
@@ -1650,7 +1650,7 @@ export default function ContactPage() {
                   </div>
 
                   {/* Submit Action Bar */}
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E9E2F5]">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#EFE6D8]">
                     <div className="text-xs font-mono text-slate-500 flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span>Enterprise SLA: Initial response within 24 hours</span>
@@ -1659,7 +1659,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={status.loading}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#6C2BD9] via-[#7C3AED] to-[#4F46E5] hover:from-[#581CBA] hover:to-[#4338CA] text-white font-display text-sm font-bold shadow-md shadow-violet-500/25 hover:shadow-violet-500/40 transition-all cursor-pointer hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display text-sm font-bold shadow-md shadow-amber-500/25 hover:shadow-amber-500/40 transition-all cursor-pointer hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {status.loading ? (
                         <>
@@ -1691,15 +1691,15 @@ export default function ContactPage() {
           "Technology Partnership Beyond Development."
           Corporate trust-building section, exact prompt requirements.
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-t border-[#E9E2F5] relative">
+      <section className="py-16 sm:py-24 bg-[#FAF7F2] border-t border-[#EFE6D8] relative">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-14">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-bold tracking-wider uppercase">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
               <span>CORPORATE TRUST &amp; METHODOLOGY</span>
             </div>
-            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-[40px] text-[#17121F] tracking-tight">
+            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-[40px] text-[#141017] tracking-tight">
               Technology Partnership Beyond Development.
             </h2>
             <p className="text-sm sm:text-base text-[#6F6878] leading-relaxed">
@@ -1713,7 +1713,7 @@ export default function ContactPage() {
               return (
                 <div
                   key={pIdx}
-                  className="rounded-2xl p-6 sm:p-7 border border-[#E9E2F5] bg-[#FAF8FF] hover:bg-white hover:border-[#C2A8FF] hover:shadow-md transition-all duration-300 space-y-3 group"
+                  className="rounded-2xl p-6 sm:p-7 border border-[#EFE6D8] bg-white hover:border-amber-400 hover:shadow-md transition-all duration-300 space-y-3 group"
                 >
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105"
@@ -1721,7 +1721,7 @@ export default function ContactPage() {
                   >
                     <PillarIcon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-[#17121F] group-hover:text-[#6C2BD9] transition-colors">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-[#141017] group-hover:text-amber-800 transition-colors">
                     {pillar.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">
@@ -1740,15 +1740,15 @@ export default function ContactPage() {
           SECTION 8 – FREQUENTLY ASKED QUESTIONS
           Enterprise-standard queries, strictly zero WhatsApp or email
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FAF7FF] border-t border-[#E9E2F5] relative">
+      <section className="py-16 sm:py-24 bg-[#FAF7F2] border-t border-[#EFE6D8] relative">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase">
-              <HelpCircle className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-bold tracking-wider uppercase">
+              <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
               <span>FREQUENT QUESTIONS</span>
             </div>
-            <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#17121F] tracking-tight">
+            <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#141017] tracking-tight">
               Before You Connect
             </h2>
             <p className="text-xs sm:text-sm text-[#6F6878]">
@@ -1760,9 +1760,9 @@ export default function ContactPage() {
             {CORPORATE_FAQS.map((faq, fIdx) => (
               <div
                 key={fIdx}
-                className="p-6 rounded-2xl bg-white border border-[#E9E2F5] space-y-2.5 shadow-xs"
+                className="p-6 rounded-2xl bg-white border border-[#EFE6D8] space-y-2.5 shadow-xs"
               >
-                <h3 className="font-display font-bold text-base text-[#17121F]">
+                <h3 className="font-display font-bold text-base text-[#141017]">
                   {faq.question}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">

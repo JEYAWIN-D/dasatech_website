@@ -111,19 +111,19 @@ export default function AboutPage() {
       />
 
       {/* ── 2. OUR STORY & PURPOSE (HUMAN-DESIGNED NARRATIVE) ──── */}
-      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-[#FAF8FF] via-white to-white border-b border-[#E9E2F5]">
+      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-[#FAF7F2] via-white to-white border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
+              <div className="text-xs font-bold text-amber-800 uppercase tracking-wider">
                 Our Story &bull; Founded in 2025
               </div>
 
-              <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17121F] tracking-tight leading-[1.12]">
-                Building software that makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] via-[#8B5CF6] to-[#06B6D4]">business simple and efficient.</span>
+              <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#141017] tracking-tight leading-[1.12]">
+                Building software that makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">business simple and efficient.</span>
               </h2>
 
               {/* Concise Intro Lead */}
@@ -133,9 +133,9 @@ export default function AboutPage() {
 
               {/* Clean Structured Highlights Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <Building2 className="w-4 h-4 text-purple-600 shrink-0" />
+                <div className="p-4 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs space-y-1.5 hover:border-amber-300 transition-colors">
+                  <div className="flex items-center gap-2 text-amber-800 font-bold text-xs uppercase tracking-wide">
+                    <Building2 className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>Origin &amp; Leadership</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
@@ -143,9 +143,9 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <Target className="w-4 h-4 text-purple-600 shrink-0" />
+                <div className="p-4 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs space-y-1.5 hover:border-amber-300 transition-colors">
+                  <div className="flex items-center gap-2 text-amber-800 font-bold text-xs uppercase tracking-wide">
+                    <Target className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>Core Mission</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
@@ -153,9 +153,9 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <Layers className="w-4 h-4 text-purple-600 shrink-0" />
+                <div className="p-4 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs space-y-1.5 hover:border-amber-300 transition-colors">
+                  <div className="flex items-center gap-2 text-amber-800 font-bold text-xs uppercase tracking-wide">
+                    <Layers className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>Engineering Focus</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
@@ -163,9 +163,9 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+                <div className="p-4 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs space-y-1.5 hover:border-amber-300 transition-colors">
+                  <div className="flex items-center gap-2 text-amber-800 font-bold text-xs uppercase tracking-wide">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>Client Commitment</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
@@ -178,7 +178,7 @@ export default function AboutPage() {
               <div className="pt-2 flex flex-wrap gap-3 items-center">
                 <Link
                   to="/products"
-                  className="px-6 py-3.5 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-[#6D28D9]/25 transition-all flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-amber-500/25 transition-all flex items-center gap-2"
                 >
                   <span>Explore Our Products</span>
                   <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export default function AboutPage() {
 
                 <Link
                   to="/contact"
-                  className="px-6 py-3.5 rounded-full bg-[#F5F0FF] hover:bg-[#EDE9FE] text-[#6D28D9] font-display font-bold text-xs sm:text-sm border border-[#DDD0FF] transition-colors"
+                  className="px-6 py-3.5 rounded-full bg-amber-50 hover:bg-amber-100/80 text-amber-900 font-display font-bold text-xs sm:text-sm border border-amber-200 transition-colors"
                 >
                   <span>Talk with Founder &amp; CEO</span>
                 </Link>
@@ -195,24 +195,26 @@ export default function AboutPage() {
 
             {/* Right Card: Company Overview Snapshot */}
             <div className="lg:col-span-5">
-              <div className="rounded-3xl p-7 sm:p-8 bg-[#0F0B18] border-2 border-white/15 text-white shadow-2xl space-y-6 relative overflow-hidden">
+              <div className="rounded-3xl p-7 sm:p-8 bg-[#120D16] border-2 border-amber-500/20 text-white shadow-2xl space-y-6 relative overflow-hidden">
+                {/* Ambient Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
                 
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
                   <div className="flex items-center gap-2.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="font-mono text-xs font-bold text-[#C084FC] uppercase tracking-wider">
+                    <span className="font-mono text-xs font-bold text-amber-400 uppercase tracking-wider">
                       DASA TECH AT A GLANCE
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-300 bg-white/10 px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-mono text-slate-300 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/10">
                     Erode, India
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3.5 font-mono text-xs">
+                <div className="grid grid-cols-2 gap-3.5 font-mono text-xs relative z-10">
                   <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
                     <span className="text-[10px] text-slate-400 uppercase block">Founder &amp; CEO</span>
-                    <span className="font-display font-bold text-sm text-[#C084FC]">Jeyawin D</span>
+                    <span className="font-display font-bold text-sm text-amber-300">Jeyawin D</span>
                   </div>
                   <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
                     <span className="text-[10px] text-slate-400 uppercase block">Established</span>
@@ -228,13 +230,13 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
-                  <span className="text-[10px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block">
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs relative z-10">
+                  <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider block">
                     Our Core Pillars
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {['Business Tech Solutions', 'Smart Automation Solutions', 'Web & Mobile Apps', 'Dedicated R&D'].map((pillar, pIdx) => (
-                      <span key={pIdx} className="text-[10px] font-mono text-slate-200 bg-white/10 px-2.5 py-1 rounded-lg">
+                      <span key={pIdx} className="text-[10px] font-mono text-amber-100 bg-white/10 px-2.5 py-1 rounded-lg border border-white/5">
                         {pillar}
                       </span>
                     ))}
@@ -250,15 +252,15 @@ export default function AboutPage() {
       </section>
 
       {/* ── 3. OUR CAPABILITIES & SOLUTIONS ───────────────────── */}
-      <section className="py-20 lg:py-28 bg-white border-b border-[#E9E2F5]">
+      <section className="py-20 lg:py-28 bg-[#FAF7F2] border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
+            <div className="text-xs font-bold text-amber-800 uppercase tracking-wider">
               What We Build
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17121F] tracking-tight">
-              Our Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#06B6D4]">Capabilities &amp; Solutions</span>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#141017] tracking-tight">
+              Our Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">Capabilities &amp; Solutions</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
               We design and deliver clean, scalable technology across three primary solution areas.
@@ -271,19 +273,19 @@ export default function AboutPage() {
               return (
                 <div
                   key={cap.id}
-                  className="p-8 rounded-3xl bg-[#FAF8FF] border-2 border-[#E9E2F5] hover:border-[#6D28D9] transition-all duration-300 space-y-5 shadow-sm hover:shadow-xl hover:shadow-[#6D28D9]/10 flex flex-col justify-between"
+                  className="p-8 rounded-3xl bg-white border-2 border-[#EFE6D8] hover:border-amber-400 transition-all duration-300 space-y-5 shadow-sm hover:shadow-xl hover:shadow-amber-500/10 flex flex-col justify-between"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-[#6D28D9] text-white flex items-center justify-center shadow-md">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-600 text-white flex items-center justify-center shadow-md">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F7F3FF] px-3 py-1 rounded-full border border-[#DDD0FF]">
+                      <span className="text-[10px] font-mono font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
                         {cap.badge}
                       </span>
                     </div>
 
-                    <h3 className="font-display font-black text-xl text-[#17121F]">
+                    <h3 className="font-display font-black text-xl text-[#141017]">
                       {cap.title}
                     </h3>
 
@@ -292,11 +294,11 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#E9E2F5] space-y-2 font-mono text-xs">
+                  <div className="pt-4 border-t border-[#EFE6D8] space-y-2 font-mono text-xs">
                     <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Key Offerings:</span>
                     <div className="flex flex-wrap gap-1.5">
                       {cap.features.map((feat, fIdx) => (
-                        <span key={fIdx} className="text-[10px] text-[#5B21B6] bg-white border border-[#E9E2F5] px-2.5 py-1 rounded-md font-semibold">
+                        <span key={fIdx} className="text-[10px] text-amber-900 bg-amber-50/70 border border-amber-200/80 px-2.5 py-1 rounded-md font-semibold">
                           {feat}
                         </span>
                       ))}
@@ -311,15 +313,18 @@ export default function AboutPage() {
       </section>
 
       {/* ── 4. OUR PRACTICAL APPROACH ─────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-[#0F0B18] text-white border-b border-slate-800">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
+      <section className="py-20 lg:py-28 bg-[#120D16] text-white border-b border-white/10 relative overflow-hidden">
+        {/* Ambient Warm Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-64 bg-amber-500/10 blur-3xl rounded-full pointer-events-none" />
+
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12 relative z-10">
           
           <div className="space-y-3 text-center max-w-3xl mx-auto">
-            <div className="text-xs font-bold text-[#C084FC] uppercase tracking-wider">
+            <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
               How We Work
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-              Our Practical <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] to-[#6D28D9]">4-Step Delivery Approach</span>
+              Our Practical <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">4-Step Delivery Approach</span>
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm">
               Clear milestone steps ensuring smooth execution, high quality, and no surprises.
@@ -335,12 +340,12 @@ export default function AboutPage() {
                   onClick={() => setActiveApproach(idx)}
                   className={`p-7 rounded-3xl border cursor-pointer transition-all duration-300 space-y-4 ${
                     isActive
-                      ? 'bg-[#6D28D9] border-[#C084FC] text-white shadow-xl scale-102'
-                      : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
+                      ? 'bg-gradient-to-b from-amber-500/30 to-rose-600/30 border-amber-400 text-white shadow-xl scale-102 shadow-amber-500/20'
+                      : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:border-amber-500/30'
                   }`}
                 >
                   <div className="flex items-center justify-between font-mono text-xs">
-                    <span className="font-bold text-[#C084FC] bg-black/40 px-3 py-1 rounded-full">
+                    <span className="font-bold text-amber-300 bg-black/40 px-3 py-1 rounded-full border border-amber-400/30">
                       STEP {st.step}
                     </span>
                     <span className="text-slate-400">{st.phase}</span>
@@ -365,16 +370,16 @@ export default function AboutPage() {
       <FoundersAndTeamShowcase />
 
       {/* ── 6. WHY CLIENTS TRUST DASA TECH ────────────────────── */}
-      <section className="py-20 lg:py-28 bg-[#FAF8FF] border-b border-[#E9E2F5]">
+      <section className="py-20 lg:py-28 bg-[#FAF7F2] border-b border-[#EFE6D8]">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-amber-800 uppercase bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
               <span>THE DASA TECH DIFFERENCE</span>
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-[#17121F] tracking-tight">
-              Why Clients Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6]">DASA TECH</span>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[#141017] tracking-tight">
+              Why Clients Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">DASA TECH</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
               The core principles behind our relationships and long-term client partnerships.
@@ -387,13 +392,13 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-3xl bg-white border-2 border-[#E9E2F5] hover:border-[#6D28D9] transition-all duration-300 space-y-4 shadow-sm hover:shadow-xl hover:shadow-[#6D28D9]/10"
+                  className="p-7 rounded-3xl bg-white border-2 border-[#EFE6D8] hover:border-amber-400 transition-all duration-300 space-y-4 shadow-sm hover:shadow-xl hover:shadow-amber-500/10"
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-[#F7F3FF] border border-[#DDD0FF] flex items-center justify-center text-[#6D28D9]">
+                  <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  <h3 className="font-display font-bold text-lg text-[#17121F]">
+                  <h3 className="font-display font-bold text-lg text-[#141017]">
                     {item.title}
                   </h3>
 
@@ -413,13 +418,13 @@ export default function AboutPage() {
 
       {/* ── 8. CONSULTATION CALL TO ACTION ────────────────────── */}
       <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20 text-center">
-        <div className="p-10 sm:p-14 rounded-[36px] border-2 border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg space-y-6">
-          <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
+        <div className="p-10 sm:p-14 rounded-[36px] border-2 border-[#EFE6D8] bg-gradient-to-b from-[#FAF7F2] via-white to-[#FDF8EE] shadow-lg space-y-6">
+          <div className="text-xs font-bold text-amber-800 uppercase tracking-wider">
             Start a Conversation
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17121F] font-display tracking-tight leading-tight">
-            Ready to Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6]">Next Technology Solution?</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#141017] font-display tracking-tight leading-tight">
+            Ready to Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">Next Technology Solution?</span>
           </h2>
 
           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base font-normal leading-relaxed">
@@ -429,7 +434,7 @@ export default function AboutPage() {
           <div className="pt-2">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-sm shadow-xl shadow-[#6D28D9]/30 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-bold text-sm shadow-xl shadow-amber-500/25 transition-all"
             >
               <span>Schedule Discovery Discussion</span>
               <ArrowUpRight className="w-4 h-4" />

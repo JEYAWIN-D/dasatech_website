@@ -17,10 +17,10 @@ export default function PageHeaderHero({
   tools = []
 }) {
   return (
-    <div className="relative pt-24 pb-12 sm:pt-32 sm:pb-20 bg-white text-[#17121F] overflow-hidden select-none border-b border-[#E9E2F5]">
+    <div className="relative pt-24 pb-12 sm:pt-32 sm:pb-20 bg-[#FDFBF7] text-[#141017] overflow-hidden select-none border-b border-[#EFE6D8]">
       
-      {/* Soft Light Violet Glow Backdrop */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(108,43,217,0.08)_0%,rgba(255,255,255,1)_70%)] pointer-events-none" />
+      {/* Soft Light Luxury Amber & Rose Glow Backdrop */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.09)_0%,rgba(225,29,72,0.03)_40%,rgba(253,251,247,1)_70%)] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -36,7 +36,7 @@ export default function PageHeaderHero({
                 duration: 1.0,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className="relative w-full max-w-lg h-[230px] sm:h-[380px] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E9E2F5] group bg-[#F5F0FF]"
+              className="relative w-full max-w-lg h-[230px] sm:h-[380px] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#EFE6D8] group bg-[#FAF7F2]"
             >
               {/* High Quality Sub-Page Image */}
               <img
@@ -45,8 +45,8 @@ export default function PageHeaderHero({
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              {/* Deep Violet Gradient Shine Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#17121F]/70 via-transparent to-transparent pointer-events-none" />
+              {/* Luxury Warm Gradient Shine Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#141017]/75 via-transparent to-transparent pointer-events-none" />
 
               {/* Floating Tool Badges Overlay */}
               {tools && tools.length > 0 && (
@@ -54,7 +54,7 @@ export default function PageHeaderHero({
                   {tools.map((t, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold text-white bg-[#6C2BD9]/90 backdrop-blur-md border border-[#8B5CF6]/50 shadow-sm"
+                      className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold text-white bg-gradient-to-r from-amber-500/90 to-rose-600/90 backdrop-blur-md border border-amber-300/40 shadow-sm"
                     >
                       {t}
                     </span>
@@ -74,8 +74,9 @@ export default function PageHeaderHero({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.7 }}
-              className="text-xs font-bold uppercase tracking-wider text-[#6C2BD9]"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-xs font-mono font-bold uppercase tracking-wider text-amber-800 shadow-2xs"
             >
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span>{tagline}</span>
             </motion.div>
 
@@ -84,17 +85,17 @@ export default function PageHeaderHero({
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7 }}
-              className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#17121F] leading-[1.14]"
+              className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#141017] leading-[1.14]"
             >
               {title.includes(' ') ? (
                 <>
                   {title.substring(0, title.lastIndexOf(' '))} {' '}
-                  <span className="text-[#6C2BD9]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">
                     {title.substring(title.lastIndexOf(' ') + 1)}
                   </span>
                 </>
               ) : (
-                <span className="text-[#6C2BD9]">{title}</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">{title}</span>
               )}
             </motion.h1>
 
@@ -103,7 +104,7 @@ export default function PageHeaderHero({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.7 }}
-              className="text-[#6F6878] text-base sm:text-lg leading-relaxed font-normal max-w-xl"
+              className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-xl"
             >
               {description}
             </motion.p>
@@ -113,7 +114,7 @@ export default function PageHeaderHero({
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.9, duration: 0.8 }}
-              className="w-24 h-1 bg-gradient-to-r from-[#6C2BD9] to-[#8B5CF6] rounded-full origin-left"
+              className="w-24 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 rounded-full origin-left shadow-xs"
             />
 
           </div>
