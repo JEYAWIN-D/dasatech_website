@@ -318,3 +318,4 @@ export default function GlobalPresenceMap({ compact = false }) {
     </div>
   )
 }
+

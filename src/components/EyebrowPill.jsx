@@ -8,3 +8,4 @@ export default function EyebrowPill({ children, dotColor = 'bg-[#00D4FF]' }) {
     </div>
   )
 }
+
