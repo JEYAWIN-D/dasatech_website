@@ -7,6 +7,7 @@ import {
   Droplets,
   PackageCheck,
   Briefcase,
+  Globe,
   CheckCircle2,
   ArrowRight,
   Sparkles,
@@ -20,6 +21,7 @@ import nandhiFeedsLogo from '../assets/customers/nandhi-cattle-feeds.jpg'
 import ltcOilLogo from '../assets/customers/ltc-gingelly-oil.jpg'
 import apcFoodsLogo from '../assets/customers/apc-agro-foods.jpg'
 import msmGroupLogo from '../assets/customers/msm-group.png'
+import kitcoLogo from '../assets/customers/kitco.jpg'
 
 export const CUSTOMERS_DATA = [
   {
@@ -120,27 +122,51 @@ export const CUSTOMERS_DATA = [
     ]
   },
   {
-    id: 'msm-group',
-    name: 'MSM Group of Companies',
+    id: 'msm-ghee',
+    name: 'MSM Ghee (MSM Group)',
     tagline: 'Flavour of Trust — Since 1973',
-    industry: 'Diversified Enterprise Conglomerate & FMCG',
+    industry: 'Pure Cow Ghee, Dairy Processing & FMCG (Est. 1973)',
     icon: Briefcase,
-    accentColor: 'from-slate-700 to-slate-900',
-    accentBorder: 'border-slate-300 hover:border-slate-600',
-    accentBg: 'bg-slate-100',
-    accentText: 'text-slate-900',
-    badge: 'ENTERPRISE GROUP ERP (EST. 1973)',
+    accentColor: 'from-amber-600 via-yellow-600 to-amber-700',
+    accentBorder: 'border-amber-300 hover:border-amber-500',
+    accentBg: 'bg-amber-50',
+    accentText: 'text-amber-800',
+    badge: 'PURE GHEE & DAIRY ERP (EST. 1973)',
     logo: msmGroupLogo,
     logoBg: 'bg-[#151518]',
     logoBorder: 'border-slate-700/60 shadow-[0_4px_20px_rgba(0,0,0,0.15)]',
     logoScale: 'max-h-22 max-w-[160px]',
-    solutionTitle: 'Multi-Entity Financial & Operations Consolidation Engine',
-    description: 'A unified enterprise platform delivering centralized group ledger consolidation, cross-company inter-branch transfers, procurement approval workflows, and executive leadership dashboards.',
+    solutionTitle: 'Pure Ghee Clarification, Batch Traceability & FMCG Distribution ERP',
+    description: 'Comprehensive dairy manufacturing and multi-tier FMCG supply chain architecture managing milk & butter procurement fat testing, automated ghee clarification temperature logging, packaging lines, and supermarket distributor logistics.',
     modules: [
-      'Consolidated Multi-Company Financial Accounting & Ledgers',
-      'Inter-Entity Stock Transfers & Consolidated Tax Returns',
-      'Executive BI Dashboards with Real-Time Branch Metrics',
-      'Centralized Vendor Procurement & Automated Purchase Approvals'
+      'Milk & Butter Procurement Batch Fat / Purity Testing',
+      'Automated Ghee Clarification Temperature & Yield Logging',
+      'Multi-State Supermarket & Wholesale Distributor Fulfillment',
+      'Consolidated Group Ledgers & Automated GST E-Invoicing'
+    ]
+  },
+  {
+    id: 'kitco',
+    name: 'KITCO',
+    tagline: 'Kongu International Trade & Cultural Organization',
+    industry: 'Global Trade Summits, Cultural Expo & Business Network',
+    icon: Globe,
+    accentColor: 'from-emerald-600 via-amber-600 to-red-600',
+    accentBorder: 'border-amber-200/80 hover:border-amber-400',
+    accentBg: 'bg-amber-50',
+    accentText: 'text-amber-800',
+    badge: 'GLOBAL TRADE & EXPO PORTAL',
+    logo: kitcoLogo,
+    logoBg: 'bg-white',
+    logoBorder: 'border-amber-200',
+    logoScale: 'max-h-24 max-w-[150px]',
+    solutionTitle: 'Global Trade Summit Portal & Member Business Directory',
+    description: 'An integrated enterprise web ecosystem powering global trade delegation registrations, international B2B buyer-seller networking, membership directory management, and multi-venue cultural expo coordination.',
+    modules: [
+      'International Business Delegation & Expo Registration',
+      'Searchable B2B Member Trade Directory & Profiles',
+      'Real-Time Event Ticketing & Delegate Badge Generation',
+      'Cross-Border Trade Collaboration & Inquiry Dispatch'
     ]
   }
 ]
@@ -185,7 +211,7 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
         )}
 
         {/* ── LOGO RIBBON / SELECTOR STRIP ──────────────────────────────────── */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5">
           {CUSTOMERS_DATA.map((cust) => {
             const isSelected = selectedCustomer.id === cust.id
             return (
@@ -357,9 +383,9 @@ export default function CustomersShowcase({ showHeroHeader = true, compact = fal
             <div className="text-[11px] text-slate-400">High availability infrastructure</div>
           </div>
           <div className="p-6 rounded-2xl bg-white border border-[#E9E1F5] shadow-2xs text-center space-y-1">
-            <div className="font-display font-black text-2xl sm:text-3xl text-sky-600">5+</div>
+            <div className="font-display font-black text-2xl sm:text-3xl text-sky-600">6+</div>
             <div className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">Major Industry Sectors</div>
-            <div className="text-[11px] text-slate-400">Education, FMCG, Agro, Feeds, Conglomerates</div>
+            <div className="text-[11px] text-slate-400">Education, Ghee & FMCG, Agro, Feeds, Trade Conglomerates</div>
           </div>
           <div className="p-6 rounded-2xl bg-white border border-[#E9E1F5] shadow-2xs text-center space-y-1">
             <div className="font-display font-black text-2xl sm:text-3xl text-rose-600">Direct</div>
