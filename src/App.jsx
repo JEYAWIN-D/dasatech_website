@@ -84,6 +84,8 @@ export default function App() {
             <Route path="/projects/:projectId" component={ProjectDetailPage} />
             <Route path="/about" component={AboutPage} />
             <Route path="/blog" component={BlogPage} />
+            <Route path="/blog/current-erp-situation-south-india" component={ErpSouthIndiaBlogPage} />
+            <Route path="/blog/erp-situation-south-india" component={ErpSouthIndiaBlogPage} />
             <Route path="/careers" component={CareersPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/team" component={TeamMemberProfilePage} />
