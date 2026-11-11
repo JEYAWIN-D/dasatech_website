@@ -205,7 +205,7 @@ export default function HomeAutomationProductView() {
       {/* ── 3. DISCOVERY SESSION CTA ──────────────────────────── */}
       <section className="py-16 lg:py-24 bg-[#07131E] text-white">
         <div className="max-w-[900px] mx-auto px-6 sm:px-10 text-center space-y-6">
-          <span className="text-xs font-mono font-bold text-[#38BDF8] uppercase tracking-wider bg-sky-950/60 border border-sky-800/60 px-4 py-1.5 rounded-full">
+          <span className="text-xs font-mono font-bold text-amber-300 uppercase tracking-wider bg-amber-950/60 border border-amber-800/60 px-4 py-1.5 rounded-full">
             READY TO AUTOMATE YOUR HOME?
           </span>
           <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">

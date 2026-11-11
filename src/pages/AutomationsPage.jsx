@@ -80,18 +80,18 @@ export default function AutomationsPage() {
         {/* Soft Background Radiance */}
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[140px] pointer-events-none opacity-30"
-          style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, rgba(2,132,199,0.15) 70%, transparent 100%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(217,119,6,0.15) 0%, rgba(234,88,12,0.1) 70%, transparent 100%)' }}
         />
 
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 space-y-6 text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-purple-200 shadow-2xs text-xs font-mono font-bold text-[#6D28D9] tracking-wider uppercase mx-auto">
-            <Zap className="w-3.5 h-3.5 text-[#8B5CF6]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#EFE6D8] shadow-2xs text-xs font-mono font-bold text-amber-800 tracking-wider uppercase mx-auto">
+            <Zap className="w-3.5 h-3.5 text-amber-600" />
             <span>ENTERPRISE &amp; SECTOR AUTOMATION ECOSYSTEM</span>
           </div>
 
           <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[#17121F] tracking-tight leading-tight">
             Intelligent Automation for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] via-[#8B5CF6] to-[#0284C7]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">
               Every Industry
             </span>
           </h1>
@@ -103,15 +103,15 @@ export default function AutomationsPage() {
           {/* Quick Stats Pill Bar */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-slate-500">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
               <span>7 Specialized Industry Verticals</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              <span className="w-2 h-2 rounded-full bg-orange-500" />
               <span>Offline-First Edge Reliability</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-purple-500" />
+              <span className="w-2 h-2 rounded-full bg-rose-500" />
               <span>Direct Cloud &amp; Mobile Synchronization</span>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function AutomationsPage() {
       </section>
 
       {/* ── 2. SECTOR SELECTION TABS BAR (7 Verticals) ─────────────── */}
-      <section className="sticky top-20 z-40 bg-white/95 backdrop-blur-xl border-b border-[#E9E2F5] shadow-xs py-4">
+      <section className="sticky top-20 z-40 bg-white/95 backdrop-blur-xl border-b border-[#EFE6D8] shadow-xs py-4">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
             {AUTOMATIONS_CATALOG.map((item) => {
@@ -133,17 +133,17 @@ export default function AutomationsPage() {
                   className={`relative px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-mono font-bold tracking-wide transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-2 ${
                     isActive
                       ? 'text-white'
-                      : 'text-slate-600 hover:text-slate-900 bg-[#FAF8FF] border border-[#E9E2F5] hover:border-purple-200'
+                      : 'text-slate-600 hover:text-slate-900 bg-[#FAF7F2] border border-[#EFE6D8] hover:border-amber-300'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeAutomationTab"
                       transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-                      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#6D28D9] to-[#7C3AED] shadow-md shadow-purple-500/25"
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 shadow-md shadow-amber-500/25"
                     />
                   )}
-                  <Icon className={`w-4 h-4 relative z-10 ${isActive ? 'text-white' : 'text-purple-600'}`} />
+                  <Icon className={`w-4 h-4 relative z-10 ${isActive ? 'text-white' : 'text-amber-700'}`} />
                   <span className="relative z-10">{item.navLabel}</span>
                 </button>
               )
@@ -164,16 +164,16 @@ export default function AutomationsPage() {
             className="space-y-16"
           >
             {/* Active Vertical Banner Header */}
-            <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-[#FAF8FF] border border-[#E9E2F5] relative overflow-hidden space-y-8">
+            <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] relative overflow-hidden space-y-8">
               
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 relative z-10">
                 <div className="space-y-4 max-w-3xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-700 shadow-2xs">
+                    <div className="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-800 shadow-2xs">
                       <ActiveIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <span className="text-[11px] font-mono font-bold tracking-widest text-[#6D28D9] uppercase block">
+                      <span className="text-[11px] font-mono font-bold tracking-widest text-amber-800 uppercase block">
                         {activeAutomation.sector}
                       </span>
                       <h2 className="font-display font-black text-3xl sm:text-4xl text-[#17121F] tracking-tight">
@@ -182,7 +182,7 @@ export default function AutomationsPage() {
                     </div>
                   </div>
 
-                  <p className="font-mono text-sm sm:text-base font-semibold text-purple-700">
+                  <p className="font-mono text-sm sm:text-base font-semibold text-amber-700">
                     {activeAutomation.tagline}
                   </p>
 
@@ -194,7 +194,7 @@ export default function AutomationsPage() {
                 <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#3B82F6] hover:opacity-95 text-white font-mono text-xs font-bold shadow-lg transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:opacity-95 text-white font-mono text-xs font-bold shadow-lg shadow-amber-950/20 transition-all cursor-pointer"
                   >
                     <span>Request System Architecture</span>
                     <ArrowRight className="w-4 h-4" />
@@ -204,9 +204,9 @@ export default function AutomationsPage() {
                     href="https://signal.me/#u/dasatech.99"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-white border border-[#E9E2F5] hover:border-[#3A76F0] text-slate-700 font-mono text-xs font-semibold shadow-2xs transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-white border border-[#EFE6D8] hover:border-amber-400 text-slate-700 font-mono text-xs font-semibold shadow-2xs transition-all"
                   >
-                    <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
+                    <SignalBrandIcon className="w-4 h-4 text-amber-600" />
                     <span>Signal: @dasatech.99</span>
                   </a>
                 </div>
@@ -231,7 +231,7 @@ export default function AutomationsPage() {
             {/* ── 4. DETAILED CAPABILITY MODULES (6 Grid) ─────────── */}
             <div className="space-y-6">
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold tracking-widest text-[#6D28D9] uppercase">
+                <span className="text-xs font-mono font-bold tracking-widest text-amber-800 uppercase">
                   CORE MODULES &amp; AUTOMATION ARCHITECTURE
                 </span>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-[#17121F] tracking-tight">
@@ -243,13 +243,13 @@ export default function AutomationsPage() {
                 {activeAutomation.modules.map((mod, mIdx) => (
                   <div
                     key={mIdx}
-                    className="p-6 sm:p-8 rounded-3xl bg-white border border-[#E9E2F5] hover:border-purple-300 hover:shadow-lg transition-all duration-300 space-y-4 flex flex-col justify-between group"
+                    className="p-6 sm:p-8 rounded-3xl bg-white border border-[#EFE6D8] hover:border-amber-300 hover:shadow-lg transition-all duration-300 space-y-4 flex flex-col justify-between group"
                   >
                     <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-700 group-hover:scale-105 transition-transform">
-                        <CheckCircle2 className="w-5 h-5 text-purple-600" />
+                      <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-700 group-hover:scale-105 transition-transform">
+                        <CheckCircle2 className="w-5 h-5 text-amber-600" />
                       </div>
-                      <h4 className="font-display font-bold text-lg text-[#17121F] group-hover:text-purple-700 transition-colors">
+                      <h4 className="font-display font-bold text-lg text-[#17121F] group-hover:text-amber-700 transition-colors">
                         {mod.title}
                       </h4>
                       <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -259,8 +259,8 @@ export default function AutomationsPage() {
 
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
                       <span>Module 0{mIdx + 1}</span>
-                      <span className="text-emerald-600 font-semibold flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-amber-700 font-semibold flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                         Integrated
                       </span>
                     </div>
@@ -273,9 +273,9 @@ export default function AutomationsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               
               {/* Hardware Specifications */}
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#FAF8FF] border border-[#E9E2F5] space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700">
+                  <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700">
                     <Cpu className="w-5 h-5" />
                   </div>
                   <div>
@@ -291,7 +291,7 @@ export default function AutomationsPage() {
                 <ul className="space-y-3">
                   {activeAutomation.hardwareSpecs.map((spec, hIdx) => (
                     <li key={hIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                      <div className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-2 shrink-0" />
                       <span>{spec}</span>
                     </li>
                   ))}
@@ -299,9 +299,9 @@ export default function AutomationsPage() {
               </div>
 
               {/* Verified Sector Use Cases */}
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#FAF8FF] border border-[#E9E2F5] space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700">
+                  <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700">
                     <Layers className="w-5 h-5" />
                   </div>
                   <div>
@@ -318,9 +318,9 @@ export default function AutomationsPage() {
                   {activeAutomation.useCases.map((useCase, uIdx) => (
                     <div
                       key={uIdx}
-                      className="p-4 rounded-2xl bg-white border border-[#EDE5F7] flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs"
+                      className="p-4 rounded-2xl bg-white border border-[#EFE6D8] flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                       <span>{useCase}</span>
                     </div>
                   ))}

@@ -459,7 +459,7 @@ export default function DigitalMarketingServiceView() {
                     <div className="font-display font-black text-xl text-white">
                       {activeService.tabLabel}
                     </div>
-                    <div className="text-xs text-purple-200 mt-0.5">
+                    <div className="text-xs text-amber-200 mt-0.5">
                       Tailored specifically to your business goals.
                     </div>
                   </div>
@@ -602,14 +602,14 @@ export default function DigitalMarketingServiceView() {
 
         <div className="max-w-[1000px] mx-auto px-6 sm:px-10 text-center relative z-10 space-y-8">
           
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-purple-300 text-xs font-mono font-bold uppercase tracking-wider border border-white/15">
-            <Rocket className="w-3.5 h-3.5 text-[#C084FC]" />
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider border border-white/15">
+            <Rocket className="w-3.5 h-3.5 text-amber-400" />
             <span>START YOUR DIGITAL GROWTH</span>
           </span>
 
           <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
             Digital Marketing That Moves{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] via-[#F43F5E] to-[#38BDF8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500">
               Your Business Forward
             </span>
           </h2>
@@ -622,7 +622,7 @@ export default function DigitalMarketingServiceView() {
             <h3 className="font-display font-bold text-2xl text-white">
               Let’s Grow Your Brand Together
             </h3>
-            <p className="text-purple-200 text-sm font-medium">
+            <p className="text-amber-200 text-sm font-medium">
               Your business deserves to be seen. Your brand deserves to be remembered.
             </p>
             <p className="text-xs text-slate-400 font-mono">

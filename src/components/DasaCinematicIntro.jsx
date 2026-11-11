@@ -411,7 +411,7 @@ export default function DasaCinematicIntro({ onComplete }) {
           }}
         >
           {/* Logo Volumetric Core Backlight */}
-          <div className="absolute -inset-10 bg-gradient-to-r from-amber-500/20 via-orange-600/25 to-purple-600/20 blur-[50px] rounded-full -z-10 pointer-events-none" />
+          <div className="absolute -inset-10 bg-gradient-to-r from-amber-500/20 via-orange-600/25 to-rose-600/20 blur-[50px] rounded-full -z-10 pointer-events-none" />
 
           {/* High-Resolution DASA Emblem */}
           <div className="relative px-8 py-3">
@@ -449,12 +449,12 @@ export default function DasaCinematicIntro({ onComplete }) {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
               TECHNOLOGY
             </span>
-            <span className="text-[#00F5FF] font-black text-xs drop-shadow-[0_0_10px_#00F5FF]">•</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-teal-200">
+            <span className="text-amber-400 font-black text-xs drop-shadow-[0_0_10px_#F59E0B]">•</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-orange-200">
               INNOVATION
             </span>
-            <span className="text-[#A855F7] font-black text-xs drop-shadow-[0_0_10px_#A855F7]">•</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-purple-200">
+            <span className="text-rose-500 font-black text-xs drop-shadow-[0_0_10px_#F43F5E]">•</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-amber-200">
               FUTURE
             </span>
           </motion.div>
@@ -464,7 +464,7 @@ export default function DasaCinematicIntro({ onComplete }) {
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ delay: 0.8, duration: 1.0, ease: 'easeOut' }}
-            className="w-40 sm:w-56 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 via-purple-400/40 to-transparent my-3 sm:my-3.5"
+            className="w-40 sm:w-56 h-[1px] bg-gradient-to-r from-transparent via-amber-400/50 via-orange-500/50 to-transparent my-3 sm:my-3.5"
           />
 
           {/* Secondary Brand Signature: DASA IS THE SOLUTION */}

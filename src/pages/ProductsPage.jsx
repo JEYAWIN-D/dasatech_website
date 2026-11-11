@@ -224,8 +224,8 @@ function ProductHero() {
           transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3 mb-8 sm:mb-10"
         >
-          <span className="w-8 h-px bg-[#A855F7]" />
-          <span className="text-xs font-semibold tracking-wider text-purple-300 uppercase">
+          <span className="w-8 h-px bg-gradient-to-r from-amber-500 to-orange-500" />
+          <span className="text-xs font-semibold tracking-wider text-amber-400 uppercase">
             Enterprise Software &amp; Automations
           </span>
         </motion.div>
@@ -339,13 +339,13 @@ function HomepageStyleProductTile({ product }) {
           {product.category}
         </span>
         {isExternal || product.id === 'pharmacy-erp' ? (
-          <span className="text-[9px] font-mono font-bold text-amber-300 bg-amber-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1 shadow-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-[9px] font-mono font-bold text-amber-300 bg-[#120D16]/90 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             <span>LIVE CLOUD SYSTEM</span>
           </span>
         ) : (
-          <span className="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/30 flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-[9px] font-mono font-bold text-amber-300 bg-[#120D16]/90 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-amber-500/40 flex items-center gap-1 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             <span>Production Ready</span>
           </span>
         )}

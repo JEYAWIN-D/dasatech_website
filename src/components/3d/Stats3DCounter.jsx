@@ -41,10 +41,10 @@ function StatCard({ item, idx }) {
       <TiltCard
         maxTilt={8}
         glowColor={item.glowColor}
-        className="glass rounded-3xl p-6 border border-purple-500/30 bg-[#090D1A]/90 hover:border-purple-400 shadow-2xl flex flex-col justify-between h-[320px] text-white group"
+        className="glass rounded-3xl p-6 border border-amber-500/30 bg-[#0E0A12]/90 hover:border-amber-400 shadow-2xl flex flex-col justify-between h-[320px] text-white group"
       >
         <div className="flex items-center justify-between z-10">
-          <div className="w-11 h-11 rounded-2xl bg-purple-950/60 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:scale-110 group-hover:text-white transition duration-300">
+          <div className="w-11 h-11 rounded-2xl bg-amber-950/60 border border-amber-500/30 flex items-center justify-center text-amber-300 group-hover:scale-110 group-hover:text-white transition duration-300">
             <Icon className="w-5 h-5" />
           </div>
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -122,14 +122,14 @@ export default function Stats3DCounter() {
   ]
 
   return (
-    <section className="relative py-28 bg-[#05070F] text-white overflow-hidden border-t border-purple-900/30">
+    <section className="relative py-28 bg-[#0A070D] text-white overflow-hidden border-t border-amber-500/20">
       {/* Ambient Glow background */}
       <div className="absolute inset-0 bg-grid-bg opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-purple-500/30 bg-purple-950/40 text-purple-300 text-xs font-mono mb-4 font-bold">
-            <TrendingUp className="w-4 h-4 text-purple-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-amber-500/30 bg-amber-950/40 text-amber-300 text-xs font-mono mb-4 font-bold">
+            <TrendingUp className="w-4 h-4 text-amber-400" />
             <span>Proven Performance &amp; Impact</span>
           </div>
 

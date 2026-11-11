@@ -152,7 +152,7 @@ export default function IotTelemetryProductView() {
                   </div>
                   <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
                     <div className="text-[10px] text-slate-400">Packet Delay</div>
-                    <div className="font-bold text-emerald-400 mt-1">8ms</div>
+                    <div className="font-bold text-amber-400 mt-1">8ms</div>
                   </div>
                 </div>
 
@@ -200,7 +200,7 @@ export default function IotTelemetryProductView() {
             <div className="p-6 rounded-2xl bg-black/60 border border-white/10 text-center space-y-1">
               <div className="text-slate-400 text-[11px]">Estimated Battery Longevity:</div>
               <div className="text-3xl font-bold text-[#FBBF24]">{batteryYears} Years</div>
-              <div className="text-[10px] text-emerald-400 font-bold">Zero Maintenance Required</div>
+              <div className="text-[10px] text-amber-300 font-bold">Zero Maintenance Required</div>
             </div>
           </div>
 

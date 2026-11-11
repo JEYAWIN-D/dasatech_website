@@ -115,21 +115,21 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
       <div className="relative rounded-[28px] p-6 sm:p-8 lg:p-10 bg-[#0B0F1D] border border-slate-800 shadow-[0_20px_50px_rgba(15,23,42,0.2)] space-y-7 sm:space-y-9 text-white select-none overflow-hidden">
         
         {/* Subtle top luminous edge */}
-        <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-violet-500/80 to-transparent pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/80 to-transparent pointer-events-none" />
 
         {/* ── HEADER: Elevated, High-Tech & Ultra-Attractive ── */}
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-5 border-b border-white/10 pb-6">
           <div className="space-y-2.5 max-w-2xl">
             
             {/* Sleek Glowing Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/15 border border-violet-400/40 text-violet-300 text-xs font-display font-semibold tracking-wide uppercase shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-violet-300" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-xs font-display font-semibold tracking-wide uppercase shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span>Select Solutions For Your Inquiry</span>
             </div>
 
             {/* Main Headline with Radiant High-Contrast Gradient Accent */}
             <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white font-display tracking-tight leading-tight">
-              Which <span className="bg-gradient-to-r from-violet-300 via-fuchsia-200 to-indigo-300 bg-clip-text text-transparent">software solutions</span> are you interested in?
+              Which <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-300 bg-clip-text text-transparent">software solutions</span> are you interested in?
             </h3>
 
             {/* Clear, Readable Subtitle */}
@@ -142,11 +142,11 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
           <div className="flex items-center gap-2.5 self-start sm:self-auto shrink-0">
             <div className={`px-4 py-2 rounded-full font-mono text-xs font-bold border flex items-center gap-2 transition-all duration-300 ${
               selectedIds.length > 0
-                ? 'bg-violet-500/20 border-violet-400/60 text-violet-200 shadow-[0_0_15px_rgba(139,92,246,0.3)]'
+                ? 'bg-amber-500/20 border-amber-400/60 text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
                 : 'bg-white/[0.06] border-white/10 text-slate-400'
             }`}>
               <span className={`w-2 h-2 rounded-full transition-all ${
-                selectedIds.length > 0 ? 'bg-violet-400 animate-pulse' : 'bg-slate-600'
+                selectedIds.length > 0 ? 'bg-amber-400 animate-pulse' : 'bg-slate-600'
               }`} />
               <span>{selectedIds.length} Selected</span>
             </div>
@@ -175,8 +175,8 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
                 onClick={() => toggleProject(proj.id)}
                 className={`rounded-2xl text-left border flex flex-col justify-between overflow-hidden cursor-pointer relative transition-all duration-200 group/card ${
                   isSelected
-                    ? 'bg-[#1E1B4B] border-violet-400 shadow-[0_8px_24px_rgba(124,58,237,0.35)] ring-2 ring-violet-500/40 -translate-y-1 scale-[1.02]'
-                    : 'bg-[#13192B] hover:bg-[#182138] border-white/10 hover:border-violet-400/60 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40'
+                    ? 'bg-[#241716] border-amber-400 shadow-[0_8px_24px_rgba(234,88,12,0.35)] ring-2 ring-amber-500/40 -translate-y-1 scale-[1.02]'
+                    : 'bg-[#13192B] hover:bg-[#182138] border-white/10 hover:border-amber-400/60 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40'
                 }`}
               >
                 {/* Image Container with Smooth Zoom & Clean Sharp Contrast */}
@@ -193,7 +193,7 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
                   <div
                     className={`absolute top-2.5 right-2.5 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-200 ${
                       isSelected
-                        ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-[0_0_12px_rgba(139,92,246,0.6)] scale-110'
+                        ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white shadow-[0_0_12px_rgba(245,158,11,0.6)] scale-110'
                         : 'bg-black/75 text-transparent border border-white/20 group-hover/card:border-white/50'
                     }`}
                   >
@@ -204,7 +204,7 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
                 {/* Card Title & Category Details */}
                 <div className="p-3 sm:p-3.5 space-y-1.5 flex-1 flex flex-col justify-between bg-[#13192B]">
                   <div>
-                    <div className="text-[10px] sm:text-[11px] font-mono text-violet-400 uppercase tracking-wider font-bold truncate">
+                    <div className="text-[10px] sm:text-[11px] font-mono text-amber-400 uppercase tracking-wider font-bold truncate">
                       {proj.category}
                     </div>
                     <h4 className={`font-display font-bold text-xs sm:text-[13px] leading-snug transition-colors line-clamp-2 ${
@@ -215,8 +215,8 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
                   </div>
 
                   <div className="pt-1.5 flex items-center gap-1.5 text-[10px] font-mono">
-                    <span className={`w-1.5 h-1.5 rounded-full transition-colors ${isSelected ? 'bg-violet-400' : 'bg-emerald-400'}`} />
-                    <span className={isSelected ? 'text-violet-300 font-semibold' : 'text-slate-300'}>
+                    <span className={`w-1.5 h-1.5 rounded-full transition-colors ${isSelected ? 'bg-amber-400' : 'bg-emerald-400'}`} />
+                    <span className={isSelected ? 'text-amber-300 font-semibold' : 'text-slate-300'}>
                       {isSelected ? 'Attached to inquiry' : 'Click to select'}
                     </span>
                   </div>
@@ -235,7 +235,7 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
                 {selectedProjects.map((p) => (
                   <span
                     key={p.id}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-violet-600/30 border border-violet-400/50 text-violet-200 text-xs font-medium"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-600/30 border border-amber-400/50 text-amber-200 text-xs font-medium"
                   >
                     {p.title}
                     <button
@@ -244,7 +244,7 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
                         e.stopPropagation()
                         toggleProject(p.id)
                       }}
-                      className="text-violet-300 hover:text-white cursor-pointer ml-0.5"
+                      className="text-amber-300 hover:text-white cursor-pointer ml-0.5"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -253,7 +253,7 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
               </div>
             ) : (
               <span className="text-slate-300 flex items-center gap-2 text-xs sm:text-sm">
-                <Layers className="w-4 h-4 text-violet-400" />
+                <Layers className="w-4 h-4 text-amber-400" />
                 Select one or more software solutions above to include them with your inquiry.
               </span>
             )}
@@ -265,7 +265,7 @@ export default function ContactProjectEstimator({ onSelectEstimate }) {
             disabled={selectedIds.length === 0}
             className={`w-full sm:w-auto px-7 py-3.5 rounded-full font-display font-bold text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2.5 ${
               selectedIds.length > 0
-                ? 'bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_4px_25px_rgba(108,43,217,0.45)] cursor-pointer hover:-translate-y-0.5'
+                ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white shadow-[0_4px_25px_rgba(234,88,12,0.45)] cursor-pointer hover:-translate-y-0.5'
                 : 'bg-[#182138] text-slate-400 border border-white/10 cursor-not-allowed'
             }`}
           >

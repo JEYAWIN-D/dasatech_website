@@ -54,16 +54,16 @@ export default function ColdStorageAutomationView() {
 
       {/* ═════════════════════════════════════════════════════════
           PAGE 1: HERO & CRYOGENIC MULTI-CHAMBER RADAR
-          Theme: Polar Glacial Cyan (#0284C7), Frost Ice Blue (#38BDF8), Crisp Snow
+          Theme: Warm Copper Terracotta, Solar Gold & Obsidian Espresso
       ═════════════════════════════════════════════════════════ */}
-      <section className="relative rounded-[2.5rem] p-8 sm:p-14 lg:p-16 overflow-hidden bg-gradient-to-b from-sky-50/80 via-[#F7FBFE] to-cyan-50/40 border border-sky-200/90 shadow-xl">
+      <section className="relative rounded-[2.5rem] p-8 sm:p-14 lg:p-16 overflow-hidden bg-gradient-to-b from-amber-50/80 via-[#FFFDF9] to-orange-50/40 border border-amber-200/80 shadow-xl">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           <div className="lg:col-span-7 space-y-6">
 
             <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.12]">
-              Cold Storage Automation &amp; <span className="text-sky-700">Zero-Spoilage</span> Telemetry
+              Cold Storage Automation &amp; <span className="text-amber-700">Zero-Spoilage</span> Telemetry
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -73,16 +73,16 @@ export default function ColdStorageAutomationView() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 to="/contact"
-                className="px-7 py-3.5 rounded-2xl bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs tracking-wide shadow-lg shadow-sky-950/20 transition-all flex items-center gap-2 cursor-pointer"
+                className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:opacity-95 text-white font-bold text-xs tracking-wide shadow-lg shadow-amber-950/20 transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Request Cold Storage Audit</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:+917639930148"
-                className="px-6 py-3.5 rounded-2xl bg-white border border-sky-300 text-sky-950 text-xs font-semibold hover:bg-sky-50 shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-2xl bg-white border border-amber-300 text-amber-950 text-xs font-semibold hover:bg-amber-50 shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
               >
-                <PhoneCall className="w-4 h-4 text-sky-700" />
+                <PhoneCall className="w-4 h-4 text-amber-700" />
                 <span>Call Cryogenic Systems Engineer</span>
               </a>
             </div>
@@ -94,8 +94,8 @@ export default function ColdStorageAutomationView() {
                 { val: '0.0 PPM', lbl: 'Ammonia Leak Safety Exhaust' },
                 { val: 'HACCP', lbl: 'Cloud Export Audit Ledger' }
               ].map((m, i) => (
-                <div key={i} className="p-3.5 rounded-2xl bg-white border border-sky-200 shadow-2xs">
-                  <div className="font-display font-black text-lg text-sky-950">{m.val}</div>
+                <div key={i} className="p-3.5 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs">
+                  <div className="font-display font-black text-lg text-amber-950">{m.val}</div>
                   <div className="text-[11px] text-slate-600 font-medium leading-tight mt-0.5">{m.lbl}</div>
                 </div>
               ))}
@@ -104,21 +104,21 @@ export default function ColdStorageAutomationView() {
 
           {/* Right Column: Live Dual-Chamber Radar */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl p-6 sm:p-7 bg-white border-2 border-sky-300 shadow-xl space-y-4">
+            <div className="rounded-3xl p-6 sm:p-7 bg-white border-2 border-amber-300 shadow-xl space-y-4">
               
               <div className="grid grid-cols-2 gap-3 text-xs font-mono">
                 {/* Chamber 1 Deep Freeze */}
-                <div className="p-3.5 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-1">
+                <div className="p-3.5 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-1">
                   <span className="text-[10px] text-slate-500 block font-semibold">CHAMBER 1 (FREEZER)</span>
-                  <strong className="text-2xl font-black text-sky-800 block">{chamber1Temp}°C</strong>
-                  <span className="text-[10px] text-emerald-700 block font-bold">Sub-Zero Safe</span>
+                  <strong className="text-2xl font-black text-amber-800 block">{chamber1Temp}°C</strong>
+                  <span className="text-[10px] text-amber-700 block font-bold">Sub-Zero Safe</span>
                 </div>
 
                 {/* Chamber 2 Chiller */}
-                <div className="p-3.5 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-1">
+                <div className="p-3.5 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-1">
                   <span className="text-[10px] text-slate-500 block font-semibold">CHAMBER 2 (CHILLER)</span>
                   <strong className="text-2xl font-black text-slate-900 block">+2.4°C</strong>
-                  <span className="text-[10px] text-sky-700 block font-bold">Dairy / Fruit OK</span>
+                  <span className="text-[10px] text-amber-700 block font-bold">Dairy / Fruit OK</span>
                 </div>
               </div>
 
@@ -145,7 +145,7 @@ export default function ColdStorageAutomationView() {
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-sky-100/80 border border-sky-300 text-xs font-mono text-sky-950 text-center font-medium">
+              <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-xs font-mono text-amber-950 text-center font-medium">
                 {compressorTripped
                   ? 'Primary Compressor Tripped • Auto-switched to Standby Compressor in 1.4s'
                   : 'Dual Compressors Balanced • Continuous 24/7 lead/lag cycle active'}
@@ -162,7 +162,7 @@ export default function ColdStorageAutomationView() {
       ═════════════════════════════════════════════════════════ */}
       <section className="space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">Multi-Layered Cargo Protection</span>
+          <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Multi-Layered Cargo Protection</span>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-slate-900">
             The 4-Pillar Zero-Spoilage Defense Shield
           </h2>
@@ -176,19 +176,19 @@ export default function ColdStorageAutomationView() {
           {PILLARS.map((p, i) => (
             <div
               key={i}
-              className="p-6 rounded-3xl bg-white border border-sky-200 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+              className="p-6 rounded-3xl bg-white border border-[#EFE6D8] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-sky-100 text-sky-950">
+                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-950">
                     Pillar 0{i + 1}
                   </span>
-                  <span className="text-[10px] font-mono text-sky-700 font-bold uppercase">{p.badge}</span>
+                  <span className="text-[10px] font-mono text-amber-700 font-bold uppercase">{p.badge}</span>
                 </div>
                 <h3 className="font-display font-black text-lg text-slate-900 mt-2">{p.title}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">{p.desc}</p>
               </div>
-              <div className="text-[10px] font-mono text-sky-800 font-bold pt-2 border-t border-slate-100">
+              <div className="text-[10px] font-mono text-amber-800 font-bold pt-2 border-t border-slate-100">
                 {p.stat}
               </div>
             </div>
@@ -201,7 +201,7 @@ export default function ColdStorageAutomationView() {
       ═════════════════════════════════════════════════════════ */}
       <section className="space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">Refrigeration Power Efficiency</span>
+          <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Refrigeration Power Efficiency</span>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-slate-900">
             Demand Defrost Scheduling &amp; Compressor Runtime Balancing
           </h2>
@@ -210,10 +210,10 @@ export default function ColdStorageAutomationView() {
           </p>
         </div>
 
-        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-sky-200 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#EFE6D8] shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-mono font-bold text-sky-700 uppercase">Demand-Driven Defrost Manager</span>
+            <span className="text-xs font-mono font-bold text-amber-700 uppercase">Demand-Driven Defrost Manager</span>
             <h3 className="font-display font-black text-2xl text-slate-900">
               Only Defrost When Evaporator Frost Actually Forms
             </h3>
@@ -228,21 +228,21 @@ export default function ColdStorageAutomationView() {
                 'Ammonia (NH3) gas leak detector auto-starts exhaust fans',
                 'Instant SMS and phone call alerts to warehouse manager'
               ].map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-sky-50/50 border border-sky-100 text-xs font-medium text-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-sky-700 shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#FAF7F2] border border-[#EFE6D8] text-xs font-medium text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-br from-sky-800 to-blue-900 text-white space-y-4 shadow-lg">
-            <span className="text-xs font-mono uppercase text-sky-200 font-bold">5,000 MT Cold Store Case Study</span>
+          <div className="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-br from-[#17121F] via-[#241722] to-[#17121F] text-white space-y-4 shadow-lg border border-white/10">
+            <span className="text-xs font-mono uppercase text-amber-300 font-bold">5,000 MT Cold Store Case Study</span>
             <h4 className="font-display font-black text-2xl text-white">₹3,20,000 Monthly Power Savings</h4>
-            <p className="text-xs text-sky-100 leading-relaxed font-normal">
+            <p className="text-xs text-amber-100 leading-relaxed font-normal">
               By combining demand-defrost logic with automated staggered compressor startups, large multi-chamber facilities dramatically cut peak utility demand.
             </p>
-            <div className="space-y-2 text-xs font-mono text-sky-100 pt-2 border-t border-sky-700">
+            <div className="space-y-2 text-xs font-mono text-amber-100 pt-2 border-t border-white/20">
               <div>Eliminates 4 redundant heater cycles daily</div>
               <div>Avoids maximum demand utility surcharge tariffs</div>
               <div>Full telemetry investment amortized in 8 months</div>
@@ -257,7 +257,7 @@ export default function ColdStorageAutomationView() {
       ═════════════════════════════════════════════════════════ */}
       <section className="space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">Cold Chain Deployment Packages</span>
+          <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Cold Chain Deployment Packages</span>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-slate-900">
             Tailored Cold Storage Automation Packages
           </h2>
@@ -306,16 +306,16 @@ export default function ColdStorageAutomationView() {
               support: 'Validated Regulatory Audit Certification'
             }
           ].map((pkg, i) => (
-            <div key={i} className="p-7 rounded-3xl bg-white border border-sky-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between space-y-5">
+            <div key={i} className="p-7 rounded-3xl bg-white border border-[#EFE6D8] shadow-sm hover:shadow-lg transition-all flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded bg-sky-100 text-sky-950 block w-fit">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-950 block w-fit">
                   {pkg.tag}
                 </span>
                 <h4 className="font-display font-black text-xl text-slate-900">{pkg.name}</h4>
                 <div className="space-y-2 pt-2 border-t border-slate-100">
                   {pkg.scope.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-slate-700 font-medium leading-relaxed">
-                      <Check className="w-3.5 h-3.5 text-sky-700 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -326,7 +326,7 @@ export default function ColdStorageAutomationView() {
                 <div className="text-[11px] font-mono text-slate-500">{pkg.support}</div>
                 <Link
                   to="/contact"
-                  className="w-full py-2.5 rounded-xl bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs tracking-wide flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm"
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:opacity-95 text-white font-bold text-xs tracking-wide flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm"
                 >
                   <span>Request Cold Chain Proposal</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -337,9 +337,9 @@ export default function ColdStorageAutomationView() {
         </div>
 
         {/* Cold Storage FAQ */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-sky-200 shadow-sm space-y-6">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#EFE6D8] shadow-sm space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-1">
-            <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">Cold Chain Operator FAQ</span>
+            <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Cold Chain Operator FAQ</span>
             <h3 className="font-display font-black text-2xl text-slate-900">Frequently Asked Questions by Facility Directors</h3>
           </div>
 
@@ -365,10 +365,10 @@ export default function ColdStorageAutomationView() {
               <div key={i} className="py-4 space-y-2">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full text-left flex justify-between items-center font-bold text-slate-900 cursor-pointer hover:text-sky-800 transition-colors"
+                  className="w-full text-left flex justify-between items-center font-bold text-slate-900 cursor-pointer hover:text-amber-700 transition-colors"
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown className={`w-4 h-4 text-sky-700 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-amber-700 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 {openFaq === i && (
                   <p className="text-slate-600 leading-relaxed font-normal text-xs sm:text-[13px] pt-1 pl-1">

@@ -357,7 +357,7 @@ export default function SmoothLogoReveal({ onComplete }) {
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: [0.8, 1.15, 1], opacity: [0.4, 0.85, 0.7] }}
           transition={{ duration: 4, ease: 'easeInOut' }}
-          className="absolute w-[460px] h-56 bg-gradient-to-r from-blue-600/35 via-teal-500/30 to-purple-600/35 blur-[75px] rounded-full pointer-events-none -z-10"
+          className="absolute w-[460px] h-56 bg-gradient-to-r from-amber-600/35 via-orange-500/30 to-rose-600/35 blur-[75px] rounded-full pointer-events-none -z-10"
         />
 
         {/* Main Logo Container with 3D Mouse Parallax Tilt */}

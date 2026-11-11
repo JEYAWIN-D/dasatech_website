@@ -144,7 +144,7 @@ export default function ErpSouthIndiaBlogPage() {
         </div>
 
         {/* Executive Takeaway Box */}
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-950/40 via-slate-900/60 to-purple-950/30 border border-amber-500/30 mb-12 space-y-3">
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-950/40 via-slate-900/60 to-rose-950/30 border border-amber-500/30 mb-12 space-y-3">
           <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
             <Sparkles className="w-4 h-4" />
             <span>Executive Takeaways</span>
@@ -253,14 +253,14 @@ export default function ErpSouthIndiaBlogPage() {
             </p>
 
             {/* Sector 1: Textile */}
-            <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950/30 to-slate-900 border border-purple-500/30 space-y-3">
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-amber-950/30 to-slate-900 border border-amber-500/30 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
                   <Factory className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-lg text-white">Textile &amp; Garments (Tirupur, Coimbatore, Erode, Karur)</h3>
-                  <div className="text-xs font-mono text-purple-300">Yarn • Spinning • Dyeing • Knitting • Export Packaging</div>
+                  <div className="text-xs font-mono text-amber-300">Yarn • Spinning • Dyeing • Knitting • Export Packaging</div>
                 </div>
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -424,7 +424,7 @@ export default function ErpSouthIndiaBlogPage() {
         {/* ─────────────────────────────────────────────────────────────
             3) CALL TO ACTION & CONSULTATION
         ─────────────────────────────────────────────────────────────── */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-500/10 via-orange-600/15 to-purple-600/10 border border-amber-500/30 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-500/10 via-orange-600/15 to-rose-600/10 border border-amber-500/30 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-left">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
               Transform Your Business Architecture

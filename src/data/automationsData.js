@@ -16,8 +16,8 @@ export const AUTOMATIONS_CATALOG = [
       'Engineered specifically for Indian residences, voltage conditions, and electricity tariffs. Controls lights, fans, ACs, curtains, gates, and security from a single centralized app with 100% offline-first reliability.',
     heroSubtitle:
       'Retrofit installation that fits behind existing switchboards without wall damage or civil work. Works seamlessly during power cuts and internet outages.',
-    color: '#7C3AED',
-    accentBg: 'bg-purple-50 text-purple-700 border-purple-200',
+    color: '#D97706',
+    accentBg: 'bg-amber-50 text-amber-700 border-amber-200',
     statHighlights: [
       { value: 'Slab-Aware', label: 'Electricity Bill Prediction' },
       { value: '100% Offline', label: 'Local Edge Gateway Control' },
@@ -101,8 +101,8 @@ export const AUTOMATIONS_CATALOG = [
       'Healthcare-grade automation engineered for patient safety, sterile Operation Theater (OT) environmental control, medical gas line monitoring, and floor-level hospital energy accounting.',
     heroSubtitle:
       'Designed to meet NABH accreditation requirements with 100% offline-first controllers that maintain life-critical operations during network outages.',
-    color: '#0284C7',
-    accentBg: 'bg-sky-50 text-sky-700 border-sky-200',
+    color: '#EA580C',
+    accentBg: 'bg-orange-50 text-orange-700 border-orange-200',
     statHighlights: [
       { value: '< 2s', label: 'Nurse Call Alert Dispatch' },
       { value: '±0.2°C', label: 'OT Temperature Precision' },
@@ -186,8 +186,8 @@ export const AUTOMATIONS_CATALOG = [
       'Elevate corporate workplace productivity and eliminate commercial electricity waste with smart conference room scenes, centralized AC scheduling, daylight harvesting, and indoor air quality sensors.',
     heroSubtitle:
       'Local offline-first building controllers ensure seamless meeting room presentation and climate management without cloud lag.',
-    color: '#4F46E5',
-    accentBg: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    color: '#BE123C',
+    accentBg: 'bg-rose-50 text-rose-700 border-rose-200',
     statHighlights: [
       { value: '40%', label: 'Commercial HVAC Savings' },
       { value: '1-Touch', label: 'Meeting Room Launch' },
@@ -356,8 +356,8 @@ export const AUTOMATIONS_CATALOG = [
       'Industrial automation tailored for Indian manufacturing plants, mills, and processing facilities. Features per-machine energy metering, comprehensive motor protection, PLC/SCADA integration, and operator safety interlocks.',
     heroSubtitle:
       'Offline-first industrial controllers execute critical safety and energy rules locally without cloud dependencies.',
-    color: '#DC2626',
-    accentBg: 'bg-red-50 text-red-700 border-red-200',
+    color: '#C2410C',
+    accentBg: 'bg-orange-50 text-orange-700 border-orange-200',
     statHighlights: [
       { value: 'Per-Machine', label: 'Energy Metering per Batch' },
       { value: '< 3s', label: 'Motor Dry-Run Auto Trip' },
@@ -441,8 +441,8 @@ export const AUTOMATIONS_CATALOG = [
       'Engineered for Indian farmers and commercial growers. Automates drip and sprinkler irrigation based on real-time soil moisture, protects borewell pumps against dry-run burnout, and controls solar pumps remotely.',
     heroSubtitle:
       'Long-range LoRaWAN telemetry operates across 5 to 10 kilometers of farmland without laying costly cables or relying on cellular towers.',
-    color: '#16A34A',
-    accentBg: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    color: '#D97706',
+    accentBg: 'bg-amber-50 text-amber-700 border-amber-200',
     statHighlights: [
       { value: '3 Seconds', label: 'Dry-Run Pump Cutoff Speed' },
       { value: '50%', label: 'Water Conservation' },
@@ -526,8 +526,8 @@ export const AUTOMATIONS_CATALOG = [
       'Refrigeration energy management tailored for commercial cold storage warehouses, pack houses, and produce cold rooms. Delivers multi-point sub-zero temperature logging, peak-tariff load shedding within safe limits, and automated ammonia leak alerts.',
     heroSubtitle:
       'Offline-first refrigeration controllers run safety rules locally to prevent perishable spoilage even during internet or power failures.',
-    color: '#0891B2',
-    accentBg: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    color: '#EA580C',
+    accentBg: 'bg-orange-50 text-orange-700 border-orange-200',
     statHighlights: [
       { value: 'Safe Limits', label: 'Peak-Hour Load Shedding' },
       { value: 'Anti-Short', label: 'Compressor Cycle Protection' },

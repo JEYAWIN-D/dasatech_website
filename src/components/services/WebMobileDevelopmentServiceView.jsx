@@ -148,9 +148,9 @@ export default function WebMobileDevelopmentServiceView() {
                   {deviceMode === 'mobile' ? (
                     <div className="w-[180px] h-[300px] rounded-[32px] border-4 border-slate-700 bg-[#17121F] p-3 text-center space-y-3 relative shadow-2xl">
                       <div className="w-12 h-2.5 rounded-full bg-slate-800 mx-auto" />
-                      <div className="text-[10px] font-mono font-bold text-[#C084FC] uppercase">Mobile App UI</div>
+                      <div className="text-[10px] font-mono font-bold text-amber-400 uppercase">Mobile App UI</div>
                       <div className="p-2 rounded-xl bg-white/10 text-[10px] text-slate-200">Fluid Touch Navigation</div>
-                      <div className="p-2 rounded-xl bg-[#7C3AED]/30 text-[10px] text-purple-200 border border-[#7C3AED]/50">Barcode Scanner Active</div>
+                      <div className="p-2 rounded-xl bg-amber-500/20 text-[10px] text-amber-200 border border-amber-500/40">Barcode Scanner Active</div>
                     </div>
                   ) : (
                     <div className="w-full max-w-[440px] h-[220px] rounded-2xl border-4 border-slate-700 bg-[#17121F] p-4 text-left space-y-3 shadow-2xl">
@@ -163,7 +163,7 @@ export default function WebMobileDevelopmentServiceView() {
                       <div className="font-display font-bold text-xs text-white">Responsive Web Dashboard</div>
                       <div className="grid grid-cols-2 gap-2 text-[10px] font-mono">
                         <div className="p-2 rounded-lg bg-white/10 text-slate-200">Real-Time Data Table</div>
-                        <div className="p-2 rounded-lg bg-[#7C3AED]/30 text-purple-200">Role-Based Admin</div>
+                        <div className="p-2 rounded-lg bg-amber-500/20 text-amber-200">Role-Based Admin</div>
                       </div>
                     </div>
                   )}
@@ -240,11 +240,11 @@ export default function WebMobileDevelopmentServiceView() {
       {/* ── 3. DISCOVERY SESSION CTA ──────────────────────────── */}
       <section className="py-16 lg:py-24 bg-[#0F0B18] text-white">
         <div className="max-w-[900px] mx-auto px-6 sm:px-10 text-center space-y-6">
-          <span className="text-xs font-mono font-bold text-[#C084FC] uppercase tracking-wider bg-purple-950/60 border border-purple-800/60 px-4 py-1.5 rounded-full">
+          <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider bg-amber-950/60 border border-amber-800/60 px-4 py-1.5 rounded-full">
             READY TO BUILD YOUR APP?
           </span>
           <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">
-            Schedule an Application <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] to-[#7C3AED]">Discovery Session</span>
+            Schedule an Application <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500">Discovery Session</span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Discuss UI/UX wireframes, Flutter mobile architectures, and cloud backend models directly with Founder &amp; CEO Jeyawin D and our application engineering leads.
@@ -252,7 +252,7 @@ export default function WebMobileDevelopmentServiceView() {
           <div className="pt-2">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-display font-bold text-sm shadow-xl shadow-[#7C3AED]/30 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-bold text-sm shadow-xl shadow-amber-900/30 transition-all"
             >
               <span>Start Application Discussion</span>
               <ArrowRight className="w-4 h-4" />

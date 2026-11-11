@@ -226,7 +226,7 @@ export default function WarehouseErpProductView() {
                 </button>
 
                 {scanResult && (
-                  <div className="p-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">
+                  <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold">
                     ITEM SCANNED &bull; BIN VERIFIED ACCURATE
                   </div>
                 )}
@@ -292,7 +292,7 @@ export default function WarehouseErpProductView() {
       {/* ── 4. DISCOVERY SESSION CTA ──────────────────────────── */}
       <section className="py-16 lg:py-24 bg-[#041017] text-white">
         <div className="max-w-[900px] mx-auto px-6 sm:px-10 text-center space-y-6">
-          <span className="text-xs font-mono font-bold text-[#67E8F9] uppercase tracking-wider bg-cyan-950/60 border border-cyan-800/60 px-4 py-1.5 rounded-full">
+          <span className="text-xs font-mono font-bold text-amber-300 uppercase tracking-wider bg-amber-950/60 border border-amber-800/60 px-4 py-1.5 rounded-full">
             READY TO OPTIMIZE YOUR LOGISTICS?
           </span>
           <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">

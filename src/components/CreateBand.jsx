@@ -7,37 +7,37 @@ export default function CreateBand() {
   const pills = [
     {
       word: 'WE',
-      bg: 'bg-gradient-to-br from-[#090D1A] to-[#12182D]',
-      text: 'text-white border border-purple-500/30',
+      bg: 'bg-gradient-to-br from-[#0E0A12] to-[#1C1424]',
+      text: 'text-white border border-amber-500/30',
       icon: Sparkles,
     },
     {
       word: 'ENGINEER',
-      bg: 'bg-gradient-to-r from-[#52058C] via-[#7B1FA2] to-[#8B3CFF]',
-      text: 'text-white shadow-xl shadow-purple-900/40 border border-purple-400/50',
+      bg: 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600',
+      text: 'text-white shadow-xl shadow-amber-900/40 border border-amber-400/50',
       icon: Cpu,
     },
     {
       word: 'INTELLIGENT',
-      bg: 'bg-[#0A0A0A]',
-      text: 'text-purple-300 border border-purple-500/20',
+      bg: 'bg-[#120D16]',
+      text: 'text-amber-300 border border-amber-500/30',
       icon: Layers,
     },
     {
       isArrow: true,
-      bg: 'bg-gradient-to-r from-[#00E5FF] to-[#0088FF]',
-      text: 'text-[#05070F]',
+      bg: 'bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500',
+      text: 'text-white',
     },
     {
       word: 'FUTURE',
-      bg: 'bg-purple-950/40',
-      text: 'text-slate-200 border border-purple-500/30 hover:text-white',
+      bg: 'bg-[#1A1220]/80',
+      text: 'text-amber-100/90 border border-amber-500/30 hover:text-white',
       icon: Zap,
     },
   ]
 
   return (
-    <section className="relative py-12 bg-[#05070F] overflow-hidden border-y border-purple-900/30 select-none">
+    <section className="relative py-12 bg-[#0A070D] overflow-hidden border-y border-amber-500/20 select-none">
       <div className="max-w-7xl mx-auto px-6">
         <ul className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full">
           {pills.map((pill, idx) => (

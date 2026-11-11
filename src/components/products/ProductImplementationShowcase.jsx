@@ -31,7 +31,7 @@ function SafeImage({ src, alt, className, title, brandColor }) {
           <h4 className="font-display font-bold text-xl text-white">{title}</h4>
           <p className="text-xs text-slate-300">Operational interface screen ready for deployment.</p>
         </div>
-        <div className="text-xs font-mono text-emerald-400">✓ System Active</div>
+        <div className="text-xs font-mono text-amber-400">✓ System Active</div>
       </div>
     )
   }
@@ -163,7 +163,7 @@ export default function ProductImplementationShowcase({
 
                   {(activeScreen.specs || ['Real-Time Synchronization', 'Role-Based Permissions', 'Instant Search & Export']).map((spec, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                       <span>{spec}</span>
                     </div>
                   ))}
@@ -218,7 +218,7 @@ export default function ProductImplementationShowcase({
                       https://{activeScreen.route || 'app.dasatech.com'}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  <span className="text-[10px] font-mono text-amber-700 font-bold bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
                     Active
                   </span>
                 </div>
@@ -269,13 +269,13 @@ export default function ProductImplementationShowcase({
                       0{idx + 1}
                     </span>
                     {isSelected && (
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                     )}
                   </div>
 
                   <div className="space-y-1">
                     <div className={`text-[10px] font-mono uppercase font-bold truncate ${
-                      isSelected ? 'text-blue-300' : 'text-slate-400'
+                      isSelected ? 'text-amber-300' : 'text-slate-400'
                     }`}>
                       {shot.module}
                     </div>
@@ -305,7 +305,7 @@ export default function ProductImplementationShowcase({
             {/* Modal Header */}
             <div className="flex items-center justify-between text-white border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-white/10 text-emerald-400 border border-emerald-400/30">
+                <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-white/10 text-amber-300 border border-amber-400/30">
                   {activeScreen?.module}
                 </span>
                 <h3 className="font-display font-bold text-base sm:text-lg text-white">

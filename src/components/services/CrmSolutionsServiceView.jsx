@@ -40,7 +40,7 @@ export default function CrmSolutionsServiceView() {
   const STAGES = [
     { key: 'new', title: 'New Inquiries', badgeColor: 'bg-amber-100 text-amber-800 border-amber-300' },
     { key: 'contacted', title: 'Contacted', badgeColor: 'bg-blue-100 text-blue-800 border-blue-300' },
-    { key: 'proposal', title: 'Proposal Sent', badgeColor: 'bg-purple-100 text-purple-800 border-purple-300' },
+    { key: 'proposal', title: 'Proposal Sent', badgeColor: 'bg-amber-100 text-amber-800 border-amber-300' },
     { key: 'closed', title: 'Closed Won', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300' }
   ]
 

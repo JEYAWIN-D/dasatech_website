@@ -47,7 +47,7 @@ function IndustryCard({ icon: Icon, name, color }) {
       onMouseLeave={onLeave}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 600 }}
       whileHover={{ scale: 1.06, y: -4 }}
-      className="glass rounded-3xl p-6 flex flex-col items-center justify-center gap-3.5 text-center border border-purple-500/20 hover:border-purple-400 bg-[#090D1A]/80 hover:bg-[#0E1528] transition-all duration-300 cursor-pointer group relative overflow-hidden shadow-xl"
+      className="glass rounded-3xl p-6 flex flex-col items-center justify-center gap-3.5 text-center border border-amber-500/20 hover:border-amber-400 bg-[#120D16]/90 hover:bg-[#1A1220] transition-all duration-300 cursor-pointer group relative overflow-hidden shadow-xl"
     >
       <div
         className="w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border"
@@ -68,14 +68,14 @@ function IndustryCard({ icon: Icon, name, color }) {
 
 export default function Industries() {
   return (
-    <section id="industries" className="relative py-28 bg-[#05070F] text-white overflow-hidden border-t border-purple-900/30">
+    <section id="industries" className="relative py-28 bg-[#0E0A12] text-white overflow-hidden border-t border-amber-500/20">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <Reveal>
-          <div className="text-xs font-bold tracking-wider text-purple-400 uppercase mb-3">
+          <div className="text-xs font-bold tracking-wider text-amber-400 uppercase mb-3">
             Target Industry Verticals
           </div>
 

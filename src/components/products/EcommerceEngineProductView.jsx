@@ -189,7 +189,7 @@ export default function EcommerceEngineProductView() {
                 </button>
 
                 {checkoutComplete && (
-                  <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-mono text-center font-bold">
+                  <div className="p-3 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono text-center font-bold">
                     ORDER CONFIRMED &bull; WHATSAPP RECEIPT DISPATCHED TO CLIENT
                   </div>
                 )}
@@ -243,7 +243,7 @@ export default function EcommerceEngineProductView() {
 
               <div className="p-4 rounded-2xl bg-white border border-[#EFE6D8]">
                 <div className="text-slate-400 text-[10px]">Net Vendor Payout (88%):</div>
-                <div className="text-xl font-bold text-emerald-600 mt-1">₹{vendorPayout}</div>
+                <div className="text-xl font-bold text-amber-600 mt-1">₹{vendorPayout}</div>
               </div>
             </div>
           </div>

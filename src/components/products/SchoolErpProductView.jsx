@@ -40,24 +40,24 @@ export default function SchoolErpProductView() {
       desc: 'Eliminate bank queues and spreadsheet chaos. Direct UPI, NetBanking, and card settlements with instant digital tax receipts, sibling discount formulas, and automated WhatsApp dues reminders.',
       icon: CreditCard,
       tag: 'FINANCIAL OPS',
-      accent: 'border-emerald-500/20 hover:border-emerald-500/80 hover:shadow-emerald-500/10',
-      iconColor: 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+      accent: 'border-amber-500/20 hover:border-amber-500/80 hover:shadow-amber-500/10',
+      iconColor: 'bg-amber-50 text-amber-700 border border-amber-200'
     },
     {
       title: 'Contactless RFID & Biometric Gate Telemetry',
       desc: 'Instant student transit logging through turnstiles, biometric fingerprint units, and handheld bus scanners. Automatic parent alerts trigger in under 45 seconds if a scholar is absent.',
       icon: QrCode,
       tag: 'CAMPUS SAFETY',
-      accent: 'border-cyan-500/20 hover:border-cyan-500/80 hover:shadow-cyan-500/10',
-      iconColor: 'bg-cyan-50 text-cyan-700 border border-cyan-200'
+      accent: 'border-orange-500/20 hover:border-orange-500/80 hover:shadow-orange-500/10',
+      iconColor: 'bg-orange-50 text-orange-700 border border-orange-200'
     },
     {
       title: 'CBSE, ICSE & State Board Grade Engine',
       desc: 'Configurable scholastic and co-scholastic grading rubrics, automated GPA calculation, class rankings, and 1-click printable digital report cards with authenticated digital signatures.',
       icon: Award,
       tag: 'ACADEMIC RIGOR',
-      accent: 'border-indigo-500/20 hover:border-indigo-500/80 hover:shadow-indigo-500/10',
-      iconColor: 'bg-indigo-50 text-indigo-700 border border-indigo-200'
+      accent: 'border-rose-500/20 hover:border-rose-500/80 hover:shadow-rose-500/10',
+      iconColor: 'bg-rose-50 text-rose-700 border border-rose-200'
     },
     {
       title: 'Live GPS Bus Fleet & Transit Guardian',
@@ -72,16 +72,16 @@ export default function SchoolErpProductView() {
       desc: 'Reduces routine front-office phone inquiries by over 80%. Guardians inspect daily homework, attendance graphs, fee statements, bus location, and school circulars with verifiable read receipts.',
       icon: Smartphone,
       tag: 'COMMUNICATION',
-      accent: 'border-purple-500/20 hover:border-purple-500/80 hover:shadow-purple-500/10',
-      iconColor: 'bg-purple-50 text-purple-700 border border-purple-200'
+      accent: 'border-orange-500/20 hover:border-orange-500/80 hover:shadow-orange-500/10',
+      iconColor: 'bg-orange-50 text-orange-700 border border-orange-200'
     },
     {
       title: 'Multi-Campus Trust & Governance Console',
       desc: 'Centralized oversight for educational trusts and growing school groups. Compare fee realization speed, faculty attendance ratios, and syllabus milestones across branches from one executive master login.',
       icon: Building2,
       tag: 'GOVERNANCE',
-      accent: 'border-blue-500/20 hover:border-blue-500/80 hover:shadow-blue-500/10',
-      iconColor: 'bg-blue-50 text-blue-700 border border-blue-200'
+      accent: 'border-rose-500/20 hover:border-rose-500/80 hover:shadow-rose-500/10',
+      iconColor: 'bg-rose-50 text-rose-700 border border-rose-200'
     }
   ]
 
@@ -673,13 +673,13 @@ export default function SchoolErpProductView() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
             
             <div className="pt-2 sm:pt-0 space-y-1">
-              <div className="font-display font-black text-3xl sm:text-4xl text-indigo-600">100%</div>
+              <div className="font-display font-black text-3xl sm:text-4xl text-amber-600">100%</div>
               <div className="text-xs sm:text-sm text-slate-700 font-mono font-bold">Auto-Reconciled Fees</div>
               <div className="text-[11px] text-slate-400 font-mono">Zero manual ledger entry</div>
             </div>
 
             <div className="pt-4 sm:pt-0 space-y-1">
-              <div className="font-display font-black text-3xl sm:text-4xl text-emerald-600">&lt; 45s</div>
+              <div className="font-display font-black text-3xl sm:text-4xl text-orange-600">&lt; 45s</div>
               <div className="text-xs sm:text-sm text-slate-700 font-mono font-bold">Parent Alert Speed</div>
               <div className="text-[11px] text-slate-400 font-mono">Instant RFID gate notification</div>
             </div>
@@ -691,7 +691,7 @@ export default function SchoolErpProductView() {
             </div>
 
             <div className="pt-4 sm:pt-0 space-y-1">
-              <div className="font-display font-black text-3xl sm:text-4xl text-cyan-600">99.98%</div>
+              <div className="font-display font-black text-3xl sm:text-4xl text-amber-600">99.98%</div>
               <div className="text-xs sm:text-sm text-slate-700 font-mono font-bold">Cloud Reliability SLA</div>
               <div className="text-[11px] text-slate-400 font-mono">ISO 27001 data center standard</div>
             </div>
@@ -760,8 +760,8 @@ export default function SchoolErpProductView() {
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 text-xs font-mono font-bold uppercase tracking-wider">
-              <Users className="w-3.5 h-3.5 text-purple-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-mono font-bold uppercase tracking-wider">
+              <Users className="w-3.5 h-3.5 text-amber-600" />
               <span>ROLE-BASED ARCHITECTURE</span>
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-950 tracking-tight">
@@ -813,8 +813,8 @@ export default function SchoolErpProductView() {
             {/* Highlights Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {ROLE_PERSPECTIVES[activeRole].highlights.map((point, i) => (
-                <div key={i} className="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-purple-100/80 shadow-2xs">
-                  <div className="w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+                <div key={i} className="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
                   <span className="text-xs sm:text-sm font-medium text-slate-800">
@@ -833,8 +833,8 @@ export default function SchoolErpProductView() {
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200 text-xs font-mono font-bold uppercase tracking-wider">
-              <Layers className="w-3.5 h-3.5 text-cyan-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 text-orange-800 border border-orange-200 text-xs font-mono font-bold uppercase tracking-wider">
+              <Layers className="w-3.5 h-3.5 text-orange-600" />
               <span>THE 360° MODULAR SUITE</span>
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-950 tracking-tight">
@@ -902,8 +902,8 @@ export default function SchoolErpProductView() {
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-mono font-bold uppercase tracking-wider">
-              <Clock className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-mono font-bold uppercase tracking-wider">
+              <Clock className="w-3.5 h-3.5 text-amber-600" />
               <span>RAPID INSTITUTIONAL ONBOARDING</span>
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-950 tracking-tight">
@@ -992,7 +992,7 @@ export default function SchoolErpProductView() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                    <span className="text-xs font-mono font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                       {t.metric}
                     </span>
                   </div>

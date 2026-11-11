@@ -199,7 +199,7 @@ export default function AgriAutomationProductView() {
       {/* ── 3. DISCOVERY SESSION CTA ──────────────────────────── */}
       <section className="py-16 lg:py-24 bg-[#051A13] text-white">
         <div className="max-w-[900px] mx-auto px-6 sm:px-10 text-center space-y-6">
-          <span className="text-xs font-mono font-bold text-[#6EE7B7] uppercase tracking-wider bg-emerald-950/60 border border-emerald-800/60 px-4 py-1.5 rounded-full">
+          <span className="text-xs font-mono font-bold text-amber-300 uppercase tracking-wider bg-amber-950/60 border border-amber-800/60 px-4 py-1.5 rounded-full">
             READY TO AUTOMATE YOUR FARM IRRIGATION?
           </span>
           <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">

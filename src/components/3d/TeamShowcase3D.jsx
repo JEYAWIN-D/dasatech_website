@@ -199,10 +199,10 @@ export default function TeamShowcase3D() {
   }
 
   return (
-    <section className="relative py-28 bg-[#05070F] text-white overflow-hidden border-t border-purple-900/30">
+    <section className="relative py-28 bg-[#0A070D] text-white overflow-hidden border-t border-amber-500/20">
       
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-amber-500/10 via-orange-600/10 to-transparent rounded-full blur-[160px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -210,8 +210,8 @@ export default function TeamShowcase3D() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-purple-500/30 bg-purple-950/40 text-purple-300 text-xs font-mono mb-3 font-bold">
-                <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-amber-500/30 bg-amber-950/40 text-amber-300 text-xs font-mono mb-3 font-bold">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>EXECUTIVE LEADERSHIP &amp; ENGINEERING DIVISIONS</span>
               </div>
               <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
@@ -226,14 +226,14 @@ export default function TeamShowcase3D() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => handleScrollStrip('left')}
-                className="p-3.5 rounded-2xl glass bg-[#090D1A]/90 border border-purple-500/30 hover:border-purple-400 text-purple-300 hover:text-white transition shadow-lg"
+                className="p-3.5 rounded-2xl glass bg-[#120D16]/90 border border-amber-500/30 hover:border-amber-400 text-amber-300 hover:text-white transition shadow-lg"
                 aria-label="Scroll Strip Left"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => handleScrollStrip('right')}
-                className="p-3.5 rounded-2xl glass bg-[#090D1A]/90 border border-purple-500/30 hover:border-purple-400 text-purple-300 hover:text-white transition shadow-lg"
+                className="p-3.5 rounded-2xl glass bg-[#120D16]/90 border border-amber-500/30 hover:border-amber-400 text-amber-300 hover:text-white transition shadow-lg"
                 aria-label="Scroll Strip Right"
               >
                 <ArrowRight className="w-5 h-5" />
@@ -248,7 +248,7 @@ export default function TeamShowcase3D() {
           {/* Left Floating Side Scroll Button (Left to Right) */}
           <button
             onClick={() => handleScrollStrip('left')}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-50 p-4 rounded-2xl glass bg-[#090D1A]/95 border border-purple-500/30 hover:border-purple-400 text-purple-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-50 p-4 rounded-2xl glass bg-[#120D16]/95 border border-amber-500/30 hover:border-amber-400 text-amber-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center"
             aria-label="Scroll Strip Left"
           >
             <ArrowLeft className="w-6 h-6" />
@@ -257,7 +257,7 @@ export default function TeamShowcase3D() {
           {/* Right Floating Side Scroll Button (Right to Left) */}
           <button
             onClick={() => handleScrollStrip('right')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-50 p-4 rounded-2xl glass bg-[#090D1A]/95 border border-purple-500/30 hover:border-purple-400 text-purple-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-50 p-4 rounded-2xl glass bg-[#120D16]/95 border border-amber-500/30 hover:border-amber-400 text-amber-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center"
             aria-label="Scroll Strip Right"
           >
             <ArrowRight className="w-6 h-6" />
@@ -265,10 +265,10 @@ export default function TeamShowcase3D() {
 
           <div
             ref={scrollContainerRef}
-            className="w-full rounded-3xl bg-[#03050B] border border-purple-500/30 shadow-2xl overflow-x-auto scrollbar-none scroll-smooth p-3"
+            className="w-full rounded-3xl bg-[#0A070D] border border-amber-500/30 shadow-2xl overflow-x-auto scrollbar-none scroll-smooth p-3"
             style={{ perspective: '1200px' }}
           >
-            <div className="flex items-stretch min-w-[2260px] w-full h-[580px] divide-x divide-purple-900/40">
+            <div className="flex items-stretch min-w-[2260px] w-full h-[580px] divide-x divide-amber-500/20">
               
               {teamMembers.map((m, idx) => {
                 const isHovered = hoveredId === m.id
@@ -360,19 +360,19 @@ export default function TeamShowcase3D() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-5xl h-[85vh] glass rounded-3xl border border-purple-500/30 shadow-2xl bg-[#090D1A] overflow-hidden text-white grid grid-cols-1 lg:grid-cols-12"
+              className="relative w-full max-w-5xl h-[85vh] glass rounded-3xl border border-amber-500/30 shadow-2xl bg-[#120D16] overflow-hidden text-white grid grid-cols-1 lg:grid-cols-12"
             >
               {/* Close Button Top Right */}
               <button
                 onClick={() => setActiveProfileIndex(null)}
-                className="absolute top-6 right-6 p-3 rounded-full glass border border-purple-500/30 text-slate-400 hover:text-white hover:border-purple-400 transition z-30"
+                className="absolute top-6 right-6 p-3 rounded-full glass border border-amber-500/30 text-slate-400 hover:text-white hover:border-amber-400 transition z-30"
                 aria-label="Close Profile"
               >
                 <X className="w-5 h-5" />
               </button>
 
               {/* Left Column: Full-Height Real Portrait Image */}
-              <div className="lg:col-span-6 h-full relative bg-[#05070F] flex items-center justify-center border-r border-purple-900/40 overflow-hidden">
+              <div className="lg:col-span-6 h-full relative bg-[#0A070D] flex items-center justify-center border-r border-amber-500/20 overflow-hidden">
                 <img
                   src={activeMember.image}
                   alt={activeMember.name}
@@ -380,18 +380,18 @@ export default function TeamShowcase3D() {
                 />
 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05070F] via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A070D] via-transparent to-transparent"></div>
 
                 {/* Left/Right Navigation Arrows */}
                 <button
                   onClick={handlePrevProfile}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 p-3 rounded-full glass border border-purple-500/30 text-white hover:border-purple-400 transition z-20"
+                  className="absolute left-6 top-1/2 -translate-y-1/2 p-3 rounded-full glass border border-amber-500/30 text-white hover:border-amber-400 transition z-20"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={handleNextProfile}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 p-3 rounded-full glass border border-purple-500/30 text-white hover:border-purple-400 transition z-20 lg:hidden"
+                  className="absolute right-6 top-1/2 -translate-y-1/2 p-3 rounded-full glass border border-amber-500/30 text-white hover:border-amber-400 transition z-20 lg:hidden"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
@@ -416,7 +416,7 @@ export default function TeamShowcase3D() {
                     <h2 className="text-4xl sm:text-5xl font-bold text-white mb-2 font-display">
                       {activeMember.name}
                     </h2>
-                    <div className="text-sm font-mono text-purple-400 font-semibold">
+                    <div className="text-sm font-mono text-amber-400 font-semibold">
                       {activeMember.role}
                     </div>
                   </div>
@@ -430,14 +430,14 @@ export default function TeamShowcase3D() {
 
                   {/* Experience & Skills */}
                   <div>
-                    <div className="text-xs font-mono text-purple-400 uppercase tracking-widest mb-3">
+                    <div className="text-xs font-mono text-amber-400 uppercase tracking-widest mb-3">
                       Skills & Expertise
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {activeMember.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1.5 rounded-xl bg-purple-950/40 border border-purple-500/30 text-purple-200 text-xs font-mono font-medium"
+                          className="px-3 py-1.5 rounded-xl bg-amber-950/40 border border-amber-500/30 text-amber-200 text-xs font-mono font-medium"
                         >
                           {skill}
                         </span>
@@ -447,13 +447,13 @@ export default function TeamShowcase3D() {
                 </div>
 
                 {/* Footer Navigation Bar in Modal */}
-                <div className="pt-6 border-t border-purple-900/40 flex items-center justify-between">
+                <div className="pt-6 border-t border-amber-500/20 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <a
                       href={activeMember.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#52058C] via-[#7B1FA2] to-[#8B3CFF] hover:opacity-95 text-white font-semibold text-xs font-mono transition inline-flex items-center gap-2 shadow-lg shadow-purple-900/30"
+                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:opacity-95 text-white font-semibold text-xs font-mono transition inline-flex items-center gap-2 shadow-lg shadow-amber-900/30"
                     >
                       <Linkedin className="w-4 h-4" />
                       <span>LinkedIn Profile</span>
@@ -463,7 +463,7 @@ export default function TeamShowcase3D() {
                   {/* Desktop Right Arrow for Next Member */}
                   <button
                     onClick={handleNextProfile}
-                    className="p-3 rounded-full glass border border-purple-500/30 text-purple-300 hover:text-white hover:border-purple-400 transition hidden lg:flex items-center gap-2 text-xs font-mono"
+                    className="p-3 rounded-full glass border border-amber-500/30 text-amber-300 hover:text-white hover:border-amber-400 transition hidden lg:flex items-center gap-2 text-xs font-mono"
                   >
                     <span>Next Member</span>
                     <ChevronRight className="w-4 h-4" />

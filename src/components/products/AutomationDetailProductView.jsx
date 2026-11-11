@@ -21,24 +21,24 @@ export const SECTORS = [
     id: 'home',
     label: 'Home Automation',
     icon: Home,
-    color: '#EA580C',
-    lightBg: '#FFF7ED',
+    color: '#D97706',
+    lightBg: '#FFFDF5',
     badge: 'Residential & Luxury Living Architecture'
   },
   {
     id: 'hospital',
     label: 'Hospital Automation',
     icon: Building2,
-    color: '#059669',
-    lightBg: '#ECFDF5',
+    color: '#EA580C',
+    lightBg: '#FFF7ED',
     badge: 'NABH & Critical Care Patient Life-Safety'
   },
   {
     id: 'office',
     label: 'Office Automation',
     icon: Briefcase,
-    color: '#EA580C',
-    lightBg: '#FFF7ED',
+    color: '#BE123C',
+    lightBg: '#FFF1F2',
     badge: 'Commercial Campus & Enterprise Energy BMS'
   },
   {
@@ -46,7 +46,7 @@ export const SECTORS = [
     label: 'Hotel Automation (GRMS)',
     icon: Hotel,
     color: '#D97706',
-    lightBg: '#FFFBEB',
+    lightBg: '#FFFDF5',
     badge: '5-Star Luxury Hospitality & Guest Experience'
   },
   {
@@ -61,16 +61,16 @@ export const SECTORS = [
     id: 'agri',
     label: 'Agri Automation',
     icon: Sprout,
-    color: '#65A30D',
-    lightBg: '#F7FEE7',
+    color: '#D97706',
+    lightBg: '#FFFDF5',
     badge: 'Precision Smart Agriculture & Solar Pump Telemetry'
   },
   {
     id: 'cold-storage',
     label: 'Cold Storage Automation',
     icon: Snowflake,
-    color: '#0284C7',
-    lightBg: '#F0F9FF',
+    color: '#EA580C',
+    lightBg: '#FFF7ED',
     badge: 'Sub-Zero Cryogenic & Zero-Spoilage Cold Chain'
   }
 ]
@@ -101,10 +101,10 @@ export default function AutomationDetailProductView({ automationId: propId }) {
   }
 
   return (
-    <div className="pt-24 min-h-screen bg-[#FCFBFF] text-[#0F172A] relative overflow-hidden select-none">
+    <div className="pt-24 min-h-screen bg-[#FAF7F2] text-[#17121F] relative overflow-hidden select-none">
       
       {/* Universal Top Switcher Bar */}
-      <section className="border-b border-slate-200/90 bg-white/95 backdrop-blur-md sticky top-16 z-30 shadow-2xs">
+      <section className="border-b border-[#EFE6D8] bg-[#FAF7F2]/95 backdrop-blur-md sticky top-16 z-30 shadow-2xs">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-3 space-y-3">
           
           <div className="flex items-center justify-between gap-4">

@@ -968,8 +968,8 @@ export default function FactoryErpProductView() {
                 </div>
 
                 {/* The DASA TexFlow Solution (5 Cols) */}
-                <div className="lg:col-span-5 p-4 rounded-xl bg-emerald-50/80 border border-emerald-200/80 space-y-2">
-                  <div className="text-[11px] font-mono font-bold text-emerald-700 flex items-center gap-1.5">
+                <div className="lg:col-span-5 p-4 rounded-xl bg-amber-50/80 border border-amber-200/80 space-y-2">
+                  <div className="text-[11px] font-mono font-bold text-amber-700 flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                     <span>THE IOT TEXTILE ERP ADVANTAGE:</span>
                   </div>
@@ -1098,7 +1098,7 @@ export default function FactoryErpProductView() {
                   <ul className="space-y-2 pt-1">
                     {mod.features.map((feat, fidx) => (
                       <li key={fidx} className="flex items-start gap-2.5 text-xs text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                         <span className="leading-relaxed">{feat}</span>
                       </li>
                     ))}

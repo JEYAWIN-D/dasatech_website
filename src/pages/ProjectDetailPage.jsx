@@ -1146,7 +1146,7 @@ export default function ProjectDetailPage() {
           </div>
 
           {/* High-Impact CTA Banner */}
-          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-700 text-white shadow-xl text-center space-y-6">
+          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white shadow-xl text-center space-y-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 border border-white/30 text-xs font-mono font-bold uppercase tracking-wider">
               DASA TECH CUSTOM ENTERPRISE ENGINEERING
             </span>
@@ -1155,7 +1155,7 @@ export default function ProjectDetailPage() {
               Ready to Engineer a Custom ERP or Mission-Critical Platform?
             </h2>
 
-            <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-amber-100 max-w-2xl mx-auto font-medium leading-relaxed">
               Whether you are running multi-branch pharmacy retail, hospital networks, or complex supply chain operations, DASA TECH builds custom software tailored to your workflows.
             </p>
 

@@ -266,38 +266,38 @@ export default function SnapShareSocialProductView() {
                 
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#A855F7] animate-ping" />
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-300">
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-300">
                       LIVE AI FACE VECTOR ENGINE
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
                     42ms LATENCY
                   </span>
                 </div>
 
                 {/* Simulated Face Scan Mesh */}
-                <div className="relative h-44 rounded-2xl bg-[#090611] border border-[#8B5CF6]/30 flex flex-col items-center justify-center p-4 overflow-hidden group">
-                  <div className="absolute inset-0 bg-[radial-gradient(#8B5CF6_1px,transparent_1px)] [background-size:16px_16px] opacity-20" />
+                <div className="relative h-44 rounded-2xl bg-[#090611] border border-amber-500/30 flex flex-col items-center justify-center p-4 overflow-hidden group">
+                  <div className="absolute inset-0 bg-[radial-gradient(#D97706_1px,transparent_1px)] [background-size:16px_16px] opacity-20" />
                   
                   {isMatching ? (
                     <div className="flex flex-col items-center space-y-3 z-10">
-                      <div className="w-12 h-12 rounded-full border-2 border-dashed border-[#EC4899] animate-spin flex items-center justify-center">
-                        <Cpu className="w-5 h-5 text-[#06B6D4]" />
+                      <div className="w-12 h-12 rounded-full border-2 border-dashed border-amber-400 animate-spin flex items-center justify-center">
+                        <Cpu className="w-5 h-5 text-amber-300" />
                       </div>
-                      <span className="text-xs font-mono text-[#C4B5FD] animate-pulse">
+                      <span className="text-xs font-mono text-amber-200 animate-pulse">
                         Extracting 512D Cosine Embeddings...
                       </span>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2.5 z-10 text-center">
-                      <div className="w-12 h-12 rounded-2xl bg-[#8B5CF6]/20 border border-[#8B5CF6]/50 flex items-center justify-center text-[#C4B5FD]">
+                      <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-300">
                         <Scan className="w-6 h-6" />
                       </div>
                       <div className="font-display font-bold text-sm text-white">
                         Selfie Matched in 2,450 Event Photos
                       </div>
-                      <div className="text-[11px] font-mono text-emerald-400 font-bold">
+                      <div className="text-[11px] font-mono text-amber-300 font-bold">
                         ✓ {matchScore}% Cosine Confidence Score
                       </div>
                     </div>
@@ -308,7 +308,7 @@ export default function SnapShareSocialProductView() {
                     <motion.div
                       animate={{ y: [-70, 70, -70] }}
                       transition={{ duration: 1.2, repeat: Infinity }}
-                      className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-[#EC4899] to-transparent shadow-lg shadow-[#EC4899]"
+                      className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent shadow-lg shadow-amber-500/50"
                     />
                   )}
                 </div>
@@ -317,7 +317,7 @@ export default function SnapShareSocialProductView() {
                 <button
                   onClick={triggerFaceMatchDemo}
                   disabled={isMatching}
-                  className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-mono font-bold text-purple-200 hover:text-white border border-white/15 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-mono font-bold text-amber-200 hover:text-white border border-white/15 transition-all flex items-center justify-center gap-2"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 ${isMatching ? 'animate-spin' : ''}`} />
                   <span>{isMatching ? 'Calculating Vector Match...' : 'Simulate Guest Face Search'}</span>
@@ -331,7 +331,7 @@ export default function SnapShareSocialProductView() {
                   </div>
                   <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                     <div className="text-[10px] font-mono text-slate-400">GUEST APP DOWNLOAD</div>
-                    <div className="text-lg font-display font-black text-emerald-400">0 MB (Web QR)</div>
+                    <div className="text-lg font-display font-black text-amber-300">0 MB (Web QR)</div>
                   </div>
                 </div>
 
@@ -347,15 +347,15 @@ export default function SnapShareSocialProductView() {
               <div className="text-xs font-mono text-slate-400">Average AI Face Query</div>
             </div>
             <div className="space-y-1">
-              <div className="font-display font-black text-3xl text-[#EC4899]">100%</div>
+              <div className="font-display font-black text-3xl text-amber-400">100%</div>
               <div className="text-xs font-mono text-slate-400">Zero App Download Required</div>
             </div>
             <div className="space-y-1">
-              <div className="font-display font-black text-3xl text-[#06B6D4]">50GB+</div>
+              <div className="font-display font-black text-3xl text-orange-400">50GB+</div>
               <div className="text-xs font-mono text-slate-400">Rapid S3 Batch Ingestion</div>
             </div>
             <div className="space-y-1">
-              <div className="font-display font-black text-3xl text-emerald-400">99.99%</div>
+              <div className="font-display font-black text-3xl text-amber-300">99.99%</div>
               <div className="text-xs font-mono text-slate-400">Multi-Tenant Cloud Uptime</div>
             </div>
           </div>
@@ -464,7 +464,7 @@ export default function SnapShareSocialProductView() {
                   <div className="text-[11px] font-mono text-amber-300">Live Client Booking Funnel</div>
                 </div>
               </div>
-              <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
                 ₹18.4L Active Pipeline
               </span>
             </div>

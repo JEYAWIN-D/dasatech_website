@@ -135,9 +135,9 @@ export default function CTA() {
               {/* Consultation Portal Link */}
               <Link
                 to="/contact"
-                className="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-violet-500/60 hover:bg-white/[0.07] transition-all group"
+                className="flex items-center gap-3.5 p-3 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-500/60 hover:bg-white/[0.07] transition-all group"
               >
-                <div className="w-9 h-9 rounded-xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-300 group-hover:scale-105 transition-transform shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-300 group-hover:scale-105 transition-transform shrink-0">
                   <ArrowRight className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">

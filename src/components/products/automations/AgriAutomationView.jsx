@@ -76,18 +76,18 @@ export default function AgriAutomationView() {
 
       {/* ═════════════════════════════════════════════════════════
           PAGE 1: HERO & PRECISION SMART FARM COCKPIT
-          Theme: Botanical Sunlit Lime (#65A30D), Meadow Green (#84CC16), Dew Cream
+          Theme: Golden Harvest Amber, Warm Terracotta Copper & Obsidian
       ═════════════════════════════════════════════════════════ */}
-      <section className="relative rounded-[2.5rem] p-8 sm:p-14 lg:p-16 overflow-hidden bg-gradient-to-b from-lime-50/80 via-[#FAFCF4] to-emerald-50/40 border border-lime-300/80 shadow-xl">
+      <section className="relative rounded-[2.5rem] p-8 sm:p-14 lg:p-16 overflow-hidden bg-gradient-to-b from-amber-50/80 via-[#FFFDF9] to-orange-50/40 border border-amber-200/80 shadow-xl">
         
         {/* Top Sunlit Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-36 bg-gradient-to-b from-lime-200/40 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-36 bg-gradient-to-b from-amber-200/30 to-transparent blur-3xl pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
           
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.12]">
-              Smart Agri Automation &amp; <span className="text-lime-700">Solar Pump VFD</span> Telemetry
+              Smart Agri Automation &amp; <span className="text-amber-700">Solar Pump VFD</span> Telemetry
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -97,16 +97,16 @@ export default function AgriAutomationView() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 to="/contact"
-                className="px-7 py-3.5 rounded-2xl bg-lime-700 hover:bg-lime-800 text-white font-bold text-xs tracking-wide shadow-lg shadow-lime-950/20 transition-all flex items-center gap-2 cursor-pointer"
+                className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:opacity-95 text-white font-bold text-xs tracking-wide shadow-lg shadow-amber-950/20 transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Book Free Farm Assessment</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:+917639930148"
-                className="px-6 py-3.5 rounded-2xl bg-white border border-lime-300 text-lime-950 text-xs font-semibold hover:bg-lime-50 shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-2xl bg-white border border-amber-300 text-amber-950 text-xs font-semibold hover:bg-amber-50 shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
               >
-                <PhoneCall className="w-4 h-4 text-lime-700" />
+                <PhoneCall className="w-4 h-4 text-amber-700" />
                 <span>Talk to Agri Automation Specialist</span>
               </a>
             </div>
@@ -118,8 +118,8 @@ export default function AgriAutomationView() {
                 { val: 'LoRa 5km', lbl: 'Long Range Mesh (Zero SIM fees)' },
                 { val: '< 3s Trip', lbl: 'Automatic Dry-Run Motor Defense' }
               ].map((m, i) => (
-                <div key={i} className="p-3.5 rounded-2xl bg-white border border-lime-200 shadow-2xs">
-                  <div className="font-display font-black text-lg text-lime-950">{m.val}</div>
+                <div key={i} className="p-3.5 rounded-2xl bg-white border border-[#EFE6D8] shadow-2xs">
+                  <div className="font-display font-black text-lg text-amber-950">{m.val}</div>
                   <div className="text-[11px] text-slate-600 font-medium leading-tight mt-0.5">{m.lbl}</div>
                 </div>
               ))}
@@ -128,23 +128,23 @@ export default function AgriAutomationView() {
 
           {/* Right Column: Live Smart Farm Cockpit */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl p-6 sm:p-7 bg-white border-2 border-lime-300 shadow-xl space-y-4">
+            <div className="rounded-3xl p-6 sm:p-7 bg-white border-2 border-amber-300 shadow-xl space-y-4">
               
-              <div className="flex items-center justify-between border-b border-lime-100 pb-3">
+              <div className="flex items-center justify-between border-b border-amber-100 pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-lime-600 animate-pulse" />
-                  <span className="text-xs font-mono font-bold text-lime-950 uppercase">Field Node 01 (Polyhouse)</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span className="text-xs font-mono font-bold text-amber-950 uppercase">Field Node 01 (Polyhouse)</span>
                 </div>
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-lime-100 text-lime-900 font-bold">
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold">
                   Solar Battery 13.8V
                 </span>
               </div>
 
               {/* Moisture Dial & Toggle */}
-              <div className="p-4 rounded-2xl bg-lime-50/60 border border-lime-200 space-y-3">
+              <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] space-y-3">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-slate-700 font-bold">ROOT-ZONE SOIL MOISTURE</span>
-                  <span className={`font-bold ${moistureLevel > 35 ? 'text-lime-800' : 'text-amber-700'}`}>
+                  <span className={`font-bold ${moistureLevel > 35 ? 'text-amber-800' : 'text-rose-700'}`}>
                     {moistureLevel}% {moistureLevel > 35 ? '(Optimal Hydration)' : '(Watering Needed)'}
                   </span>
                 </div>
@@ -155,8 +155,8 @@ export default function AgriAutomationView() {
                     onClick={handleActivateDrip}
                     className={`px-3.5 py-1.5 rounded-xl font-bold cursor-pointer transition-all ${
                       dripActive
-                        ? 'bg-emerald-700 hover:bg-emerald-800 text-white shadow-sm'
-                        : 'bg-lime-700 hover:bg-lime-800 text-white'
+                        ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-sm'
+                        : 'bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-95 text-white'
                     }`}
                   >
                     {dripActive ? 'Drip Valve OPEN' : 'Open Drip Valve'}
@@ -169,17 +169,17 @@ export default function AgriAutomationView() {
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
                   <span className="text-[10px] text-slate-500 block">SOLAR VFD PUMP</span>
                   <strong className="text-base font-bold text-slate-900 block">48.5 Hz</strong>
-                  <span className="text-[10px] text-emerald-700 block font-semibold">Dry-Run Shield Active</span>
+                  <span className="text-[10px] text-amber-700 block font-semibold">Dry-Run Shield Active</span>
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
                   <span className="text-[10px] text-slate-500 block">RAIN DELAY SENSOR</span>
                   <strong className="text-base font-bold text-slate-900 block">Clear Skies</strong>
-                  <span className="text-[10px] text-lime-800 block font-semibold">Scheduled Fertigation OK</span>
+                  <span className="text-[10px] text-amber-800 block font-semibold">Scheduled Fertigation OK</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-lime-100/80 border border-lime-300 text-xs font-mono text-lime-950 text-center font-medium">
+              <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-xs font-mono text-amber-950 text-center font-medium">
                 {dripActive
                   ? 'Drip Line Active • Calibrated root-zone water release engaged'
                   : 'Solar Standby • Tracking sunlight intensity across 4 panels'}
@@ -196,7 +196,7 @@ export default function AgriAutomationView() {
       ═════════════════════════════════════════════════════════ */}
       <section className="space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-lime-700 uppercase tracking-wider">Agronomic Science</span>
+          <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Agronomic Science</span>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-slate-900">
             Pre-Calibrated Soil &amp; Climate Presets by Crop
           </h2>
@@ -213,8 +213,8 @@ export default function AgriAutomationView() {
               onClick={() => setActiveCrop(k)}
               className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer border ${
                 activeCrop === k
-                  ? 'bg-lime-700 text-white border-lime-700 shadow-md shadow-lime-900/20'
-                  : 'bg-white text-slate-700 border-slate-200 hover:border-lime-300'
+                  ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white border-transparent shadow-md shadow-amber-900/20'
+                  : 'bg-white text-slate-700 border-[#EFE6D8] hover:border-amber-300'
               }`}
             >
               {c.name.split('&')[0].trim()}
@@ -223,33 +223,33 @@ export default function AgriAutomationView() {
         </div>
 
         {/* Active Crop Detail Card */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-lime-200 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#EFE6D8] shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-4">
-            <span className="text-xs font-mono font-bold text-lime-700 uppercase">{cropData.tagline}</span>
+            <span className="text-xs font-mono font-bold text-amber-700 uppercase">{cropData.tagline}</span>
             <h3 className="font-display font-black text-2xl text-slate-900">{cropData.name}</h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {cropData.features.map((feat, i) => (
-                <div key={i} className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-lime-50/40 border border-lime-100 text-xs font-medium text-slate-800 leading-relaxed">
-                  <CheckCircle2 className="w-4 h-4 text-lime-700 shrink-0 mt-0.5" />
+                <div key={i} className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] text-xs font-medium text-slate-800 leading-relaxed">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </div>
               ))}
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#EFE6D8] text-xs font-mono text-slate-700 flex items-center justify-between">
               <span>Soil Sensor Protocol:</span>
               <strong className="text-slate-900">LoRaWAN 868/915 MHz • SDI-12 Volumetric Water Content (VWC)</strong>
             </div>
           </div>
 
-          <div className="lg:col-span-4 p-6 rounded-2xl bg-gradient-to-br from-lime-700 to-emerald-800 text-white space-y-4 shadow-lg">
-            <span className="text-xs font-mono uppercase text-lime-200 font-bold">Validated Impact</span>
+          <div className="lg:col-span-4 p-6 rounded-2xl bg-gradient-to-br from-amber-700 via-orange-600 to-rose-700 text-white space-y-4 shadow-lg">
+            <span className="text-xs font-mono uppercase text-amber-200 font-bold">Validated Impact</span>
             <h4 className="font-display font-black text-xl text-white">{cropData.savings}</h4>
-            <p className="text-xs text-lime-100 leading-relaxed font-normal">
+            <p className="text-xs text-amber-100 leading-relaxed font-normal">
               Eliminate guesswork. Soil moisture telemetry prevents root asphyxiation during wet seasons and protects crops during heatwaves.
             </p>
-            <div className="space-y-2 text-xs font-mono text-lime-100 pt-2 border-t border-lime-600">
+            <div className="space-y-2 text-xs font-mono text-amber-100 pt-2 border-t border-white/20">
               <div>Direct fertilizer injector solenoid support</div>
               <div>Multi-plot sub-surface valve sequencing</div>
               <div>Automatic solar DC battery health monitoring</div>
@@ -263,7 +263,7 @@ export default function AgriAutomationView() {
       ═════════════════════════════════════════════════════════ */}
       <section className="space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-lime-700 uppercase tracking-wider">Borehole &amp; Pump Engineering</span>
+          <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Borehole &amp; Pump Engineering</span>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-slate-900">
             Solar VFD Multi-Shield &amp; 5km Long-Range LoRa Mesh
           </h2>
@@ -272,10 +272,10 @@ export default function AgriAutomationView() {
           </p>
         </div>
 
-        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-lime-200 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#EFE6D8] shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-mono font-bold text-lime-700 uppercase">Hardware Reliability Protections</span>
+            <span className="text-xs font-mono font-bold text-amber-700 uppercase">Hardware Reliability Protections</span>
             <h3 className="font-display font-black text-2xl text-slate-900">
               Complete Protection for Submersible Borehole Pumps
             </h3>
@@ -290,21 +290,21 @@ export default function AgriAutomationView() {
                 'Automatic re-start timer allows borehole water to recharge',
                 'Single-phasing & motor locked-rotor defense'
               ].map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-lime-50/50 border border-lime-100 text-xs font-medium text-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-lime-700 shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#FAF7F2] border border-[#EFE6D8] text-xs font-medium text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-br from-lime-800 to-green-900 text-white space-y-4 shadow-lg">
-            <span className="text-xs font-mono uppercase text-lime-200 font-bold">5km Long-Range LoRa Mesh</span>
+          <div className="lg:col-span-5 p-6 rounded-2xl bg-gradient-to-br from-[#17121F] via-[#241722] to-[#17121F] text-white space-y-4 shadow-lg border border-white/10">
+            <span className="text-xs font-mono uppercase text-amber-300 font-bold">5km Long-Range LoRa Mesh</span>
             <h4 className="font-display font-black text-2xl text-white">Zero Monthly Telecom Fees</h4>
-            <p className="text-xs text-lime-100 leading-relaxed font-normal">
+            <p className="text-xs text-amber-100 leading-relaxed font-normal">
               Traditional GSM modules require expensive monthly SIM subscriptions for every sensor node. DASA uses sub-GHz LoRa mesh to transmit data across 5km to a single solar base station.
             </p>
-            <div className="space-y-2 text-xs font-mono text-lime-100 pt-2 border-t border-lime-700">
+            <div className="space-y-2 text-xs font-mono text-amber-100 pt-2 border-t border-white/20">
               <div>Up to 5 km line-of-sight range across farm hills</div>
               <div>Connects up to 64 wireless soil nodes per gateway</div>
               <div>Operates on free open industrial radio spectrum</div>
@@ -319,7 +319,7 @@ export default function AgriAutomationView() {
       ═════════════════════════════════════════════════════════ */}
       <section className="space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-lime-700 uppercase tracking-wider">Farm Deployment Packages</span>
+          <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Farm Deployment Packages</span>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-slate-900">
             Turnkey Agricultural Automation Packages
           </h2>
@@ -368,16 +368,16 @@ export default function AgriAutomationView() {
               support: 'Turnkey Polyhouse Climate Engineering'
             }
           ].map((pkg, i) => (
-            <div key={i} className="p-7 rounded-3xl bg-white border border-lime-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between space-y-5">
+            <div key={i} className="p-7 rounded-3xl bg-white border border-[#EFE6D8] shadow-sm hover:shadow-lg transition-all flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded bg-lime-100 text-lime-950 block w-fit">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-950 block w-fit">
                   {pkg.tag}
                 </span>
                 <h4 className="font-display font-black text-xl text-slate-900">{pkg.name}</h4>
                 <div className="space-y-2 pt-2 border-t border-slate-100">
                   {pkg.scope.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-slate-700 font-medium leading-relaxed">
-                      <Check className="w-3.5 h-3.5 text-lime-700 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -388,7 +388,7 @@ export default function AgriAutomationView() {
                 <div className="text-[11px] font-mono text-slate-500">{pkg.support}</div>
                 <Link
                   to="/contact"
-                  className="w-full py-2.5 rounded-xl bg-lime-700 hover:bg-lime-800 text-white font-bold text-xs tracking-wide flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm"
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:opacity-95 text-white font-bold text-xs tracking-wide flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm"
                 >
                   <span>Request Farm Assessment</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -399,9 +399,9 @@ export default function AgriAutomationView() {
         </div>
 
         {/* Agri FAQ */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-lime-200 shadow-sm space-y-6">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#EFE6D8] shadow-sm space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-1">
-            <span className="text-xs font-mono font-bold text-lime-700 uppercase tracking-wider">Farmer Decision FAQ</span>
+            <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Farmer Decision FAQ</span>
             <h3 className="font-display font-black text-2xl text-slate-900">Frequently Asked Questions by Farmers &amp; Growers</h3>
           </div>
 
@@ -427,10 +427,10 @@ export default function AgriAutomationView() {
               <div key={i} className="py-4 space-y-2">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full text-left flex justify-between items-center font-bold text-slate-900 cursor-pointer hover:text-lime-800 transition-colors"
+                  className="w-full text-left flex justify-between items-center font-bold text-slate-900 cursor-pointer hover:text-amber-700 transition-colors"
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown className={`w-4 h-4 text-lime-700 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-amber-700 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 {openFaq === i && (
                   <p className="text-slate-600 leading-relaxed font-normal text-xs sm:text-[13px] pt-1 pl-1">

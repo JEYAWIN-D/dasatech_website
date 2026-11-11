@@ -284,7 +284,7 @@ function LiveCharacterFX({ member, isActing }) {
             opacity: [0.5, 0.95, 0.5]
           }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute top-[26%] left-[24%] w-8 h-8 rounded-full bg-purple-500/50 blur-md shadow-[0_0_12px_#A855F7]"
+          className="absolute top-[26%] left-[24%] w-8 h-8 rounded-full bg-amber-500/50 blur-md shadow-[0_0_12px_#F59E0B]"
         />
       )}
 
@@ -294,7 +294,7 @@ function LiveCharacterFX({ member, isActing }) {
           initial={{ opacity: 0, scale: 0.8, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: -10 }}
-          className="absolute top-6 inset-x-6 z-40 p-3 rounded-2xl bg-black/85 border border-purple-500/50 backdrop-blur-xl shadow-[0_10px_30px_rgba(124,58,237,0.5)] text-center"
+          className="absolute top-6 inset-x-6 z-40 p-3 rounded-2xl bg-black/85 border border-amber-500/50 backdrop-blur-xl shadow-[0_10px_30px_rgba(245,158,11,0.3)] text-center"
         >
           <div className="text-xs font-mono font-bold text-emerald-400 flex items-center justify-center gap-1.5 mb-0.5">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
@@ -456,14 +456,14 @@ function Character3DStage({ member, onPrev, onNext }) {
       {/* Prev / Next Spotlight Stage Buttons */}
       <button
         onClick={onPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-white/10 border border-white/15 text-white hover:bg-purple-600/80 transition z-40 cursor-pointer backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95"
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-white/10 border border-white/15 text-white hover:bg-amber-600/80 transition z-40 cursor-pointer backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95"
         aria-label="Previous Team Member"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={onNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-white/10 border border-white/15 text-white hover:bg-purple-600/80 transition z-40 cursor-pointer backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95 lg:hidden"
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-white/10 border border-white/15 text-white hover:bg-amber-600/80 transition z-40 cursor-pointer backdrop-blur-md shadow-2xl hover:scale-110 active:scale-95 lg:hidden"
         aria-label="Next Team Member"
       >
         <ChevronRight className="w-6 h-6" />
@@ -510,11 +510,11 @@ export default function FoundersAndTeamShowcase() {
 
   return (
     <>
-      <section className="relative py-20 lg:py-28 bg-[#040611] text-white overflow-hidden border-t border-purple-900/30 select-none w-full">
+      <section className="relative py-20 lg:py-28 bg-[#040611] text-white overflow-hidden border-t border-amber-500/20 select-none w-full">
 
         {/* Background Volumetric Ambient Lighting */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-gradient-to-br from-[#7C3AED]/15 via-[#3B82F6]/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-0" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#00E5FF]/10 to-transparent rounded-full blur-[120px] pointer-events-none -z-0" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-gradient-to-br from-amber-500/15 via-orange-600/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-0" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-rose-500/10 to-transparent rounded-full blur-[120px] pointer-events-none -z-0" />
 
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
 
@@ -527,11 +527,11 @@ export default function FoundersAndTeamShowcase() {
               transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <div className="text-xs font-bold tracking-wider text-purple-400 uppercase">
+              <div className="text-xs font-bold tracking-wider text-amber-400 uppercase">
                 Team Leadership
               </div>
               <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] via-[#C084FC] to-[#38BDF8]">Family</span>
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500">Family</span>
               </h2>
               <p className="text-slate-400 text-xs sm:text-sm font-mono max-w-xl">
                 Hover over any member to illuminate in full color • Click to inspect interactive 3D spotlight profile with live signature actions
@@ -542,14 +542,14 @@ export default function FoundersAndTeamShowcase() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => handleScrollStrip('left')}
-                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400 text-slate-300 hover:text-white transition shadow-lg backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400 text-slate-300 hover:text-white transition shadow-lg backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
                 aria-label="Scroll Strip Left"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => handleScrollStrip('right')}
-                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400 text-slate-300 hover:text-white transition shadow-lg backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400 text-slate-300 hover:text-white transition shadow-lg backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
                 aria-label="Scroll Strip Right"
               >
                 <ArrowRight className="w-5 h-5" />
@@ -563,7 +563,7 @@ export default function FoundersAndTeamShowcase() {
             {/* Side Floating Left Scroll Trigger */}
             <button
               onClick={() => handleScrollStrip('left')}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3.5 rounded-2xl bg-[#0a0f26]/90 border border-purple-500/40 hover:border-purple-400 text-purple-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer backdrop-blur-md opacity-0 group-hover/strip:opacity-100"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3.5 rounded-2xl bg-[#120D16]/90 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer backdrop-blur-md opacity-0 group-hover/strip:opacity-100"
               aria-label="Scroll Left"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -572,7 +572,7 @@ export default function FoundersAndTeamShowcase() {
             {/* Side Floating Right Scroll Trigger */}
             <button
               onClick={() => handleScrollStrip('right')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3.5 rounded-2xl bg-[#0a0f26]/90 border border-purple-500/40 hover:border-purple-400 text-purple-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer backdrop-blur-md opacity-0 group-hover/strip:opacity-100"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3.5 rounded-2xl bg-[#120D16]/90 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer backdrop-blur-md opacity-0 group-hover/strip:opacity-100"
               aria-label="Scroll Right"
             >
               <ArrowRight className="w-5 h-5" />
@@ -762,7 +762,7 @@ export default function FoundersAndTeamShowcase() {
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-[#090C1A] border border-purple-500/30 rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-hidden text-white grid grid-cols-1 lg:grid-cols-12 min-h-[560px] max-h-[90vh]"
+              className="relative w-full max-w-5xl bg-[#120D16] border border-amber-500/30 rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-hidden text-white grid grid-cols-1 lg:grid-cols-12 min-h-[560px] max-h-[90vh]"
             >
               {/* Close Button Top Right */}
               <button
@@ -850,7 +850,7 @@ export default function FoundersAndTeamShowcase() {
                   {/* Next Member Desktop Control */}
                   <button
                     onClick={handleNextProfile}
-                    className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-slate-200 hover:text-white hover:border-purple-400 transition hidden lg:inline-flex items-center gap-2 text-xs font-mono font-semibold cursor-pointer"
+                    className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-slate-200 hover:text-white hover:border-amber-400 transition hidden lg:inline-flex items-center gap-2 text-xs font-mono font-semibold cursor-pointer"
                   >
                     <span>Next Member</span>
                     <ChevronRight className="w-4 h-4" />
