@@ -366,7 +366,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 5. OUR FAMILY & LEADERSHIP (TEAM SHOWCASE) ────────── */}
+      {/* ── 5. FOUNDER & EXECUTIVE LEADERSHIP SHOWCASE ────────── */}
       <FoundersAndTeamShowcase />
 
       {/* ── 6. WHY CLIENTS TRUST DASA TECH ────────────────────── */}
