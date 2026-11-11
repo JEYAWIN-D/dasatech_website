@@ -18,6 +18,7 @@ import {
   X
 } from 'lucide-react'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
@@ -136,6 +137,18 @@ const PERKS = [
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState(null)
   const [copiedSignal, setCopiedSignal] = useState(false)
+
+  useSEO({
+    title: 'Careers at DASA TECH | Software Engineering, AI & IoT Roles',
+    description: 'Join the engineering and product team at DASA TECH. Explore open roles in full-stack software development, AI computer vision, IoT systems, and UI/UX design in Tamil Nadu.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Careers at DASA TECH",
+      "description": "Open engineering and technical positions at DASA TECH Software Solutions.",
+      "url": "https://dasatech.in/careers"
+    }
+  })
 
   const handleCopySignal = () => {
     navigator.clipboard.writeText('dasatech.99')

@@ -2,11 +2,23 @@ import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Lock, Eye, FileText, CheckCircle2, ArrowLeft, Database, Globe, KeyRound, Server, UserCheck, AlertCircle } from 'lucide-react'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 
 export default function PrivacyPolicyPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
+
+  useSEO({
+    title: 'Privacy Policy & Data Protection | DASA TECH',
+    description: 'Privacy policy and data governance practices at DASA TECH Software Solutions. Strict data confidentiality and zero data sharing.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy",
+      "url": "https://dasatech.in/privacy"
+    }
+  })
 
   return (
     <div className="min-h-screen bg-white text-[#17131F] selection:bg-amber-500 selection:text-white pt-24 pb-20 select-none">

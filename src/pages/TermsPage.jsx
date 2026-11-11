@@ -2,11 +2,23 @@ import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FileText, CheckCircle2, ShieldCheck, ArrowLeft, Code2, Scale, Clock, Award, FileCode, CheckSquare } from 'lucide-react'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 
 export default function TermsPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
+
+  useSEO({
+    title: 'Terms of Service & Master Services Agreement | DASA TECH',
+    description: 'Terms of service, engineering engagement standards, SLA commitments, and intellectual property rights for DASA TECH Software Solutions.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms of Service",
+      "url": "https://dasatech.in/terms"
+    }
+  })
 
   return (
     <div className="min-h-screen bg-white text-[#17131F] selection:bg-amber-500 selection:text-white pt-24 pb-20 select-none">

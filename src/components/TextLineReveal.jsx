@@ -30,9 +30,9 @@ export default function TextLineReveal({
           <span key={idx} className="block overflow-hidden pt-1 pb-2.5 -mb-2">
             <motion.span
               className={`block ${lineClassName} ${customClass} pb-1`}
-              initial={{ y: '115%', opacity: 0 }}
+              initial={{ y: '100%', opacity: 0 }}
               whileInView={{ y: '0%', opacity: 1 }}
-              viewport={{ once, amount: 0.2 }}
+              viewport={{ once, amount: 0.05 }}
               transition={{
                 duration,
                 delay: delay + idx * stagger,

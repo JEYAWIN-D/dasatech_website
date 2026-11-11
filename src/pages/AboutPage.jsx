@@ -11,6 +11,7 @@ import FoundersAndTeamShowcase from '../components/FoundersAndTeamShowcase'
 import CustomersShowcase from '../components/CustomersShowcase'
 import { PAGE_HERO_IMAGES } from '../constants/images.js'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 
 // ─────────────────────────────────────────────────────────────
 // DASA TECH ABOUT PAGE (REDESIGNED)
@@ -97,6 +98,22 @@ const WHY_CHOOSE_US = [
 
 export default function AboutPage() {
   const [activeApproach, setActiveApproach] = useState(0)
+
+  useSEO({
+    title: 'About DASA TECH — Enterprise Software Engineering & Innovation',
+    description: 'Learn about DASA TECH: Founder & CEO Jeyawin D, our engineering team, customer success stories, and our mission to build resilient enterprise software and automation across South India.',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      'name': 'About DASA TECH',
+      'description': 'Technology company engineering proprietary enterprise software, custom ERP platforms, and industrial automation.',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'DASA TECH',
+        'url': 'https://dasatech.in'
+      }
+    }
+  })
 
   return (
     <div className="min-h-screen bg-white text-[#17121F] relative overflow-hidden select-none">
@@ -366,7 +383,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 5. FOUNDER & EXECUTIVE LEADERSHIP SHOWCASE ────────── */}
+      {/* ── 5. OUR FAMILY & LEADERSHIP (TEAM SHOWCASE) ────────── */}
       <FoundersAndTeamShowcase />
 
       {/* ── 6. WHY CLIENTS TRUST DASA TECH ────────────────────── */}

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { usePath } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 import PharmacyErpProductView from '../components/products/PharmacyErpProductView'
 import FinanceAccountingProductView from '../components/products/FinanceAccountingProductView'
 import FactoryErpProductView from '../components/products/FactoryErpProductView'
@@ -43,6 +44,25 @@ export default function ProductDetailPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [productId])
+
+  const productInfo = PRODUCT_DATA[productId] || { name: 'Enterprise Software Product', category: 'Software Solution' }
+
+  useSEO({
+    title: `${productInfo.name} | DASA TECH Software Solutions`,
+    description: `Discover ${productInfo.name} (${productInfo.category}) by DASA TECH. Enterprise-grade software engineering, custom ERP platforms, and industrial automation designed for scale.`,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": productInfo.name,
+      "applicationCategory": productInfo.category,
+      "operatingSystem": "Web, Cloud, Windows, Linux, iOS, Android",
+      "author": {
+        "@type": "Organization",
+        "name": "DASA TECH Software Solutions",
+        "url": "https://dasatech.in"
+      }
+    }
+  })
 
   // Route to the dedicated, non-repetitive product visual component
   switch (productId) {

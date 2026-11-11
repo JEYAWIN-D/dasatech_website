@@ -6,7 +6,6 @@ import {
   ChevronRight,
   ArrowLeft,
   ArrowRight,
-  ArrowUpRight,
   X,
   Mail,
   Phone,
@@ -15,13 +14,7 @@ import {
   Zap,
   Layers,
   Award,
-  Cpu,
-  Database,
-  CheckCircle2,
-  Copy,
-  Check,
-  Activity,
-  Shield
+  Cpu
 } from 'lucide-react'
 import { Link } from './Router.jsx'
 import SignalBrandIcon from './SignalBrandIcon'
@@ -29,7 +22,6 @@ import SignalBrandIcon from './SignalBrandIcon'
 // Local High-Definition 3D Character Avatars
 import jeyawin3d from '../assets/team-3d/jeyawin.jpg'
 import founderSoloImg from '../assets/team-3d/founder-jeyawin.png'
-import founderTransparentImg from '../assets/team-3d/founder-jeyawin-transparent.png'
 import mithul3d from '../assets/team-3d/mithul.jpg'
 import arun3d from '../assets/team-3d/arun.jpg'
 import akash3d from '../assets/team-3d/akash.jpg'
@@ -481,316 +473,396 @@ function Character3DStage({ member, onPrev, onNext }) {
 }
 
 export default function FoundersAndTeamShowcase() {
-  const [copiedSignal, setCopiedSignal] = useState(false)
+  const [hoveredId, setHoveredId] = useState(null)
+  const [activeProfileIndex, setActiveProfileIndex] = useState(null)
+  const scrollContainerRef = useRef(null)
 
-  const handleCopySignal = (e) => {
-    e.preventDefault()
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText('dasatech.99')
-      setCopiedSignal(true)
-      setTimeout(() => setCopiedSignal(false), 2200)
+  const activeMember = activeProfileIndex !== null ? TEAM_MEMBERS[activeProfileIndex] : null
+
+  const handlePrevProfile = (e) => {
+    if (e) e.stopPropagation()
+    setActiveProfileIndex((prev) => (prev === 0 ? TEAM_MEMBERS.length - 1 : prev - 1))
+  }
+
+  const handleNextProfile = (e) => {
+    if (e) e.stopPropagation()
+    setActiveProfileIndex((prev) => (prev === TEAM_MEMBERS.length - 1 ? 0 : prev + 1))
+  }
+
+  const handleScrollStrip = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -380 : 380
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
     }
   }
 
-  const ARCHITECTURE_PILLARS = [
-    {
-      icon: Database,
-      title: 'Distributed Multi-Branch ERP',
-      desc: 'Sub-50ms query latency across multi-location inventories, consolidated GST ledgers, and live branch synchronization.',
-      color: 'from-amber-500/15 via-amber-500/5 to-transparent',
-      border: 'border-amber-500/30',
-      iconColor: 'text-amber-400'
-    },
-    {
-      icon: ShieldCheck,
-      title: '100% Client Code Sovereignty',
-      desc: 'Zero proprietary vendor lock-in. Full source code handover, private encrypted database schema, and dedicated hosting.',
-      color: 'from-orange-500/15 via-orange-500/5 to-transparent',
-      border: 'border-orange-500/30',
-      iconColor: 'text-orange-400'
-    },
-    {
-      icon: Cpu,
-      title: 'Industrial SCADA & Edge IoT',
-      desc: 'Direct industrial protocol bridges (Modbus, RS-485, Sub-GHz mesh) streaming machine telemetry directly into enterprise software.',
-      color: 'from-rose-500/15 via-rose-500/5 to-transparent',
-      border: 'border-rose-500/30',
-      iconColor: 'text-rose-400'
-    },
-    {
-      icon: Activity,
-      title: 'Direct Architectural Oversight',
-      desc: 'No account-manager barriers. Direct technical collaboration with Founder & Systems Architect Jeyawin D from scoping through rollout.',
-      color: 'from-amber-500/15 via-rose-500/5 to-transparent',
-      border: 'border-amber-500/30',
-      iconColor: 'text-amber-300'
+  // Keyboard navigation for active modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (activeProfileIndex === null) return
+      if (e.key === 'Escape') setActiveProfileIndex(null)
+      if (e.key === 'ArrowLeft') handlePrevProfile()
+      if (e.key === 'ArrowRight') handleNextProfile()
     }
-  ]
-
-  const STATS = [
-    { value: '99.99%', label: 'Systems Availability Target' },
-    { value: '100%', label: 'Client IP Sovereignty' },
-    { value: '< 50ms', label: 'Database Query Velocity' },
-    { value: 'Direct', label: 'Founding Engineer Access' }
-  ]
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [activeProfileIndex])
 
   return (
-    <section className="relative py-20 lg:py-28 bg-[#0B0813] text-white overflow-hidden border-y border-amber-500/20 select-none w-full">
-      {/* Background Volumetric Luxury Ambient Lighting */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-amber-500/15 via-orange-600/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/3 translate-y-1/3 w-[600px] h-[600px] bg-gradient-to-tl from-rose-600/15 via-amber-600/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+    <>
+      <section className="relative py-20 lg:py-28 bg-[#040611] text-white overflow-hidden border-t border-purple-900/30 select-none w-full">
 
-      {/* Subtle Luxury Micro-Grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #EA580C 1px, transparent 1px)',
-          backgroundSize: '32px 32px'
-        }}
-      />
+        {/* Background Volumetric Ambient Lighting */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-gradient-to-br from-[#7C3AED]/15 via-[#3B82F6]/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-0" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#00E5FF]/10 to-transparent rounded-full blur-[120px] pointer-events-none -z-0" />
 
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
 
-          {/* Left Column: Executive Narrative & Architectural Pillars */}
-          <div className="lg:col-span-7 space-y-8">
-
-            {/* Eyebrow Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 to-orange-500/10 border border-amber-500/30 text-amber-300 shadow-sm"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34D399]" />
-              <span className="font-mono text-xs font-bold tracking-wider uppercase">
-                FOUNDER &amp; CHIEF EXECUTIVE OFFICER &bull; LEAD SYSTEMS ARCHITECT
-              </span>
-            </motion.div>
-
-            {/* Main Executive Title */}
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <div className="text-xs font-mono font-bold tracking-widest text-amber-400/90 uppercase">
-                Executive Leadership &amp; Engineering Philosophy
+              <div className="text-xs font-bold tracking-wider text-purple-400 uppercase">
+                Team Leadership
               </div>
-              <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-[50px] text-white tracking-tight leading-[1.12]">
-                Engineering High-Concurrency Systems{' '}
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500">
-                  With Relentless Precision.
-                </span>
+              <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] via-[#C084FC] to-[#38BDF8]">Family</span>
               </h2>
-            </motion.div>
-
-            {/* Authoritative Executive Biography */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed font-normal"
-            >
-              <p>
-                Founded in 2025 by <strong className="text-white font-semibold">Jeyawin D</strong>, DASA TECH operates on an uncompromising engineering mandate: enterprise software must be fast, resilient, transparent, and 100% owned by the enterprise. Serving industrial manufacturers, multi-branch retail conglomerates, and institutional organizations across South India, Jeyawin architects every system from first principles.
-              </p>
-              <p className="text-slate-400">
-                Rejecting bloated templates and proprietary vendor lock-in, he directs high-throughput database schemas, distributed multi-tenant ERP platforms, and edge IoT SCADA integrations. When organizations partner with DASA TECH, they work directly with senior systems architects who understand both machine-level hardware protocols and board-level business outcomes.
+              <p className="text-slate-400 text-xs sm:text-sm font-mono max-w-xl">
+                Hover over any member to illuminate in full color • Click to inspect interactive 3D spotlight profile with live signature actions
               </p>
             </motion.div>
 
-            {/* 4 Architectural Pillars Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1"
-            >
-              {ARCHITECTURE_PILLARS.map((p, idx) => {
-                const Icon = p.icon
-                return (
-                  <div
-                    key={idx}
-                    className={"p-4 sm:p-5 rounded-2xl bg-gradient-to-br " + p.color + " border " + p.border + " backdrop-blur-sm transition-all duration-300 hover:border-amber-400/60 hover:scale-[1.01]"}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 rounded-xl bg-white/10 border border-white/10 shrink-0">
-                        <Icon className={"w-4 h-4 " + p.iconColor} />
-                      </div>
-                      <h3 className="font-display font-bold text-sm sm:text-base text-white tracking-tight">
-                        {p.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                      {p.desc}
-                    </p>
-                  </div>
-                )
-              })}
-            </motion.div>
-
-            {/* Key Metrics Strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1"
-            >
-              {STATS.map((s, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <div className="font-orbitron font-black text-lg sm:text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400">
-                    {s.value}
-                  </div>
-                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Direct Connect Action Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
-            >
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-display font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all duration-300 hover:scale-[1.02] active:scale-95"
-              >
-                <span>Schedule Executive Consultation</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-
+            {/* Panoramic Strip Scroll Controls */}
+            <div className="flex items-center gap-3">
               <button
-                onClick={handleCopySignal}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-amber-500/30 hover:border-amber-400 text-amber-200 hover:text-white font-mono text-xs font-semibold tracking-wider transition-all duration-300 shadow-md cursor-pointer"
-                title="Click to copy Signal ID"
+                onClick={() => handleScrollStrip('left')}
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400 text-slate-300 hover:text-white transition shadow-lg backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
+                aria-label="Scroll Strip Left"
               >
-                <SignalBrandIcon className="w-4 h-4 text-amber-400" />
-                <span>Signal: @dasatech.99</span>
-                {copiedSignal ? (
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                ) : (
-                  <Copy className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                )}
+                <ArrowLeft className="w-5 h-5" />
               </button>
-
-              <a
-                href="https://www.linkedin.com/in/jeyawin-d/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 text-slate-300 hover:text-white font-mono text-xs transition-all duration-300"
-                aria-label="LinkedIn Profile"
+              <button
+                onClick={() => handleScrollStrip('right')}
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400 text-slate-300 hover:text-white transition shadow-lg backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
+                aria-label="Scroll Strip Right"
               >
-                <Linkedin className="w-4 h-4 text-amber-400" />
-                <span className="hidden sm:inline">LinkedIn</span>
-              </a>
-            </motion.div>
-
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Right Column: Solo Founder Executive Portrait Stage */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          {/* ── GRUSTL-STYLE 3D TEAM PANORAMIC ACCORDION STRIP (SCREENSHOT 3) ── */}
+          <div className="relative group/strip rounded-3xl bg-[#070A18] border border-white/10 shadow-2xl p-2.5 sm:p-3.5 overflow-hidden backdrop-blur-xl">
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative w-full max-w-[380px] sm:max-w-[420px] mx-auto flex flex-col items-center"
+            {/* Side Floating Left Scroll Trigger */}
+            <button
+              onClick={() => handleScrollStrip('left')}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3.5 rounded-2xl bg-[#0a0f26]/90 border border-purple-500/40 hover:border-purple-400 text-purple-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer backdrop-blur-md opacity-0 group-hover/strip:opacity-100"
+              aria-label="Scroll Left"
             >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
 
-              {/* Luxury Ambient Halo Stage Behind Founder */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[380px] h-[340px] sm:h-[380px] rounded-full bg-gradient-to-tr from-amber-500/25 via-orange-500/20 to-rose-600/25 blur-3xl pointer-events-none" />
+            {/* Side Floating Right Scroll Trigger */}
+            <button
+              onClick={() => handleScrollStrip('right')}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3.5 rounded-2xl bg-[#0a0f26]/90 border border-purple-500/40 hover:border-purple-400 text-purple-300 hover:text-white shadow-2xl transition duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer backdrop-blur-md opacity-0 group-hover/strip:opacity-100"
+              aria-label="Scroll Right"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
 
-              {/* Concentric Thin Luxury Geometric Rings */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[360px] h-[320px] sm:h-[360px] rounded-full border border-amber-500/20 pointer-events-none" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[370px] sm:w-[410px] h-[370px] sm:h-[410px] rounded-full border border-orange-500/15 border-dashed pointer-events-none" />
+            <div
+              ref={scrollContainerRef}
+              className="w-full overflow-x-auto scrollbar-none scroll-smooth rounded-2xl"
+            >
+              <div className="flex items-stretch w-max h-[480px] sm:h-[530px] divide-x divide-white/10">
 
-              {/* Floating Executive Pill (Top Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute top-6 -right-2 sm:-right-4 z-30 px-3.5 py-2 rounded-2xl bg-[#140E20]/90 border border-amber-500/40 shadow-xl backdrop-blur-md flex items-center gap-2.5"
-              >
-                <div className="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
-                  <Sparkles className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] font-mono font-bold text-amber-300 uppercase tracking-wider">
-                    SYSTEMS ARCHITECT
-                  </div>
-                  <div className="text-[11px] font-semibold text-white">
-                    Cloud Core &amp; Custom ERP
-                  </div>
-                </div>
-              </motion.div>
+                {TEAM_MEMBERS.map((m, idx) => {
+                  const isHovered = hoveredId === m.id
+                  const hasActiveHover = hoveredId !== null
 
-              {/* Floating Sovereignty Pill (Bottom Left) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute bottom-32 -left-2 sm:-left-4 z-30 px-3.5 py-2 rounded-2xl bg-[#140E20]/90 border border-orange-500/40 shadow-xl backdrop-blur-md flex items-center gap-2.5"
-              >
-                <div className="w-7 h-7 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] font-mono font-bold text-orange-300 uppercase tracking-wider">
-                    IP SOVEREIGNTY
-                  </div>
-                  <div className="text-[11px] font-semibold text-white">
-                    100% Client Code Ownership
-                  </div>
-                </div>
-              </motion.div>
+                  // Calibrated widths matching 768x1376 portrait aspect ratio to eliminate empty side gaps
+                  const widthStyle = isHovered
+                    ? 'w-[285px] sm:w-[295px] min-w-[285px] sm:min-w-[295px]'
+                    : hasActiveHover
+                      ? 'w-[150px] sm:w-[165px] min-w-[150px] sm:min-w-[165px]'
+                      : 'w-[185px] sm:w-[200px] min-w-[185px] sm:min-w-[200px]'
 
-              {/* Clean Transparent 3D Avatar (ZERO DT WATERMARK) */}
-              <div className="relative z-20 w-full flex items-center justify-center pt-4">
-                <img
-                  src={founderTransparentImg}
-                  alt="Jeyawin D - Founder & CEO, Systems Architect at DASA TECH"
-                  className="w-auto h-[400px] sm:h-[460px] lg:h-[500px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)] filter-none select-none pointer-events-none"
-                  draggable={false}
-                />
+                  return (
+                    <div
+                      key={m.id}
+                      onMouseEnter={() => setHoveredId(m.id)}
+                      onMouseLeave={() => setHoveredId(null)}
+                      onTouchStart={() => setHoveredId(m.id)}
+                      onClick={() => setActiveProfileIndex(idx)}
+                      className={`${widthStyle} h-full flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer relative group rounded-xl overflow-hidden ${isHovered ? 'z-30 shadow-[0_20px_60px_rgba(124,58,237,0.45)]' : 'z-10'
+                        }`}
+                    >
+                      {/* Full-Bleed 3D Character Avatar Image (Fills edge-to-edge with ZERO empty side gaps) */}
+                      <div className="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#070a18]">
+                        <motion.img
+                          animate={
+                            isHovered
+                              ? { scale: 1.02 }
+                              : { scale: 1 }
+                          }
+                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          src={m.image}
+                          alt={m.name}
+                          className={`w-full h-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] object-cover object-top origin-top ${isHovered
+                              ? 'filter-none opacity-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] brightness-105'
+                              : hasActiveHover
+                                ? 'grayscale opacity-35'
+                                : 'grayscale opacity-65'
+                            }`}
+                        />
+
+                        {/* Left Dark Gradient Overlay for Typography - Fades out completely when hovered/touched */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-r from-[#070A18]/90 via-[#070A18]/30 to-transparent pointer-events-none z-10 transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'
+                            }`}
+                        />
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-t from-[#070A18]/95 via-transparent to-[#070A18]/40 pointer-events-none z-10 transition-opacity duration-500 ${isHovered ? 'opacity-40' : 'opacity-100'
+                            }`}
+                        />
+                      </div>
+
+                      {/* Glowing Border & Aura Accent on Hover */}
+                      <div
+                        className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none z-20 border-2 rounded-xl"
+                        style={{
+                          borderColor: isHovered ? m.deptColor : 'transparent',
+                          boxShadow: isHovered ? `inset 0 0 60px ${m.deptColor}40` : 'none'
+                        }}
+                      />
+
+                      {/* Middle: Giant Bold Vertical Name Typography (Disappears completely when hovered/touched so the photo shines) */}
+                      <div className="relative z-30 flex-1 flex items-start pt-7 pl-4 sm:pl-6 pointer-events-none">
+                        <div
+                          className={`font-mono font-black uppercase tracking-[0.18em] transition-all duration-500 select-none ${isHovered
+                              ? 'opacity-0 scale-75 -translate-x-10 pointer-events-none'
+                              : hasActiveHover
+                                ? 'text-3xl text-slate-600 opacity-30 scale-95'
+                                : 'text-3xl sm:text-4xl text-slate-300/80 opacity-80 scale-100'
+                            }`}
+                          style={{
+                            writingMode: 'vertical-rl',
+                            transform: 'rotate(180deg)'
+                          }}
+                        >
+                          {m.verticalName}
+                        </div>
+                      </div>
+
+                      {/* Bottom: Quick Member Designation Card */}
+                      <div className="relative z-30 pb-5 px-4 transform transition-transform duration-300">
+                        <div className="text-white font-display font-bold text-sm sm:text-base leading-tight drop-shadow-md">
+                          {m.name}
+                        </div>
+                        <div className="text-[#C084FC] font-mono text-[10.5px] font-semibold tracking-wide mt-0.5">
+                          {m.role}
+                        </div>
+                      </div>
+
+                    </div>
+                  )
+                })}
+
               </div>
-
-              {/* Luxury Pedestal Base Glow Line */}
-              <div className="w-48 h-1 rounded-full bg-gradient-to-r from-transparent via-amber-500 to-transparent blur-[1px] -mt-1 relative z-20" />
-
-              {/* Executive Credentials Plaque */}
-              <div className="w-full text-center mt-4 p-4 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-amber-500/25 shadow-xl backdrop-blur-md relative z-20">
-                <div className="font-orbitron font-black text-2xl sm:text-3xl text-white tracking-wider">
-                  JEYAWIN D
-                </div>
-                <div className="font-mono text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 tracking-widest uppercase mt-1">
-                  FOUNDER &amp; CHIEF EXECUTIVE OFFICER
-                </div>
-                <div className="text-xs text-slate-400 font-mono mt-1">
-                  Lead Systems Architect &bull; DASA TECH Corporation
-                </div>
-              </div>
-
-            </motion.div>
-
+            </div>
           </div>
 
         </div>
-      </div>
-    </section>
+
+      </section>
+
+      {/* ── MEET THE FOUNDER ── */}
+      <section className="w-full bg-white text-slate-900 py-12 sm:py-16 lg:py-20 border-b border-slate-200 select-none relative overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+            {/* Left Column: Heading, Bio & Mission Statement */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="space-y-1">
+                <span className="font-display font-light text-3xl sm:text-4xl lg:text-[46px] text-slate-900 tracking-tight block">
+                  Meet
+                </span>
+                <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-[46px] text-slate-950 tracking-tight leading-none">
+                  The Founder
+                </h2>
+              </div>
+
+              {/* Sweet & Short Executive Narrative */}
+              <p className="max-w-lg text-slate-600 text-sm sm:text-base leading-relaxed font-normal text-left">
+                Jeyawin leads enterprise systems architecture, cloud infrastructure, and custom ERP development. Founding DASA TECH to engineer intelligent, mission-critical software, he directs high-performance cloud architectures, ERP platforms, and custom digital solutions built to scale globally.
+              </p>
+            </div>
+
+            {/* Right Column: Solo Founder with Clean Backdrop & Properly Arranged Typography */}
+            <div className="lg:col-span-6 flex flex-col items-center">
+
+              <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[400px] mx-auto group">
+
+                {/* Clean Pure-White Background Image with Grey DT Monogram */}
+                <img
+                  src={founderSoloImg}
+                  alt="DASA TECH Founder & CEO - Jeyawin D"
+                  className="w-auto h-[360px] sm:h-[430px] lg:h-[490px] mx-auto object-contain select-none pointer-events-none relative z-10 transition-transform duration-500 group-hover:scale-[1.015]"
+                />
+
+                {/* Interactive Click Hotspot to Open 3D Spotlight Profile */}
+                <div className="absolute inset-0 z-20">
+                  <button
+                    onClick={() => setActiveProfileIndex(0)}
+                    className="w-full h-full cursor-pointer"
+                    title="Click to view Jeyawin D's Profile"
+                    aria-label="View Jeyawin D Profile"
+                  />
+                </div>
+
+              </div>
+
+              {/* Clean, Properly Arranged Designation Typography - Centered Directly Underneath Founder */}
+              <div className="w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[400px] mx-auto flex flex-col items-center text-center px-4 pt-3 z-20">
+                <div className="font-orbitron font-black text-xl sm:text-2xl lg:text-3xl text-slate-950 tracking-wider">
+                  JEYAWIN
+                </div>
+                <div className="font-mono text-[10px] sm:text-[11.5px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">
+                  FOUNDER &amp; CEO
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── SPOTLIGHT ACTION MODAL (EXACT ACTION AS IN SCREENSHOT 4) ── */}
+      <AnimatePresence>
+        {activeMember && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveProfileIndex(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-2xl overflow-y-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 20 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl bg-[#090C1A] border border-purple-500/30 rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.9)] overflow-hidden text-white grid grid-cols-1 lg:grid-cols-12 min-h-[560px] max-h-[90vh]"
+            >
+              {/* Close Button Top Right */}
+              <button
+                onClick={() => setActiveProfileIndex(null)}
+                className="absolute top-5 right-5 p-3 rounded-full bg-white/10 border border-white/15 text-slate-300 hover:text-white hover:bg-white/20 transition z-50 cursor-pointer shadow-lg backdrop-blur-md"
+                aria-label="Close Profile"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* ── LEFT COLUMN: 3D SPOTLIGHT MODEL & WATERMARK LOGO ── */}
+              <div className="lg:col-span-6 h-full">
+                <Character3DStage
+                  member={activeMember}
+                  onPrev={handlePrevProfile}
+                  onNext={handleNextProfile}
+                />
+              </div>
+
+              {/* ── RIGHT COLUMN: MEMBER SPOTLIGHT BIO & EXPERTISE DETAILS ── */}
+              <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between overflow-y-auto max-h-[85vh]">
+                <div className="space-y-6">
+
+                  {/* Department Badge Capsule */}
+                  <div>
+                    <span
+                      className="px-4 py-1.5 rounded-lg text-xs font-mono font-bold tracking-[0.2em] uppercase inline-block shadow-lg"
+                      style={{
+                        backgroundColor: '#6D28D9',
+                        color: '#FFFFFF',
+                        border: '1px solid rgba(192, 132, 252, 0.5)'
+                      }}
+                    >
+                      {activeMember.badgeCategory || 'CORE ENGINEERING'}
+                    </span>
+
+                    {/* Bold Character Name */}
+                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display mt-3 tracking-tight">
+                      {activeMember.name}
+                    </h3>
+                    <div className="text-sm font-mono text-[#C084FC] font-semibold mt-1">
+                      {activeMember.role}
+                    </div>
+                  </div>
+
+                  {/* Personal Bio Paragraph */}
+                  <div>
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+                      {activeMember.bio}
+                    </p>
+                  </div>
+
+                  {/* Skills & Architecture Chips */}
+                  <div className="space-y-2.5">
+                    <div className="text-xs font-mono text-[#C084FC] uppercase tracking-widest font-bold">
+                      Skills &amp; Architecture Focus
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {activeMember.skillsList.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 text-xs font-mono font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Bar: Direct Connect + Next Member Navigation */}
+                <div className="pt-8 mt-6 border-t border-white/10 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://signal.me/#u/dasatech.99"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#3B82F6] hover:opacity-90 text-white font-bold text-xs font-mono transition inline-flex items-center gap-2 shadow-lg cursor-pointer"
+                    >
+                      <SignalBrandIcon className="w-4 h-4" />
+                      <span>Signal: @dasatech.99</span>
+                    </a>
+                  </div>
+
+                  {/* Next Member Desktop Control */}
+                  <button
+                    onClick={handleNextProfile}
+                    className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-slate-200 hover:text-white hover:border-purple-400 transition hidden lg:inline-flex items-center gap-2 text-xs font-mono font-semibold cursor-pointer"
+                  >
+                    <span>Next Member</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+              </div>
+
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

@@ -12,6 +12,7 @@ import {
   Brain, Lock, FileSpreadsheet, Workflow, Sliders
 } from 'lucide-react'
 import { usePath, Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import DigitalMarketingServiceView from '../components/services/DigitalMarketingServiceView'
@@ -712,6 +713,22 @@ export default function ServiceDetailPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [rawId])
+
+  useSEO({
+    title: `${service.title} Services | DASA TECH Software Solutions`,
+    description: `${service.overview || service.headline} High-performance software engineering, industrial IoT, and enterprise automation by DASA TECH in Tamil Nadu, India.`,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": service.title,
+      "provider": {
+        "@type": "Organization",
+        "name": "DASA TECH Software Solutions",
+        "url": "https://dasatech.in"
+      },
+      "description": service.overview || service.headline
+    }
+  })
 
   // Dedicated custom implementation for Digital Marketing (Stage 1)
   if (rawId === 'digital-marketing' || rawId === 'digital-growth-marketing') {

@@ -2,11 +2,23 @@ import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Lock, Server, KeyRound, CheckCircle2, ArrowLeft, Cpu, RefreshCw, EyeOff, Activity, FileCheck, Layers } from 'lucide-react'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 
 export default function SecurityPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
+
+  useSEO({
+    title: 'Security & Trust Center | DASA TECH Software Solutions',
+    description: 'Learn about enterprise data protection, end-to-end encryption, role-based access controls, and compliance standards at DASA TECH.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Security Center",
+      "url": "https://dasatech.in/security"
+    }
+  })
 
   return (
     <div className="min-h-screen bg-white text-[#17131F] selection:bg-amber-500 selection:text-white pt-24 pb-20 select-none">

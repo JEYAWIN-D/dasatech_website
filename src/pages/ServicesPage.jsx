@@ -8,6 +8,7 @@ import {
   Terminal, ShieldCheck, Activity, GitBranch, Cpu, FileText, Play, Pause
 } from 'lucide-react'
 import { Link, usePath } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 import { PAGE_HERO_IMAGES } from '../constants/images.js'
 import { BACKEND_ASSETS } from '../data/backendAssets.js'
 
@@ -411,6 +412,34 @@ const CAPABILITIES = [
 export default function ServicesPage() {
   const { navigate } = usePath()
   const [selectedService, setSelectedService] = useState(null)
+
+  useSEO({
+    title: 'Enterprise Software & Engineering Services | DASA TECH',
+    description: 'Explore DASA TECH engineering services: Custom ERP Development, Industrial IoT Automation, AI Computer Vision, Full-Stack Web & Mobile Apps, Cloud Infrastructure, and Digital Marketing.',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'DASA TECH Engineering & Technology Services',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'DASA TECH',
+        'url': 'https://dasatech.in'
+      },
+      'areaServed': 'Worldwide, India, South India',
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Enterprise Software & Automation Services',
+        'itemListElement': [
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Custom Enterprise ERP Development' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Industrial IoT & SCADA Automation' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'AI & Optical Computer Vision Systems' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Web & High-Concurrency Mobile Applications' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Cloud Infrastructure & High-Performance Backends' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Growth-Driven Digital Marketing & SEO' } }
+        ]
+      }
+    }
+  })
 
   const handleSelectService = (service) => {
     navigate(`/services/${service.id}`)

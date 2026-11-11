@@ -12,6 +12,7 @@ import {
   ShoppingBag
 } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import { useSEO } from '../hooks/useSEO'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
 import PageHeaderHero from '../components/PageHeaderHero'
@@ -136,6 +137,18 @@ const PROJECTS_STORY = [
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('all')
+
+  useSEO({
+    title: 'Client Deployments & Engineering Case Studies | DASA TECH',
+    description: 'Explore enterprise case studies from DASA TECH: Healthcare ERP, Textile & Industrial SCADA automation, Edge AI vision systems, and large-scale cloud infrastructure across India.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Case Studies & Client Deployments",
+      "description": "Enterprise software and automation case studies delivered by DASA TECH.",
+      "url": "https://dasatech.in/projects"
+    }
+  })
 
   const filtered = activeFilter === 'all'
     ? PROJECTS_STORY

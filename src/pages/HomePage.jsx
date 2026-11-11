@@ -11,8 +11,8 @@ import { useSEO } from '../hooks/useSEO'
 
 export default function HomePage() {
   useSEO({
-    title: 'DASA TECH — Enterprise Custom ERP, AI Software & Industrial IoT Systems',
-    description: 'DASA TECH engineers mission-critical enterprise software, custom ERP platforms, AI solutions, and IoT telemetry architectures that solve real business problems in Erode, Tamil Nadu.',
+    title: 'DASA TECH — Custom Enterprise ERP, Industrial IoT & AI Software Development',
+    description: 'DASA TECH engineers mission-critical custom ERP software, industrial IoT automation, AI computer vision, and cloud platforms for manufacturing, retail, and enterprises across South India.',
     schema: {
       "@context": "https://schema.org",
       "@type": "WebSite",

@@ -27,7 +27,8 @@ export default function Nav() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
-    { label: 'Products', to: '/products' }
+    { label: 'Products', to: '/products' },
+    { label: 'Blogs', to: '/blog' }
   ]
 
     const isActive = (to) => {

@@ -19,6 +19,7 @@ import {
   ExternalLink
 } from 'lucide-react'
 import { Link, usePath } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 import PillButton from '../components/PillButton'
 import { PRODUCT_DATA } from './ProductDetailPage'
 
@@ -448,6 +449,18 @@ function HomepageStyleProductTile({ product }) {
 // ─────────────────────────────────────────────────────────────
 export default function ProductsPage() {
   const [selectedTab, setSelectedTab] = useState('all')
+
+  useSEO({
+    title: 'Enterprise Software Products & Automation Suites | DASA TECH',
+    description: 'Discover DASA TECH proprietary software products: DASA SmartHome & Factory Automation, SnapFlow Studio AI, Headless CommerceEngine, WMS WarehouseOps, and Campus ERP.',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      'name': 'DASA TECH Proprietary Software Product Suite',
+      'brand': { '@type': 'Brand', 'name': 'DASA TECH' },
+      'description': 'Enterprise ERP, AI Face Recognition Studio OS, Headless Commerce, and Smart IoT Automation Suites.'
+    }
+  })
 
   const filterTabs = [
     { id: 'all', label: 'All Categories' },

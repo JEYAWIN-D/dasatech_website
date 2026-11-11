@@ -16,6 +16,7 @@ import {
   Share2
 } from 'lucide-react'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
 import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
@@ -138,6 +139,18 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All Topics')
   const [searchQuery, setSearchQuery] = useState('')
 
+  useSEO({
+    title: 'Technology & Engineering Blogs | DASA TECH Insights',
+    description: 'Read the latest technical deep-dives on custom ERP software development, industrial IoT, computer vision, and cloud architectures across South India from DASA TECH engineering team.',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      'name': 'DASA TECH Engineering & Architecture Journal',
+      'url': 'https://dasatech.in/blog',
+      'description': 'Technical insights, architecture deep-dives, and industrial case studies from DASA TECH engineers.'
+    }
+  })
+
   const filteredPosts = BLOG_POSTS.filter((post) => {
     const matchesCategory =
       selectedCategory === 'All Topics' || post.category === selectedCategory
@@ -167,11 +180,17 @@ export default function BlogPage() {
             </div>
           </Reveal>
 
-          <TextLineReveal
-            as="h1"
-            lines={['Insights, Technical Deep-Dives', '& Engineering Case Notes']}
-            className="text-3xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight text-slate-900 mb-6"
-          />
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight text-slate-900 mb-6 leading-[1.12]"
+          >
+            Insights, Technical Deep-Dives <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600">
+              &amp; Engineering Case Notes
+            </span>
+          </motion.h1>
 
           <Reveal delay={0.2}>
             <p className="text-slate-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-normal mb-8">
