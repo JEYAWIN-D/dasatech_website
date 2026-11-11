@@ -1,63 +1,56 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        dark: {
-          base: '#07080C',
-          surface1: '#0F1117',
-          surface2: '#151821',
-          surface3: '#1C202C',
-          border: 'rgba(255, 255, 255, 0.08)',
-          borderHover: 'rgba(255, 255, 255, 0.18)',
-        },
-        neon: {
-          blue: '#00D4FF',
-          blueHover: '#33DEFF',
-          green: '#22FF9A',
-          greenHover: '#52FFB0',
+        violet: {
+          50: '#F5F0FF',
+          100: '#EDE4FF',
+          200: '#DDD0FF',
+          300: '#C2A8FF',
+          400: '#A77BFF',
+          500: '#8B5CF6',
+          600: '#6C2BD9',
+          700: '#581CBA',
+          800: '#461498',
+          900: '#38107A',
+          950: '#230752'
         },
         brand: {
-          DEFAULT: '#00D4FF',
-          green: '#22FF9A',
-          amber: '#F59E0B',
-          orange: '#EA580C',
-          ruby: '#E11D48',
+          DEFAULT: '#6C2BD9',
+          hover: '#8B5CF6',
+          light: '#F5F0FF',
+          dark: '#17121F'
         },
-        muted: '#9AA3B2',
+        surface: {
+          DEFAULT: '#FFFFFF',
+          violet: '#F5F0FF',
+          subtle: '#FAF7FF',
+          border: '#E9E2F5'
+        },
+        text: {
+          dark: '#17121F',
+          secondary: '#6F6878'
+        }
       },
       fontFamily: {
-        display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', '"Space Grotesk"', 'sans-serif'],
         body: ['"Inter"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
-        orbitron: ['"Orbitron"', 'sans-serif'],
+        orbitron: ['"Orbitron"', 'sans-serif']
+      },
+      backgroundImage: {
+        'grad-violet': 'linear-gradient(135deg, #6C2BD9 0%, #8B5CF6 100%)',
+        'grad-violet-subtle': 'linear-gradient(180deg, #F5F0FF 0%, #FFFFFF 100%)',
+        'grad-violet-radial': 'radial-gradient(circle at center, rgba(108, 43, 217, 0.12) 0%, rgba(255,255,255,1) 75%)'
       },
       boxShadow: {
-        'neon-blue': '0 0 25px rgba(0, 212, 255, 0.35)',
-        'neon-green': '0 0 25px rgba(34, 255, 154, 0.35)',
-        'card-glow': '0 10px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 212, 255, 0.08)',
-      },
-      keyframes: {
-        dash: {
-          to: { strokeDashoffset: '-28' },
-        },
-        pulseGlow: {
-          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-          '50%': { opacity: '0.9', transform: 'scale(1.08)' },
-        },
-        floatSlow: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
-        },
-      },
-      animation: {
-        dash: 'dash 1.5s linear infinite',
-        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-        'float-slow': 'floatSlow 6s ease-in-out infinite',
-      },
-    },
+        'violet-sm': '0 2px 8px rgba(108, 43, 217, 0.08)',
+        'violet-md': '0 8px 24px -4px rgba(108, 43, 217, 0.15)',
+        'violet-glow': '0 10px 30px -5px rgba(108, 43, 217, 0.3)'
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }

@@ -1,450 +1,570 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  GraduationCap, Pill, Boxes, Factory, Camera,
-  CheckCircle2, ArrowUpRight, ArrowRight, Sparkles,
-  Layers, Cpu, Eye, Database, Activity, ShieldCheck, Radio
+  Sparkles,
+  ArrowRight,
+  Pill,
+  Factory,
+  MessageCircle,
+  ShoppingCart,
+  Boxes,
+  GraduationCap,
+  Radio,
+  DollarSign,
+  Layers,
+  Zap,
+  ShieldCheck,
+  Activity,
+  Database,
+  ExternalLink
 } from 'lucide-react'
-import { Link } from '../components/Router'
-import { useSEO } from '../hooks/useSEO'
-import EyebrowPill from '../components/EyebrowPill'
-import BentoCard from '../components/BentoCard'
-import CtaBand from '../components/CtaBand'
+import { Link, usePath } from '../components/Router'
+import PillButton from '../components/PillButton'
+import { PRODUCT_DATA } from './ProductDetailPage'
 
-const FILTER_CATEGORIES = [
-  { id: 'all', label: 'All Products' },
-  { id: 'education', label: 'Education' },
-  { id: 'healthcare', label: 'Healthcare' },
-  { id: 'warehouse', label: 'Warehouse' },
-  { id: 'factory', label: 'Factory Automation' },
-  { id: 'photography', label: 'Photography & AI' },
+// ─────────────────────────────────────────────────────────────
+// PRODUCT CATALOG ORGANIZED BY 3 CORE CATEGORIES
+// ─────────────────────────────────────────────────────────────
+export const PRODUCTS_CATALOG = [
+  // 1. Smart Automation Solutions (Referenced from Nexomatic.in 7 Industry Sectors)
+  {
+    id: 'home-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'HOME AUTOMATION',
+    name: 'DASA SmartHome Automation',
+    headline: 'Intelligent Residential Lighting, Climate, Curtains & Offline Gateway',
+    summary: 'Centralized app and voice control for lights, fans, ACs, curtains, and security. 100% offline-first edge architecture and retrofit installation without wall hacking.',
+    tags: ['Offline Edge Gateway', 'Voice & Touch Keypads', 'Retrofit Ready'],
+    img: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'hospital-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'HOSPITAL AUTOMATION',
+    name: 'DASA Hospital & Clinical Automation',
+    headline: 'Operation Theater Precision Climate, Nurse Call & Cleanroom Controls',
+    summary: 'Clinical-grade patient room environment, laminar OT precision temperature/humidity, medical gas line alarms, and wireless IP nurse call systems with instant audio intercom.',
+    tags: ['Nurse Call Telemetry', 'OT Cleanroom Climate', 'NABH Compliant'],
+    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'office-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'OFFICE AUTOMATION',
+    name: 'DASA Office & Workplace Automation',
+    headline: 'Smart Conference Rooms, Centralized HVAC & Occupancy Lighting',
+    summary: 'Commercial workplace intelligence: one-touch meeting room launch, occupancy and daylight harvesting, centralized AC scheduling, and IAQ indoor air quality monitoring.',
+    tags: ['Smart Meeting Rooms', 'Occupancy Lighting', 'Centralized HVAC'],
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'hotel-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'HOTEL AUTOMATION',
+    name: 'DASA Hotel Automation (GRMS)',
+    headline: 'Guest Room Management System (GRMS), Keyless Entry & Master Consoles',
+    summary: 'Luxury hospitality tech: automated welcome scenes, keyless mobile check-in, bedside capacitive touch master panels, DND/MUR indicators, and energy cut on vacancy.',
+    tags: ['GRMS System', 'Welcome Scenes', 'Bedside Master Glass'],
+    img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'industrial-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'INDUSTRIAL AUTOMATION',
+    name: 'DASA Industrial Automation & Plant Telemetry',
+    headline: 'Factory Floor Motor Management, Per-Machine Metering & Safety Interlocks',
+    summary: 'Heavy-duty industrial controls: motor and pump telemetry, per-machine energy metering, safety monitoring, light curtains, and PLC/SCADA integration.',
+    tags: ['Per-Machine Metering', 'PLC / SCADA', 'Safety Interlocks'],
+    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'agri-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'AGRI AUTOMATION',
+    name: 'DASA AgriSmart Automation',
+    headline: 'Precision Soil Moisture Telemetry, Dry-Run Protection & Drip Control',
+    summary: 'Automated drip and micro-sprinkler irrigation, dry-run pump protection, multi-depth soil probes, and solar pump remote control via LoRaWAN.',
+    tags: ['Dry-Run Pump Protection', 'LoRaWAN Long-Range', 'Automated Fertigation'],
+    img: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'cold-storage-automation',
+    categoryGroup: 'Smart Automation Solutions',
+    category: 'COLD STORAGE AUTOMATION',
+    name: 'DASA Cold Storage & Refrigeration Automation',
+    headline: 'Multi-Zone Temperature Logging (-40°C), Peak Load Shedding & Gas Detection',
+    summary: 'Refrigeration energy management: multi-point data logging (-40°C to +15°C), per-freezer circuit metering, peak load shedding within safe limits, and ammonia leak alarms.',
+    tags: ['Sub-Zero Telemetry', 'Peak Load Shedding', 'Ammonia Gas Alert'],
+    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90'
+  },
+
+  // 2. Business Operations Suites
+  {
+    id: 'pharmacy-erp',
+    categoryGroup: 'Business Operations Suites',
+    category: 'HEALTHCARE & PHARMA',
+    name: 'DASA Pharmacy ERP',
+    headline: 'Multi-Branch Pharmacy ERP & Prescription Inventory',
+    summary: 'Sub-second POS thermal billing, automated FIFO batch expiry alerts, Schedule H1 drug registers, and automated supplier reordering.',
+    tags: ['FIFO Expiry', 'Schedule H1', 'POS Thermal Billing'],
+    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90',
+    link: 'https://pharmacy.dasatech.in/'
+  },
+  {
+    id: 'finance-accounting',
+    categoryGroup: 'Business Operations Suites',
+    category: 'FINANCE & ACCOUNTING',
+    name: 'DASA LedgerFlow & GST Finance',
+    headline: 'Double-Entry Accounting, Automated GST & Financial Ledger ERP',
+    summary: 'Strict atomic general ledger balancing, bank statement OCR parser, automated accounts receivable aging reminders, and statutory GST returns.',
+    tags: ['Double-Entry Core', 'Bank OCR Parser', 'GST E-Filing'],
+    img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'factory-erp',
+    categoryGroup: 'Business Operations Suites',
+    category: 'TEXTILE & GARMENT IOT',
+    name: 'IoT Textile ERP',
+    headline: 'Smart Textile Mill ERP, Loom IoT Telemetry & Garment SCADA',
+    summary: 'Real-time loom and spinning telemetry, raw yarn lot traceability, NFC piece-rate bundle tracking, automated OEE metrics, and barcode roll inventory.',
+    tags: ['Loom IoT Telemetry', 'Yarn Lot Traceability', 'NFC Bundle MES'],
+    img: import.meta.env.BASE_URL + 'textile-iot-erp.jpg'
+  },
+  {
+    id: 'warehouse-erp',
+    categoryGroup: 'Business Operations Suites',
+    category: 'LOGISTICS & SUPPLY CHAIN',
+    name: 'DASA WMS Hub',
+    headline: 'Smart Warehouse Management & Bin Location Inventory ERP',
+    summary: '3D multi-aisle bin location routing, shortest-path wave picking, handheld Android PDA barcode scanning, and continuous cycle counting.',
+    tags: ['3D Bin Matrix', 'Shortest Wave Pick', 'Android PDA Scanners'],
+    img: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=90'
+  },
+
+  // 3. Standalone Platforms
+  {
+    id: 'ecommerce-engine',
+    categoryGroup: 'Standalone Platforms',
+    category: 'E-COMMERCE & RETAIL',
+    name: 'DASA CommerceEngine',
+    headline: 'Next-Gen Headless Commerce & Multi-Vendor Marketplace',
+    summary: 'Sub-600ms edge-rendered Next.js storefront, frictionless one-click checkout, automated vendor commission splits, and retail store stock sync.',
+    tags: ['Headless Next.js', '1-Click Checkout', 'Vendor Splits'],
+    img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'snapshare-social',
+    categoryGroup: 'Standalone Platforms',
+    category: 'AI & PHOTOGRAPHY PLATFORM',
+    name: 'DASA SnapFlow Studio AI',
+    headline: 'AI-Powered Event Photo Distribution & Studio CRM Operating System',
+    summary: 'DASA SnapFlow combines 512D facial vector AI, dynamic QR photo access, studio CRM, secure galleries, digital contracts, automated invoicing, and MinIO S3 storage into one centralized platform.',
+    tags: ['InsightFace 512D', 'Dynamic QR Hubs', 'Studio CRM', 'MinIO S3 Vault'],
+    img: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=90'
+  },
+  {
+    id: 'school-erp',
+    categoryGroup: 'Standalone Platforms',
+    category: 'EDUCATION & ACADEMICS',
+    name: 'DASA EduCore Campus ERP',
+    headline: 'Unified Campus Management, SIS & Academic Operating System',
+    summary: 'Comprehensive School & College ERP bringing admissions, biometric attendance, student records, conflict-free timetables, online fee collections, gradebooks, HR, and bus GPS tracking into one platform.',
+    tags: ['Biometric Gate Sync', 'CBSE / State Grades', 'Automated Fee Gateway', 'Fleet GPS'],
+    img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=90'
+  }
 ]
 
-const PRODUCTS = [
-  {
-    id: 'educore',
-    category: 'education',
-    name: 'EduCore School System',
-    tag: 'School & Campus Management',
-    purpose: 'All-in-one educational campus platform unifying student admissions, fee ledgers, automated biometric attendance, examination grading, and parent mobile communication.',
-    color: '#00D4FF',
-    icon: GraduationCap,
-    features: [
-      'Automated Biometric & RFID Student/Staff Attendance Telemetry',
-      'Instant Fee Billing & Multi-Channel Payment Gateway Reconciliation',
-      'Comprehensive Academic Gradebook & Automated Report Card Generation',
-      'School Bus Fleet GPS Live Tracking with Parent Safety Alerts',
-      'Modular Library, Hostel & Multi-Store Inventory Asset Management',
-    ],
-    mockupImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=90',
-    stats: [
-      { label: 'Campus Modules', value: '18+' },
-      { label: 'Attendance Latency', value: '<500ms' },
-      { label: 'Uptime SLA', value: '99.9%' },
-    ],
-  },
-  {
-    id: 'medflow',
-    category: 'healthcare',
-    name: 'MedFlow Pharmacy Software',
-    tag: 'Pharmacy Operations & Billing',
-    purpose: 'High-throughput pharmacy operations management software with sub-second keyboard-first POS billing, automated batch-wise FIFO inventory, expiry countdowns, and automated GST reporting.',
-    color: '#22FF9A',
-    icon: Pill,
-    features: [
-      'Keyboard-First POS Billing Terminal (sub-12ms barcode checkout)',
-      'Automated FIFO Batch Expiry & Color-Coded Shelf Bin Matrix',
-      'Doctor Prescription Digitization & Patient Medication History Tracker',
-      'Predictive Supplier Purchase Reordering on Safety Threshold Breach',
-      'One-Click GST Return Exporter (GSTR-1, 2B, 3B) & E-Way Bill Integration',
-    ],
-    mockupImg: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=90',
-    stats: [
-      { label: 'Checkout Velocity', value: '12ms' },
-      { label: 'Batch Expiry Loss', value: '0.0%' },
-      { label: 'Tax Accuracy', value: '100%' },
-    ],
-  },
-  {
-    id: 'wareflex',
-    category: 'warehouse',
-    name: 'WareFlex Warehouse System',
-    tag: 'Smart Inventory & Stock Control',
-    purpose: 'High-velocity warehouse management system (WMS) orchestrating barcode/QR bin allocation, multi-facility inventory transfers, 3-way purchase matching, and dispatch optimization.',
-    color: '#00D4FF',
-    icon: Boxes,
-    features: [
-      'Visual 2D/3D Warehouse Bin & Rack Space Allocation Engine',
-      'Barcode & QR Code Handheld Scanner Mobile Ingestion Workflows',
-      '3-Way Purchase Order (PO), Gate Challan & Invoice Reconciliation',
-      'Automated Low-Stock Reorder Triggers & Supplier RFQ Comparison',
-      'Multi-Location Cross-Docking & Real-Time Stock Transfer Telemetry',
-    ],
-    mockupImg: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1400&q=90',
-    stats: [
-      { label: 'Dispatch Speed', value: '+45%' },
-      { label: 'Stock Reconciliation', value: 'Live' },
-      { label: 'Barcode Lookup', value: '<20ms' },
-    ],
-  },
-  {
-    id: 'iot-factory',
-    category: 'factory',
-    name: 'IoT Factory Automation',
-    tag: 'Smart Factory & Production Tracking',
-    purpose: 'Industrial Industry 4.0 plant floor automation and telemetry system connecting Siemens S7 PLCs, Modbus sensors, and LoRaWAN long-range edge hardware to live supervisory dashboards.',
-    color: '#22FF9A',
-    icon: Factory,
-    features: [
-      'Direct Siemens S7 & Modbus PLC Industrial Machine Interfacing',
-      'Per-Machine KWh Electrical Consumption & Cycle Counter Telemetry',
-      'Sub-GHz LoRaWAN Long-Range Wireless Mesh Across Heavy Shop Floors',
-      'Real-Time Machine Downtime Logging & Predictive Maintenance Alarms',
-      'Touchless NFC Operator Stationing & Shift Productivity Tracking',
-    ],
-    mockupImg: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=90',
-    stats: [
-      { label: 'Sensor Sampling', value: '100Hz' },
-      { label: 'Telemetry Mesh', value: 'Sub-GHz' },
-      { label: 'Unplanned Downtime', value: '-35%' },
-    ],
-  },
-  {
-    id: 'snapshare',
-    category: 'photography',
-    name: 'SnapShare Photography Studio',
-    tag: 'AI Photo Galleries & CRM',
-    purpose: 'Next-generation creative media CRM and client delivery platform powered by edge AI facial recognition for instant guest photo finding, proofing watermarks, and studio accounting.',
-    color: '#00D4FF',
-    icon: Camera,
-    features: [
-      'On-Device AI Facial Recognition for Instant Client Face-Search',
-      'Zero-Loss Compressed Cloud Client Gallery Delivery & Bulk Downloads',
-      'Dynamic Anti-Theft Watermarking & Interactive Client Selection Proofing',
-      'Integrated Studio Booking Calendar & Advance Payment Gateways',
-      'Automated WhatsApp & Email Photo Delivery Notification Links',
-    ],
-    mockupImg: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1400&q=90',
-    stats: [
-      { label: 'AI Search Latency', value: '<1.2s' },
-      { label: 'Photo Ingestion', value: '10K/hr' },
-      { label: 'Storage Savings', value: '60%' },
-    ],
-  },
-]
+// ─────────────────────────────────────────────────────────────
+// 1. FULL-WIDTH HERO SECTION (project-pg.png)
+// ─────────────────────────────────────────────────────────────
+function ProductHero() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const [heroImgSrc, setHeroImgSrc] = useState(import.meta.env.BASE_URL + 'project-pg.png')
 
-export default function ProductsPage() {
-  useSEO({
-    title: 'Products & Platforms | DASA TECH',
-    description:
-      'Explore DASA TECH proprietary software platforms: EduCore School ERP, MedFlow Pharmacy System, WareFlex WMS, IoT Factory Automation, and SnapShare AI Studio.',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'DASA TECH Products',
-      url: 'https://dasatech.in/products',
-    },
-  })
+  const handleMouseMove = (e) => {
+    setMousePos({
+      x: (e.clientX / window.innerWidth - 0.5) * 12,
+      y: (e.clientY / window.innerHeight - 0.5) * 12
+    })
+  }
 
-  const [activeFilter, setActiveFilter] = useState('all')
-  const [activeProductInView, setActiveProductInView] = useState('educore')
-
-  const filteredProducts =
-    activeFilter === 'all'
-      ? PRODUCTS
-      : PRODUCTS.filter((p) => p.category === activeFilter)
-
-  // Track product in view on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      for (const prod of PRODUCTS) {
-        const el = document.getElementById(prod.id)
-        if (el) {
-          const rect = el.getBoundingClientRect()
-          if (rect.top <= 250 && rect.bottom >= 250) {
-            setActiveProductInView(prod.id)
-            break
-          }
-        }
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const titleLines = [
+    { text: 'Enterprise Platform Systems', accent: null },
+    { text: 'Engineered for Global Growth.', accentWord: 'Global' }
+  ]
 
   return (
-    <main className="w-full bg-[#07080C] text-slate-100 overflow-hidden">
-      
-      {/* ─────────────────────────────────────────────────────────────
-          1. HERO HEADER WITH FILTER CHIPS
-      ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-r from-[#00D4FF]/10 via-[#22FF9A]/10 to-transparent blur-[130px] rounded-full pointer-events-none -z-10" />
+    <section
+      onMouseMove={handleMouseMove}
+      className="relative min-h-[85vh] lg:min-h-screen flex items-end pb-16 sm:pb-24 overflow-hidden bg-[#0A0D18] select-none pt-28 sm:pt-32"
+    >
+      {/* Parallax Full-Width Hero Background (project-pg.png) */}
+      <motion.div
+        animate={{ x: mousePos.x, y: mousePos.y, scale: 1.06 }}
+        transition={{ type: 'spring', stiffness: 36, damping: 18 }}
+        className="absolute inset-0 z-0 overflow-hidden"
+      >
+        <img
+          src={heroImgSrc}
+          onError={() => setHeroImgSrc(import.meta.env.BASE_URL + 'project-pg.png')}
+          alt="DASA TECH Enterprise Software Platforms"
+          className="w-full h-full object-cover opacity-75"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D18] via-[#0A0D18]/65 to-[#0A0D18]/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0D18]/80 via-[#0A0D18]/40 to-transparent pointer-events-none" />
+      </motion.div>
 
-        <div className="max-w-3xl">
-          <EyebrowPill dotColor="bg-[#00D4FF]">PRODUCTION-READY PLATFORMS</EyebrowPill>
-          <h1 className="mt-4 font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
-            Enterprise software engineered for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-white to-[#22FF9A]">
-              real operations.
-            </span>
-          </h1>
-          <p className="mt-6 text-base sm:text-lg text-[#9AA3B2] leading-relaxed">
-            Every DASA TECH platform is built from scratch with zero third-party licensing baggage, microsecond transaction latencies, and total client data sovereignty.
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 w-full">
+        
+        {/* Eyebrow Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-3 mb-8 sm:mb-10"
+        >
+          <span className="w-8 h-px bg-[#A855F7]" />
+          <span className="text-xs font-semibold tracking-wider text-purple-300 uppercase">
+            Enterprise Software &amp; Automations
+          </span>
+        </motion.div>
+
+        {/* Title Reveal */}
+        <div className="mb-8 space-y-1">
+          {titleLines.map((line, lineIdx) => (
+            <div key={lineIdx} className="overflow-hidden py-1 sm:py-2">
+              <motion.div
+                initial={{ y: '120%' }}
+                animate={{ y: '0%' }}
+                transition={{
+                  duration: 0.88,
+                  delay: 0.38 + lineIdx * 0.14,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
+                className="font-display font-black text-[38px] sm:text-[62px] lg:text-[78px] xl:text-[88px] text-white leading-[1.12] sm:leading-[1.08] tracking-tight pb-2 sm:pb-3"
+              >
+                {line.accentWord
+                  ? line.text.split(' ').map((word, wi) => (
+                      <span key={wi}>
+                        {wi > 0 && ' '}
+                        {word === line.accentWord ? (
+                          <span className="text-color-shift">
+                            {word}
+                          </span>
+                        ) : word}
+                      </span>
+                    ))
+                  : line.text}
+              </motion.div>
+            </div>
+          ))}
+        </div>
+
+        {/* Subtitle + Action CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.78, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10"
+        >
+          <p className="text-slate-300 text-sm sm:text-base lg:text-[17px] max-w-xl leading-relaxed font-normal">
+            Explore our production-ready ERP platforms, standalone cloud suites, and industry-specific software architectures.
           </p>
 
-          {/* Filter Chips Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-2.5">
-            {FILTER_CATEGORIES.map((cat) => {
-              const active = activeFilter === cat.id
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href="#catalog"
+              className="px-6 py-3.5 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-sm transition-all flex items-center gap-2 group shadow-2xl shadow-[#6D28D9]/40"
+            >
+              <span>Explore Platform Portfolio</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
+            </a>
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────
+// 2. PRODUCT VISUAL TILE (EXACT HOMEPAGE HOVER CONCEPT)
+// Product Image → Product Name → Interactive Bottom-to-Top Reveal
+// ─────────────────────────────────────────────────────────────
+function HomepageStyleProductTile({ product }) {
+  const [isHovered, setIsHovered] = useState(false)
+  const { navigate } = usePath()
+
+  const isExternal = Boolean(product.link && product.link.startsWith('http'))
+  const targetLink = product.link || (product.id === 'pharmacy-erp' ? 'https://pharmacy.dasatech.in/' : `/products/${product.id}`)
+
+  const openProduct = (e) => {
+    // If clicked on an actual link, let the link handle it
+    if (e && e.target.closest('a')) return
+
+    if (product.id === 'pharmacy-erp' || isExternal) {
+      window.location.href = targetLink
+      return
+    }
+    navigate(`/products/${product.id}`)
+  }
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={openProduct}
+      className="relative w-full h-[320px] sm:h-[350px] rounded-[24px] overflow-hidden border-2 border-[#E9E2F5] hover:border-[#6D28D9] bg-[#0F0B18] shadow-md hover:shadow-2xl hover:shadow-[#6D28D9]/25 transition-all duration-500 cursor-pointer group select-none"
+    >
+      {/* 1. High-Resolution Product Image */}
+      <img
+        src={product.img}
+        alt={product.name}
+        className={`w-full h-full object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] ${
+          isHovered ? 'scale-106 opacity-85' : 'scale-100 opacity-95'
+        }`}
+      />
+
+      {/* Ambient Gradient Underlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0F0B18]/90 via-[#0F0B18]/30 to-transparent pointer-events-none" />
+
+      {/* Top Header Badge (Default Unhovered State) */}
+      <div
+        className={`absolute top-4 left-4 right-4 z-10 flex items-center justify-between transition-opacity duration-300 ${
+          isHovered ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      >
+        <span className="text-[10px] font-mono font-bold text-white bg-[#0F0B18]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 uppercase tracking-wider shadow-md">
+          {product.category}
+        </span>
+        {isExternal || product.id === 'pharmacy-erp' ? (
+          <span className="text-[9px] font-mono font-bold text-emerald-300 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/40 flex items-center gap-1 shadow-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>LIVE CLOUD SYSTEM</span>
+          </span>
+        ) : (
+          <span className="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/30 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Production Ready</span>
+          </span>
+        )}
+      </div>
+
+      {/* 2. Default Unhovered State: Crisp Title Card at Image Base */}
+      <div
+        className={`absolute bottom-4 left-4 right-4 z-10 transition-all duration-300 ease-out ${
+          isHovered ? 'opacity-0 pointer-events-none hidden' : 'opacity-100'
+        }`}
+      >
+        <div className="p-4 rounded-2xl bg-[#0F0B18]/85 backdrop-blur-md border border-white/20 shadow-2xl flex items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <span className="text-[9px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block">
+              {product.categoryGroup}
+            </span>
+            <h3 className="font-display font-black text-lg sm:text-xl text-white tracking-tight leading-tight">
+              {product.name}
+            </h3>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-[#6D28D9] text-white flex items-center justify-center shadow-lg shrink-0 border border-[#A855F7]/40">
+            {isExternal || product.id === 'pharmacy-erp' ? (
+              <ExternalLink className="w-4 h-4" />
+            ) : (
+              <ArrowRight className="w-4 h-4" />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Interactive Hover: Subtle Bottom-to-Top Reveal Card */}
+      <div
+        className={`absolute inset-x-0 bottom-0 top-auto z-20 transition-all duration-500 ease-[0.16,1,0.3,1] transform ${
+          isHovered
+            ? 'translate-y-0 opacity-100 pointer-events-auto'
+            : 'translate-y-full opacity-0 pointer-events-none'
+        }`}
+      >
+        <div style={{ backgroundColor: "#FFFFFF" }} className="p-5 sm:p-6 rounded-t-[24px] border-t-2 border-[#6D28D9] shadow-2xl space-y-3">
+          
+          <div className="flex items-center justify-between gap-2">
+            <div>
+              <span className="text-[9px] font-mono font-bold text-[#6D28D9] uppercase tracking-wider block">
+                {product.category}
+              </span>
+              <h3 className="font-display font-black text-lg sm:text-xl text-[#0F172A]">
+                {product.name}
+              </h3>
+            </div>
+            <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F7F3FF] px-2.5 py-1 rounded-full border border-[#DDD0FF] shrink-0">
+              {isExternal || product.id === 'pharmacy-erp' ? 'LIVE' : 'ARCHITECTURE'}
+            </span>
+          </div>
+
+          <p className="text-xs text-[#334155] leading-relaxed font-semibold line-clamp-2">
+            {product.summary}
+          </p>
+
+          {/* Configuration / Capability Tags */}
+          <div className="flex flex-wrap gap-1.5 pt-0.5">
+            {product.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-[10px] font-mono font-bold text-[#5B21B6] bg-[#F7F3FF] px-2.5 py-1 rounded-md border border-[#C4B5FD]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Direct Link CTA */}
+          <div className="pt-1">
+            <Link
+              to={targetLink}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-black text-xs shadow-md transition-all group/btn"
+              onClick={(e) => {
+                e.stopPropagation()
+                if (isExternal || product.id === 'pharmacy-erp') {
+                  window.location.href = targetLink
+                }
+              }}
+            >
+              <span>{isExternal || product.id === 'pharmacy-erp' ? 'Launch Live Pharmacy ERP' : 'View Architecture & Case Study'}</span>
+              {isExternal || product.id === 'pharmacy-erp' ? (
+                <ExternalLink className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform duration-300" />
+              ) : (
+                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
+              )}
+            </Link>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────
+// 3. MAIN PRODUCTS PAGE COMPONENT
+// ─────────────────────────────────────────────────────────────
+export default function ProductsPage() {
+  const [selectedTab, setSelectedTab] = useState('all')
+
+  const filterTabs = [
+    { id: 'all', label: 'All Categories' },
+    { id: 'Smart Automation Solutions', label: 'Smart Automation Solutions' },
+    { id: 'Business Operations Suites', label: 'Business Operations Suites' },
+    { id: 'Standalone Platforms', label: 'Standalone Platforms' }
+  ]
+
+  const filteredProducts = selectedTab === 'all'
+    ? PRODUCTS_CATALOG
+    : PRODUCTS_CATALOG.filter(p => p.categoryGroup === selectedTab)
+
+  return (
+    <div className="min-h-screen bg-white text-[#17121F] relative overflow-hidden select-none">
+
+      {/* ── 1. CINEMATIC FULL-WIDTH OPENING HERO (project-pg.png) ── */}
+      <ProductHero />
+
+      {/* ── 2. CATALOG HEADER & CLEAR CATEGORY SELECTION ─────────── */}
+      <section id="catalog" className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8">
+        
+        <div className="space-y-6 pb-6 border-b border-[#E9E2F5]">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-1">
+              <span className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase block">
+                Software &amp; Automations Portfolio
+              </span>
+              <h2 className="font-display font-black text-2xl sm:text-3xl text-[#17121F] tracking-tight">
+                Production-Ready <span className="text-color-shift">Software Platforms</span>
+              </h2>
+            </div>
+            <span className="text-xs font-mono font-semibold text-slate-500">
+              Showing {filteredProducts.length} Platforms
+            </span>
+          </div>
+
+          {/* Fluid Sliding Pill Category Filters - Arranged Cleanly in Single Balanced Row */}
+          <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
+            {filterTabs.map((tab) => {
+              const isActive = selectedTab === tab.id
               return (
                 <button
-                  key={cat.id}
-                  onClick={() => setActiveFilter(cat.id)}
-                  className={`px-4 py-2 rounded-full text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
-                    active
-                      ? 'bg-gradient-to-r from-[#00D4FF] to-[#0099FF] text-black font-bold shadow-[0_0_15px_rgba(0,212,255,0.4)]'
-                      : 'bg-[#0F1117] text-slate-400 border border-white/10 hover:text-white hover:border-white/20'
+                  key={tab.id}
+                  onClick={() => setSelectedTab(tab.id)}
+                  className={`relative px-5 py-2.5 rounded-2xl text-xs font-mono font-bold tracking-wide transition-all duration-300 shrink-0 cursor-pointer ${
+                    isActive
+                      ? 'text-white'
+                      : 'text-[#64748B] hover:text-[#17121F] bg-[#FAF8FF] border border-[#E9E2F5] hover:border-[#DDD0FF] hover:bg-[#F7F3FF]'
                   }`}
                 >
-                  {cat.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeCategoryTab"
+                      transition={{ type: 'spring', damping: 26, stiffness: 260 }}
+                      className="absolute inset-0 rounded-2xl bg-[#6D28D9] shadow-md shadow-[#6D28D9]/30"
+                    />
+                  )}
+                  <span className="relative z-10">{tab.label}</span>
                 </button>
               )
             })}
           </div>
         </div>
+
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────
-          2. PRODUCT SHOWCASES WITH STICKY SIDE INDEX
-      ─────────────────────────────────────────────────────────────── */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
-          {/* Main Showcase Column (Span 9) */}
-          <div className="lg:col-span-9 space-y-24">
-            {filteredProducts.map((prod, idx) => {
-              const Icon = prod.icon
-              const isEven = idx % 2 === 1
-
-              return (
-                <div
-                  key={prod.id}
-                  id={prod.id}
-                  className="scroll-mt-32 rounded-3xl bg-[#0F1117] border border-white/10 p-8 sm:p-12 overflow-hidden relative shadow-2xl"
-                >
-                  {/* Subtle Background Glow per product */}
-                  <div
-                    className="absolute -top-20 -right-20 w-80 h-80 rounded-full blur-[100px] pointer-events-none -z-0"
-                    style={{ backgroundColor: `${prod.color}15` }}
-                  />
-
-                  <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                    
-                    {/* Details Column (Span 7) */}
-                    <div className="md:col-span-7 space-y-6 relative z-10">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center"
-                          style={{
-                            backgroundColor: `${prod.color}15`,
-                            color: prod.color,
-                            border: `1px solid ${prod.color}30`,
-                          }}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <span
-                          className="font-mono text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
-                          style={{
-                            backgroundColor: `${prod.color}15`,
-                            color: prod.color,
-                            border: `1px solid ${prod.color}25`,
-                          }}
-                        >
-                          {prod.tag}
-                        </span>
-                      </div>
-
-                      <h2 className="font-display font-bold text-2xl sm:text-4xl text-white tracking-tight">
-                        {prod.name}
-                      </h2>
-
-                      <p className="text-sm sm:text-base text-[#9AA3B2] leading-relaxed">
-                        {prod.purpose}
-                      </p>
-
-                      {/* 5 Feature Bullets */}
-                      <div className="space-y-2.5 pt-2">
-                        {prod.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
-                            <CheckCircle2
-                              className="w-4 h-4 shrink-0 mt-0.5"
-                              style={{ color: prod.color }}
-                            />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Stats Micro Row */}
-                      <div className="pt-4 grid grid-cols-3 gap-3 border-t border-white/5">
-                        {prod.stats.map((s, sIdx) => (
-                          <div key={sIdx} className="p-3 rounded-xl bg-[#151821] border border-white/5 text-center">
-                            <div className="font-display font-bold text-base text-white">{s.value}</div>
-                            <div className="text-[10px] font-mono text-slate-400 uppercase mt-0.5">{s.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Request Demo Button */}
-                      <div className="pt-2">
-                        <Link
-                          to="/contact"
-                          className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold font-mono tracking-wider transition-all duration-300 hover:shadow-lg"
-                          style={{
-                            backgroundColor: prod.color,
-                            color: '#000000',
-                          }}
-                        >
-                          <span>Request Live Demo</span>
-                          <ArrowUpRight className="w-4 h-4" />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Mockup Column (Span 5) */}
-                    <div className="md:col-span-5 relative z-10">
-                      <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative group bg-[#151821]">
-                        <img
-                          src={prod.mockupImg}
-                          alt={prod.name}
-                          className="w-full h-64 sm:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1117] via-transparent to-transparent opacity-80" />
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-slate-300">
-                          <span className="flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full bg-[#22FF9A] animate-pulse" />
-                            Live Deployment
-                          </span>
-                          <span className="text-[10px] text-slate-400">PostgreSQL Cloud</span>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Sticky Side Index (Span 3) */}
-          <div className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-28 p-6 rounded-2xl bg-[#0F1117] border border-white/10 space-y-4 shadow-xl">
-              <div className="font-mono text-xs font-bold text-slate-400 uppercase tracking-wider pb-3 border-b border-white/10 flex items-center justify-between">
-                <span>PLATFORM INDEX</span>
-                <span className="w-2 h-2 rounded-full bg-[#00D4FF]" />
-              </div>
-
-              <div className="space-y-1.5">
-                {PRODUCTS.map((prod) => {
-                  const isActive = activeProductInView === prod.id
-                  return (
-                    <a
-                      key={prod.id}
-                      href={`#${prod.id}`}
-                      className={`block px-3.5 py-2.5 rounded-xl text-xs font-mono transition-all duration-200 ${
-                        isActive
-                          ? 'bg-white/10 text-white font-bold border-l-2 border-[#00D4FF]'
-                          : 'text-slate-400 hover:text-white hover:bg-white/5'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span>{prod.name}</span>
-                        {isActive && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF]" />
-                        )}
-                      </div>
-                    </a>
-                  )
-                })}
-              </div>
-
-              <div className="pt-4 border-t border-white/10">
-                <div className="text-[11px] text-[#9AA3B2] leading-relaxed">
-                  Need a bespoke system not listed here? We engineer completely custom business software.
-                </div>
-                <Link
-                  to="/contact"
-                  className="mt-3 block text-center px-4 py-2 rounded-xl bg-[#151821] border border-white/10 text-xs font-mono text-[#00D4FF] hover:border-[#00D4FF]/40 transition-colors"
-                >
-                  Custom Request &rarr;
-                </Link>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      {/* ── 3. PRODUCT GRID (HOMEPAGE IMAGE → NAME → HOVER STYLE) ─── */}
+      <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-24">
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                layout
+                initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94, y: 15 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <HomepageStyleProductTile product={product} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────
-          3. UNIFIED INTEGRATION STRIP (HOW PRODUCTS CONNECT)
-      ─────────────────────────────────────────────────────────────── */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-gradient-to-b from-[#151821] to-[#0F1117] border border-white/10 p-8 sm:p-12 shadow-2xl">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <EyebrowPill dotColor="bg-[#22FF9A]">UNIFIED TELEMETRY MESH</EyebrowPill>
-            <h2 className="mt-4 font-display font-bold text-2xl sm:text-4xl text-white tracking-tight">
-              How DASA Products Connect via ERP + IoT + AI Core.
-            </h2>
-            <p className="mt-3 text-sm text-[#9AA3B2]">
-              All platforms share a unified event stream, eliminating data silos between factories, sales counters, and executive decision-makers.
-            </p>
+      {/* ── 4. ELEVATED CONSULTATION CTA ──────────────────────────── */}
+      <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-16 text-center">
+        <div className="relative p-10 sm:p-14 rounded-[32px] border border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg overflow-hidden space-y-4">
+          <div className="text-xs font-bold tracking-wider text-[#6D28D9] uppercase">
+            Custom Development &amp; Deployment
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-[#0F1117] border border-white/5 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] flex items-center justify-center">
-                <Cpu className="w-5 h-5" />
-              </div>
-              <h3 className="font-display font-bold text-lg text-white">Physical Edge Telemetry</h3>
-              <p className="text-xs text-[#9AA3B2] leading-relaxed">
-                LoRa mesh and Siemens PLCs ingest machine cycles, sensor logs, and RFID attendance at sub-second intervals directly from physical sites.
-              </p>
-            </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#17121F] font-display tracking-tight">
+            Need a <span className="text-color-shift">Customized ERP</span> or Dedicated Software?
+          </h2>
 
-            <div className="p-6 rounded-2xl bg-[#0F1117] border border-white/5 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#22FF9A]/10 text-[#22FF9A] flex items-center justify-center">
-                <Eye className="w-5 h-5" />
-              </div>
-              <h3 className="font-display font-bold text-lg text-white">AI Vision &amp; Inference</h3>
-              <p className="text-xs text-[#9AA3B2] leading-relaxed">
-                Real-time edge neural networks inspect manufacturing defects, verify batch numbers, and index faces without transmitting raw video to cloud.
-              </p>
-            </div>
+          <p className="text-[#64748B] max-w-xl mx-auto font-normal text-sm sm:text-base leading-relaxed">
+            We customize and deploy our proprietary ERPs, mobile platforms, and e-commerce engines to match your exact business hierarchy, compliance laws, and workflows.
+          </p>
 
-            <div className="p-6 rounded-2xl bg-[#0F1117] border border-white/5 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] flex items-center justify-center">
-                <Database className="w-5 h-5" />
-              </div>
-              <h3 className="font-display font-bold text-lg text-white">High-Throughput ERP Core</h3>
-              <p className="text-xs text-[#9AA3B2] leading-relaxed">
-                Aggregates all operations into unified PostgreSQL ledgers, calculating tax, stock FIFO reconciliation, and executive KPI intelligence in real time.
-              </p>
-            </div>
+          <div className="pt-2">
+            <PillButton
+              to="/contact"
+              variant="primary"
+              arrow="up-right"
+              size="lg"
+            >
+              Request Custom Development Consultation
+            </PillButton>
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────────────────────
-          4. CTA BAND
-      ─────────────────────────────────────────────────────────────── */}
-      <CtaBand
-        eyebrow="READY TO DEPLOY"
-        title="Schedule an On-Premise Demonstration."
-        description="Experience our software platforms in action with your own sample operational data. Contact our engineering team for a customized walkthrough."
-      />
-
-    </main>
+    </div>
   )
 }

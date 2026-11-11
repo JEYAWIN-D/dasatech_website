@@ -4,7 +4,6 @@ import ScrollToTop from './components/ScrollToTop'
 import DasaAiChatbot from './components/DasaAiChatbot'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
-import FloatingActions from './components/FloatingActions'
 import { SmoothScrollProvider } from './components/SmoothScroll'
 
 import HomePage from './pages/HomePage'
@@ -31,6 +30,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsPage from './pages/TermsPage'
 import SecurityPage from './pages/SecurityPage'
 import BlogPage from './pages/BlogPage'
+import ErpSouthIndiaBlogPage from './pages/ErpSouthIndiaBlogPage'
 import CareersPage from './pages/CareersPage'
 
 import TextileErpPage from './pages/TextileErpPage'
@@ -41,7 +41,7 @@ function ExternalRedirect({ to }) {
     window.location.href = to
   }, [to])
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#07080C] text-slate-300 font-mono text-sm">
+    <div className="min-h-screen flex items-center justify-center bg-white text-slate-700 font-mono text-sm">
       Redirecting to {to}...
     </div>
   )
@@ -52,7 +52,7 @@ export default function App() {
     <Router>
       <SmoothScrollProvider>
         <ScrollToTop />
-        <div className="font-body min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-[#07080C] text-slate-100 flex flex-col justify-between relative selection:bg-[#00D4FF] selection:text-black">
+        <div className="font-body min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-white text-slate-900 flex flex-col justify-between relative selection:bg-blue-600 selection:text-white">
           <Nav />
 
           <div className="flex-grow">
@@ -92,10 +92,7 @@ export default function App() {
             <Route path="/security" component={SecurityPage} />
           </div>
 
-          {/* Floating Action Controls (WhatsApp + Back to Top) */}
-          <FloatingActions />
-
-          {/* Floating DASA AI Assistant Chatbot */}
+          {/* Floating DASA AI Assistant Chatbot with integrated scroll-to-top */}
           <DasaAiChatbot />
 
           <Footer />

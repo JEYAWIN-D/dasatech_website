@@ -22,6 +22,23 @@ import PillButton from '../components/PillButton'
 
 const BLOG_POSTS = [
   {
+    id: 'current-erp-situation-south-india',
+    title: 'The Current State of ERP in South India: Why Traditional Systems Are Failing and the Shift Toward Custom Cloud-IoT Architectures',
+    excerpt: 'An in-depth analysis of how manufacturing, textile, school, and retail hubs across Tamil Nadu, Karnataka, and Andhra Pradesh are replacing fragmented desktop software with modern distributed ERPs.',
+    category: 'Enterprise ERP',
+    icon: Database,
+    readTime: '10 min read',
+    date: 'Nov 10, 2026',
+    author: {
+      name: 'Jeyawin D',
+      role: 'Founder & CEO, DASA TECH'
+    },
+    image: import.meta.env.BASE_URL + 'smart-garment-iot-factory.jpg',
+    tags: ['South India ERP', 'Textile ERP', 'Manufacturing', 'GST E-Invoicing', 'IoT SCADA'],
+    featured: true,
+    link: '/blog/current-erp-situation-south-india'
+  },
+  {
     id: 'ai-vision-defect-detection-pipeline',
     title: 'Architecting Real-Time AI Computer Vision for Factory Optical Defect Inspection',
     excerpt: 'How we engineered sub-40ms defect classification pipelines on assembly lines using edge TensorRT inference and high-speed industrial cameras.',
@@ -35,7 +52,8 @@ const BLOG_POSTS = [
     },
     image: import.meta.env.BASE_URL + 'images/ai-computer-vision.jpg',
     tags: ['Computer Vision', 'PyTorch', 'TensorRT', 'Edge Inference', 'Industrial AI'],
-    featured: true
+    featured: false,
+    link: '/blog/current-erp-situation-south-india'
   },
   {
     id: 'offline-first-enterprise-erp-sync',
@@ -266,10 +284,10 @@ export default function BlogPage() {
                     <div className="text-xs text-slate-500 font-mono">{featuredPost.author.role}</div>
                   </div>
                   <Link
-                    to="/contact"
+                    to={featuredPost.link || "/blog/current-erp-situation-south-india"}
                     className="inline-flex items-center gap-2 font-display font-bold text-sm text-[#6D28D9] group-hover:translate-x-1 transition-transform"
                   >
-                    <span>Read Note</span>
+                    <span>Read Article</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -372,7 +390,7 @@ export default function BlogPage() {
                           {post.author.name}
                         </div>
                         <Link
-                          to="/contact"
+                          to={post.link || "/blog/current-erp-situation-south-india"}
                           className="inline-flex items-center gap-1 font-display font-bold text-xs text-[#6D28D9] group-hover:translate-x-1 transition-transform"
                         >
                           <span>Read</span>
