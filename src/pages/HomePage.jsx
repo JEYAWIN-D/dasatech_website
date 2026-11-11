@@ -4,13 +4,14 @@ import TechMarquee from '../components/TechMarquee'
 import About from '../components/About'
 import CapabilitiesScrollStory from '../components/CapabilitiesScrollStory'
 import ProductsShowcase from '../components/ProductsShowcase'
+import CustomersShowcase from '../components/CustomersShowcase'
 import Collaborators from '../components/Collaborators'
 import CTA from '../components/CTA'
 import { useSEO } from '../hooks/useSEO'
 
 export default function HomePage() {
   useSEO({
-    title: 'DASA TECH | Software Development, ERP, IoT & AI Solutions',
+    title: 'DASA TECH — Enterprise Custom ERP, AI Software & Industrial IoT Systems',
     description: 'DASA TECH engineers mission-critical enterprise software, custom ERP platforms, AI solutions, and IoT telemetry architectures that solve real business problems in Erode, Tamil Nadu.',
     schema: {
       "@context": "https://schema.org",
@@ -32,6 +33,7 @@ export default function HomePage() {
       <About />
       <CapabilitiesScrollStory />
       <ProductsShowcase />
+      <CustomersShowcase />
       <Collaborators />
       <CTA />
     </main>

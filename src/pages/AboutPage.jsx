@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import PageHeaderHero from '../components/PageHeaderHero'
 import FoundersAndTeamShowcase from '../components/FoundersAndTeamShowcase'
+import CustomersShowcase from '../components/CustomersShowcase'
 import { PAGE_HERO_IMAGES } from '../constants/images.js'
 import { Link } from '../components/Router'
 
@@ -407,7 +408,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 7. CONSULTATION CALL TO ACTION ────────────────────── */}
+      {/* ── 7. OUR VALUED CUSTOMERS & PARTNERSHIPS ─────────────── */}
+      <CustomersShowcase />
+
+      {/* ── 8. CONSULTATION CALL TO ACTION ────────────────────── */}
       <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20 text-center">
         <div className="p-10 sm:p-14 rounded-[36px] border-2 border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg space-y-6">
           <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">

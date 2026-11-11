@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Database, Package, ShieldCheck, DollarSign, Stethoscope, ArrowRight, CheckCircle2 } from 'lucide-react'
 import ErpBillingSimulator from '../components/ErpBillingSimulator'
+import CustomersShowcase from '../components/CustomersShowcase'
 import Reveal from '../components/Reveal'
 import TextLineReveal from '../components/TextLineReveal'
 import PillButton from '../components/PillButton'
@@ -249,6 +250,9 @@ export default function ErpPage() {
           )
         })}
       </section>
+
+      {/* Real-World Customer Success */}
+      <CustomersShowcase />
 
       {/* CTA */}
       <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20 text-center">
