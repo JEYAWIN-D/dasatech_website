@@ -1,439 +1,271 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Building2, Cpu, ShieldCheck, Target, Award, CheckCircle2,
-  Sparkles, Zap, Activity, Layers, ArrowRight, Database, Factory,
-  Brain, Radio, Workflow, Code2, Lock, Server, Users, Compass,
-  Check, HeartHandshake, Lightbulb, Smartphone, Shield, ArrowUpRight
+  Sparkles, Zap, Activity, Layers, ArrowRight, Database,
+  Brain, Users, HeartHandshake, Lightbulb, Smartphone, ArrowUpRight
 } from 'lucide-react'
-import PageHeaderHero from '../components/PageHeaderHero'
 import FoundersAndTeamShowcase from '../components/FoundersAndTeamShowcase'
-import { PAGE_HERO_IMAGES } from '../constants/images.js'
 import { Link } from '../components/Router'
+import { useSEO } from '../hooks/useSEO'
+import EyebrowPill from '../components/EyebrowPill'
+import BentoCard from '../components/BentoCard'
+import CtaBand from '../components/CtaBand'
 
-// ─────────────────────────────────────────────────────────────
-// DASA TECH ABOUT PAGE (REDESIGNED)
-// Purpose: Human-designed, clear storytelling, high visual hierarchy
-// Brand Identity: Crisp typography, royal violet accents, glassmorphism
-// ─────────────────────────────────────────────────────────────
-
-const CORE_CAPABILITIES = [
-  {
-    id: 'biz-tech',
-    icon: Database,
-    title: 'Business Technology Solutions',
-    badge: 'Enterprise Software',
-    summary: 'Custom ERP systems, CRM platforms, digital marketing, and automated workflow solutions tailored to streamline operations and drive business growth.',
-    features: ['Custom ERP Suites', 'CRM & Sales Boards', 'Digital Marketing', 'Workflow Automation']
-  },
-  {
-    id: 'smart-automation',
-    icon: Cpu,
-    title: 'Smart Automation Solutions',
-    badge: 'Intelligent Systems',
-    summary: 'Hardware and IoT automation spanning smart home living, precision agricultural solenoid irrigation, and industrial machine telemetry.',
-    features: ['Home Automation', 'Agricultural Irrigation', 'Sub-GHz IoT Mesh', 'SCADA Machine Control']
-  },
-  {
-    id: 'web-mobile',
-    icon: Smartphone,
-    title: 'Custom Web & Mobile Platforms',
-    badge: 'Digital Products',
-    summary: 'Modern, high-performance web applications, e-commerce marketplaces, and native mobile apps built with Next.js and responsive UI frameworks.',
-    features: ['Headless E-Commerce', 'Next.js Web Apps', 'iOS & Android Apps', 'Real-Time WebSockets']
-  }
-]
-
-const OUR_APPROACH = [
-  {
-    step: '01',
-    phase: 'Discovery & Goal Alignment',
-    title: 'Understanding Your Business Goals',
-    desc: 'We start by sitting down with your team to understand operational bottlenecks, existing workflows, and long-term business objectives.'
-  },
-  {
-    step: '02',
-    phase: 'Custom Solution Architecture',
-    title: 'Designing Tailored Systems',
-    desc: 'Our engineering leads design clean database structures, intuitive user interfaces, and modular software architectures built specifically for your needs.'
-  },
-  {
-    step: '03',
-    phase: 'Agile Build & Validation',
-    title: 'Quality Implementation & Testing',
-    desc: 'We build iteratively with regular updates, conduct thorough security and performance testing, and ensure everything runs smoothly before launch.'
-  },
-  {
-    step: '04',
-    phase: 'Deployment & Ongoing Growth',
-    title: 'Seamless Launch & Ongoing Support',
-    desc: 'We deploy your platform with zero downtime, train your team, and provide continuous technical support to ensure your long-term success.'
-  }
-]
-
-const WHY_CHOOSE_US = [
+const VALUES = [
   {
     icon: HeartHandshake,
     title: 'Direct Founder Partnership',
-    desc: 'You work directly with Founder & CEO Jeyawin D and our senior team, ensuring clear communication, accountability, and fast decision-making.'
+    desc: 'You work directly with Founder & CEO Jeyawin D and our senior engineering leads, ensuring zero communication loss, architectural integrity, and fast decision-making.',
+    color: '#00D4FF',
   },
   {
     icon: ShieldCheck,
     title: 'Tailored Custom Engineering',
-    desc: 'We never force off-the-shelf templates. Every software system and automation solution is custom-crafted around your actual workflow.'
+    desc: 'We never force off-the-shelf templates or generic packages. Every software system and automation solution is custom-crafted around your actual operational workflow.',
+    color: '#22FF9A',
   },
   {
     icon: Lightbulb,
     title: 'Simple & Understandable',
-    desc: 'We communicate complex technology in simple, clear business terms so you always know what is being built and why.'
+    desc: 'We communicate complex technology in simple, transparent business terms so your executive stakeholders always know what is being built, why, and how it performs.',
+    color: '#00D4FF',
   },
   {
     icon: Award,
     title: 'Reliability & High Quality',
-    desc: 'From data security to smooth user interfaces, we adhere to strict quality standards to build software that simply works.'
-  }
+    desc: 'From data security and schema normalization to microsecond response latencies, we adhere to strict quality standards to build software that simply works.',
+    color: '#22FF9A',
+  },
 ]
 
 export default function AboutPage() {
-  const [activeApproach, setActiveApproach] = useState(0)
+  useSEO({
+    title: 'About Us | DASA TECH — Technology • Innovation • Future',
+    description:
+      'DASA TECH engineers scalable enterprise software, custom ERP platforms, and smart automation systems designed to replace complex manual processes with dependable digital tools.',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      name: 'About DASA TECH',
+      url: 'https://dasatech.in/about',
+    },
+  })
 
   return (
-    <div className="min-h-screen bg-white text-[#17121F] relative overflow-hidden select-none">
+    <main className="w-full bg-[#07080C] text-slate-100 overflow-hidden">
+      
+      {/* ─────────────────────────────────────────────────────────────
+          1. HERO HEADER
+      ─────────────────────────────────────────────────────────────── */}
+      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#00D4FF]/10 via-[#22FF9A]/10 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 
-      {/* ── 1. CINEMATIC HERO ─────────────────────────────────── */}
-      <PageHeaderHero
-        tagline="HUMAN-CENTERED ENGINEERING &amp; SOFTWARE LEADERSHIP"
-        title="About DASA TECH"
-        description="We are a modern technology company dedicated to building intuitive business software, custom ERP platforms, and smart automation solutions that empower growing enterprises."
-        image={PAGE_HERO_IMAGES?.about?.path || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=90'}
-        tools={['Business ERP', 'Smart Automation', 'Web & Mobile', 'Custom Software', 'Direct Founder Leadership']}
+        <div className="max-w-3xl">
+          <EyebrowPill dotColor="bg-[#00D4FF]">LEADERSHIP &amp; ARCHITECTURAL CULTURE</EyebrowPill>
+          <h1 className="mt-4 font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+            Engineering software that makes{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-white to-[#22FF9A]">
+              business simple &amp; efficient.
+            </span>
+          </h1>
+          <p className="mt-6 text-base sm:text-lg text-[#9AA3B2] leading-relaxed">
+            DASA TECH engineers scalable enterprise software platforms and smart industrial automation systems designed to replace complex manual processes with dependable, unified digital tools.
+          </p>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          2. STORY, MISSION, VISION & STATS IN A BENTO GRID
+      ─────────────────────────────────────────────────────────────── */}
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          
+          {/* Bento Card 1: Our Story (Span 7) */}
+          <BentoCard
+            className="md:col-span-7 p-8 sm:p-10 flex flex-col justify-between"
+            glowColor="rgba(0, 212, 255, 0.15)"
+          >
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs text-[#00D4FF] uppercase tracking-wider font-semibold mb-4">
+                <Building2 className="w-4 h-4" />
+                <span>Our Story &bull; Founded in 2025</span>
+              </div>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-white leading-tight">
+                From Operational Frustration to Precision Engineering.
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-[#9AA3B2] leading-relaxed">
+                Founded in 2025 by <strong>Jeyawin D (Founder &amp; CEO)</strong> in Erode, Tamil Nadu, DASA TECH emerged from a singular conviction: growing enterprises deserve mission-critical software built specifically around their actual operational bottlenecks, rather than rigid off-the-shelf software with high recurring licenses.
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[#9AA3B2] leading-relaxed">
+                Today, our engineering hub connects physical IoT telemetry with high-concurrency cloud databases and edge AI computer vision, serving factories, schools, pharmacies, and commercial enterprises.
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap gap-4 text-xs font-mono text-slate-300">
+              <span className="px-3 py-1.5 rounded-lg bg-[#151821] border border-white/10">HQ: Erode, Tamil Nadu</span>
+              <span className="px-3 py-1.5 rounded-lg bg-[#151821] border border-white/10">European Node: London, UK</span>
+              <span className="px-3 py-1.5 rounded-lg bg-[#151821] border border-white/10">100% In-House Code</span>
+            </div>
+          </BentoCard>
+
+          {/* Bento Card 2: Company At A Glance / Stats (Span 5) */}
+          <BentoCard
+            className="md:col-span-5 p-8 flex flex-col justify-between"
+            glowColor="rgba(34, 255, 154, 0.15)"
+          >
+            <div>
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                <span className="font-mono text-xs font-bold text-[#22FF9A] uppercase tracking-wider">
+                  DASA TECH AT A GLANCE
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#22FF9A] animate-pulse" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-[#151821] border border-white/5">
+                  <div className="text-[11px] font-mono text-slate-400 uppercase">Leadership</div>
+                  <div className="font-display font-bold text-base text-white mt-1">Jeyawin D</div>
+                  <div className="text-[10px] text-[#00D4FF] font-mono">Founder &amp; CEO</div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#151821] border border-white/5">
+                  <div className="text-[11px] font-mono text-slate-400 uppercase">Established</div>
+                  <div className="font-display font-bold text-base text-white mt-1">2025</div>
+                  <div className="text-[10px] text-slate-400 font-mono">Erode Hub</div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#151821] border border-white/5">
+                  <div className="text-[11px] font-mono text-slate-400 uppercase">Architecture</div>
+                  <div className="font-display font-bold text-base text-white mt-1">99.9%</div>
+                  <div className="text-[10px] text-[#22FF9A] font-mono">Uptime SLA</div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#151821] border border-white/5">
+                  <div className="text-[11px] font-mono text-slate-400 uppercase">Code Ownership</div>
+                  <div className="font-display font-bold text-base text-white mt-1">100%</div>
+                  <div className="text-[10px] text-[#22FF9A] font-mono">Client Owned</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 rounded-xl bg-[#151821] border border-white/5">
+              <span className="font-mono text-[11px] text-slate-400 uppercase tracking-wider block mb-2 font-semibold">
+                Technology Domains
+              </span>
+              <div className="flex flex-wrap gap-2 text-xs font-mono">
+                {['Custom ERP', 'Industrial IoT', 'Edge AI Vision', 'Web & Mobile'].map((d) => (
+                  <span key={d} className="px-2.5 py-1 rounded-md bg-[#0F1117] text-[#00D4FF] border border-[#00D4FF]/20">
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </BentoCard>
+
+          {/* Bento Card 3: Mission & Vision (Span 12) */}
+          <BentoCard
+            className="md:col-span-12 p-8 sm:p-10"
+            glowColor="rgba(0, 212, 255, 0.12)"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 font-mono text-xs text-[#00D4FF] uppercase tracking-wider font-semibold mb-3">
+                  <Target className="w-4 h-4" />
+                  <span>Our Mission</span>
+                </div>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+                  Modernizing enterprise operations through clean, reliable, and intuitive digital tools.
+                </h3>
+                <p className="mt-3 text-sm text-[#9AA3B2] leading-relaxed">
+                  We empower business owners, factory directors, and educators to eliminate clerical waste, track physical inventory in real time, and gain absolute certainty over their operations.
+                </p>
+              </div>
+
+              <div className="border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
+                <div className="inline-flex items-center gap-2 font-mono text-xs text-[#22FF9A] uppercase tracking-wider font-semibold mb-3">
+                  <Sparkles className="w-4 h-4" />
+                  <span>Our Vision</span>
+                </div>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+                  Connecting physical shop floors to intelligent software intelligence seamlessly.
+                </h3>
+                <p className="mt-3 text-sm text-[#9AA3B2] leading-relaxed">
+                  By merging edge hardware sensors, SCADA telemetry, and custom ERP workflows, we bridge the gap between physical production and executive decision-making.
+                </p>
+              </div>
+            </div>
+          </BentoCard>
+
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          3. OUR CORE VALUES & PRINCIPLES
+      ─────────────────────────────────────────────────────────────── */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <EyebrowPill dotColor="bg-[#22FF9A]">FOUNDATIONAL PRINCIPLES</EyebrowPill>
+          <h2 className="mt-4 font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+            Why Clients Trust DASA TECH.
+          </h2>
+          <p className="mt-4 text-base text-[#9AA3B2]">
+            The engineering tenets behind our long-term client relationships and technical integrity.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {VALUES.map((val, idx) => {
+            const Icon = val.icon
+            return (
+              <BentoCard
+                key={idx}
+                className="p-7 flex flex-col justify-between"
+                glowColor={`${val.color}20`}
+                borderColor={`hover:border-[${val.color}]/40`}
+              >
+                <div>
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                    style={{
+                      backgroundColor: `${val.color}15`,
+                      color: val.color,
+                      border: `1px solid ${val.color}30`,
+                    }}
+                  >
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-white">
+                    {val.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#9AA3B2] mt-3 leading-relaxed">
+                    {val.desc}
+                  </p>
+                </div>
+              </BentoCard>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          4. OUR TEAM & FOUNDER
+          Strict constraint: KEEP THE EXISTING DESIGN EXACTLY AS IS
+          (same cards, layout, photos, names, roles, text, styling)
+      ─────────────────────────────────────────────────────────────── */}
+      <div className="relative py-12 border-t border-white/5">
+        <FoundersAndTeamShowcase />
+      </div>
+
+      {/* ─────────────────────────────────────────────────────────────
+          5. CTA BAND
+      ─────────────────────────────────────────────────────────────── */}
+      <CtaBand
+        eyebrow="READY TO COLLABORATE"
+        title="Ready to Build Your Next Technology Solution?"
+        description="Schedule a direct technical discovery discussion with Founder & CEO Jeyawin D and our engineering leads to explore your business goals and get started."
       />
 
-      {/* ── 2. OUR STORY & PURPOSE (HUMAN-DESIGNED NARRATIVE) ──── */}
-      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-[#FAF8FF] via-white to-white border-b border-[#E9E2F5]">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left Narrative */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
-                Our Story &bull; Founded in 2025
-              </div>
-
-              <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17121F] tracking-tight leading-[1.12]">
-                Building software that makes <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] via-[#8B5CF6] to-[#06B6D4]">business simple and efficient.</span>
-              </h2>
-
-              {/* Concise Intro Lead */}
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-                DASA TECH engineers scalable software platforms and smart automation systems designed to replace complex manual processes with dependable, unified digital tools.
-              </p>
-
-              {/* Clean Structured Highlights Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <Building2 className="w-4 h-4 text-purple-600 shrink-0" />
-                    <span>Origin &amp; Leadership</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
-                    Founded in 2025 by <strong>Jeyawin D (Founder &amp; CEO)</strong> in Erode, Tamil Nadu.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <Target className="w-4 h-4 text-purple-600 shrink-0" />
-                    <span>Core Mission</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
-                    Modernizing enterprise operations through clean, reliable, and intuitive digital tools.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <Layers className="w-4 h-4 text-purple-600 shrink-0" />
-                    <span>Engineering Focus</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
-                    Custom ERP suites, industrial IoT telemetry, and smart workflow automation.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-[#E9E2F5] shadow-2xs space-y-1.5 hover:border-purple-300 transition-colors">
-                  <div className="flex items-center gap-2 text-[#6D28D9] font-bold text-xs uppercase tracking-wide">
-                    <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
-                    <span>Client Commitment</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
-                    100% tailored development aligned with exact industry workflows and compliance.
-                  </p>
-                </div>
-              </div>
-
-              {/* Quick Info Badges */}
-              <div className="pt-2 flex flex-wrap gap-3 items-center">
-                <Link
-                  to="/products"
-                  className="px-6 py-3.5 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-[#6D28D9]/25 transition-all flex items-center gap-2"
-                >
-                  <span>Explore Our Products</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  to="/contact"
-                  className="px-6 py-3.5 rounded-full bg-[#F5F0FF] hover:bg-[#EDE9FE] text-[#6D28D9] font-display font-bold text-xs sm:text-sm border border-[#DDD0FF] transition-colors"
-                >
-                  <span>Talk with Founder &amp; CEO</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Card: Company Overview Snapshot */}
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl p-7 sm:p-8 bg-[#0F0B18] border-2 border-white/15 text-white shadow-2xl space-y-6 relative overflow-hidden">
-                
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="font-mono text-xs font-bold text-[#C084FC] uppercase tracking-wider">
-                      DASA TECH AT A GLANCE
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-slate-300 bg-white/10 px-2.5 py-0.5 rounded-full">
-                    Erode, India
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3.5 font-mono text-xs">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[10px] text-slate-400 uppercase block">Founder &amp; CEO</span>
-                    <span className="font-display font-bold text-sm text-[#C084FC]">Jeyawin D</span>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[10px] text-slate-400 uppercase block">Established</span>
-                    <span className="font-display font-bold text-sm text-white">2025</span>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[10px] text-slate-400 uppercase block">Core Focus</span>
-                    <span className="font-display font-bold text-sm text-white">Software &amp; Automation</span>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                    <span className="text-[10px] text-slate-400 uppercase block">Client Commitment</span>
-                    <span className="font-display font-bold text-sm text-emerald-400">100% Tailored</span>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
-                  <span className="text-[10px] font-mono font-bold text-[#C084FC] uppercase tracking-wider block">
-                    Our Core Pillars
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {['Business Tech Solutions', 'Smart Automation Solutions', 'Web & Mobile Apps', 'Dedicated R&D'].map((pillar, pIdx) => (
-                      <span key={pIdx} className="text-[10px] font-mono text-slate-200 bg-white/10 px-2.5 py-1 rounded-lg">
-                        {pillar}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 3. OUR CAPABILITIES & SOLUTIONS ───────────────────── */}
-      <section className="py-20 lg:py-28 bg-white border-b border-[#E9E2F5]">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
-              What We Build
-            </div>
-            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#17121F] tracking-tight">
-              Our Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#06B6D4]">Capabilities &amp; Solutions</span>
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              We design and deliver clean, scalable technology across three primary solution areas.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {CORE_CAPABILITIES.map((cap) => {
-              const Icon = cap.icon
-              return (
-                <div
-                  key={cap.id}
-                  className="p-8 rounded-3xl bg-[#FAF8FF] border-2 border-[#E9E2F5] hover:border-[#6D28D9] transition-all duration-300 space-y-5 shadow-sm hover:shadow-xl hover:shadow-[#6D28D9]/10 flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-[#6D28D9] text-white flex items-center justify-center shadow-md">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-[10px] font-mono font-bold text-[#6D28D9] bg-[#F7F3FF] px-3 py-1 rounded-full border border-[#DDD0FF]">
-                        {cap.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display font-black text-xl text-[#17121F]">
-                      {cap.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {cap.summary}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#E9E2F5] space-y-2 font-mono text-xs">
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Key Offerings:</span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {cap.features.map((feat, fIdx) => (
-                        <span key={fIdx} className="text-[10px] text-[#5B21B6] bg-white border border-[#E9E2F5] px-2.5 py-1 rounded-md font-semibold">
-                          {feat}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 4. OUR PRACTICAL APPROACH ─────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-[#0F0B18] text-white border-b border-slate-800">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
-          
-          <div className="space-y-3 text-center max-w-3xl mx-auto">
-            <div className="text-xs font-bold text-[#C084FC] uppercase tracking-wider">
-              How We Work
-            </div>
-            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-              Our Practical <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C084FC] to-[#6D28D9]">4-Step Delivery Approach</span>
-            </h2>
-            <p className="text-slate-400 text-xs sm:text-sm">
-              Clear milestone steps ensuring smooth execution, high quality, and no surprises.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {OUR_APPROACH.map((st, idx) => {
-              const isActive = activeApproach === idx
-              return (
-                <div
-                  key={idx}
-                  onClick={() => setActiveApproach(idx)}
-                  className={`p-7 rounded-3xl border cursor-pointer transition-all duration-300 space-y-4 ${
-                    isActive
-                      ? 'bg-[#6D28D9] border-[#C084FC] text-white shadow-xl scale-102'
-                      : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
-                  }`}
-                >
-                  <div className="flex items-center justify-between font-mono text-xs">
-                    <span className="font-bold text-[#C084FC] bg-black/40 px-3 py-1 rounded-full">
-                      STEP {st.step}
-                    </span>
-                    <span className="text-slate-400">{st.phase}</span>
-                  </div>
-
-                  <h3 className="font-display font-bold text-lg text-white">
-                    {st.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                    {st.desc}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 5. OUR FAMILY & LEADERSHIP (TEAM SHOWCASE) ────────── */}
-      <FoundersAndTeamShowcase />
-
-      {/* ── 6. WHY CLIENTS TRUST DASA TECH ────────────────────── */}
-      <section className="py-20 lg:py-28 bg-[#FAF8FF] border-b border-[#E9E2F5]">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 space-y-12">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6D28D9] uppercase bg-[#F7F3FF] px-4 py-1.5 rounded-full border border-[#DDD0FF]">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>THE DASA TECH DIFFERENCE</span>
-            </div>
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-[#17121F] tracking-tight">
-              Why Clients Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6]">DASA TECH</span>
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
-              The core principles behind our relationships and long-term client partnerships.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {WHY_CHOOSE_US.map((item, idx) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={idx}
-                  className="p-7 rounded-3xl bg-white border-2 border-[#E9E2F5] hover:border-[#6D28D9] transition-all duration-300 space-y-4 shadow-sm hover:shadow-xl hover:shadow-[#6D28D9]/10"
-                >
-                  <div className="w-11 h-11 rounded-2xl bg-[#F7F3FF] border border-[#DDD0FF] flex items-center justify-center text-[#6D28D9]">
-                    <Icon className="w-5 h-5" />
-                  </div>
-
-                  <h3 className="font-display font-bold text-lg text-[#17121F]">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 7. CONSULTATION CALL TO ACTION ────────────────────── */}
-      <section className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-20 text-center">
-        <div className="p-10 sm:p-14 rounded-[36px] border-2 border-[#E9E2F5] bg-gradient-to-b from-[#FAF8FF] via-white to-[#F5F0FF] shadow-lg space-y-6">
-          <div className="text-xs font-bold text-[#6D28D9] uppercase tracking-wider">
-            Start a Conversation
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#17121F] font-display tracking-tight leading-tight">
-            Ready to Build Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6]">Next Technology Solution?</span>
-          </h2>
-
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base font-normal leading-relaxed">
-            Schedule a direct technical discovery discussion with Founder &amp; CEO Jeyawin D and our engineering leads to explore your business goals and get started.
-          </p>
-
-          <div className="pt-2">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-display font-bold text-sm shadow-xl shadow-[#6D28D9]/30 transition-all"
-            >
-              <span>Schedule Discovery Discussion</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-    </div>
+    </main>
   )
 }

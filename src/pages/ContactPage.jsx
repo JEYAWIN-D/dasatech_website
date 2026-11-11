@@ -1,1780 +1,573 @@
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  ShieldCheck, Clock, MapPin, Sparkles, ArrowRight,
-  Send, HelpCircle, CheckCircle2, AlertCircle, Cpu, Layers, Globe,
-  Smartphone, ShoppingCart, TrendingUp, GraduationCap, Handshake,
-  Check, Copy, ExternalLink, ChevronRight, Lock, RefreshCw,
-  Briefcase, Activity, CheckCircle, Terminal, Info, Users, LayoutGrid, Box
+  Send, MapPin, CheckCircle2, AlertCircle, Copy, Check,
+  MessageCircle, ExternalLink, ShieldCheck, Clock, Globe,
+  Layers, Cpu, Smartphone, ArrowRight, Sparkles, Building
 } from 'lucide-react'
 import { useSEO } from '../hooks/useSEO'
-import ContactProjectEstimator from '../components/ContactProjectEstimator'
+import EyebrowPill from '../components/EyebrowPill'
+import BentoCard from '../components/BentoCard'
+import GlobalPresenceMap from '../components/GlobalPresenceMap'
+import SignalBrandIcon from '../components/SignalBrandIcon'
 
-// ─────────────────────────────────────────────────────────────
-// OFFICIAL SIGNAL VECTOR ICON
-// Pixel-perfect official Signal brand vector mark
-// ─────────────────────────────────────────────────────────────
-function SignalBrandIcon({ className = 'w-5 h-5' }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M12 2.25a9.75 9.75 0 0 0-8.539 14.459c.074.134.1.292.064.441l-1.013 4.338 4.338-1.013a.62.62 0 0 1 .441.064A9.7 9.7 0 0 0 12 21.75c5.385 0 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25z" />
-    </svg>
-  )
-}
-
-// ─────────────────────────────────────────────────────────────
-// DATA CONSTANTS – CURATED COUNTRIES LIST
-// ─────────────────────────────────────────────────────────────
 const COUNTRY_OPTIONS = [
-  { code: 'IN', name: 'India', dial: '+91' },
-  { code: 'US', name: 'United States', dial: '+1' },
-  { code: 'AE', name: 'United Arab Emirates', dial: '+971' },
-  { code: 'GB', name: 'United Kingdom', dial: '+44' },
-  { code: 'SG', name: 'Singapore', dial: '+65' },
-  { code: 'SA', name: 'Saudi Arabia', dial: '+966' },
-  { code: 'QA', name: 'Qatar', dial: '+974' },
-  { code: 'OM', name: 'Oman', dial: '+968' },
-  { code: 'MY', name: 'Malaysia', dial: '+60' },
-  { code: 'CA', name: 'Canada', dial: '+1' },
-  { code: 'AU', name: 'Australia', dial: '+61' },
-  { code: 'DE', name: 'Germany', dial: '+49' },
-  { code: 'NL', name: 'Netherlands', dial: '+31' },
-  { code: 'FR', name: 'France', dial: '+33' },
-  { code: 'CH', name: 'Switzerland', dial: '+41' },
-  { code: 'JP', name: 'Japan', dial: '+81' },
-  { code: 'OTHER', name: 'Other International', dial: '' }
+  'India',
+  'United Kingdom',
+  'United States',
+  'United Arab Emirates',
+  'Singapore',
+  'Saudi Arabia',
+  'Qatar',
+  'Malaysia',
+  'Australia',
+  'Germany',
+  'Other International',
 ]
 
-// ─────────────────────────────────────────────────────────────
-// ENQUIRY CATEGORIES & SERVICES CATALOG
-// ─────────────────────────────────────────────────────────────
-const ENQUIRY_CATEGORIES = [
-  'General Enquiry',
-  'Software Development',
-  'ERP Solutions',
+const INTEREST_OPTIONS = [
+  'Custom ERP Development',
+  'AI & Computer Vision',
+  'IoT & Industrial Automation',
   'Website & Mobile App Development',
-  'E-Commerce Development',
-  'Digital Marketing & CRM',
-  'Home & Industrial Automation',
-  'IoT Solutions',
+  'High-Velocity E-Commerce',
+  'Digital Transformation & CRM',
   'Business Partnership',
   'Internship / Career',
-  'Other'
-]
-
-const CORE_SERVICES = [
-  {
-    id: 'software-erp',
-    title: 'Custom Software & ERP Development',
-    categoryMatch: 'ERP Solutions',
-    icon: Layers,
-    color: '#6C2BD9',
-    badge: 'Enterprise Core',
-    description: 'Multi-branch enterprise ERP platforms, microservice backend engines, and real-time distributed accounting ledgers.',
-    highlights: ['Multi-Branch Inventory Sync', 'Double-Entry GST Engine', 'Keyboard-First POS Terminal']
-  },
-  {
-    id: 'web-mobile',
-    title: 'Website & Mobile App Development',
-    categoryMatch: 'Website & Mobile App Development',
-    icon: Smartphone,
-    color: '#4F46E5',
-    badge: 'High Performance',
-    description: 'Sub-second responsive React/Next.js web applications and cross-platform native iOS & Android applications.',
-    highlights: ['Sub-600ms Loading Velocity', 'PWA Offline First Sync', 'Role-Based Admin Consoles']
-  },
-  {
-    id: 'ecommerce',
-    title: 'E-Commerce Solutions',
-    categoryMatch: 'E-Commerce Development',
-    icon: ShoppingCart,
-    color: '#059669',
-    badge: 'Omnichannel Commerce',
-    description: 'High-throughput headless commerce architectures, multi-vendor vendor hubs, and zero-downtime payment flows.',
-    highlights: ['Sub-Second Checkout Flow', 'Multi-Vendor Split Engine', 'Automated Cart Recovery']
-  },
-  {
-    id: 'vertical-erp',
-    title: 'School, Textile & Pharmacy ERP',
-    categoryMatch: 'ERP Solutions',
-    icon: GraduationCap,
-    color: '#0284C7',
-    badge: 'Vertical Systems',
-    description: 'Purpose-built industrial solutions for multi-location healthcare pharmacies, school campuses, and textile mills.',
-    highlights: ['Batch FIFO Expiry Tracking', 'Biometric Student SIS Portals', 'Textile Looms Machine Telemetry']
-  },
-  {
-    id: 'automation-iot',
-    title: 'Home, Industrial & Agricultural Automation',
-    categoryMatch: 'Home & Industrial Automation',
-    icon: Cpu,
-    color: '#D97706',
-    badge: 'Industry 4.0 & Edge',
-    description: 'Industrial SCADA PLC telemetry, edge LoRa/MQTT sensor networks, touchless NFC workflows, and smart facility controllers.',
-    highlights: ['Real-Time PLC Telemetry', 'Sub-GHz LoRa Mesh Nodes', 'Touchless Smart NFC Stationing']
-  },
-  {
-    id: 'marketing-crm',
-    title: 'Digital Marketing & CRM Solutions',
-    categoryMatch: 'Digital Marketing & CRM',
-    icon: TrendingUp,
-    color: '#7C3AED',
-    badge: 'Revenue Acceleration',
-    description: 'Data-driven brand positioning, high-converting creative performance campaigns, and automated multi-channel CRM pipelines.',
-    highlights: ['Omnichannel Lead Ingestion', 'Visual Deal Pipeline HUD', 'Integrated Messaging Workflows']
-  }
-]
-
-// ─────────────────────────────────────────────────────────────
-// DEPARTMENT CARDS (LEFT COLUMN)
-// ─────────────────────────────────────────────────────────────
-const DEPARTMENT_CARDS = [
-  {
-    title: 'General Enquiries',
-    icon: Globe,
-    color: 'text-[#6C2BD9]',
-    bgColor: 'bg-violet-50 border-violet-200',
-    description: 'Corporate communications, technology advisory, and executive management correspondence.',
-    category: 'General Enquiry'
-  },
-  {
-    title: 'Software & ERP Development',
-    icon: Layers,
-    color: 'text-indigo-600',
-    bgColor: 'bg-indigo-50 border-indigo-200',
-    description: 'Custom ERP architectures, high-concurrency microservices, and bespoke enterprise software.',
-    category: 'ERP Solutions'
-  },
-  {
-    title: 'Digital Transformation',
-    icon: TrendingUp,
-    color: 'text-fuchsia-600',
-    bgColor: 'bg-fuchsia-50 border-fuchsia-200',
-    description: 'Modernizing legacy architectures, cloud migrations, and automated enterprise CRM pipelines.',
-    category: 'Digital Marketing & CRM'
-  },
-  {
-    title: 'IoT & Automation',
-    icon: Cpu,
-    color: 'text-emerald-600',
-    bgColor: 'bg-emerald-50 border-emerald-200',
-    description: 'Edge sensor telemetry, industrial PLC SCADA integrations, and intelligent facility automation.',
-    category: 'Home & Industrial Automation'
-  },
-  {
-    title: 'Business Partnerships',
-    icon: Handshake,
-    color: 'text-amber-600',
-    bgColor: 'bg-amber-50 border-amber-200',
-    description: 'System integration alliances, technology licensing, and commercial enterprise collaborations.',
-    category: 'Business Partnership'
-  },
-  {
-    title: 'Internship & Career Enquiries',
-    icon: GraduationCap,
-    color: 'text-sky-600',
-    bgColor: 'bg-sky-50 border-sky-200',
-    description: 'Engineering apprenticeships, R&D internships, and professional software engineering careers.',
-    category: 'Internship / Career'
-  }
-]
-
-// ─────────────────────────────────────────────────────────────
-// TRUST PILLARS (SECTION 6)
-// ─────────────────────────────────────────────────────────────
-const TRUST_PILLARS = [
-  {
-    title: 'Business-Focused Technology Solutions',
-    desc: 'Every architecture decision is calibrated to commercial efficiency, operational throughput, and measurable return on investment.',
-    icon: Briefcase,
-    color: '#6C2BD9'
-  },
-  {
-    title: 'Custom-Built Software Architecture',
-    desc: 'Bespoke systems built precisely around your operational workflows, eliminating restrictive third-party licenses and bloat.',
-    icon: Layers,
-    color: '#4F46E5'
-  },
-  {
-    title: 'Integrated Automation Capabilities',
-    desc: 'Bridging physical edge hardware, smart NFC telemetry, industrial PLCs, and cloud web applications under one unified stack.',
-    icon: Cpu,
-    color: '#059669'
-  },
-  {
-    title: 'Scalable Digital Solutions',
-    desc: 'Architected with resilient microservices and distributed database layers designed to absorb high transaction loads effortlessly.',
-    icon: Activity,
-    color: '#0284C7'
-  },
-  {
-    title: 'Collaborative Project Execution',
-    desc: 'Transparent milestones, weekly sprint telemetry, and direct collaboration with senior technical architects throughout delivery.',
-    icon: Users,
-    color: '#D97706'
-  },
-  {
-    title: 'Continuous Technical Support',
-    desc: 'Structured enterprise SLAs, proactive security patching, performance telemetry monitoring, and long-term evolutionary support.',
-    icon: ShieldCheck,
-    color: '#7C3AED'
-  }
-]
-
-// ─────────────────────────────────────────────────────────────
-// FREQUENTLY ASKED QUESTIONS (ENTERPRISE GRADE)
-// ─────────────────────────────────────────────────────────────
-const CORPORATE_FAQS = [
-  {
-    question: 'How fast can our team expect an initial technical review?',
-    answer: 'Our engineering leadership reviews all business inquiries within 24 business hours. If immediate contact is required, our verified Signal channel provides direct encrypted access to our team.'
-  },
-  {
-    question: 'Can we execute a Non-Disclosure Agreement (NDA) prior to scoping?',
-    answer: 'Yes. We routinely execute bilateral NDAs with prospective enterprise clients before reviewing proprietary workflows, codebase assets, or confidential project specifications.'
-  },
-  {
-    question: 'Does DASA TECH work with international and distributed clients?',
-    answer: 'Absolutely. We partner with enterprises across India, the Middle East, Southeast Asia, and globally, orchestrating remote sprints, video architecture reviews, and asynchronous progress telemetry.'
-  },
-  {
-    question: 'How do we reach DASA TECH directly on the Signal App?',
-    answer: 'Search for our verified username "dasatech.99" within the Signal application, or tap the "Open in Signal App" button on this page to initiate an end-to-end encrypted direct dialogue.'
-  }
+  'Other Technology Inquiry',
 ]
 
 export default function ContactPage() {
-  // ── SEO Hook ──
   useSEO({
-    title: 'Contact DASA TECH | Software Development & Digital Transformation',
-    description: 'Connect with DASA TECH for custom software, ERP development, mobile applications, digital solutions, IoT and automation services.'
+    title: 'Contact Us | DASA TECH Corporate Consultation Portal',
+    description:
+      'Connect with DASA TECH for custom enterprise ERP, industrial IoT automation, AI computer vision, and bespoke software engineering. Connect via Signal (@dasatech.99) or direct consultation form.',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'DASA TECH Contact',
+      url: 'https://dasatech.in/contact',
+    },
   })
 
-  // ── Form State ──
+  // Form State
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     phone: '',
     country: 'India',
-    category: 'Software Development',
-    service: 'Custom Software & ERP Development',
-    budget: '',
-    timeline: '',
+    interest: 'Custom ERP Development',
     message: '',
-    // Contextual Dynamic Fields
-    erpBusinessType: '',
-    erpRequirementType: '',
-    erpBottleneck: '',
-    webAppScope: '',
-    webAppPlatform: '',
-    automationDomain: '',
-    automationType: '',
-    careerDiscipline: '',
-    careerExperience: '',
-    // Anti-Spam Honeypot (must remain empty)
-    website_security_token: ''
+    security_honeypot: '',
   })
 
   const [formErrors, setFormErrors] = useState({})
-  const [status, setStatus] = useState({
+  const [copiedSignal, setCopiedSignal] = useState(false)
+  const [submissionStatus, setSubmissionStatus] = useState({
     loading: false,
     success: false,
     error: null,
-    referenceId: ''
+    referenceId: '',
   })
-  const [copiedSignal, setCopiedSignal] = useState(false)
-  const [showSignalGuide, setShowSignalGuide] = useState(false)
-  const [selectedServiceCard, setSelectedServiceCard] = useState('software-erp')
-  const [activeServicesTab, setActiveServicesTab] = useState('services') // 'services' | 'platforms'
-  const lastSubmissionTime = useRef(0)
 
-  // ── Copy Signal Username Handler ──
-  const handleCopySignalUsername = async () => {
-    const username = 'dasatech.99'
+  const lastSubmitTime = useRef(0)
+
+  // Copy Signal Username to Clipboard
+  const handleCopySignal = async () => {
     try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(username)
-      } else {
-        const textArea = document.createElement('textarea')
-        textArea.value = username
-        textArea.style.position = 'fixed'
-        textArea.style.opacity = '0'
-        document.body.appendChild(textArea)
-        textArea.select()
-        document.execCommand('copy')
-        document.body.removeChild(textArea)
-      }
+      await navigator.clipboard.writeText('dasatech.99')
       setCopiedSignal(true)
-      setTimeout(() => setCopiedSignal(false), 3000)
-    } catch (err) {
-      console.warn('Clipboard copy failed:', err)
+      setTimeout(() => setCopiedSignal(false), 2500)
+    } catch (e) {
+      // Fallback
       setCopiedSignal(true)
-      setTimeout(() => setCopiedSignal(false), 3000)
+      setTimeout(() => setCopiedSignal(false), 2500)
     }
   }
 
-  // ── Input Change Handler ──
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-
-    // Clear specific field error on edit
-    if (formErrors[name]) {
-      setFormErrors((prev) => ({ ...prev, [name]: null }))
-    }
-  }
-
-  // ── Pre-Select Service from Discovery Cards ──
-  const handleSelectServiceCard = (service) => {
-    setSelectedServiceCard(service.id)
-    setFormData((prev) => ({
-      ...prev,
-      service: service.title,
-      category: service.categoryMatch
-    }))
-
-    // Smooth scroll to interactive form
-    const formEl = document.getElementById('enquiry-form-section')
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
-  // ── Pre-Select Platform from Estimator ──
-  const handleApplyPlatformEstimate = (estimate) => {
-    setFormData((prev) => ({
-      ...prev,
-      service: 'Custom Software & ERP Development',
-      category: 'ERP Solutions',
-      message: `${prev.message ? prev.message + '\n\n' : ''}SELECTED SOLUTION MODULES:\n- Platforms: ${estimate.modules}\n- Deployment Scale: ${estimate.scale}\n- Velocity: ${estimate.timeline}\n- Additional Requirements:\n`
-    }))
-
-    const formEl = document.getElementById('enquiry-form-section')
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
-  // ── Department Card Click Handler ──
-  const handleDepartmentClick = (category) => {
-    setFormData((prev) => ({ ...prev, category }))
-    const formEl = document.getElementById('enquiry-form-section')
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
-  // ── Validation Logic ──
-  const validateForm = () => {
-    const errors = {}
-
+  // Validate Form Fields
+  const validate = () => {
+    const errs = {}
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      errors.name = 'Please enter your full name (at least 2 characters)'
+      errs.name = 'Please provide your full name.'
     }
-
-    if (!formData.phone.trim() || formData.phone.trim().replace(/\D/g, '').length < 7) {
-      errors.phone = 'Please enter a valid phone number (at least 7 digits)'
+    const cleanPhone = formData.phone.replace(/\D/g, '')
+    if (!cleanPhone || cleanPhone.length < 7) {
+      errs.phone = 'Please enter a valid phone number (min 7 digits).'
     }
-
-    if (!formData.country.trim()) {
-      errors.country = 'Please select your country'
+    if (!formData.country) {
+      errs.country = 'Please select your country.'
     }
-
-    if (!formData.category.trim()) {
-      errors.category = 'Please choose an enquiry category'
+    if (!formData.interest) {
+      errs.interest = 'Please select a solution area.'
     }
-
-    if (!formData.service.trim()) {
-      errors.service = 'Please select a service of interest'
-    }
-
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      errors.message = 'Please provide details about your requirements (at least 10 characters)'
+      errs.message = 'Please provide brief details about your requirement (min 10 characters).'
     }
-
-    // Anti-spam honeypot detection
-    if (formData.website_security_token.trim().length > 0) {
-      errors.spam = 'Spam detected. Submission aborted.'
+    if (formData.security_honeypot.trim().length > 0) {
+      errs.honeypot = 'Spam detected.'
     }
-
-    setFormErrors(errors)
-    return Object.keys(errors).length === 0
+    setFormErrors(errs)
+    return Object.keys(errs).length === 0
   }
 
-  // ── Form Submission Handler ──
+  // Handle Form Submit
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Rate Limiting: Minimum 15 seconds between submissions
+    // Rate limiting: 10s between submissions
     const now = Date.now()
-    if (now - lastSubmissionTime.current < 15000) {
-      setStatus({
+    if (now - lastSubmitTime.current < 10000) {
+      setSubmissionStatus({
         loading: false,
         success: false,
-        error: 'Please wait a moment before sending another enquiry.',
-        referenceId: ''
+        error: 'Please wait a few seconds before submitting again.',
+        referenceId: '',
       })
       return
     }
 
-    if (!validateForm()) {
-      return
-    }
+    if (!validate()) return
 
-    setStatus({ loading: true, success: false, error: null, referenceId: '' })
-    lastSubmissionTime.current = now
+    setSubmissionStatus({ loading: true, success: false, error: null, referenceId: '' })
+    lastSubmitTime.current = now
 
-    // Generate unique reference tracking ID
-    const refCode = `DASA-${Math.random().toString(36).substring(2, 8).toUpperCase()}`
+    const refId = `DASA-${Math.random().toString(36).substring(2, 8).toUpperCase()}`
 
-    // Aggregate contextual responses
-    const contextualSummary = []
-    if (formData.category === 'ERP Solutions') {
-      if (formData.erpBusinessType) contextualSummary.push(`Industry: ${formData.erpBusinessType}`)
-      if (formData.erpRequirementType) contextualSummary.push(`ERP Requirement: ${formData.erpRequirementType}`)
-      if (formData.erpBottleneck) contextualSummary.push(`Operational Challenge: ${formData.erpBottleneck}`)
-    } else if (formData.category === 'Website & Mobile App Development') {
-      if (formData.webAppScope) contextualSummary.push(`App Scope: ${formData.webAppScope}`)
-      if (formData.webAppPlatform) contextualSummary.push(`Platform: ${formData.webAppPlatform}`)
-    } else if (
-      formData.category === 'Home & Industrial Automation' ||
-      formData.category === 'IoT Solutions'
-    ) {
-      if (formData.automationDomain) contextualSummary.push(`Domain: ${formData.automationDomain}`)
-      if (formData.automationType) contextualSummary.push(`Scope: ${formData.automationType}`)
-    } else if (formData.category === 'Internship / Career') {
-      if (formData.careerDiscipline) contextualSummary.push(`Discipline: ${formData.careerDiscipline}`)
-      if (formData.careerExperience) contextualSummary.push(`Experience: ${formData.careerExperience}`)
-    }
-
-    const compiledMessage = [
-      formData.message.trim(),
-      contextualSummary.length > 0 ? `\n--- Contextual Specifications ---\n${contextualSummary.join('\n')}` : null,
-      formData.budget ? `Budget Range: ${formData.budget}` : null,
-      formData.timeline ? `Target Timeline: ${formData.timeline}` : null,
-      `Reference ID: ${refCode}`
-    ].filter(Boolean).join('\n')
-
-    // Persist to local audit storage
     try {
-      const existingLogs = JSON.parse(localStorage.getItem('dasa_enquiry_audit') || '[]')
-      existingLogs.unshift({
-        referenceId: refCode,
-        timestamp: new Date().toISOString(),
-        name: formData.name,
-        company: formData.company,
-        phone: formData.phone,
-        country: formData.country,
-        category: formData.category,
-        service: formData.service,
-        status: 'DISPATCHED'
-      })
-      localStorage.setItem('dasa_enquiry_audit', JSON.stringify(existingLogs.slice(0, 20)))
-    } catch {
-      // Local storage may be restricted in private browsing
-    }
+      // Dispatch via FormSubmit with honeypot & table template
+      const payload = new FormData()
+      payload.append('Reference ID', refId)
+      payload.append('Full Name', formData.name)
+      payload.append('Company', formData.company || 'Not Specified')
+      payload.append('Phone', formData.phone)
+      payload.append('Country', formData.country)
+      payload.append('Interest Area', formData.interest)
+      payload.append('Message / Scope', formData.message)
+      payload.append('_subject', `[Corporate Inquiry] ${formData.name} (${formData.country}) — Ref: ${refId}`)
+      payload.append('_template', 'table')
+      payload.append('_captcha', 'false')
 
-    // Secure Backend Dispatch via Internal FormSubmit Relay
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/dasatechmu@gmail.com', {
+      await fetch('https://formsubmit.co/dasatechmu@gmail.com', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          'Reference ID': refCode,
-          'Full Name': formData.name,
-          'Company': formData.company || 'Not specified',
-          'Phone Number': formData.phone,
-          'Country': formData.country,
-          'Enquiry Category': formData.category,
-          'Service Interested In': formData.service,
-          'Budget Range': formData.budget || 'Flexible / To be estimated',
-          'Target Timeline': formData.timeline || 'Flexible / Planning',
-          'Contextual Details': contextualSummary.join(' | ') || 'None provided',
-          'Project Requirements': compiledMessage,
-          _subject: `[Corporate Inquiry — ${formData.category}] ${formData.name} (${formData.country}) Ref: ${refCode}`,
-          _template: 'table',
-          _captcha: 'false',
-          _honey: ''
-        })
+        body: payload,
+        mode: 'no-cors',
       })
 
-      const result = await response.json().catch(() => ({}))
+      setSubmissionStatus({
+        loading: false,
+        success: true,
+        error: null,
+        referenceId: refId,
+      })
 
-      if (response.ok && (result.success === 'true' || result.success === true || result.message)) {
-        setStatus({
-          loading: false,
-          success: true,
-          error: null,
-          referenceId: refCode
-        })
-        // Reset inputs
-        setFormData({
-          name: '',
-          company: '',
-          phone: '',
-          country: 'India',
-          category: 'Software Development',
-          service: 'Custom Software & ERP Development',
-          budget: '',
-          timeline: '',
-          message: '',
-          erpBusinessType: '',
-          erpRequirementType: '',
-          erpBottleneck: '',
-          webAppScope: '',
-          webAppPlatform: '',
-          automationDomain: '',
-          automationType: '',
-          careerDiscipline: '',
-          careerExperience: '',
-          website_security_token: ''
-        })
-      } else {
-        throw new Error(result.message || 'Gateway response unconfirmed')
-      }
-    } catch (dispatchError) {
-      console.warn('Primary dispatch encountered network exception, testing fallback form gateway:', dispatchError)
-      try {
-        const formDataPayload = new FormData()
-        formDataPayload.append('Reference ID', refCode)
-        formDataPayload.append('Full Name', formData.name)
-        formDataPayload.append('Company', formData.company || 'Not specified')
-        formDataPayload.append('Phone Number', formData.phone)
-        formDataPayload.append('Country', formData.country)
-        formDataPayload.append('Category', formData.category)
-        formDataPayload.append('Service', formData.service)
-        formDataPayload.append('Requirements', compiledMessage)
-        formDataPayload.append('_subject', `[Corporate Inquiry — ${formData.category}] ${formData.name} Ref: ${refCode}`)
-        formDataPayload.append('_template', 'table')
-        formDataPayload.append('_captcha', 'false')
-
-        await fetch('https://formsubmit.co/dasatechmu@gmail.com', {
-          method: 'POST',
-          body: formDataPayload,
-          mode: 'no-cors'
-        })
-
-        setStatus({
-          loading: false,
-          success: true,
-          error: null,
-          referenceId: refCode
-        })
-      } catch (fallbackError) {
-        console.error('All form submission gateways failed:', fallbackError)
-        setStatus({
-          loading: false,
-          success: false,
-          error: 'Our enquiry dispatch gateway is momentarily unreachable. Your details have been preserved. You can also connect directly with our engineering team on Signal: @dasatech.99',
-          referenceId: ''
-        })
-      }
+      // Reset form
+      setFormData({
+        name: '',
+        company: '',
+        phone: '',
+        country: 'India',
+        interest: 'Custom ERP Development',
+        message: '',
+        security_honeypot: '',
+      })
+      setFormErrors({})
+    } catch (err) {
+      setSubmissionStatus({
+        loading: false,
+        success: false,
+        error: 'Network error encountered. Please connect directly via Signal (@dasatech.99) or WhatsApp.',
+        referenceId: '',
+      })
     }
   }
 
   return (
-    <div className="min-h-screen bg-white text-[#17121F] selection:bg-[#6C2BD9] selection:text-white relative overflow-hidden font-body">
-
+    <main className="w-full bg-[#07080C] text-slate-100 overflow-hidden">
+      
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 1 – PREMIUM HERO SECTION
-          International enterprise aesthetics, sophisticated typography,
-          abstract tech telemetry console, glowing accents, zero stock photo clutter.
+          1. HERO SECTION
       ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 border-b border-[#E9E2F5] overflow-hidden bg-gradient-to-b from-[#FAF7FF] via-white to-white">
-        
-        {/* Subtle Tech Matrix Background Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#6C2BD9_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.035] pointer-events-none" />
-        
-        {/* Soft Ambient Radial Violet Glow */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[480px] bg-gradient-to-b from-[#6C2BD9]/10 via-[#8B5CF6]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-32 pb-14 sm:pt-40 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-r from-[#00D4FF]/15 via-[#22FF9A]/10 to-transparent blur-[140px] rounded-full pointer-events-none -z-10" />
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left: Hero Headline & Value Proposition */}
-            <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-              
-              {/* Prestigious Enterprise Pill */}
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase shadow-xs"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>CORPORATE COMMUNICATION PORTAL</span>
-              </motion.div>
-
-              {/* Main Heading – Exact prompt specification */}
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-display text-3xl sm:text-5xl lg:text-[58px] font-black tracking-tight text-[#17121F] leading-[1.12]"
-              >
-                Let's Build Something{' '}
-                <span className="bg-gradient-to-r from-[#6C2BD9] via-[#8B5CF6] to-[#4F46E5] bg-clip-text text-transparent">
-                  Extraordinary.
-                </span>
-              </motion.h1>
-
-              {/* Supporting Text – Exact prompt specification */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base sm:text-lg lg:text-xl text-[#6F6878] leading-relaxed max-w-2xl font-normal"
-              >
-                Have an idea, a business challenge, or a technology requirement? Connect with DASA TECH and explore how our technology solutions can help your business move forward.
-              </motion.p>
-
-              {/* Quick Jump Action Bar */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="pt-2 flex flex-wrap items-center gap-3.5"
-              >
-                <a
-                  href="#enquiry-form-section"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#6C2BD9] hover:bg-[#581CBA] text-white font-display text-sm font-bold shadow-md shadow-violet-500/20 hover:shadow-violet-500/35 transition-all cursor-pointer hover:-translate-y-0.5"
-                >
-                  <span>Request Project Consultation</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="#signal-contact-card"
-                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-xl bg-white hover:bg-[#F5F0FF] text-[#17121F] border border-[#E9E2F5] hover:border-[#DDD0FF] font-display text-sm font-bold transition-all shadow-xs hover:-translate-y-0.5 cursor-pointer"
-                >
-                  <SignalBrandIcon className="w-4 h-4 text-[#3A76F0]" />
-                  <span>Signal: @dasatech.99</span>
-                </a>
-              </motion.div>
-
-              {/* Key Assurance Badges */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-slate-500"
-              >
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-[#6C2BD9]" />
-                  <span>24-Hour Technical Review</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Bilateral NDA Standard</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-indigo-600" />
-                  <span>Signal Encrypted Direct Channel</span>
-                </div>
-              </motion.div>
-
-            </div>
-
-            {/* Right: Modern High-Tech Architectural Telemetry Card */}
-            <div className="lg:col-span-5">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative rounded-3xl p-6 sm:p-8 bg-[#0B0F1D] border border-slate-800 text-white shadow-2xl shadow-slate-900/40 space-y-6"
-              >
-                {/* Luminous Top Accent Line */}
-                <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-[#8B5CF6] to-transparent pointer-events-none" />
-
-                {/* Console Header */}
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-xs font-mono font-bold tracking-wider uppercase text-slate-300">
-                      DISCOVERY TERMINAL
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-mono text-violet-300 bg-violet-950/70 px-2.5 py-1 rounded-md border border-violet-800/50">
-                    SLA &lt; 24h
-                  </span>
-                </div>
-
-                {/* Architecture Highlights */}
-                <div className="space-y-3.5 text-xs font-mono">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/10">
-                    <span className="text-slate-400">Headquarters</span>
-                    <span className="text-white font-bold">Erode, Tamil Nadu, India</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/10">
-                    <span className="text-slate-400">Direct Signal Channel</span>
-                    <span className="text-violet-300 font-bold flex items-center gap-1.5">
-                      <SignalBrandIcon className="w-3.5 h-3.5 text-[#3A76F0]" />
-                      @dasatech.99
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/10">
-                    <span className="text-slate-400">Engagement Protocol</span>
-                    <span className="text-emerald-400 font-bold">Mutual NDA Ready</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/10">
-                    <span className="text-slate-400">Operating Schedule</span>
-                    <span className="text-slate-200">Mon – Sat (09:00 – 19:00 IST)</span>
-                  </div>
-                </div>
-
-                {/* Live Engineering Capabilities Ticker */}
-                <div className="pt-2 border-t border-white/10">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block mb-2 font-bold">
-                    Core Technical Domains
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['Custom ERP', 'Next.js & React', 'Cross-Platform Apps', 'Edge IoT Mesh', 'SCADA Automation', 'Enterprise CRM'].map((domain, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10 text-[11px] font-mono text-slate-300"
-                      >
-                        {domain}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-              </motion.div>
-            </div>
-
-          </div>
+        <div className="max-w-3xl">
+          <EyebrowPill dotColor="bg-[#22FF9A]">CORPORATE COMMUNICATION PORTAL</EyebrowPill>
+          <h1 className="mt-4 font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+            Let's Build Something{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-white to-[#22FF9A]">
+              Extraordinary.
+            </span>
+          </h1>
+          <p className="mt-6 text-base sm:text-lg text-[#9AA3B2] leading-relaxed">
+            Have an idea, a business challenge, or a technology requirement? Connect with DASA TECH and explore how our technology solutions can help your business move forward.
+          </p>
         </div>
       </section>
 
-
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 5 – OUR SERVICES – VISUAL DISCOVERY
-          "How Can We Help Your Business?"
-          Show DASA TECH's actual service offerings.
-          Allows users to click any card to automatically populate the form's service.
+          2. SPLIT LAYOUT: LEFT = FORM, RIGHT = CONTACT DETAILS
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-[#E9E2F5] relative">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-12">
+      <section className="relative py-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="contact-form">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>CAPABILITIES DIRECTORY</span>
-            </div>
-            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-[40px] text-[#17121F] tracking-tight">
-              How Can We Help Your Business?
-            </h2>
-            <p className="text-sm sm:text-base text-[#6F6878] leading-relaxed font-normal">
-              Explore DASA TECH's core enterprise solutions. Select any service card below to automatically attach it to your consultation inquiry.
-            </p>
-
-            {/* Dual Explorer Tabs */}
-            <div className="pt-2 flex items-center justify-center gap-2">
-              <button
-                type="button"
-                onClick={() => setActiveServicesTab('services')}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-display text-xs font-bold transition-all cursor-pointer ${
-                  activeServicesTab === 'services'
-                    ? 'bg-[#6C2BD9] text-white shadow-md shadow-violet-500/20'
-                    : 'bg-[#F5F0FF] text-[#6F6878] hover:text-[#17121F] hover:bg-[#EDE4FF]'
-                }`}
-              >
-                <LayoutGrid className="w-3.5 h-3.5" />
-                <span>Core Technology Disciplines (6)</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveServicesTab('platforms')}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-display text-xs font-bold transition-all cursor-pointer ${
-                  activeServicesTab === 'platforms'
-                    ? 'bg-[#6C2BD9] text-white shadow-md shadow-violet-500/20'
-                    : 'bg-[#F5F0FF] text-[#6F6878] hover:text-[#17121F] hover:bg-[#EDE4FF]'
-                }`}
-              >
-                <Box className="w-3.5 h-3.5" />
-                <span>Ready Enterprise Software Platforms (10)</span>
-              </button>
-            </div>
-          </div>
-
-          {/* TAB 1: 6 High-Impact Service Cards (Section 5 requirements) */}
-          {activeServicesTab === 'services' && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {CORE_SERVICES.map((srv) => {
-                const IconComponent = srv.icon
-                const isSelected = selectedServiceCard === srv.id
-
-                return (
-                  <div
-                    key={srv.id}
-                    onClick={() => handleSelectServiceCard(srv)}
-                    className={`group rounded-2xl p-6 sm:p-7 border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden ${
-                      isSelected
-                        ? 'bg-[#FAF8FF] border-[#6C2BD9] shadow-lg shadow-violet-500/10 -translate-y-1'
-                        : 'bg-white border-[#E9E2F5] hover:border-[#C2A8FF] hover:shadow-md hover:-translate-y-0.5'
-                    }`}
-                  >
-                    <div className="space-y-4">
-                      {/* Top Row: Icon and Badge */}
-                      <div className="flex items-center justify-between">
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105"
-                          style={{ backgroundColor: `${srv.color}15`, color: srv.color }}
-                        >
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F5F0FF] text-[#6C2BD9] border border-[#DDD0FF]">
-                          {srv.badge}
-                        </span>
-                      </div>
-
-                      {/* Title & Description */}
-                      <div className="space-y-2">
-                        <h3 className="font-display font-bold text-lg sm:text-xl text-[#17121F] group-hover:text-[#6C2BD9] transition-colors leading-snug">
-                          {srv.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">
-                          {srv.description}
-                        </p>
-                      </div>
-
-                      {/* Highlights */}
-                      <div className="space-y-1.5 pt-2 border-t border-[#E9E2F5]">
-                        {srv.highlights.map((hl, hIdx) => (
-                          <div key={hIdx} className="flex items-center gap-2 text-xs font-mono text-slate-600">
-                            <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                            <span>{hl}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Bottom Action Trigger */}
-                    <div className="pt-5 mt-4 border-t border-[#E9E2F5] flex items-center justify-between text-xs font-display font-bold">
-                      <span className={isSelected ? 'text-[#6C2BD9]' : 'text-slate-500 group-hover:text-[#6C2BD9] transition-colors'}>
-                        {isSelected ? '✓ Selected for Inquiry' : 'Select This Service'}
-                      </span>
-                      <span className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                        isSelected
-                          ? 'bg-[#6C2BD9] text-white'
-                          : 'bg-slate-100 group-hover:bg-[#6C2BD9] group-hover:text-white text-slate-600'
-                      }`}>
-                        <ChevronRight className="w-4 h-4" />
-                      </span>
-                    </div>
-
-                  </div>
-                )
-              })}
-            </motion.div>
-          )}
-
-          {/* TAB 2: Ready Enterprise Software Platforms (10 Modules) */}
-          {activeServicesTab === 'platforms' && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              <ContactProjectEstimator onSelectEstimate={handleApplyPlatformEstimate} />
-            </motion.div>
-          )}
-
-        </div>
-      </section>
-
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 2, 3 & 4 – SMART CONTACT EXPERIENCE & FORM
-          Two-Column Layout:
-          LEFT: Connect With DASA TECH, 6 Department Cards, Signal Official Card, Headquarters
-          RIGHT: Interactive Smart Enquiry Form with Dynamic Contextual Fields
-      ─────────────────────────────────────────────────────────────── */}
-      <section id="enquiry-form-section" className="py-16 sm:py-24 bg-[#FAF7FF] relative">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-12">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            
-            {/* ============================================================== */}
-            {/* LEFT SIDE – CONTACT INFORMATION & OFFICIAL SIGNAL INTEGRATION */}
-            {/* ============================================================== */}
-            <div className="lg:col-span-5 space-y-6 sm:space-y-8">
+          {/* Left Column: Interactive Consultation Form (Span 7) */}
+          <div className="lg:col-span-7">
+            <div className="rounded-3xl bg-[#0F1117] border border-white/10 p-8 sm:p-10 shadow-2xl relative">
               
-              {/* Connect Intro Header */}
-              <div className="space-y-3">
-                <span className="text-[11px] font-mono font-bold text-[#6C2BD9] uppercase tracking-wider block">
-                  CORPORATE ENGAGEMENT
-                </span>
-                <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#17121F] tracking-tight">
-                  Connect With DASA TECH
-                </h2>
-                <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">
-                  Our multidisciplinary engineering teams are accessible for technology consulting, bespoke software development, industrial automation, and strategic commercial collaboration.
-                </p>
-              </div>
-
-              {/* ───────────────────────────────────────────────────────────
-                  SIGNAL APP CONTACT CARD – HIGH IMPACT & VERIFIED
-                  Strictly replaces WhatsApp & Email as requested
-              ──────────────────────────────────────────────────────────── */}
-              <div
-                id="signal-contact-card"
-                className="rounded-3xl p-6 sm:p-7 bg-[#0B0F1D] border-2 border-slate-800 text-white shadow-xl space-y-5 relative overflow-hidden"
-              >
-                {/* Luminous Top Accent Line */}
-                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#3A76F0] to-transparent pointer-events-none" />
-
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#3A76F0]/20 border border-[#3A76F0]/40 flex items-center justify-center text-[#3A76F0]">
-                      <SignalBrandIcon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono font-bold text-[#3A76F0] tracking-wider uppercase block">
-                        DIRECT LEADERSHIP CHANNEL
-                      </span>
-                      <h4 className="font-display font-bold text-base text-white">
-                        Signal Encrypted Messenger
-                      </h4>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800/60 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Verified Active
-                  </span>
-                </div>
-
-                {/* Signal Username Display Box */}
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 space-y-2">
-                  <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                    Official Signal Username
-                  </div>
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="font-mono text-lg sm:text-xl font-extrabold text-white tracking-wide flex items-center gap-1.5">
-                      <span className="text-[#3A76F0]">@</span>dasatech.99
-                    </div>
-                    
-                    {/* Copy Username Button */}
-                    <button
-                      type="button"
-                      onClick={handleCopySignalUsername}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono text-xs transition-all cursor-pointer border border-white/10 hover:border-white/20 active:scale-95"
-                    >
-                      {copiedSignal ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-emerald-400 font-bold">Copied!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5 text-slate-300" />
-                          <span>Copy</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                {/* Primary Signal Actions */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <a
-                    href="https://signal.me/#u/dasatech.99"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#3A76F0] hover:bg-[#2F65D6] text-white font-display text-xs font-bold transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/35 cursor-pointer text-center"
-                  >
-                    <SignalBrandIcon className="w-4 h-4" />
-                    <span>Open in Signal App</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                  </a>
-
-                  <button
-                    type="button"
-                    onClick={() => setShowSignalGuide(!showSignalGuide)}
-                    className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-slate-200 border border-white/10 hover:border-white/20 font-display text-xs font-bold transition-all cursor-pointer text-center"
-                  >
-                    <HelpCircle className="w-3.5 h-3.5 text-slate-400" />
-                    <span>{showSignalGuide ? 'Hide Instructions' : 'How to Connect'}</span>
-                  </button>
-                </div>
-
-                {/* Clear Fallback Instructions for Users Unfamiliar with Signal */}
-                <AnimatePresence>
-                  {showSignalGuide && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="rounded-2xl p-4 bg-white/[0.04] border border-white/10 space-y-2 text-xs font-mono text-slate-300 overflow-hidden"
-                    >
-                      <div className="font-bold text-white flex items-center gap-1.5 text-xs">
-                        <Info className="w-3.5 h-3.5 text-[#3A76F0]" />
-                        <span>Step-by-Step Signal Connection:</span>
-                      </div>
-                      <ol className="list-decimal list-inside space-y-1 text-[11px] text-slate-300">
-                        <li>Download or open the Signal app on iOS, Android, macOS, or Windows.</li>
-                        <li>Tap the compose / pencil icon in your Signal app.</li>
-                        <li>In the search box, enter username: <strong className="text-white">dasatech.99</strong></li>
-                        <li>Select DASA TECH to start an encrypted direct consultation.</li>
-                      </ol>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <div className="text-[10px] font-mono text-slate-400 flex items-center gap-2 pt-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>End-to-End Encrypted via Signal Protocol. Zero ad tracking.</span>
-                </div>
-              </div>
-
-              {/* ───────────────────────────────────────────────────────────
-                  6 DEDICATED DEPARTMENT CARDS
-              ──────────────────────────────────────────────────────────── */}
-              <div className="space-y-3">
-                <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider block">
-                  ENGAGEMENT DEPARTMENTS
-                </span>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {DEPARTMENT_CARDS.map((dept, dIdx) => {
-                    const DeptIcon = dept.icon
-                    return (
-                      <div
-                        key={dIdx}
-                        onClick={() => handleDepartmentClick(dept.category)}
-                        className="p-4 rounded-2xl bg-white border border-[#E9E2F5] hover:border-[#6C2BD9] shadow-xs hover:shadow-md transition-all cursor-pointer group space-y-2"
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${dept.bgColor}`}>
-                            <DeptIcon className={`w-4 h-4 ${dept.color}`} />
-                          </div>
-                          <h4 className="font-display font-bold text-xs text-[#17121F] group-hover:text-[#6C2BD9] transition-colors leading-tight">
-                            {dept.title}
-                          </h4>
-                        </div>
-                        <p className="text-[11px] text-[#6F6878] leading-relaxed line-clamp-2">
-                          {dept.description}
-                        </p>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* ───────────────────────────────────────────────────────────
-                  SECTION 7 – VERIFIED HEADQUARTERS & TIMEZONE PRESENCE
-                  Genuine verified information only, zero fake map claims
-              ──────────────────────────────────────────────────────────── */}
-              <div className="rounded-2xl p-5 bg-white border border-[#E9E2F5] space-y-3 shadow-xs">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#F5F0FF] border border-[#DDD0FF] flex items-center justify-center text-[#6C2BD9]">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider block">
-                      COMPANY HEADQUARTERS
-                    </span>
-                    <div className="font-display font-bold text-sm text-[#17121F]">
-                      Erode, Tamil Nadu, India
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-[#E9E2F5] grid grid-cols-2 gap-3 text-[11px] font-mono text-slate-600">
-                  <div>
-                    <span className="text-slate-400 block text-[10px] uppercase">Working Schedule</span>
-                    <span className="font-bold text-slate-800">Mon – Sat: 9 AM – 7 PM</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 block text-[10px] uppercase">Timezone</span>
-                    <span className="font-bold text-slate-800">IST (UTC +5:30)</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-
-            {/* ============================================================== */}
-            {/* RIGHT SIDE – INTERACTIVE SMART ENQUIRY FORM                    */}
-            {/* ============================================================== */}
-            <div className="lg:col-span-7">
-              <div className="rounded-3xl p-6 sm:p-10 border-2 border-[#E9E2F5] bg-white shadow-xl space-y-7 relative">
-                
-                {/* Form Header */}
-                <div className="space-y-1.5 border-b border-[#E9E2F5] pb-5">
-                  <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#6C2BD9] uppercase tracking-wider">
-                    <Terminal className="w-3.5 h-3.5" />
-                    <span>PROJECT CONSULTATION REQUEST</span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#17121F] font-display tracking-tight">
-                    Scope Your Technology Architecture
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#6F6878]">
-                    Complete the project parameters below. Our engineering team reviews all briefs under bilateral confidentiality within 24 hours.
+              <div className="border-b border-white/10 pb-6 mb-8 flex items-center justify-between">
+                <div>
+                  <h2 className="font-display font-bold text-xl sm:text-2xl text-white">
+                    Request Project Scoping
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#9AA3B2] mt-1">
+                    Direct technical consultation with our engineering architects.
                   </p>
                 </div>
+                <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#151821] border border-white/10 text-[11px] font-mono text-[#22FF9A]">
+                  <Clock className="w-3.5 h-3.5" />
+                  <span>24-Hour SLA</span>
+                </div>
+              </div>
 
-                {/* ── SUCCESS FEEDBACK STATE ── */}
-                {status.success && (
+              {/* Submission Success State Banner */}
+              <AnimatePresence>
+                {submissionStatus.success && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-emerald-950 space-y-4"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mb-8 p-6 rounded-2xl bg-[#22FF9A]/10 border border-[#22FF9A]/40 text-white space-y-2"
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                        <CheckCircle2 className="w-6 h-6" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="font-display font-bold text-lg text-emerald-900">
-                          Enquiry Successfully Dispatched!
-                        </h4>
-                        <p className="text-xs text-emerald-800 leading-relaxed font-body">
-                          Your project consultation brief has been recorded in our secure enterprise queue. Our engineering architects will analyze your requirements and follow up within 24 business hours.
-                        </p>
-                      </div>
+                    <div className="flex items-center gap-2 text-[#22FF9A] font-bold text-base">
+                      <CheckCircle2 className="w-5 h-5" />
+                      <span>Enquiry Submitted Successfully!</span>
                     </div>
-
-                    <div className="p-3.5 rounded-xl bg-white border border-emerald-200 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-                      <div>
-                        <span className="text-slate-500 uppercase block text-[10px]">Reference Tracking Code</span>
-                        <span className="font-bold text-emerald-800 text-sm tracking-wide">
-                          {status.referenceId}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={handleCopySignalUsername}
-                          className="px-3 py-1.5 rounded-lg bg-[#3A76F0] text-white font-mono text-xs font-bold hover:bg-[#2F65D6] transition-colors flex items-center gap-1.5"
-                        >
-                          <SignalBrandIcon className="w-3 h-3" />
-                          <span>Signal @dasatech.99</span>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="pt-1 flex items-center justify-between text-xs font-mono text-emerald-700">
-                      <span>Confidentiality: Bilateral NDA Ready</span>
-                      <button
-                        type="button"
-                        onClick={() => setStatus({ loading: false, success: false, error: null, referenceId: '' })}
-                        className="text-emerald-900 hover:underline font-bold"
-                      >
-                        Submit another brief
-                      </button>
+                    <p className="text-xs sm:text-sm text-slate-300">
+                      Your technical scoping request has been received. Our engineering lead will review your requirements and reach out within 24 business hours.
+                    </p>
+                    <div className="pt-2 font-mono text-xs text-slate-400">
+                      Tracking Reference ID:{' '}
+                      <span className="font-bold text-[#00D4FF]">
+                        {submissionStatus.referenceId}
+                      </span>
                     </div>
                   </motion.div>
                 )}
+              </AnimatePresence>
 
-                {/* ── ERROR FEEDBACK STATE ── */}
-                {status.error && (
-                  <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 flex items-start gap-3 text-xs font-mono">
-                    <AlertCircle className="w-5 h-5 shrink-0 text-rose-600 mt-0.5" />
-                    <div className="space-y-1">
-                      <span className="font-bold block">Transmission Alert</span>
-                      <p className="text-rose-700 leading-relaxed">{status.error}</p>
-                    </div>
-                  </div>
-                )}
+              {/* Submission Error State */}
+              {submissionStatus.error && (
+                <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs sm:text-sm flex items-center gap-3">
+                  <AlertCircle className="w-5 h-5 shrink-0 text-rose-400" />
+                  <span>{submissionStatus.error}</span>
+                </div>
+              )}
 
-                {/* ── MAIN INTERACTIVE FORM ── */}
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  
-                  {/* Anti-spam honeypot (hidden from human users) */}
-                  <div className="hidden" aria-hidden="true">
+              {/* Main Form Fields */}
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Anti-spam Honeypot */}
+                <input
+                  type="text"
+                  name="website_security_token"
+                  value={formData.security_honeypot}
+                  onChange={(e) => setFormData({ ...formData, security_honeypot: e.target.value })}
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Full Name */}
+                  <div>
+                    <label className="block text-xs font-mono font-medium text-slate-300 mb-2">
+                      Full Name <span className="text-[#00D4FF]">*</span>
+                    </label>
                     <input
                       type="text"
-                      name="website_security_token"
-                      tabIndex={-1}
-                      autoComplete="off"
-                      value={formData.website_security_token}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  {/* 1. Full Name & 2. Company / Organization */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Full Name <span className="text-[#6C2BD9]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="e.g. Alex Mercer"
-                        className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border text-[#17121F] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium ${
-                          formErrors.name
-                            ? 'border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200'
-                            : 'border-[#E9E2F5] focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/20'
-                        }`}
-                      />
-                      {formErrors.name && (
-                        <p className="text-xs text-rose-600 font-mono mt-1">{formErrors.name}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Company / Organization <span className="text-slate-400 font-normal">(Optional)</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="e.g. Nexus Global Enterprises"
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] placeholder-slate-400 focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium"
-                      />
-                    </div>
-                  </div>
-
-                  {/* 3. Phone Number & 4. Country */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Phone Number <span className="text-[#6C2BD9]">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="e.g. +91 98765 43210"
-                        className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border text-[#17121F] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium ${
-                          formErrors.phone
-                            ? 'border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200'
-                            : 'border-[#E9E2F5] focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/20'
-                        }`}
-                      />
-                      {formErrors.phone && (
-                        <p className="text-xs text-rose-600 font-mono mt-1">{formErrors.phone}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Country <span className="text-[#6C2BD9]">*</span>
-                      </label>
-                      <select
-                        name="country"
-                        required
-                        value={formData.country}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
-                      >
-                        {COUNTRY_OPTIONS.map((c) => (
-                          <option key={c.code} value={c.name}>
-                            {c.name} {c.dial ? `(${c.dial})` : ''}
-                          </option>
-                        ))}
-                      </select>
-                      {formErrors.country && (
-                        <p className="text-xs text-rose-600 font-mono mt-1">{formErrors.country}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* 5. Enquiry Category & 6. Service Interested In */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Enquiry Category <span className="text-[#6C2BD9]">*</span>
-                      </label>
-                      <select
-                        name="category"
-                        required
-                        value={formData.category}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
-                      >
-                        {ENQUIRY_CATEGORIES.map((cat, cIdx) => (
-                          <option key={cIdx} value={cat}>
-                            {cat}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Service Interested In <span className="text-[#6C2BD9]">*</span>
-                      </label>
-                      <select
-                        name="service"
-                        required
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
-                      >
-                        <option value="Custom Software & ERP Development">Custom Software &amp; ERP Development</option>
-                        <option value="Website & Mobile App Development">Website &amp; Mobile App Development</option>
-                        <option value="E-Commerce Solutions">E-Commerce Solutions</option>
-                        <option value="School, Textile & Pharmacy ERP">School, Textile &amp; Pharmacy ERP</option>
-                        <option value="Home, Industrial & Agricultural Automation">Home, Industrial &amp; Agricultural Automation</option>
-                        <option value="Digital Marketing & CRM Solutions">Digital Marketing &amp; CRM Solutions</option>
-                        <option value="Enterprise Architecture & Consulting">Enterprise Architecture &amp; Consulting</option>
-                        <option value="Other / Bespoke Scope">Other / Bespoke Scope</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* ─────────────────────────────────────────────────────────
-                      SECTION 4 – SMART USER EXPERIENCE: DYNAMIC CONTEXTUAL QUESTIONS
-                      Only rendered when relevant category is selected!
-                  ─────────────────────────────────────────────────────────── */}
-                  
-                  {/* Contextual Case A: ERP Solutions */}
-                  {formData.category === 'ERP Solutions' && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="p-4 sm:p-5 rounded-2xl bg-[#F5F0FF] border border-[#DDD0FF] space-y-4"
-                    >
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#6C2BD9] uppercase tracking-wider">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>ERP Architecture Parameters</span>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Type of Business
-                          </label>
-                          <select
-                            name="erpBusinessType"
-                            value={formData.erpBusinessType}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-[#DDD0FF] text-xs font-medium text-slate-800 focus:outline-none focus:border-[#6C2BD9]"
-                          >
-                            <option value="">Select Industry...</option>
-                            <option value="Healthcare & Pharmacy">Healthcare &amp; Pharmacy</option>
-                            <option value="School & Campus">School &amp; Academic Campus</option>
-                            <option value="Textile & Garment">Textile &amp; Garments</option>
-                            <option value="Manufacturing & Industrial">Manufacturing &amp; Industrial</option>
-                            <option value="Warehouse & Logistics">Warehouse &amp; Logistics</option>
-                            <option value="Retail & POS Chains">Retail &amp; POS Chains</option>
-                            <option value="Other Industry">Other Industry</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Requirement Nature
-                          </label>
-                          <select
-                            name="erpRequirementType"
-                            value={formData.erpRequirementType}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-[#DDD0FF] text-xs font-medium text-slate-800 focus:outline-none focus:border-[#6C2BD9]"
-                          >
-                            <option value="">Select Requirement...</option>
-                            <option value="New ERP Implementation">New ERP Implementation</option>
-                            <option value="Migration from Legacy ERP">Migration from Legacy ERP</option>
-                            <option value="Custom Module Add-ons">Custom Module Expansion</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Primary Challenge
-                          </label>
-                          <select
-                            name="erpBottleneck"
-                            value={formData.erpBottleneck}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-[#DDD0FF] text-xs font-medium text-slate-800 focus:outline-none focus:border-[#6C2BD9]"
-                          >
-                            <option value="">Select Main Challenge...</option>
-                            <option value="Inventory Leakage & Expiry">Inventory Leakage &amp; Expiry</option>
-                            <option value="Multi-Branch Real-Time Sync">Multi-Branch Real-Time Sync</option>
-                            <option value="GST & Statutory Accounting">GST &amp; Statutory Accounting</option>
-                            <option value="Shop-Floor Production Bottlenecks">Shop-Floor Production Bottlenecks</option>
-                          </select>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Contextual Case B: Website & Mobile App Development */}
-                  {formData.category === 'Website & Mobile App Development' && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="p-4 sm:p-5 rounded-2xl bg-indigo-50/60 border border-indigo-200 space-y-4"
-                    >
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-indigo-700 uppercase tracking-wider">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>Application Scope Parameters</span>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Project Stage
-                          </label>
-                          <select
-                            name="webAppScope"
-                            value={formData.webAppScope}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-indigo-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-indigo-600"
-                          >
-                            <option value="">Select Project Stage...</option>
-                            <option value="New Product Build (Greenfield)">New Product Build (Greenfield)</option>
-                            <option value="Complete Redesign & Modernization">Complete Redesign &amp; Modernization</option>
-                            <option value="Scaling Existing Architecture">Scaling Existing Architecture</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Target Platform
-                          </label>
-                          <select
-                            name="webAppPlatform"
-                            value={formData.webAppPlatform}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-indigo-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-indigo-600"
-                          >
-                            <option value="">Select Target Platform...</option>
-                            <option value="Responsive Web App (PWA)">Responsive Web App (PWA)</option>
-                            <option value="Native Mobile App (iOS & Android)">Native Mobile App (iOS &amp; Android)</option>
-                            <option value="Unified Platform (Web + Mobile App)">Unified Platform (Web + Mobile App)</option>
-                          </select>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Contextual Case C: IoT & Automation */}
-                  {(formData.category === 'Home & Industrial Automation' || formData.category === 'IoT Solutions') && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="p-4 sm:p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-4"
-                    >
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 uppercase tracking-wider">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>Automation Engineering Scope</span>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Operational Domain
-                          </label>
-                          <select
-                            name="automationDomain"
-                            value={formData.automationDomain}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-emerald-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-emerald-600"
-                          >
-                            <option value="">Select Automation Domain...</option>
-                            <option value="Industrial Factory Floor / SCADA">Industrial Factory Floor / SCADA</option>
-                            <option value="Commercial Building / Hotel / Hospital">Commercial Building / Hotel / Hospital</option>
-                            <option value="Smart Agriculture Precision">Smart Agriculture Precision</option>
-                            <option value="Residential Smart Home">Residential Smart Home</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Requirement Focus
-                          </label>
-                          <select
-                            name="automationType"
-                            value={formData.automationType}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-emerald-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-emerald-600"
-                          >
-                            <option value="">Select Architecture Focus...</option>
-                            <option value="Turnkey Hardware Sensors + Cloud Software">Turnkey Hardware Sensors + Cloud Software</option>
-                            <option value="SCADA / PLC Controller Integration">SCADA / PLC Controller Integration</option>
-                            <option value="Sensor Telemetry Dashboard Only">Sensor Telemetry Dashboard Only</option>
-                            <option value="Edge Firmware / Embedded Development">Edge Firmware / Embedded Development</option>
-                          </select>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Contextual Case D: Internship & Career */}
-                  {formData.category === 'Internship / Career' && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="p-4 sm:p-5 rounded-2xl bg-sky-50/70 border border-sky-200 space-y-4"
-                    >
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-sky-800 uppercase tracking-wider">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>Engineering Apprenticeship Profile</span>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Discipline of Interest
-                          </label>
-                          <select
-                            name="careerDiscipline"
-                            value={formData.careerDiscipline}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-sky-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-sky-600"
-                          >
-                            <option value="">Select Technical Area...</option>
-                            <option value="Full Stack Web & Mobile Engineering">Full Stack Web &amp; Mobile Engineering</option>
-                            <option value="AI & Computer Vision Research">AI &amp; Computer Vision Research</option>
-                            <option value="Embedded Systems & IoT Firmware">Embedded Systems &amp; IoT Firmware</option>
-                            <option value="UI/UX Product Architecture">UI/UX Product Architecture</option>
-                            <option value="DevOps & Distributed Cloud">DevOps &amp; Distributed Cloud</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-mono font-bold text-slate-700 mb-1">
-                            Experience Level
-                          </label>
-                          <select
-                            name="careerExperience"
-                            value={formData.careerExperience}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 rounded-lg bg-white border border-sky-200 text-xs font-medium text-slate-800 focus:outline-none focus:border-sky-600"
-                          >
-                            <option value="">Select Experience...</option>
-                            <option value="Student / Academic Fresher">Student / Academic Fresher</option>
-                            <option value="Entry Level (0 - 1 year)">Entry Level (0 - 1 year)</option>
-                            <option value="Mid-Level Engineer (2 - 4 years)">Mid-Level Engineer (2 - 4 years)</option>
-                            <option value="Senior Specialist (5+ years)">Senior Specialist (5+ years)</option>
-                          </select>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* 7. Project Budget & 8. Project Timeline */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Project Budget <span className="text-slate-400 font-normal">(Optional)</span>
-                      </label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
-                      >
-                        <option value="">Select Anticipated Range...</option>
-                        <option value="< $5,000 (Under ₹4 Lakhs)">&lt; $5,000 (Under ₹4 Lakhs)</option>
-                        <option value="$5,000 – $15,000 (₹4 – ₹12 Lakhs)">$5,000 – $15,000 (₹4 – ₹12 Lakhs)</option>
-                        <option value="$15,000 – $35,000 (₹12 – ₹30 Lakhs)">$15,000 – $35,000 (₹12 – ₹30 Lakhs)</option>
-                        <option value="$35,000 – $75,000 (₹30 – ₹60 Lakhs)">$35,000 – $75,000 (₹30 – ₹60 Lakhs)</option>
-                        <option value="$75,000+ (Enterprise Scope)">$75,000+ (Enterprise Scope)</option>
-                        <option value="Flexible / Scope-Dependent">Flexible / Scope-Dependent</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono text-slate-700 mb-2 font-bold uppercase tracking-wider">
-                        Project Timeline <span className="text-slate-400 font-normal">(Optional)</span>
-                      </label>
-                      <select
-                        name="timeline"
-                        value={formData.timeline}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border border-[#E9E2F5] text-[#17121F] focus:border-[#6C2BD9] focus:bg-white focus:ring-2 focus:ring-[#6C2BD9]/20 focus:outline-none transition-all text-sm font-medium cursor-pointer"
-                      >
-                        <option value="">Select Target Horizon...</option>
-                        <option value="Immediate (< 1 Month)">Immediate (&lt; 1 Month)</option>
-                        <option value="1 – 3 Months">1 – 3 Months</option>
-                        <option value="3 – 6 Months">3 – 6 Months</option>
-                        <option value="6+ Months / Multi-Phase">6+ Months / Multi-Phase</option>
-                        <option value="Exploratory / Discovery Stage">Exploratory / Discovery Stage</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* 9. Message / Project Requirements */}
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <label className="block text-xs font-mono text-slate-700 font-bold uppercase tracking-wider">
-                        Message / Project Requirements <span className="text-[#6C2BD9]">*</span>
-                      </label>
-                      <span className="text-[11px] font-mono text-slate-400">
-                        {formData.message.length} chars
-                      </span>
-                    </div>
-                    <textarea
-                      name="message"
-                      rows={5}
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Outline your technology goals, current operational bottlenecks, scale requirements, or specific deliverables..."
-                      className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF8FF] border text-[#17121F] placeholder-slate-400 focus:bg-white focus:outline-none transition-all text-sm font-medium resize-none ${
-                        formErrors.message
-                          ? 'border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200'
-                          : 'border-[#E9E2F5] focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/20'
+                      placeholder="e.g. Anand Kumar"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className={`w-full px-4 py-3 rounded-xl bg-[#151821] border text-sm text-white placeholder-slate-500 focus:outline-none transition-colors ${
+                        formErrors.name
+                          ? 'border-rose-500 focus:border-rose-400'
+                          : 'border-white/10 focus:border-[#00D4FF]'
                       }`}
-                    ></textarea>
-                    {formErrors.message && (
-                      <p className="text-xs text-rose-600 font-mono mt-1">{formErrors.message}</p>
+                    />
+                    {formErrors.name && (
+                      <p className="mt-1 text-[11px] text-rose-400">{formErrors.name}</p>
                     )}
                   </div>
 
-                  {/* Submit Action Bar */}
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E9E2F5]">
-                    <div className="text-xs font-mono text-slate-500 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>Enterprise SLA: Initial response within 24 hours</span>
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={status.loading}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#6C2BD9] via-[#7C3AED] to-[#4F46E5] hover:from-[#581CBA] hover:to-[#4338CA] text-white font-display text-sm font-bold shadow-md shadow-violet-500/25 hover:shadow-violet-500/40 transition-all cursor-pointer hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {status.loading ? (
-                        <>
-                          <RefreshCw className="w-4 h-4 animate-spin" />
-                          <span>Dispatching Consultation Brief...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Submit Project Brief</span>
-                        </>
-                      )}
-                    </button>
+                  {/* Company / Organization Name */}
+                  <div>
+                    <label className="block text-xs font-mono font-medium text-slate-300 mb-2">
+                      Company / Organization <span className="text-slate-500">(Optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. TexFab Industries"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-[#151821] border border-white/10 text-sm text-white placeholder-slate-500 focus:border-[#00D4FF] focus:outline-none transition-colors"
+                    />
                   </div>
-
-                </form>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 6 – WHY CONNECT WITH DASA TECH?
-          "Technology Partnership Beyond Development."
-          Corporate trust-building section, exact prompt requirements.
-      ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-t border-[#E9E2F5] relative">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-14">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>CORPORATE TRUST &amp; METHODOLOGY</span>
-            </div>
-            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-[40px] text-[#17121F] tracking-tight">
-              Technology Partnership Beyond Development.
-            </h2>
-            <p className="text-sm sm:text-base text-[#6F6878] leading-relaxed">
-              We engineer scalable software, custom enterprise platforms, and integrated automation systems designed to perform under demanding operational realities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {TRUST_PILLARS.map((pillar, pIdx) => {
-              const PillarIcon = pillar.icon
-              return (
-                <div
-                  key={pIdx}
-                  className="rounded-2xl p-6 sm:p-7 border border-[#E9E2F5] bg-[#FAF8FF] hover:bg-white hover:border-[#C2A8FF] hover:shadow-md transition-all duration-300 space-y-3 group"
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105"
-                    style={{ backgroundColor: `${pillar.color}15`, color: pillar.color }}
-                  >
-                    <PillarIcon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-[#17121F] group-hover:text-[#6C2BD9] transition-colors">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">
-                    {pillar.desc}
-                  </p>
                 </div>
-              )
-            })}
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Phone Number */}
+                  <div>
+                    <label className="block text-xs font-mono font-medium text-slate-300 mb-2">
+                      Phone Number <span className="text-[#00D4FF]">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="e.g. +91 98765 43210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className={`w-full px-4 py-3 rounded-xl bg-[#151821] border text-sm text-white placeholder-slate-500 focus:outline-none transition-colors ${
+                        formErrors.phone
+                          ? 'border-rose-500 focus:border-rose-400'
+                          : 'border-white/10 focus:border-[#00D4FF]'
+                      }`}
+                    />
+                    {formErrors.phone && (
+                      <p className="mt-1 text-[11px] text-rose-400">{formErrors.phone}</p>
+                    )}
+                  </div>
+
+                  {/* Country */}
+                  <div>
+                    <label className="block text-xs font-mono font-medium text-slate-300 mb-2">
+                      Country <span className="text-[#00D4FF]">*</span>
+                    </label>
+                    <select
+                      value={formData.country}
+                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-[#151821] border border-white/10 text-sm text-white focus:border-[#00D4FF] focus:outline-none transition-colors"
+                    >
+                      {COUNTRY_OPTIONS.map((c) => (
+                        <option key={c} value={c} className="bg-[#151821] text-white">
+                          {c}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Interest Dropdown */}
+                <div>
+                  <label className="block text-xs font-mono font-medium text-slate-300 mb-2">
+                    Primary Solution Area <span className="text-[#00D4FF]">*</span>
+                  </label>
+                  <select
+                    value={formData.interest}
+                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-[#151821] border border-white/10 text-sm text-white focus:border-[#00D4FF] focus:outline-none transition-colors"
+                  >
+                    {INTEREST_OPTIONS.map((opt) => (
+                      <option key={opt} value={opt} className="bg-[#151821] text-white">
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Message / Project Requirements */}
+                <div>
+                  <label className="block text-xs font-mono font-medium text-slate-300 mb-2">
+                    Project Requirements / Operational Challenge <span className="text-[#00D4FF]">*</span>
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Briefly describe your current workflows, bottlenecks, or the platform you wish to build..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className={`w-full px-4 py-3 rounded-xl bg-[#151821] border text-sm text-white placeholder-slate-500 focus:outline-none transition-colors resize-none ${
+                      formErrors.message
+                        ? 'border-rose-500 focus:border-rose-400'
+                        : 'border-white/10 focus:border-[#00D4FF]'
+                    }`}
+                  />
+                  {formErrors.message && (
+                    <p className="mt-1 text-[11px] text-rose-400">{formErrors.message}</p>
+                  )}
+                </div>
+
+                {/* Submit Action */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={submissionStatus.loading}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#00D4FF] to-[#0099FF] text-black font-semibold text-sm hover:shadow-[0_0_25px_rgba(0,212,255,0.4)] transition-all duration-300 disabled:opacity-50 cursor-pointer"
+                  >
+                    {submissionStatus.loading ? (
+                      <>
+                        <span className="w-4 h-4 rounded-full border-2 border-black border-t-transparent animate-spin" />
+                        <span>Transmitting Requirements...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Project Consultation</span>
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* Right Column: Contact Details & Channels (Span 5) */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Signal Messenger Dedicated Card */}
+            <BentoCard
+              glowColor="rgba(0, 212, 255, 0.2)"
+              borderColor="border-[#00D4FF]/30"
+              className="p-7"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] flex items-center justify-center border border-[#00D4FF]/30">
+                    <SignalBrandIcon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="font-display font-bold text-base text-white">Signal Messenger</div>
+                    <div className="text-[11px] font-mono text-[#00D4FF]">End-to-End Encrypted</div>
+                  </div>
+                </div>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#22FF9A] animate-pulse" />
+              </div>
+
+              <p className="text-xs text-[#9AA3B2] leading-relaxed mb-4">
+                Connect directly with our senior technology team on Signal for confidential architecture discussions.
+              </p>
+
+              {/* Username Pill with Copy Interaction */}
+              <div className="p-3.5 rounded-xl bg-[#151821] border border-white/10 flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-slate-400">Username:</span>
+                  <span className="font-mono font-bold text-sm text-white">@dasatech.99</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleCopySignal}
+                  className="px-3 py-1.5 rounded-lg bg-[#0F1117] border border-white/15 text-xs font-mono text-slate-200 hover:text-white hover:border-[#00D4FF]/50 flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  {copiedSignal ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-[#22FF9A]" />
+                      <span className="text-[#22FF9A]">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <div className="flex gap-2">
+                <a
+                  href="https://signal.me/#u/dasatech.99"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#151821] border border-white/10 text-xs font-mono text-white hover:border-[#00D4FF]/40 hover:bg-[#1C202C] transition-colors"
+                >
+                  <span>Open in Signal App</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </BentoCard>
+
+            {/* Direct WhatsApp Channel Card */}
+            <BentoCard
+              glowColor="rgba(37, 211, 102, 0.2)"
+              borderColor="border-[#25D366]/30"
+              className="p-7"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center border border-[#25D366]/30">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-display font-bold text-base text-white">Direct WhatsApp</div>
+                  <div className="text-[11px] font-mono text-[#25D366]">+91 76399 30148</div>
+                </div>
+              </div>
+
+              <p className="text-xs text-[#9AA3B2] leading-relaxed mb-4">
+                Message directly for quick scoping questions, preliminary project inquiries, and meeting scheduling.
+              </p>
+
+              <a
+                href="https://wa.me/917639930148?text=Hello%20DASA%20TECH%2C%20I%20would%20like%20to%20discuss%20a%20project"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#128C7E] to-[#25D366] text-white font-mono text-xs font-semibold shadow-md shadow-[#25D366]/20 hover:shadow-[#25D366]/40 transition-shadow"
+              >
+                <span>Chat on WhatsApp</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </BentoCard>
+
+            {/* Global Engineering Hubs */}
+            <div className="rounded-2xl bg-[#0F1117] border border-white/10 p-7 space-y-6">
+              <div className="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider pb-3 border-b border-white/10 flex items-center justify-between">
+                <span>CORPORATE OFFICES</span>
+                <Globe className="w-4 h-4 text-[#00D4FF]" />
+              </div>
+
+              {/* Erode Hub */}
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#00D4FF]">
+                  <span className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span>ERODE HUB (GLOBAL HQ)</span>
+                </div>
+                <div className="text-sm font-semibold text-white pl-4">DASA TECH Engineering Hub</div>
+                <div className="text-xs text-[#9AA3B2] pl-4">Erode, Tamil Nadu, India</div>
+              </div>
+
+              {/* London Node */}
+              <div className="space-y-1.5 pt-3 border-t border-white/5">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#22FF9A]">
+                  <span className="w-2 h-2 rounded-full bg-[#22FF9A]" />
+                  <span>LONDON NODE</span>
+                </div>
+                <div className="text-sm font-semibold text-white pl-4">International Advisory</div>
+                <div className="text-xs text-[#9AA3B2] pl-4">London, United Kingdom</div>
+              </div>
+
+              {/* Direct Leadership Guarantee */}
+              <div className="pt-3 border-t border-white/5 flex items-center gap-3 text-xs text-slate-400">
+                <ShieldCheck className="w-4 h-4 text-[#22FF9A] shrink-0" />
+                <span>NDA &amp; Intellectual Property Protection guaranteed upon request.</span>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
-
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 8 – FREQUENTLY ASKED QUESTIONS
-          Enterprise-standard queries, strictly zero WhatsApp or email
+          3. COMPACT GLOBAL PRESENCE MAP BELOW
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FAF7FF] border-t border-[#E9E2F5] relative">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 space-y-12">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F0FF] border border-[#DDD0FF] text-[#6C2BD9] text-xs font-mono font-bold tracking-wider uppercase">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>FREQUENT QUESTIONS</span>
-            </div>
-            <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#17121F] tracking-tight">
-              Before You Connect
-            </h2>
-            <p className="text-xs sm:text-sm text-[#6F6878]">
-              Key protocols on engagement scoping, confidentiality agreements, and communication channels.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {CORPORATE_FAQS.map((faq, fIdx) => (
-              <div
-                key={fIdx}
-                className="p-6 rounded-2xl bg-white border border-[#E9E2F5] space-y-2.5 shadow-xs"
-              >
-                <h3 className="font-display font-bold text-base text-[#17121F]">
-                  {faq.question}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#6F6878] leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-
+      <section className="relative py-12 border-t border-white/10">
+        <div className="text-center max-w-2xl mx-auto mb-6 px-4">
+          <EyebrowPill dotColor="bg-[#00D4FF]">GLOBAL CLIENT NETWORK</EyebrowPill>
+          <h2 className="mt-3 font-display font-bold text-2xl sm:text-3xl text-white">
+            Distributed Across Geographies.
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm text-[#9AA3B2]">
+            Serving enterprise operations across India, the United Kingdom, and international client nodes.
+          </p>
         </div>
+        <GlobalPresenceMap />
       </section>
 
-    </div>
+    </main>
   )
 }
