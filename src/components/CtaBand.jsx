@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from './Router'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, MessageCircle } from 'lucide-react'
 import EyebrowPill from './EyebrowPill'
@@ -66,3 +66,4 @@ export default function CtaBand({
     </section>
   )
 }
+
