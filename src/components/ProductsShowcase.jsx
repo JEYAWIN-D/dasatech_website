@@ -5,6 +5,17 @@ import { Link, usePath } from './Router.jsx'
 
 export const PRODUCTS_ITEMS = [
   {
+    id: 'dasa-expenses',
+    title: 'DASA EXPENCES SaaS',
+    category: 'FINTECH & PROJECT EXPENSES',
+    headline: 'From Quotation to Project Handover. Every Rupee Accounted For.',
+    desc: 'Integrated quotation versioning, advance split payments, custom milestone billing, project expense P&L, and 6-point handover verification gate.',
+    tags: ['Split Payments', 'Milestone Billing', 'Handover Gate'],
+    img: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1200&q=90',
+    link: 'https://expense.dasatech.in',
+    flow: 'right'
+  },
+  {
     id: 'pharmacy-erp',
     title: 'DASA Pharmacy ERP',
     category: 'HEALTHCARE & PHARMA',
@@ -364,7 +375,7 @@ function ProductVisualTile({ item, heightClass }) {
                 }
               }}
             >
-              <span>{item.id === 'pharmacy-erp' ? 'Launch Live Pharmacy ERP' : `Explore ${item.title}`}</span>
+              <span>{item.id === 'pharmacy-erp' ? 'Launch Live Pharmacy ERP' : item.id === 'dasa-expenses' ? 'Launch Live DASA Expenses' : `Explore ${item.title}`}</span>
               {isExternal ? (
                 <ExternalLink className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform duration-300" />
               ) : (

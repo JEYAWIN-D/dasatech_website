@@ -12,11 +12,14 @@ import IotTelemetryProductView from '../components/products/IotTelemetryProductV
 import HomeAutomationProductView from '../components/products/HomeAutomationProductView'
 import AgriAutomationProductView from '../components/products/AgriAutomationProductView'
 import AutomationDetailProductView from '../components/products/AutomationDetailProductView'
+import ExpenseManagementProductView from '../components/products/ExpenseManagementProductView'
 
 // ─────────────────────────────────────────────────────────────
 // PRODUCT DATA CATALOG & DELEGATED PRODUCT VIEWS
 // ─────────────────────────────────────────────────────────────
 export const PRODUCT_DATA = {
+  'dasa-expenses': { name: 'DASA EXPENCES SaaS', category: 'Project Financial Management & FinOps' },
+  'expense-management': { name: 'DASA EXPENCES SaaS', category: 'Project Financial Management & FinOps' },
   'pharmacy-erp': { name: 'DASA MedFlow ERP', category: 'Healthcare & Pharma' },
   'finance-accounting': { name: 'DASA LedgerFlow & GST Finance', category: 'Finance & Accounting' },
   'factory-erp': { name: 'IoT Textile ERP', category: 'Textile & Garment IoT' },
@@ -66,6 +69,9 @@ export default function ProductDetailPage() {
 
   // Route to the dedicated, non-repetitive product visual component
   switch (productId) {
+    case 'dasa-expenses':
+    case 'expense-management':
+      return <ExpenseManagementProductView />
     case 'pharmacy-erp':
       return <PharmacyErpProductView />
     case 'finance-accounting':

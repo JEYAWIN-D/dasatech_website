@@ -8,6 +8,68 @@
  */
 
 export const PRODUCT_SCREEN_ASSETS = {
+  'dasa-expenses': [
+    {
+      id: 'quotations',
+      module: 'Quotation Engine',
+      title: 'Quotation Management & Version Auditing',
+      subtitle: 'Itemized line items, revision snapshots, custom taxes, and 1-click project conversion.',
+      tag: 'Sales Acceleration',
+      img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1400&q=90',
+      route: 'expense.dasatech.in/quotations',
+      specs: ['Revision Snapshots', 'GST / TDS Auto-Tax', 'Digital PIN Signoff']
+    },
+    {
+      id: 'split-payments',
+      module: 'Advance Split Payments',
+      title: 'Multi-Channel Advance Payment Reconciliation',
+      subtitle: 'Record Cash + UPI + Bank transfers within a single verified receipt without double counting.',
+      tag: 'Zero Discrepancy',
+      img: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1400&q=90',
+      route: 'expense.dasatech.in/advances/split',
+      specs: ['Cash + UPI + Bank', 'Atomic Double Entry', 'Real-time Balances']
+    },
+    {
+      id: 'milestones',
+      module: 'Custom Milestones',
+      title: 'Percentage-Based Milestone Billing Schedules',
+      subtitle: 'Phase deliverables with mathematical validation guaranteeing milestone schedules total 100%.',
+      tag: 'Predictable Cashflow',
+      img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90',
+      route: 'expense.dasatech.in/projects/milestones',
+      specs: ['100% Math Validation', 'Auto-Invoice Triggers', 'Due Date Alerts']
+    },
+    {
+      id: 'expenses',
+      module: 'Expense Ledger',
+      title: 'Project-Tagged Expense Ledger & P&L Deductions',
+      subtitle: 'Direct logging of cloud hosting, subcontractors, licenses, and travel against project codes.',
+      tag: 'Margin Protection',
+      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90',
+      route: 'expense.dasatech.in/expenses',
+      specs: ['Vendor Bill Uploads', 'Real-Time Burn Rate', '76.5% Net Margin Protected']
+    },
+    {
+      id: 'cash-bank',
+      module: 'Treasury & Banking',
+      title: 'Multi-Account Cash Vault & Bank Synchronization',
+      subtitle: 'Centralized visibility across cash safes, current bank accounts, and merchant UPI gateways.',
+      tag: 'Treasury Control',
+      img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=90',
+      route: 'expense.dasatech.in/cash-bank',
+      specs: ['HDFC & UPI Sync', 'Inter-Account Transfer', 'Audit-Grade Journal']
+    },
+    {
+      id: 'handover-gate',
+      module: 'Handover Verification',
+      title: '6-Point Deliverable Release Verification Gate',
+      subtitle: 'Blocks release of project deliverables until all invoices, change orders, and expenses clear.',
+      tag: 'Revenue Protection',
+      img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=90',
+      route: 'expense.dasatech.in/projects/handover-gate',
+      specs: ['6-Point Checklist', 'Zero Unsettled Claims', 'Handover Certificate']
+    }
+  ],
   'pharmacy-erp': [
     {
       id: 'dashboard',

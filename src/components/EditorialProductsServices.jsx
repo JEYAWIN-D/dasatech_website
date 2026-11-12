@@ -4,10 +4,30 @@ import { ArrowRight, Sparkles, ChevronDown, CheckCircle2, ShieldCheck, Zap, Acti
 import { Link } from './Router.jsx'
 
 export const EDITORIAL_ITEMS = [
-  // ─── PRODUCTS (01 - 07) ───
+  // ─── PRODUCTS (01 - 08) ───
+  {
+    id: 'dasa-expenses',
+    num: '01',
+    type: 'PRODUCT SAAS',
+    category: 'FINTECH & PROJECT EXPENSES',
+    title: 'DASA\nEXPENCES',
+    headline: 'From Quotation to Project Handover. Every Rupee Accounted For.',
+    desc: 'Integrated quotation versioning, advance split payments (Cash + UPI + Bank), custom % milestone billing, and 6-point handover verification gate.',
+    capabilities: ['SPLIT PAYMENTS', 'MILESTONE BILLING', 'EXPENSE P&L', 'HANDOVER GATE'],
+    techMeta: 'PostgreSQL Double-Entry • Edge React 19 • Vector PDF Studio',
+    assemblyNodes: [
+      { label: 'SPLIT RECONCILE', icon: Activity, pos: 'top-4 left-4' },
+      { label: 'HANDOVER GATE', icon: ShieldCheck, pos: 'top-14 left-4' },
+      { label: 'MILESTONE BILLING', icon: Zap, pos: 'bottom-24 left-4' },
+      { label: 'ZERO LEAKAGE', icon: CheckCircle2, pos: 'bottom-24 right-4' }
+    ],
+    img: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1600&q=90',
+    link: 'https://expense.dasatech.in',
+    accent: '#EA580C'
+  },
   {
     id: 'pharmacy-erp',
-    num: '01',
+    num: '02',
     type: 'PRODUCT SYSTEM',
     category: 'HEALTHCARE & PHARMA',
     title: 'PHARMACY\nERP',

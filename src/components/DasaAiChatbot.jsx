@@ -179,6 +179,7 @@ Built for fast, scalable enterprise online selling:
     response: `💼 **Custom Enterprise ERP Solutions**:
 
 We build tailor-made, modular ERP suites with zero recurring per-seat fees:
+• 💰 **DASA EXPENCES SaaS**: Quotation versioning, advance split payments (Cash+UPI+Bank), milestone billing & 6-point handover verification gate (Live at https://expense.dasatech.in).
 • 🏫 **School ERP**: Student profiles, automated fee collection, exams & parent mobile app.
 • 🏥 **Hospital & Pharmacy ERP**: OPD/IPD flows, doctor rosters & barcode pharmacy POS.
 • 🏭 **FactorySync ERP**: Raw material batching, production stages & worker shift tracking.

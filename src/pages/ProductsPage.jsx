@@ -101,6 +101,18 @@ export const PRODUCTS_CATALOG = [
 
   // 2. Business Operations Suites
   {
+    id: 'dasa-expenses',
+    categoryGroup: 'Business Operations Suites',
+    category: 'FINTECH & PROJECT EXPENSES',
+    name: 'DASA EXPENCES',
+    headline: 'From Quotation to Project Handover — Every Rupee Accounted For',
+    summary: 'Integrated quotation versioning, advance split payments (Cash + UPI + Bank), custom % milestone billing, project expense P&L, and 6-point handover verification gate.',
+    tags: ['Advance Split Payments', 'Quotation Versioning', 'Milestone Billing', 'Handover Gate'],
+    img: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1200&q=90',
+    link: 'https://expense.dasatech.in',
+    ctaText: 'Launch Live DASA Expenses'
+  },
+  {
     id: 'pharmacy-erp',
     categoryGroup: 'Business Operations Suites',
     category: 'HEALTHCARE & PHARMA',
@@ -109,7 +121,8 @@ export const PRODUCTS_CATALOG = [
     summary: 'Sub-second POS thermal billing, automated FIFO batch expiry alerts, Schedule H1 drug registers, and automated supplier reordering.',
     tags: ['FIFO Expiry', 'Schedule H1', 'POS Thermal Billing'],
     img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90',
-    link: 'https://pharmacy.dasatech.in/'
+    link: 'https://pharmacy.dasatech.in/',
+    ctaText: 'Launch Live Pharmacy ERP'
   },
   {
     id: 'finance-accounting',
@@ -428,7 +441,7 @@ function HomepageStyleProductTile({ product }) {
                 }
               }}
             >
-              <span>{isExternal || product.id === 'pharmacy-erp' ? 'Launch Live Pharmacy ERP' : 'View Architecture & Case Study'}</span>
+              <span>{product.ctaText || (isExternal || product.id === 'pharmacy-erp' ? `Launch Live ${product.name}` : 'View Architecture & Case Study')}</span>
               {isExternal || product.id === 'pharmacy-erp' ? (
                 <ExternalLink className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform duration-300" />
               ) : (
@@ -451,14 +464,14 @@ export default function ProductsPage() {
   const [selectedTab, setSelectedTab] = useState('all')
 
   useSEO({
-    title: 'Enterprise Software Products & Automation Suites | DASA TECH',
-    description: 'Discover DASA TECH proprietary software products: DASA SmartHome & Factory Automation, SnapFlow Studio AI, Headless CommerceEngine, WMS WarehouseOps, and Campus ERP.',
+    title: 'Enterprise Software Products, DASA EXPENCES & ERP Suites | DASA TECH',
+    description: 'Discover DASA TECH proprietary software products: DASA EXPENCES SaaS (expense.dasatech.in), DASA Pharmacy ERP, SmartHome & Factory Automation, SnapFlow Studio AI, Headless Commerce, and Campus ERP.',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'Product',
       'name': 'DASA TECH Proprietary Software Product Suite',
       'brand': { '@type': 'Brand', 'name': 'DASA TECH' },
-      'description': 'Enterprise ERP, AI Face Recognition Studio OS, Headless Commerce, and Smart IoT Automation Suites.'
+      'description': 'Enterprise ERP, DASA EXPENCES Project FinOps SaaS, AI Studio OS, Headless Commerce, and Smart IoT Automation Suites.'
     }
   })
 
