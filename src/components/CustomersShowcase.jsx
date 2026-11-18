@@ -16,7 +16,6 @@ import {
   ChevronRight
 } from 'lucide-react'
 
-import erodeSchoolLogo from '../assets/customers/erode-public-school.jpg'
 import nandhiFeedsLogo from '../assets/customers/nandhi-cattle-feeds.jpg'
 import ltcOilLogo from '../assets/customers/ltc-gingelly-oil.jpg'
 import apcFoodsLogo from '../assets/customers/apc-agro-foods.jpg'
@@ -24,31 +23,6 @@ import msmGroupLogo from '../assets/customers/msm-group.png'
 import kitcoLogo from '../assets/customers/kitco.jpg'
 
 export const CUSTOMERS_DATA = [
-  {
-    id: 'erode-public-school',
-    name: 'Erode Public School',
-    tagline: "Tomorrow's Inside",
-    industry: 'Education & Campus Administration',
-    icon: GraduationCap,
-    accentColor: 'from-rose-500 to-red-600',
-    accentBorder: 'border-rose-200/80 hover:border-rose-400',
-    accentBg: 'bg-rose-50',
-    accentText: 'text-rose-700',
-    badge: 'K-12 CAMPUS ERP',
-    logo: erodeSchoolLogo,
-    logoBg: 'bg-white',
-    logoBorder: 'border-rose-100',
-    logoScale: 'max-h-24 max-w-[150px]',
-    solutionTitle: 'DASA Comprehensive Campus ERP & SIS',
-    description: 'A unified campus management ecosystem engineered by DASA TECH that digitizes admissions, fee collection, student report cards, and parent-teacher communication across grades.',
-    modules: [
-      'Automated Tuition & Transport Fee Billing with Instant Receipts',
-      'Student Information System (SIS) & Digital Academic Records',
-      'Staff Biometric Attendance & Payroll Synchronization',
-      'Parent Communication Web Portal & SMS Notifications'
-    ],
-    livePlatform: 'https://eps.dasatech.in'
-  },
   {
     id: 'nandhi-cattle-feeds',
     name: 'Nandhi Cattle Feeds',
